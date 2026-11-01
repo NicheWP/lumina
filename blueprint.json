@@ -23,14 +23,13 @@
     },
     {
       "step": "installTheme",
-      "themeZipFile": {
+      "themeData": {
         "resource": "url",
         "url": "https://github.com/nichewp/lumina/archive/refs/heads/main.zip"
+      },
+      "options": {
+        "activate": true
       }
-    },
-    {
-      "step": "activateTheme",
-      "themeFolderName": "lumina-main"
     },
     {
       "step": "setSiteOptions",
@@ -49,7 +48,7 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require_once '/wordpress/wp-load.php'; global $wpdb; $old_url = 'https://lumina.nichewp.com'; $new_url = untrailingslashit(site_url()); $wpdb->query($wpdb->prepare(\"UPDATE {$wpdb->posts} SET post_content = REPLACE(post_content, %s, %s), guid = REPLACE(guid, %s, %s)\", $old_url, $new_url, $old_url, $new_url)); $wpdb->query($wpdb->prepare(\"UPDATE {$wpdb->postmeta} SET meta_value = REPLACE(meta_value, %s, %s) WHERE meta_value LIKE %s\", $old_url, $new_url, '%' . $wpdb->esc_like($old_url) . '%')); $wpdb->query($wpdb->prepare(\"UPDATE {$wpdb->options} SET option_value = REPLACE(option_value, %s, %s) WHERE option_name NOT IN ('siteurl', 'home') AND option_value LIKE %s\", $old_url, $new_url, '%' . $wpdb->esc_like($old_url) . '%')); $home = get_page_by_path('home') ?: get_page_by_path('page-home') ?: get_page_by_title('Home'); $blog = get_page_by_path('blog') ?: get_page_by_path('news') ?: get_page_by_title('Blog'); if ($home) { update_option('show_on_front', 'page'); update_option('page_on_front', $home->ID); } if ($blog) { update_option('page_for_posts', $blog->ID); } global $wp_rewrite; $wp_rewrite->set_permalink_structure('/%postname%/'); flush_rewrite_rules(); ?>"
+      "code": "<?php require_once '/wordpress/wp-load.php'; $old_dir = '/wordpress/wp-content/themes/lumina-main'; $new_dir = '/wordpress/wp-content/themes/lumina'; if (file_exists($old_dir) && !file_exists($new_dir)) { rename($old_dir, $new_dir); switch_theme('lumina'); } global $wpdb; $old_url = 'https://lumina.nichewp.com'; $new_url = untrailingslashit(site_url()); $wpdb->query($wpdb->prepare(\"UPDATE {$wpdb->posts} SET post_content = REPLACE(post_content, %s, %s), guid = REPLACE(guid, %s, %s)\", $old_url, $new_url, $old_url, $new_url)); $wpdb->query($wpdb->prepare(\"UPDATE {$wpdb->postmeta} SET meta_value = REPLACE(meta_value, %s, %s) WHERE meta_value LIKE %s\", $old_url, $new_url, '%' . $wpdb->esc_like($old_url) . '%')); $wpdb->query($wpdb->prepare(\"UPDATE {$wpdb->options} SET option_value = REPLACE(option_value, %s, %s) WHERE option_name NOT IN ('siteurl', 'home') AND option_value LIKE %s\", $old_url, $new_url, '%' . $wpdb->esc_like($old_url) . '%')); $home = get_page_by_path('home') ?: get_page_by_path('page-home') ?: get_page_by_title('Home'); $blog = get_page_by_path('blog') ?: get_page_by_path('news') ?: get_page_by_title('Blog'); if ($home) { update_option('show_on_front', 'page'); update_option('page_on_front', $home->ID); } if ($blog) { update_option('page_for_posts', $blog->ID); } global $wp_rewrite; $wp_rewrite->set_permalink_structure('/%postname%/'); flush_rewrite_rules(); ?>"
     }
   ]
 }
