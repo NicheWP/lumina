@@ -28,9 +28,21 @@
     {
       "step": "setSiteOptions",
       "options": {
-        "blogname": "Lumina Theme Showcase",
-        "blogdescription": "Colors, Light, Depth & Motion — FSE Theme Sandbox"
+        "blogname": "Lumina Studio",
+        "blogdescription": "Colors, Light, Depth & Motion — Lumina Theme Sandbox"
       }
+    },
+	{
+      "step": "importWxr",
+      "file": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/nichewp/lumina/main/assets/demo/lumina-studio.xml"
+      }
+    },
+	{
+      "step": "searchAndReplace",
+      "search": "https://lumina.nichewp.com",
+      "replace": "{SITE_URL}"
     }
   ]
 }
