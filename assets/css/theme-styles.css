@@ -37,15 +37,16 @@ html {
 }
 
 /*
- * Font smoothing
+ * Font smoothing on Safari only
  * These are niche settings that will not be available via Global Styles.
  * https://github.com/WordPress/gutenberg/issues/35934
  */
-body {
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
+@supports (-webkit-hyphens: none) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 }
-
 /*-----------------------------------------------------------------------------
 # Elements
 -----------------------------------------------------------------------------*/
