@@ -29,11 +29,19 @@ if ( ! defined( 'FORCE_DEFAULT_SITE_LOGO' ) ) {
 }
 
 /**
- * DEFAULT MEDIA ASSETS CONFIGURATION
- * Fallback relative paths for default site logo and featured images.
+ * DEFAULT MEDIA ASSETS & DIMENSIONS CONFIGURATION
+ * Fallback relative paths and default pixel dimensions for site logo and featured images.
  */
 if ( ! defined( 'DEFAULT_SITE_LOGO' ) ) {
 	define( 'DEFAULT_SITE_LOGO', 'assets/images/logo/site-logo.webp' );
+}
+
+if ( ! defined( 'DEFAULT_SITE_LOGO_WIDTH' ) ) {
+	define( 'DEFAULT_SITE_LOGO_WIDTH', 56 );
+}
+
+if ( ! defined( 'DEFAULT_SITE_LOGO_HEIGHT' ) ) {
+	define( 'DEFAULT_SITE_LOGO_HEIGHT', 56 );
 }
 
 if ( ! defined( 'DEFAULT_FEATURED_IMAGE' ) ) {
@@ -268,6 +276,55 @@ if ( ! function_exists( __NAMESPACE__ . '\get_default_site_logo_url' ) ) {
 }
 
 /**
+ * 1C. LOGO DIMENSIONS RESOLVER
+ * Resolves intrinsic or configured dimensions for the fallback site logo.
+ */
+if ( ! function_exists( __NAMESPACE__ . '\get_default_site_logo_dimensions' ) ) {
+	function get_default_site_logo_dimensions( $target_width = 0 ) {
+		$true_default_w = defined( 'DEFAULT_SITE_LOGO_WIDTH' ) ? (int) DEFAULT_SITE_LOGO_WIDTH : 56;
+		$true_default_h = defined( 'DEFAULT_SITE_LOGO_HEIGHT' ) ? (int) DEFAULT_SITE_LOGO_HEIGHT : 56;
+
+		$global_settings = function_exists( 'wp_get_global_settings' ) ? wp_get_global_settings() : [];
+		$custom_settings = $global_settings['custom'] ?? [];
+		$theme_custom    = $custom_settings['color']['theme'] ?? [];
+		$logo_setting    = $theme_custom['logoDefault'] ?? $theme_custom['logo_default'] ?? $theme_custom['logo'] ?? '';
+		
+		$true_default  = defined( 'DEFAULT_SITE_LOGO' ) ? DEFAULT_SITE_LOGO : 'assets/images/logo/site-logo.webp';
+		$relative_path = ! empty( $logo_setting ) && is_string( $logo_setting ) ? ltrim( $logo_setting, '/' ) : ltrim( $true_default, '/' );
+		$file_path     = get_theme_file_path( $relative_path );
+
+		$orig_w = 0;
+		$orig_h = 0;
+
+		if ( file_exists( $file_path ) && function_exists( 'wp_getimagesize' ) ) {
+			$info = wp_getimagesize( $file_path );
+			if ( $info ) {
+				$orig_w = (int) $info[0];
+				$orig_h = (int) $info[1];
+			}
+		}
+
+		if ( ! $orig_w || ! $orig_h ) {
+			$orig_w = $true_default_w;
+			$orig_h = $true_default_h;
+		}
+
+		if ( $target_width > 0 ) {
+			$width  = (int) $target_width;
+			$height = (int) round( $target_width * ( $orig_h / $orig_w ) );
+		} else {
+			$width  = $orig_w;
+			$height = $orig_h;
+		}
+
+		return [
+			'width'  => $width,
+			'height' => $height,
+		];
+	}
+}
+
+/**
  * 2A. THE COVER TOGGLE INTERCEPT
  * Swaps image src or inline background URL while stripping responsive srcset attributes.
  */
@@ -335,8 +392,8 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_media_text_block_fallback' ) ) 
 
 /**
  * 2C. THE SITE LOGO BLOCK INTERCEPT
- * Governed strictly by FORCE_DEFAULT_SITE_LOGO. Swaps src on existing markup to 
- * preserve template part sizing & inspector styles.
+ * Governed strictly by FORCE_DEFAULT_SITE_LOGO or missing custom logo. Swaps src on existing markup
+ * while ensuring width & height attributes are explicitly output to prevent CLS.
  */
 if ( ! function_exists( __NAMESPACE__ . '\filter_site_logo_block_fallback' ) ) {
 	function filter_site_logo_block_fallback( $block_content, $block ) {
@@ -349,24 +406,46 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_site_logo_block_fallback' ) ) {
 				return $block_content;
 			}
 
+			$target_width = ! empty( $block['attrs']['width'] ) ? (int) $block['attrs']['width'] : 0;
+			$dims         = get_default_site_logo_dimensions( $target_width );
+			$width        = $dims['width'];
+			$height       = $dims['height'];
+
 			if ( preg_match( '/<img[^>]+>/i', $block_content ) ) {
 				$block_content = preg_replace( '/src=["\']([^"\']*)["\']/i', 'src="' . esc_url( $logo_url ) . '"', $block_content );
 				$block_content = preg_replace( '/\s+srcset=["\']([^"\']*)["\']/i', '', $block_content );
 				$block_content = preg_replace( '/\s+sizes=["\']([^"\']*)["\']/i', '', $block_content );
+
+				if ( preg_match( '/width=["\']([^"\']*)["\']/i', $block_content ) ) {
+					if ( $target_width > 0 ) {
+						$block_content = preg_replace( '/width=["\']([^"\']*)["\']/i', 'width="' . $width . '"', $block_content );
+					}
+				} else {
+					$block_content = preg_replace( '/<img\s+/i', '<img width="' . $width . '" ', $block_content );
+				}
+
+				if ( preg_match( '/height=["\']([^"\']*)["\']/i', $block_content ) ) {
+					if ( $target_width > 0 ) {
+						$block_content = preg_replace( '/height=["\']([^"\']*)["\']/i', 'height="' . $height . '"', $block_content );
+					}
+				} else {
+					$block_content = preg_replace( '/<img\s+/i', '<img height="' . $height . '" ', $block_content );
+				}
 			} else {
 				$site_name = esc_attr( get_bloginfo( 'name' ) );
 				$home_url  = esc_url( home_url( '/' ) );
 
-				$width      = ! empty( $block['attrs']['width'] ) ? (int) $block['attrs']['width'] : 0;
-				$width_attr = $width ? sprintf( 'width="%d"', $width ) : '';
-				$style_attr = $width ? sprintf( 'style="width:%dpx;"', $width ) : '';
+				$width_attr  = sprintf( 'width="%d"', $width );
+				$height_attr = sprintf( 'height="%d"', $height );
+				$style_attr  = $target_width ? sprintf( 'style="width:%dpx;"', $target_width ) : '';
 
 				$img_html = sprintf(
-					'<a href="%s" class="custom-logo-link" rel="home"><img src="%s" class="custom-logo" alt="%s" decoding="async" %s %s /></a>',
+					'<a href="%s" class="custom-logo-link" rel="home"><img src="%s" class="custom-logo" alt="%s" decoding="async" %s %s %s /></a>',
 					$home_url,
 					esc_url( $logo_url ),
 					$site_name,
 					$width_attr,
+					$height_attr,
 					$style_attr
 				);
 
@@ -389,7 +468,7 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_site_logo_block_fallback' ) ) {
 
 /**
  * 2D. THE LEGACY CUSTOM LOGO INTERCEPT
- * Governed strictly by FORCE_DEFAULT_SITE_LOGO.
+ * Governed strictly by FORCE_DEFAULT_SITE_LOGO or missing custom logo.
  */
 if ( ! function_exists( __NAMESPACE__ . '\filter_get_custom_logo_fallback' ) ) {
 	function filter_get_custom_logo_fallback( $html, $blog_id = null ) {
@@ -402,19 +481,32 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_get_custom_logo_fallback' ) ) {
 				return $html;
 			}
 
+			$dims   = get_default_site_logo_dimensions();
+			$width  = $dims['width'];
+			$height = $dims['height'];
+
 			if ( ! empty( $html ) && preg_match( '/<img[^>]+>/i', $html ) ) {
 				$html = preg_replace( '/src=["\']([^"\']*)["\']/i', 'src="' . esc_url( $logo_url ) . '"', $html );
 				$html = preg_replace( '/\s+srcset=["\']([^"\']*)["\']/i', '', $html );
 				$html = preg_replace( '/\s+sizes=["\']([^"\']*)["\']/i', '', $html );
+
+				if ( ! preg_match( '/width=["\']([^"\']*)["\']/i', $html ) ) {
+					$html = preg_replace( '/<img\s+/i', '<img width="' . $width . '" ', $html );
+				}
+				if ( ! preg_match( '/height=["\']([^"\']*)["\']/i', $html ) ) {
+					$html = preg_replace( '/<img\s+/i', '<img height="' . $height . '" ', $html );
+				}
 			} else {
 				$site_name = esc_attr( get_bloginfo( 'name' ) );
 				$home_url  = esc_url( home_url( '/' ) );
 
 				$html = sprintf(
-					'<a href="%s" class="custom-logo-link" rel="home" itemprop="url"><img src="%s" class="custom-logo" alt="%s" itemprop="logo" decoding="async" /></a>',
+					'<a href="%s" class="custom-logo-link" rel="home" itemprop="url"><img src="%s" class="custom-logo" alt="%s" width="%d" height="%d" itemprop="logo" decoding="async" /></a>',
 					$home_url,
 					esc_url( $logo_url ),
-					$site_name
+					$site_name,
+					$width,
+					$height
 				);
 			}
 		}
