@@ -168,11 +168,20 @@ if ( ! function_exists( __NAMESPACE__ . '\get_featured_image_fallback_data' ) ) 
 
 		$images = [];
 
-		foreach ( $paths_to_scan as $scan_path ) {
-			$search_pattern = trailingslashit( $scan_path ) . '*.{jpg,jpeg,png,gif,webp,svg}';
-			$matched_files  = glob( $search_pattern, GLOB_BRACE );
+		$scan_extensions = array_unique( array_merge( $allowed_extensions, [ 'svg' ] ) );
 
-			if ( ! empty( $matched_files ) && is_array( $matched_files ) ) {
+		foreach ( $paths_to_scan as $scan_path ) {
+			$matched_files = [];
+
+			// Safe single-extension glob matching without GLOB_BRACE for WebAssembly/musl libc compatibility
+			foreach ( $scan_extensions as $ext ) {
+				$found = glob( trailingslashit( $scan_path ) . '*.' . ltrim( $ext, '.' ) );
+				if ( is_array( $found ) ) {
+					$matched_files = array_merge( $matched_files, $found );
+				}
+			}
+
+			if ( ! empty( $matched_files ) ) {
 				foreach ( $matched_files as $file ) {
 					if ( is_file( $file ) ) {
 						$filename       = basename( $file );
