@@ -8,7 +8,8 @@
     "watch:readme": "onchange \"readme.txt\" -- shx cp readme.txt readme.md",
     "start": "concurrently \"wp-scripts start --webpack-src-dir=src/scss --output-path=assets/css\" \"npm run watch:readme\"",
     "copy:readme": "shx cp readme.txt readme.md",
-    "theme-zip": "npm run build && npm run copy:readme && zip -r lumina-theme.zip . -x \"*.DS_Store\" \"node_modules/*\" \"zz_unused/*\" \".git*\" \"src/*\" \"package*\" \"webpack*\" \"postcss*\" \"readme.md\""
+    "theme-zip": "npm run build && npm run copy:readme && zip -r lumina-theme.zip . -x \"*.DS_Store\" \"node_modules/*\" \"zz_unused/*\" \".git*\" \"src/*\" \"package*\" \"webpack*\" \"postcss*\" \"readme.md\"",
+	"doc:php": "mkdir -p ./docs/php && rm -rf ./docs/php/* && phpdoc"
   },
   "devDependencies": {
     "@wordpress/icons": "^15.5.0",
@@ -19,6 +20,7 @@
     "onchange": "^7.1.0",
     "postcss-loader": "^8.1.1",
     "remove-files-webpack-plugin": "^1.5.0",
+    "sassdoc": "^2.7.4",
     "shx": "^0.4.0",
     "webpack-remove-empty-scripts": "^1.0.4",
     "webpack-watched-glob-entries-plugin": "^2.2.6"

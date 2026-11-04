@@ -1,24 +1,47 @@
-# npm node modules and debugging files
+# ============================================
+# phpDocumentor Cache & Build Artifacts
+# ============================================
+docs/cache/
+docs/php/
+.phpdoc/
+phpDocumentor.phar
+
+# ============================================
+# Node & Build Tooling
+# ============================================
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 **/*.css.map
 
-# Shell scripts and zip files
-#**/*.sh
-#**/*.py
-*.zip
-
-# Mac files
+# ============================================
+# macOS & System Files
+# ============================================
 .DS_Store
-**/.DS_Store
-styles/.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Save and test files
-**/*-SAVE*
-**SAVE**
-**/*-test*
+# ============================================
+# Development Work-in-Progress & Temporary Backups
+# ============================================
+*-SAVE-*
+*-SAVE.*
+*-SAVE
+*-TEST-*
+*-TEST.*
+*-TEST
 zz_unused
-zz_unused **
-zz_unused/
-zz_*
 patterns/html
 patterns/converted
+
+# ============================================
+# Distribution & Compressed Archives
+# ============================================
+*.zip
+*.tar.gz
+*.tgz
