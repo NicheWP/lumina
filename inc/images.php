@@ -53,6 +53,7 @@ if ( ! defined( 'DEFAULT_FEATURED_IMAGE' ) ) {
  * Dynamically scans Lumina's asset directory for fallback featured images.
  */
 if ( ! function_exists( __NAMESPACE__ . '\get_featured_image_fallback_data' ) ) {
+
 	function get_featured_image_fallback_data( $post_id = null ) {
 
 		$pid = $post_id ? $post_id : get_the_ID();

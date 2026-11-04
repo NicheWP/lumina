@@ -1,7 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Low Tide - Deep water receding to expose dark, wet, glistening sand and rocks",
+	"title": "Low Tide - Wet Terracotta, Gray Stone, and Glistening Sand",
+	"description": "Low Tide - Deep water receding to expose dark, wet, glistening sand and rocks",
 	"settings": {
 		"custom": {
 			"color": {			
@@ -56,6 +57,9 @@
 				{ "slug": "primary-alt", "color": "hsl(12, 32%, 38%)", "name": "Primary Alt (Deep Terracotta 38%)" },
 				{ "slug": "secondary-alt", "color": "hsl(50, 4%, 32%)", "name": "Secondary Alt (Oiled Gunmetal 32%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(37, 14%, 22%)", "name": "Tertiary Alt (Dark Antique Bronze 22%)" },
+
+				{ "slug": "primary-dark", "color": "hsl(12, 32%, 16%)", "name": "Primary Dark (Wet Terracotta Pool 16%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(12, 34%, 10%)", "name": "Primary Dark Alt (Deep Terracotta Pool 10%)" },
 
 				{ "slug": "dark", "color": "hsl(211, 20%, 10%)", "name": "Dark (Abyssal Marine Pool 10%)" },
 				{ "slug": "dark-alt", "color": "hsl(211, 25%, 6%)", "name": "Dark Alt (Deep Abyssal Marine Pool 6%)" },							

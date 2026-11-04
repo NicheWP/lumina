@@ -1,8 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Elements - Flora, Water, and Earth: Sage Green, Ocean Blue, and Gold",
-	"description": "A refined modern theme inspired by the colors, ambient light and natural depth of the environment around us, featuring subtle animation on actionable elements",
+	"title": "Elements - Forest Green, Ocean Blue, and Golden Sun",
+	"description": "Elements - Flora, Water, and Sun: Sage Green, Ocean Blue, and Golden Sun",
 	"settings": {
 		"custom": {
 			"color": {
@@ -32,6 +32,9 @@
 				{ "slug": "primary-alt", "color": "hsl(154, 26%, 38%)", "name": "Primary Alt (Deep Alpine Sage 38%)" },
 				{ "slug": "secondary-alt", "color": "hsl(206, 26%, 34%)", "name": "Secondary Alt (Storm Navy 34%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(34, 34%, 38%)", "name": "Tertiary Alt (Burnished Ochre 38%)" },
+
+				{ "slug": "primary-dark", "color": "hsl(154, 26%, 22%)", "name": "Primary Dark (Crisp Sage Deep 22%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(154, 28%, 14%)", "name": "Primary Dark Alt (Crisp Sage Abyssal 14%)" },
 
 				{ "slug": "dark", "color": "hsl(208, 21%, 22%)", "name": "Dark (Midnight Blue 22%)" },
 				{ "slug": "dark-alt", "color": "hsl(209, 24%, 16%)", "name": "Dark Alt (Midnight Blue 16%)" },				

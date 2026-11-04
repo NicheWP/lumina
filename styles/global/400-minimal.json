@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Minimal",
+	"title": "Minimal - Reduced motion with default radius and spacing",
 	"description": "A refined, reduced motion mood. Interactive objects don't grow or shift, but react to interaction by drawing closer to the user",
 	"settings": {
 		"custom": {

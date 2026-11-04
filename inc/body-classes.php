@@ -20,13 +20,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// -------------------------------------------------------------------------
-// CACHE ENGINE CONFIGURATION MATRIX
-// -------------------------------------------------------------------------
+/**
+ * Dynamic transient key prefix used for caching site-wide lightness metadata.
+ *
+ * @var string
+ */
 const TRANSIENT_PREFIX = 'xs_theme_meta_';
 
 /**
  * Returns a transient key dynamically scoped to the current theme/child-theme slug.
+ * 
+ * @return string	WordPress Transient Database Key (Prefix + Theme Slug)
  */
 function get_transient_key() {
 	return TRANSIENT_PREFIX . get_stylesheet();
@@ -36,8 +40,15 @@ function get_transient_key() {
 add_filter( 'body_class', __NAMESPACE__ . '\add_body_classes', 10, 1 );
 
 /**
- * HELPER: Converts HSL/HSLA color channels down to baseline RGB values.
- */
+ * Converts HSL/HSLA color channels down to baseline RGB values (0–255 range).
+ *
+ * @package NicheWP
+ * @param float|int $h Hue value (0 to 360).
+ * @param float|int $s Saturation value (0 to 100).
+ * @param float|int $l Lightness value (0 to 100).
+ * @return array{0: int, 1: int, 2: int} Array containing red, green, and blue integer
+ * channels.
+ */ 
 function hsl_to_rgb( $h, $s, $l ) {
 	$h /= 360;
 	$s /= 100;
@@ -62,7 +73,7 @@ function hsl_to_rgb( $h, $s, $l ) {
 }
 
 /**
- * Helper for HSL conversion steps.
+ * Helper function for HSL conversion steps.
  */
 function hue_to_rgb( $p, $q, $t ) {
 	if ( $t < 0 ) { $t += 1; }

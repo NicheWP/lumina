@@ -11,13 +11,13 @@
  * @since	1.0
  */
 
-/**
- * Sets up theme defaults and registers support for various WordPress features.
- */
 add_action( 'after_setup_theme', 'lumina_theme_support' );
 
 if ( ! function_exists( 'lumina_theme_support' ) ) :
 
+	/**
+	 * Sets up theme defaults and registers support for various WordPress features.
+	 */
 	function lumina_theme_support() {
 
 		// Theme widths from CSS and theme.json
@@ -87,13 +87,16 @@ foreach ( $includes as $include ) {
 	}
 }
 
-/**
- * Load main stylesheets and scripts on front-end
- */
 add_action( 'wp_enqueue_scripts', 'lumina_load_styles', 20 );
 
 if ( ! function_exists( 'lumina_load_styles' ) ) :
 
+	/**
+	 * Enqueues core styles, theme mode variations, interactive scripts, and versioned
+	 * assets.
+	 *
+	 * @return void
+	 */
 	function lumina_load_styles() {
 	
 		$deps = is_child_theme() ? array( get_template() ) : array();
@@ -147,13 +150,13 @@ if ( ! function_exists( 'lumina_load_styles' ) ) :
 	}
 endif;
 
-/**
- * Load INDIVIDUAL Block CSS styles on 'init' (Applies to Front-End and Editor)
- */
 add_action( 'init', 'lumina_load_block_styles', 20 );
 
 if ( ! function_exists( 'lumina_load_block_styles' ) ) :
 
+	/**
+	 * Load INDIVIDUAL Block CSS styles on 'init' (Applies to Front-End and Editor)
+	 */
 	function lumina_load_block_styles() {
 
 		$relative_block_path = 'assets/css/blocks/';
@@ -213,12 +216,13 @@ if ( ! function_exists( 'lumina_load_block_styles' ) ) :
 	}
 endif;
 
-/**
- * Custom Template Part Areas
- */
 add_filter( 'default_wp_template_part_areas', 'lumina_template_part_areas' );
 
 if ( ! function_exists( 'lumina_template_part_areas' ) ) :
+
+	/**
+	 * Custom Template Part Areas
+	 */
 	function lumina_template_part_areas( array $areas ) {
 
 		$new_areas = array( 
@@ -248,12 +252,13 @@ if ( ! function_exists( 'lumina_template_part_areas' ) ) :
 	}
 endif;
 
-/**
- * Image Size Chooser Options
- */
 add_filter( 'image_size_names_choose', 'lumina_image_sizes' );
 
 if ( ! function_exists( 'lumina_image_sizes' ) ) :
+
+	/**
+	 * Image Size Chooser Options
+	 */
 	function lumina_image_sizes( $sizes ) {
 		return array_merge( $sizes, array(
 			'medium-large'      => __( 'Medium Large', 'lumina' ),
@@ -266,36 +271,37 @@ if ( ! function_exists( 'lumina_image_sizes' ) ) :
 	}
 endif;
 
-/**
- * Anchor Tags for Scroll-To-Top
- */
 if ( ! function_exists( 'lumina_body_open' ) && ! is_child_theme() ):
 
 	add_action( 'wp_body_open', 'lumina_body_open' );
 
+	/**
+	 * Anchor Tags for Scroll-To-Top
+	 */
 	function lumina_body_open() { 
 		echo '<a id="page"></a><a id="wrapper"></a>'; 
 	}
 endif;
 
-/**
- * Clean up legacy admin pages in Block Theme mode
- */
 // add_action( 'admin_menu', 'lumina_adjust_admin_menu', 999 );
 // 
 // if ( ! function_exists( 'lumina_adjust_admin_menu' ) ) :
+//
+//	/**
+//	 * Clean up legacy admin pages in Block Theme mode
+//	 */
 // 	function lumina_adjust_admin_menu() {
 // 		remove_submenu_page( 'themes.php', 'nav-menus.php' );
 // 		remove_submenu_page( 'themes.php', 'widgets.php' );
 // 	}
 // endif;
 
-/**
- * Helper utility function to enqueue CSS styles with asset file versions
- * Accepts a relative theme path (e.g. 'assets/css/theme-styles.css')
- */
 if ( ! function_exists( 'lumina_enqueue_style' ) ) :
 
+	/**
+	 * Helper utility function to enqueue CSS styles with asset file versions
+	 * Accepts a relative theme path (e.g. 'assets/css/theme-styles.css')
+	 */
 	function lumina_enqueue_style( $relative_path, $custom_deps = array() ) {
 
 		$file_path = get_theme_file_path( $relative_path );
@@ -330,11 +336,12 @@ if ( ! function_exists( 'lumina_enqueue_style' ) ) :
 	} 
 endif;
 
-/**
- * Detect active theme canvas mode ('dark' vs 'light') from global settings or calculated luminance
- */
 if ( ! function_exists( 'lumina_get_active_theme_mode' ) ) :
 
+	/**
+	 * Detect active theme canvas mode ('dark' vs 'light') from global settings or
+	 * calculated luminance.
+	 */
 	function lumina_get_active_theme_mode() {
 
 		$mode_setting = wp_get_global_settings( array( 'custom', 'color', 'theme', 'mode' ) );

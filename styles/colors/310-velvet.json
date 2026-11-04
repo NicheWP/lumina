@@ -1,7 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Velvet: Plum, sapphire, and crimson jewel tones",
+	"title": "Velvet - Plum, Sapphire, and Crimson Jewel Tones",
+	"description": "Velvet - Plum, Sapphire, and Crimson Jewel Tones",
 	"settings": {
 		"custom": {
 			"color": {
@@ -35,6 +36,9 @@
 				{ "slug": "secondary-alt", "color": "hsl(207, 24%, 34%)", "name": "Secondary Alt (Sapphire 34%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(0, 28%, 38%)", "name": "Tertiary Alt (Garnet 38%)" },
 				
+				{ "slug": "primary-dark", "color": "hsl(327, 20%, 22%)", "name": "Primary Dark (Smoky Heather Plum Deep 22%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(327, 22%, 15%)", "name": "Primary Dark Alt (Smoky Heather Plum Abyssal 15%)" },
+
 				{ "slug": "dark", "color": "hsl(207, 28%, 22%)", "name": "Dark (Midnight Sapphire 22%)" },
 				{ "slug": "dark-alt", "color": "hsl(207, 30%, 15%)", "name": "Dark Alt (Dark Midnight Sapphire 15%)" },				
 

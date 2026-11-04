@@ -1,7 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Dusk - The Blue Hour: Modern, moody evening tones",
+	"title": "Dusk - Moody Evening Slates and Twighlight Terracotta",
+	"description": "Dusk - The Blue Hour: Moody Evening Slates and Twighlight Terracotta",
 	"settings": {
 		"custom": {
 			"color": {
@@ -31,6 +32,9 @@
 				{ "slug": "primary-alt", "color": "hsl(214, 18%, 18%)", "name": "Primary Alt (Deep Abyssal Blue 18%)" },
 				{ "slug": "secondary-alt", "color": "hsl(206, 24%, 24%)", "name": "Secondary Alt (Maritime Slate 24%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(12, 32%, 38%)", "name": "Tertiary Alt (Burnt Sienna 38%)" },
+
+				{ "slug": "primary-dark", "color": "hsl(214, 20%, 18%)", "name": "Primary Dark (Midnight Slate Deep 18%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(214, 22%, 12%)", "name": "Primary Dark Alt (Midnight Slate Abyssal 12%)" },
 
 				{ "slug": "dark", "color": "hsl(206, 20%, 20%)", "name": "Dark (Secondary Maritime Pair 20%)" },
 				{ "slug": "dark-alt", "color": "hsl(206, 24%, 15%)", "name": "Dark Alt (Secondary Maritime Deep 15%)" },

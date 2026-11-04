@@ -1,8 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Horizon - Earth & Sea: Coastal Terracotta, Ocean Blue, and Golden Sun",
-	"description": "A refined modern theme inspired by warm clay, ocean depth, and ambient gold light, featuring subtle animation on actionable elements",
+	"title": "Horizon - Coastal Terracotta, Ocean Blue, and Golden Sun",
+	"description": "Horizon - Earth & Sea: Coastal Terracotta, Ocean Blue, and Golden Sun",
 	"settings": {
 		"custom": {
 			"color": {
@@ -48,6 +48,9 @@
 				{ "slug": "primary-alt", "color": "hsl(18, 40%, 38%)", "name": "Primary Alt (Deep Coastal Terracotta 38%)" },
 				{ "slug": "secondary-alt", "color": "hsl(206, 26%, 34%)", "name": "Secondary Alt (Storm Navy 34%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(34, 34%, 38%)", "name": "Tertiary Alt (Burnished Ochre 38%)" },
+
+				{ "slug": "primary-dark", "color": "hsl(18, 38%, 22%)", "name": "Primary Dark (Coastal Terracotta Deep 22%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(18, 40%, 14%)", "name": "Primary Dark Alt (Coastal Terracotta Abyssal 14%)" },
 
 				{ "slug": "dark", "color": "hsl(208, 21%, 22%)", "name": "Dark (Midnight Blue 22%)" },
 				{ "slug": "dark-alt", "color": "hsl(209, 24%, 16%)", "name": "Dark Alt (Midnight Blue 16%)" },				

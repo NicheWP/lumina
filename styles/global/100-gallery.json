@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Gallery",
+	"title": "Gallery - Small radius with ample spacing",
 	"description": "A sophisticated, art gallery mood featuring sharp architectural corners, and a weighted, luxurious physical presence.",
 	"settings": {
 		"custom": {

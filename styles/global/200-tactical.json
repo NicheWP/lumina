@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Tactical",
+	"title": "Tactical - Reduced radius, fast animations",
 	"description": "A high-performance tactical mood. Rugged 9px corners, fast animation response times.",
 	"settings": {
 		"custom": {

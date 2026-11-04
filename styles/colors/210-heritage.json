@@ -1,7 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Heritage - The Professor’s Library: Patina crimson, burnished brass, and ocean blue",
+	"title": "Heritage - Patina Crimson, Burnished Brass, and Midnight Blue",
+	"description": "Heritage - The Professor’s Library: Patina crimson, burnished brass, and midnight blue",
 	"settings": {
 		"custom": {
 			"color": {
@@ -34,6 +35,9 @@
 				{ "slug": "primary-alt", "color": "hsl(0, 18%, 24%)", "name": "Primary Alt (Shadow Crimson 24%)" },
 				{ "slug": "secondary-alt", "color": "hsl(38, 40%, 30%)", "name": "Secondary Alt (Burnished Brass 30%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(208, 24%, 20%)", "name": "Tertiary Alt (Abyssal Midnight 20%)" },
+
+				{ "slug": "primary-dark", "color": "hsl(0, 22%, 22%)", "name": "Primary Dark (Patina Crimson Deep 22%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(0, 24%, 14%)", "name": "Primary Dark Alt (Patina Crimson Abyssal 14%)" },
 
 				{ "slug": "dark", "color": "hsl(38, 30%, 22%)", "name": "Dark (Secondary Aged Brass 22%)" },
 				{ "slug": "dark-alt", "color": "hsl(38, 32%, 14%)", "name": "Dark Alt (Abyssal Brass Deep 14%)" },

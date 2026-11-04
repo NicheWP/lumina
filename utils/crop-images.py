@@ -46,6 +46,11 @@ USAGE EXAMPLES (RUN FROM REPO ROOT OR SCRIPT FOLDER):
      OUTPUT_DIR="./assets/images/samples" \
      QUALITY=85 CROP=center \
      python3 utils/crop-images.py
+     
+6. SCREENSHOT RUN
+   $ TARGET_W=1200 TARGET_H=900 \
+     SOURCE_DIR="./zz_unused/zz_raw-images/nichewp-lumina-screenshots" \
+     python3 utils/crop-images.py
 
 ==============================================================================
 """

@@ -1,7 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Light - High-Key Ethereal: Soft mist fills, crisp charcoal ink, and dark-slot flagship colors",
+	"title": "Light - Soft linen amber, Ocean Slate, and Sage Linen",
+	"description": "Light - High-Key Ethereal: Soft mist fills, crisp charcoal ink, and dark-slot flagship colors",
 	"settings": {
 		"custom": {		
 			"color": {		

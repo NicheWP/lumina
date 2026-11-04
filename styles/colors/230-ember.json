@@ -1,7 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Ember - Glowing Heat: Terracotta, Gold & Volcanic Umber",
+	"title": "Ember - Fiery Terracotta, Gold & Volcanic Umber",
+	"description": "Ember - Glowing Heat: Fiery Terracotta, Gold & Volcanic Umber",
 	"settings": {
 		"custom": {
 			"color": {
@@ -39,6 +40,9 @@
 				{ "slug": "secondary-alt", "color": "hsl(34, 34%, 38%)", "name": "Secondary Alt (Burnished Ochre 38%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(18, 30%, 32%)", "name": "Tertiary Alt (Volcanic Charcoal 32%)" },
 				
+				{ "slug": "primary-dark", "color": "hsl(12, 32%, 22%)", "name": "Primary Dark (Terra Cotta Deep 22%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(12, 34%, 14%)", "name": "Primary Dark Alt (Terra Cotta Abyssal 14%)" },
+
 				{ "slug": "dark", "color": "hsl(34, 34%, 22%)", "name": "Dark (Bronze Clay 22%)" },
 				{ "slug": "dark-alt", "color": "hsl(34, 34%, 14%)", "name": "Dark Alt (Bronze Clay Deep 14%)" },							
 

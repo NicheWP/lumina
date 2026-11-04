@@ -1,7 +1,8 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 3,
-	"title": "Zinc - Industrial Prototype: Machined metal and gunmetal zinc alloy",
+	"title": "Zinc - Machined metal and gunmetal zinc alloy",
+	"description": "Zinc - Industrial Prototype: Machined metal and gunmetal zinc alloy",
 	"settings": {
 		"custom": {
 			"color": {			
@@ -59,6 +60,9 @@
 				{ "slug": "primary-alt", "color": "hsl(50, 4%, 30%)", "name": "Primary Alt (Deep Machine Stone 30%)" },
 				{ "slug": "secondary-alt", "color": "hsl(210, 18%, 22%)", "name": "Secondary Alt (Dark Midnight Steel 22%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(50, 4%, 15%)", "name": "Tertiary Alt (Deep Gunmetal 15%)" },
+
+				{ "slug": "primary-dark", "color": "hsl(50, 4%, 20%)", "name": "Primary Dark (Machine Stone Deep 20%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(50, 4%, 14%)", "name": "Primary Dark Alt (Machine Stone Abyssal 14%)" },
 
 				{ "slug": "dark", "color": "hsl(210, 18%, 18%)", "name": "Dark (Gunmetal Slated 18%)" },
 				{ "slug": "dark-alt", "color": "hsl(210, 18%, 13%)", "name": "Dark Alt (Deep Gunmetal 13%)" },							
