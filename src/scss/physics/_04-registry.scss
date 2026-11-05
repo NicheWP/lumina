@@ -1,8 +1,8 @@
-//* ==========================================================================
+// ==========================================================================
 //   04 PHYSICS REGISTRY: The air traffic controller. This acts as the final 
 //		logical database layer, housing your context execution macros, silence
 //		overrides, and cross-module registry data loops.
-//   ========================================================================== */
+// ==========================================================================
 
 @use 'sass:string';
 @use 'sass:list';
@@ -19,6 +19,12 @@
 // ==========================================================================
 // 04.01 WRAPPER RESTING STATE: Specialized Container Geometry & Clipping
 // ==========================================================================
+
+/// Routes container wrapper resting states based on block physical roles.
+///
+/// @group Physics Registry
+/// @param {String} $role - Role classification: card | object | object-zoom | object-grow | button
+/// @param {String} $block [null] - Target Gutenberg block selector
 @mixin apply-wrapper-resting-state(
 	$role, 
 	$block: null, 
@@ -43,6 +49,13 @@
 // ==========================================================================
 // 04.02 CENTRALIZED TRAFFIC CONTROLLER: Declarative Context Executor
 // ==========================================================================
+
+/// Master traffic controller macro directing resting-state physics across all block roles.
+///
+/// @group Physics Registry
+/// @param {String} $role - Role classification: card | object | object-zoom | object-grow | button
+/// @param {String} $block [null] - Target Gutenberg block selector
+/// @param {String} $trigger ['self'] - Action boundary selector
 @mixin apply-resting-state(
 	$role, 
 	$block: null, 
@@ -87,6 +100,13 @@
 // ==========================================================================
 // 04.03 CENTRALIZED TRAFFIC CONTROLLER: Declarative Active State Executor
 // ==========================================================================
+
+/// Master traffic controller macro directing active hover/focus state interaction physics across block roles.
+///
+/// @group Physics Registry
+/// @param {String} $role - Role classification: card | object | object-zoom | object-grow | button
+/// @param {String} $block [null] - Target Gutenberg block selector
+/// @param {String} $context ['target'] - Evaluation scope (wrapper | target)
 @mixin apply-active-state(
 	$role, 
 	$block: null, 
@@ -167,6 +187,11 @@
 // ==========================================================================
 // 04.04 APPLY SILENCE: Silence Cards and Objects
 // ==========================================================================
+
+/// Applies silence overrides to card and object elements embedded inside active parent cards.
+///
+/// @group Physics Registry
+/// @param {Boolean} $interactive [false] - Evaluates whether to apply resting or active silence states
 @mixin apply-silence($interactive: false) {
 
 	// Handle resting silence
@@ -182,6 +207,11 @@
 // ==========================================================================
 // 04.04 APPLY SILENCE SHADOW: Silence Shadows on Embedded Images
 // ==========================================================================
+
+/// Applies shadow silence overrides to embedded images inside active card containers.
+///
+/// @group Physics Registry
+/// @param {Boolean} $interactive [false] - Evaluates whether to apply resting or active shadow silence
 @mixin apply-silence-shadow($interactive: false) {
 
 	// Handle resting silence
@@ -197,36 +227,69 @@
 // ==========================================================================
 // 04.05 CARD AND OBJECT LISTS: Used for cards to veto objects physics
 // ==========================================================================
+
+/// Global list registry accumulating all compiled card selectors.
+///
+/// @group Physics Registry
+/// @type List
 $all-cards: (); 
+
+/// Global list registry accumulating all compiled object selectors.
+///
+/// @group Physics Registry
+/// @type List
 $all-objects: ();
+
+/// Global list registry accumulating all compiled image selectors.
+///
+/// @group Physics Registry
+/// @type List
 $all-images: ();
 
-// Add the full card selector to the list
+/// Registers a compiled card selector into the global registry list.
+///
+/// @group Physics Registry
+/// @param {String} $selector - Compiled CSS selector string
 @mixin register-card($selector) {
 	$all-cards: list.append($all-cards, $selector) !global;
 }
 
-// Add the full object selector to the list
+/// Registers a compiled object selector into the global registry list.
+///
+/// @group Physics Registry
+/// @param {String} $selector - Compiled CSS selector string
 @mixin register-object($selector) {
 	$all-objects: list.append($all-objects, $selector) !global;
 }
 
-// Add the full image selector to the list
+/// Registers a compiled image selector into the global registry list.
+///
+/// @group Physics Registry
+/// @param {String} $selector - Compiled CSS selector string
 @mixin register-image($selector) {
 	$all-images: list.append($all-images, $selector) !global;
 }
 
-// Get cards from list
+/// Retrieves the global list of registered card selectors.
+///
+/// @group Physics Registry
+/// @return {List} Array of registered card selector strings
 @function get-cards() {
 	@return $all-cards;
 }
 
-// Get objects from list
+/// Retrieves the global list of registered object selectors.
+///
+/// @group Physics Registry
+/// @return {List} Array of registered object selector strings
 @function get-objects() {
 	@return $all-objects;
 }
 
-// Get images from list
+/// Retrieves the global list of registered image selectors.
+///
+/// @group Physics Registry
+/// @return {List} Array of registered image selector strings
 @function get-images() {
 	@return $all-images;
 }

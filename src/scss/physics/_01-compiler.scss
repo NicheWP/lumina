@@ -1,8 +1,8 @@
-//* ==========================================================================
+// ==========================================================================
 //   01 PHYSICS COMPILER: The foundational logic engine. This file contains 
 //		the helper utilities and selector compiling engines that have no 
 //		upstream dependencies, but are required by every other file to compile.
-//   ========================================================================== */
+// ==========================================================================
 
 @use 'sass:string';
 @use 'sass:list';
@@ -13,6 +13,27 @@
 // ==========================================================================
 // 01.01 CENTRALIZED SELECTOR COMPILER: Declarative Spec Enforcer
 // ==========================================================================
+
+/// Evaluates and compiles clean, mathematically predictable CSS selectors without
+/// specificity inflation.
+///
+/// @group Physics Compiler
+/// @param {String} $block ['*'] - Target Gutenberg block selector
+/// @param {String} $is ['none'] - Mandatory CSS class filters (e.g. .has-background)
+/// @param {String} $has ['none'] - Structural descendant checks passed to `:has()`
+/// @param {String} $exclude ['none'] - Structural exclusions passed to `:not()`
+/// @param {String} $trigger ['self'] - Action boundary selector
+/// @param {String} $target ['self'] - Kinetic target selector
+/// @param {String} $scope ['target'] - Evaluation scope (wrapper | target | 
+///		hover-wrapper | hover-target)
+/// @param {String} $role ['object'] - Role classification: card | object | 
+///		object-zoom | object-grow | button
+/// @return {Selector} Compiled CSS selector string
+///
+/// @example scss - Usage
+///   .selector {
+///     content: compile-selector('.wp-block-image', $exclude: '.alignfull', $has: 'a');
+///   }
 @function compile-selector(
 	$block: 	'*', 
 	$is: 		'none', 
@@ -84,30 +105,17 @@
 			@return '#{$action-path} #{$target}';
 		}        
 	}
-
-//     @if string.index($scope, 'wrapper') != null {
-//         @return '#{$selector}#{$state-suffix}';
-// 
-//     } @else {
-//         // Build base path with state suffix attached directly to the active 
-//         // action boundary element
-// 		$action-path: '#{$selector} #{$trigger}#{$state-suffix}';
-// 		@if $trigger == 'self' {
-// 			$action-path: '#{$selector}#{$state-suffix}';
-// 		}
-//         
-//         // Append the final graphic asset target layer if it isn't self-contained        
-// 		@if $target == 'self' {
-// 			@return $action-path;
-// 		} @else {
-// 			@return '#{$action-path} #{$target}';
-// 		}        
-//     }
 }
 
 // ==========================================================================
 // 01.02 IS NO ROUNDING: Check if block shouldn't receive rounding
 // ==========================================================================
+
+/// Evaluates whether a given block selector matches the no-rounding exception list.
+///
+/// @group Physics Compiler
+/// @param {String} $block - Target block selector
+/// @return {Boolean} Returns true if the block resides in $blocks-no-rounding
 @function is-no-rounding($block) {
 	@return list.index(config.$blocks-no-rounding, $block) != null;
 }
@@ -115,6 +123,13 @@
 // ==========================================================================
 // 01.03 HAS CUSTOM BORDERS: Substring match for composite layout selectors
 // ==========================================================================
+
+/// Performs a substring match to verify if a selector contains custom border styles.
+///
+/// @group Physics Compiler
+/// @param {String} $block - Target block selector string
+/// @return {Boolean} Returns true if any custom border class is present inside 
+///		the block selector
 @function has-custom-borders($block) {
 	@each $custom-block in config.$blocks-custom-borders {
 		// If the target block string (e.g. '.wp-block-image') is found anywhere 
@@ -129,6 +144,13 @@
 // ==========================================================================
 // 01.04 VISUAL DEBUG: Set outline colors and styles based on engine logic
 // ==========================================================================
+
+/// Injects visual debugging outlines and offset bounds when debug mode is enabled.
+///
+/// @group Physics Compiler
+/// @param {String} $role - Target debug role key (registry, wrapper, card, 
+/// 	object, button, silence)
+/// @outputs Injects `outline` and `outline-offset` CSS properties
 @mixin lumina-debug($role) {
 
     @if config.$lumina-debug {
@@ -151,8 +173,8 @@
             'wrapper':     		-4px,
             'wrapper-active':   -6px,
             'card':         	-2px,
-            'object':    	-2px,
-            'button':    	-2px,
+            'object':    		-2px,
+            'button':    		-2px,
             'silence':      	-2px,
             'silence-active':   -4px
         ), $role);

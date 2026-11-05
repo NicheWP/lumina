@@ -2,7 +2,8 @@
 # phpDocumentor Cache & Build Artifacts
 # ============================================
 docs/cache/
-docs/php/
+#docs/php/
+#docs/scss/
 .phpdoc/
 phpDocumentor.phar
 

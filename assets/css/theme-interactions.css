@@ -50,12 +50,6 @@
   box-shadow: var(--wp--custom--color--shadow--hover, var(--wp--preset--shadow--deep, 3px 8px 16px rgba(42, 50, 61, 0.2), 1px 4px 6px rgba(42, 50, 61, 0.12)));
 }
 
-/* ==========================================================================
-   03.10 APPLY CARD: Apply physics and active shadow
-   ========================================================================== */
-/* ==========================================================================
-   03.11 APPLY CARD INSET: Unrounded / Braked Cards (Track B)
-   ========================================================================== */
 [class*=wp-block-]:not(.alignfull, .wp-block-button, .is-style-object-static, .site-header, .site-footer, .footer-info, .wp-block-navigation, .wp-block-navigation *):is(.has-background, .is-style-rounded-border, .is-style-thick-rounded-border, .is-style-rounded-corners, [class*=is-style-glass], .wp-block-cover):has(a:not(figcaption a), button:not(.lightbox-trigger), .wp-element-button):hover:not(.is-style-object-static, .is-style-image-no-border):is(.wp-block-media-text *, .is-style-no-gap *),
 [class*=wp-block-]:not(.alignfull, .wp-block-button, .is-style-object-static, .site-header, .site-footer, .footer-info, .wp-block-navigation, .wp-block-navigation *):is(.has-background, .is-style-rounded-border, .is-style-thick-rounded-border, .is-style-rounded-corners, [class*=is-style-glass], .wp-block-cover):has(a:not(figcaption a), button:not(.lightbox-trigger), .wp-element-button):has(:focus-visible):not(.is-style-object-static, .is-style-image-no-border):is(.wp-block-media-text *, .is-style-no-gap *) {
   box-shadow: inset 0 0 0 1px var(--wp--custom--color--border-hover, color-mix(in srgb, currentColor 28%, transparent)), var(--wp--custom--color--shadow--hover, var(--wp--preset--shadow--deep, 3px 8px 16px rgba(42, 50, 61, 0.2), 1px 4px 6px rgba(42, 50, 61, 0.12)));

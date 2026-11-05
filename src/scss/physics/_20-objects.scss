@@ -1,16 +1,21 @@
-//* ==========================================================================
+// ==========================================================================
 //   20 OBJECTS: Container Contents (e.g. Images, Columns)
-//   ========================================================================== */
+// ==========================================================================
 
 @use 'sass:list';
 @use 'sass:string';
 @use 'sass:map';
 
-// @use '00-config' as config;
-// @use 'physics' as phys;
 @use '00-config' as config;
 @use '04-registry' as phys;
 
+/// Evaluates block registry object entries (standard images, zoom portals, and graphics).
+/// Registers compiled object and image selectors into global veto arrays.
+///
+/// @group Physics Modules
+/// @param {Boolean} $interactive [false] - Phase switch (false = resting engine | 
+///		true = hover/focus interactions)
+/// @outputs Emits CSS selectors and rules for graphics and content objects
 @mixin apply-object-logic($interactive: false) {
 
 	@if config.$lumina-dev-mode {
@@ -53,8 +58,12 @@
 			);
 
 			// ADD OBJECTS AND IMAGES TO THE VETO LISTS
-// 			$sel-to-register: if($target != 'self', $wrapper-sel, $target-sel);
-			$sel-to-register: if(sass($target != "self"): $wrapper-sel; else: $target-sel);	
+			$sel-to-register: $target-sel;
+			@if $target != 'self' {
+				$sel-to-register: $wrapper-sel;
+			}
+//			$sel-to-register: if($target != 'self', $wrapper-sel, $target-sel);
+
 			@if $role == 'object' {
 				@if not list.index(phys.get-objects(), $sel-to-register) {
 					@include phys.register-object($sel-to-register);
@@ -98,7 +107,8 @@
 			// ----------------------------------------------------------------------
 			@else {
 				
-				// CONDITION 1: Separate Wrapper Interaction (Depth Lifts / Structural Shadows)
+				// CONDITION 1: Separate Wrapper Interaction (Depth Lifts / Structural
+				// 		Shadows)
 				@if $target != 'self' {
 					$wrapper-hover: phys.compile-selector(
 						$block, $is, $has, $exclude,

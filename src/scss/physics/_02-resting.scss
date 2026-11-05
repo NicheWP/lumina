@@ -1,9 +1,9 @@
-//* ==========================================================================
-//   02 PHYSICS RESTING STATES: he geometric baselines. This file handles how 
+// ==========================================================================
+//   02 PHYSICS RESTING STATES: The geometric baselines. This file handles how 
 //		blocks sit passively in the layout before an end-user interacts with 
 //		them (borders, padding, default shadows, and concentric calculation 
 //		curves).
-//   ========================================================================== */
+// ==========================================================================
 
 @use 'sass:string';
 @use 'sass:list';
@@ -15,6 +15,11 @@
 // ==========================================================================
 // 02.10 RESTING STATE: Setup transitions and transforms
 // ==========================================================================
+
+/// Blueprint mixin setting up resting transform states and base transition timing.
+///
+/// @group Physics Resting States
+/// @outputs Injects `transition`, `transform`, and debug outlines
 @mixin __blueprint-resting-state {
 
 	// Setup transition timing
@@ -30,6 +35,9 @@
 	@include lumina-debug('registry');
 }
 
+/// Placeholder selector for baseline resting state geometry.
+///
+/// @group Physics Resting States
 %physics-resting-state {
 	/* ==========================================================================
 	   02.10 RESTING STATE: Setup transitions and transforms
@@ -40,10 +48,18 @@
 // ==========================================================================
 // 02.11 NATURAL SHADOW: Apply resting (natural) shadow
 // ==========================================================================
+
+/// Blueprint mixin for applying the default resting ambient shadow.
+///
+/// @group Physics Resting States
+/// @outputs Injects `box-shadow`
 @mixin __blueprint-shadow-natural {
 	box-shadow: config.$shadow-default;
 }
 
+/// Placeholder selector for natural ambient shadow.
+///
+/// @group Physics Resting States
 %physics-shadow-natural {
 	/* ==========================================================================
 	   02.12 NATURAL SHADOW: Apply resting (natural) shadow
@@ -51,9 +67,14 @@
 	@include __blueprint-shadow-natural;
 }
 
-// /* ==========================================================================
-//    02.13 BORDER: Outer rounded border or Inset hairline border
-//    ========================================================================== */
+// --------------------------------------------------------------------------
+// 02.13 BORDER: Outer rounded border or Inset hairline border
+// --------------------------------------------------------------------------
+
+/// Blueprint mixin for outer rounded borders with shallow aspect ratio clamps.
+///
+/// @group Physics Resting States
+/// @outputs Injects `border-radius` and `border`
 @mixin __blueprint-border {
 	border-radius: var(--wp--preset--border-radius--lg, 16px);
 	border: var(--wp--custom--border--width, 1px) var(--wp--custom--border--style, solid) var(--wp--custom--color--border, color-mix(in srgb, currentColor 15%, transparent)); 
@@ -65,11 +86,18 @@
 	}
 }
 
+/// Blueprint mixin for Track B inset hairline borders.
+///
+/// @group Physics Resting States
+/// @outputs Injects inset `box-shadow`
 @mixin __blueprint-border-inset {
 	box-shadow: inset 0 0 0 1px var(--wp--custom--color--border, color-mix(in srgb, currentColor 15%, transparent)),
 	            config.$shadow-default;
 }
 
+/// Placeholder selector for standard rounded outer border.
+///
+/// @group Physics Resting States
 %physics-border {
 /* ==========================================================================
    02.13a BORDER: Border and radius
@@ -77,6 +105,9 @@
 	@include __blueprint-border;
 }
 
+/// Placeholder selector for inset hairline border.
+///
+/// @group Physics Resting States
 %physics-border-inset {
 /* ==========================================================================
    02.13b BORDER: Inset border
@@ -84,9 +115,14 @@
 	@include __blueprint-border-inset;
 }
 
-// /* ==========================================================================
-//    02.14 WRAPPER CLIPPED: Overflow Hidden
-//    ========================================================================== */
+// --------------------------------------------------------------------------
+// 02.14 WRAPPER CLIPPED: Overflow Hidden
+// --------------------------------------------------------------------------
+
+/// Blueprint mixin enforcing overflow clipping on container wrappers.
+///
+/// @group Physics Resting States
+/// @outputs Injects `overflow: hidden`
 @mixin __blueprint-wrapper-clipped {
 
 	// Hide overflow
@@ -96,13 +132,16 @@
 	@include lumina-debug('wrapper');				
 }
 
-// /* ==========================================================================
-//    02.14 WRAPPER CLIPPED: Overflow Hidden
-//    ========================================================================== */
+/// Placeholder selector for clipped container wrappers.
+///
+/// @group Physics Resting States
 %physics-wrapper-clipped {
 	@include __blueprint-wrapper-clipped;
 }
 
+/// Applies overflow clipping to container wrappers, respecting dev mode compilation rules.
+///
+/// @group Physics Resting States
 @mixin apply-wrapper-clipped {
 	@if config.$lumina-dev-mode {
 		@include __blueprint-wrapper-clipped;
@@ -111,9 +150,20 @@
 	}
 }
 
-// /* ==========================================================================
-//    02.20 WRAPPER VISUALS: Border, radius, and resting shadow
-//    ========================================================================== */
+// --------------------------------------------------------------------------
+// 02.20 WRAPPER VISUALS: Border, radius, and resting shadow
+// --------------------------------------------------------------------------
+
+/// Applies resting-state card geometry, border styling, and ambient depth shadows.
+///
+/// @group Physics Resting States
+/// @param {String} $block - Target block selector passed from the loop
+/// @outputs Modifies `transition`, `transform`, `border`, `box-shadow`, and `outline` properties
+///
+/// @example scss - Usage
+///   .wp-block-group {
+///     @include apply-wrapper-visuals('.wp-block-group');
+///   }
 @mixin apply-wrapper-visuals($block) {
 
 	// 1. TRULY PLAIN: No outer border, no inset border, no shadow
@@ -166,9 +216,13 @@
 // // 	@include __blueprint-shadow-natural;
 // }
 
-// /* ==========================================================================
-//    02.21 APPLY RESTING STATE: Apply physics
-//    ========================================================================== */
+// --------------------------------------------------------------------------
+// 02.21 APPLY RESTING STATE: Apply physics
+// --------------------------------------------------------------------------
+
+/// Applies resting transform and transition properties to elements.
+///
+/// @group Physics Resting States
 @mixin apply-resting-state {
 
     @if config.$lumina-dev-mode {
@@ -181,6 +235,11 @@
 // ==========================================================================
 // 02.22 VEIL X: Thin X overlay
 // ==========================================================================
+
+/// Blueprint mixin generating a SVG vector X overlay pattern.
+///
+/// @group Physics Resting States
+/// @outputs Injects `background-image` data URI
 @mixin __blueprint-veil-x {
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100%' height='100%'><line x1='0' y1='0' x2='100%' y2='100%' stroke='#{config.$veil-color}' stroke-width='0.5'/><line x1='100%' y1='0' x2='0' y2='100%' stroke='#{config.$veil-color}' stroke-width='0.5'/></svg>");
 	background-size: 100% 100%;
@@ -191,6 +250,11 @@
 // ==========================================================================
 // 02.23 VEIL BRACKETS: Inset Viewfinder Brackets
 // ==========================================================================
+
+/// Blueprint mixin generating viewfinder bracket corner lines.
+///
+/// @group Physics Resting States
+/// @outputs Injects multi-stop `linear-gradient` background patterns
 @mixin __blueprint-veil-brackets {	
 	background-image:
 		// Top-Left Bracket (Horizontal line, then Vertical line)
@@ -225,6 +289,11 @@
 // ==========================================================================
 // 02.24 VEIL CROSSHAIR: Centered crosshair (+)
 // ==========================================================================
+
+/// Blueprint mixin generating a centered crosshair (+) overlay.
+///
+/// @group Physics Resting States
+/// @outputs Injects `linear-gradient` background images
 @mixin __blueprint-veil-crosshair {
 	background-image: 
 		linear-gradient(to right, #{config.$veil-color} 100%, transparent 0), 
@@ -237,6 +306,11 @@
 // ==========================================================================
 // 02.25 VEIL DOT MATRIX: Small dots like a sensor grid
 // ==========================================================================
+
+/// Blueprint mixin generating a sensor-style radial dot matrix pattern.
+///
+/// @group Physics Resting States
+/// @outputs Injects `radial-gradient` background images
 @mixin __blueprint-veil-matrix {
 	background-image: radial-gradient(#{config.$veil-color} 1px, transparent 1px);
 	background-size: 8px 8px;
@@ -246,9 +320,14 @@
 // ==========================================================================
 // 02.26 VEIL INTERNAL LINK: WordPress "Arrow Right" (Internal)
 // ==========================================================================
+
+/// Blueprint mixin rendering an internal link indicator arrow SVG.
+///
+/// @group Physics Resting States
+/// @outputs Injects SVG `background-image` URI
 @mixin __blueprint-veil-internal {
     // Replace # with %23. Encodings are critical for CSS data-URIs.
-$svg: "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='%23ffffff' d='M6 15l5-5-5-5 1-2 7 7-7 7z'/></svg>";
+    $svg: "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><path fill='%23ffffff' d='M6 15l5-5-5-5 1-2 7 7-7 7z'/></svg>";
     background-image: url("data:image/svg+xml;utf8,#{ $svg }");
     background-position: center;
     background-repeat: no-repeat;
@@ -263,8 +342,13 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0
 // ==========================================================================
 // 02.27 VEIL EXTERNAL LINK: WordPress "External" (New Tab)
 // ==========================================================================
+
+/// Blueprint mixin rendering an external link indicator SVG icon.
+///
+/// @group Physics Resting States
+/// @outputs Injects external SVG `background-image` URI
 @mixin __blueprint-veil-external {
-$svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23ffffff' d='M18 11v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h6v2H4v12h12v-6h2zm-7 1h2v-5.59l5.3 5.3 1.41-1.41L12.41 5H18V3h-7v9z'/></svg>";
+    $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%23ffffff' d='M18 11v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h6v2H4v12h12v-6h2zm-7 1h2v-5.59l5.3 5.3 1.41-1.41L12.41 5H18V3h-7v9z'/></svg>";
     background-image: url("data:image/svg+xml;utf8,#{ $svg }");
     background-position: center;
     background-repeat: no-repeat;
@@ -274,6 +358,11 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.28 RESTING OVERLAY: Image mask overlay (::before)
 // ==========================================================================
+
+/// Blueprint mixin setting up resting image mask overlays on `::before` pseudo-elements.
+///
+/// @group Physics Resting States
+/// @outputs Injects positioning, opacity, transition, and background color properties
 @mixin __blueprint-resting-overlay {
 
 	// Absolute positioning
@@ -301,6 +390,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	z-index: 1;
 }
 
+/// Placeholder selector for resting image overlays.
+///
+/// @group Physics Resting States
 %physics-resting-overlay {
 /* ==========================================================================
    02.28 RESTING OVERLAY: Image mask overlay (::before)
@@ -308,6 +400,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-resting-overlay;
 }
 
+/// Conditionally applies resting mask overlays based on configuration options.
+///
+/// @group Physics Resting States
 @mixin apply-resting-overlay {
 
 	// Only apply overlay if configured
@@ -324,6 +419,11 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.29 RESTING VEIL: Image veil graphic overlay (::after)
 // ==========================================================================
+
+/// Blueprint mixin setting up resting graphic veil overlays on `::after` pseudo-elements.
+///
+/// @group Physics Resting States
+/// @outputs Injects positioning, opacity, blend-modes, and vector veil overlays
 @mixin __blueprint-resting-veil {
 
 	// Absolute positioning
@@ -382,6 +482,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	}
 }
 
+/// Placeholder selector for resting veil overlays.
+///
+/// @group Physics Resting States
 %physics-resting-veil {
 /* ==========================================================================
    02.29 RESTING VEIL: Image veil graphic overlay (::after)
@@ -389,6 +492,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-resting-veil;
 }
 
+/// Conditionally applies resting graphic veil overlays based on configuration settings.
+///
+/// @group Physics Resting States
 @mixin apply-resting-veil {
 
 	// Only apply veil graphic if configured
@@ -405,10 +511,18 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.30 RESTING IMAGE FILTER: Filter (e.g. brightness)
 // ==========================================================================
+
+/// Blueprint mixin for applying baseline resting CSS filters to image assets.
+///
+/// @group Physics Resting States
+/// @outputs Injects `filter`
 @mixin __blueprint-resting-image-filter {
 	filter: config.$image-filter;
 }
 
+/// Placeholder selector for resting image filters.
+///
+/// @group Physics Resting States
 %physics-resting-image-filter {
 /* ==========================================================================
    02.30 RESTING IMAGE FILTER: Filter (e.g. brightness)
@@ -416,6 +530,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-resting-image-filter;
 }
 
+/// Applies configured baseline image filters to raster graphics.
+///
+/// @group Physics Resting States
 @mixin apply-resting-image-filter {
 
 	// Only apply image filter if configured
@@ -429,9 +546,14 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	}
 }
 
-// /* ==========================================================================
-//    02.31 IMAGE VISUALS: Border, radius, and shadow
-//    ========================================================================== */
+// --------------------------------------------------------------------------
+// 02.31 IMAGE VISUALS: Border, radius, and shadow
+// --------------------------------------------------------------------------
+
+/// Blueprint mixin setting up image container borders, frame padding, and natural shadows.
+///
+/// @group Physics Resting States
+/// @outputs Modifies `img` border, radius, shadow, and padding properties
 @mixin __blueprint-image-wrapper-visuals {
 
 	// Apply shadow directly to image and resting filter if configured
@@ -451,6 +573,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	}	
 }
 
+/// Placeholder selector for image wrapper visuals.
+///
+/// @group Physics Resting States
 %physics-image-wrapper-visuals {
 /* ==========================================================================
    02.31 IMAGE VISUALS: Border, radius, and shadow
@@ -458,6 +583,10 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-image-wrapper-visuals;
 }
 
+/// Applies resting image wrapper visuals, filter hooks, and anchor overlay structures.
+///
+/// @group Physics Resting States
+/// @param {String} $block - Target block selector
 @mixin apply-image-wrapper-visuals($block) {
 
 	// Only blocks that get rounding
@@ -495,6 +624,11 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.32 IMAGE RESTING STATE: Setup transitions and transforms
 // ==========================================================================
+
+/// Blueprint mixin setting up asset transition timing, scale baseline, and alignment.
+///
+/// @group Physics Resting States
+/// @outputs Injects `transition`, `transform`, and `vertical-align`
 @mixin __blueprint-asset-resting-state {
 
 	// Setup transition timing (Medium)
@@ -514,6 +648,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include lumina-debug('registry');
 }
 
+/// Placeholder selector for asset resting states.
+///
+/// @group Physics Resting States
 %physics-asset-resting-state {
 	/* ==========================================================================
 	   02.32 IMAGE RESTING STATE: Setup transitions and transforms
@@ -521,6 +658,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-asset-resting-state;
 }
 
+/// Applies resting transition and transformation defaults to graphical assets.
+///
+/// @group Physics Resting States
 @mixin apply-asset-resting-state {
 	@if config.$lumina-dev-mode {
 		@include __blueprint-asset-resting-state;
@@ -532,6 +672,11 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.33 ZOOM WRAPPER VISUALS: Border, radius, and shadow
 // ==========================================================================
+
+/// Blueprint mixin for portrait frame zoom container wrappers with concentric radius calculations.
+///
+/// @group Physics Resting States
+/// @outputs Modifies `border-radius`, `box-shadow`, and padding on wrapper containers and nested `<a>` elements
 @mixin __blueprint-zoom-wrapper-visuals {
 
 	// Resting shadow (e.g. natural)
@@ -571,6 +716,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	}
 }
 
+/// Placeholder selector for zoom wrapper visuals.
+///
+/// @group Physics Resting States
 %physics-zoom-wrapper-visuals {
  /* ==========================================================================
    02.33 ZOOM WRAPPER VISUALS: Border, radius, and shadow
@@ -578,6 +726,10 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-zoom-wrapper-visuals;
 }
 
+/// Applies zoom wrapper visuals, custom border variants, and overlay structures.
+///
+/// @group Physics Resting States
+/// @param {String} $block - Target block selector
 @mixin apply-zoom-wrapper-visuals($block) {
 
 	// Don't round containers that are braked from rounding
@@ -623,6 +775,11 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.34 ZOOM WRAPPER CLIPPED: Overflow hidden on nested <a> tag
 // ==========================================================================
+
+/// Blueprint mixin setting up relative anchor positioning and viewport clipping for zoom portals.
+///
+/// @group Physics Resting States
+/// @outputs Modifies `position`, `display`, `overflow`, and `cursor` properties
 @mixin __blueprint-zoom-wrapper-clipped {
 
 	// CRITICAL: Binds the absolute veil coordinate system to this element!
@@ -640,6 +797,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	overflow: hidden;
 }
 
+/// Placeholder selector for clipped zoom wrappers.
+///
+/// @group Physics Resting States
 %physics-zoom-wrapper-clipped {
 /* ==========================================================================
    02.34 ZOOM WRAPPER CLIPPED: Overflow hidden on nested <a> tag
@@ -647,6 +807,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-zoom-wrapper-clipped;
 }
 
+/// Applies overflow clipping to nested anchor tags within zoom wrappers.
+///
+/// @group Physics Resting States
 @mixin apply-zoom-wrapper-clipped {
 
 	> a {
@@ -659,8 +822,13 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 }
 
 // ==========================================================================
-// 02.35 IMAGE CUSTOM BORDERS: Theme custom image block border styles
+// 02.35 IMAGE WRAPPER CUSTOM BORDERS: Theme custom image block border styles
 // ==========================================================================
+
+/// Blueprint mixin providing preset block style variants (rounded, pill, monitor mockup, tablet/phone screen).
+///
+/// @group Physics Resting States
+/// @outputs Applies contextual border, padding, and radius structures across custom Gutenberg style classes
 @mixin __blueprint-zoom-wrapper-border {
 
 	// --------------------------------------------------------------------------
@@ -710,7 +878,7 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 				}
 			}
 
-			/* Slim Aspect Ratio Clamp (16:4.5) */
+//			/* Slim Aspect Ratio Clamp (16:4.5) */
 // 			&:is([style*="16/4.5"], [style*="16 / 4.5"], :has([style*="16/4.5"]), :has([style*="16 / 4.5"]), :has(.size-cropped-slim)) {
 // 				border-radius: config.$img-radius-sm !important;
 // 
@@ -800,9 +968,12 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	}
 }
 
+/// Placeholder selector for custom image block border styles.
+///
+/// @group Physics Resting States
 %physics-zoom-wrapper-border {
  /* ==========================================================================
-   02.35 IMAGE CUSTOM BORDERS: Theme custom image block border styles
+   02.35 IMAGE WRAPPER CUSTOM BORDERS: Theme custom image block border styles
    ========================================================================== */
 	@include __blueprint-zoom-wrapper-border;
 }
@@ -810,10 +981,18 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.36 BUTTON SPACING: Spacing for legacy HTML-only buttons
 // ==========================================================================
+
+/// Blueprint mixin applying right margin spacing to legacy HTML form buttons.
+///
+/// @group Physics Resting States
+/// @outputs Injects `margin-right`
 @mixin __blueprint-button-spacing {
 	margin-right: config.$html-button-spacing;     
 }
 
+/// Placeholder selector for HTML button spacing.
+///
+/// @group Physics Resting States
 %physics-button-spacing {
 /* ==========================================================================
    02.36 BUTTON SPACING: Spacing for legacy HTML-only buttons
@@ -821,6 +1000,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-button-spacing;
 }
 
+/// Applies horizontal margin spacing to legacy HTML buttons.
+///
+/// @group Physics Resting States
 @mixin apply-button-spacing {
 	@if config.$lumina-dev-mode {
 		@include __blueprint-button-spacing;
@@ -832,6 +1014,11 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.37 BUTTON RESTING STATE: The physical baseline for buttons
 // ==========================================================================
+
+/// Blueprint mixin for button resting transforms, shadow depth, and transition parameters.
+///
+/// @group Physics Resting States
+/// @outputs Injects `transition`, `transform`, and `box-shadow`
 @mixin __blueprint-button-resting-state {
 
 	// Setup transition timing
@@ -850,6 +1037,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include lumina-debug('registry');
 }
 
+/// Placeholder selector for button resting state.
+///
+/// @group Physics Resting States
 %physics-button-resting-state {
 /* ==========================================================================
    02.37 BUTTON RESTING STATE: The physical baseline for buttons
@@ -857,6 +1047,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-button-resting-state;
 }
 
+/// Applies resting state physics to button elements.
+///
+/// @group Physics Resting States
 @mixin apply-button-resting-state {
 	@if config.$lumina-dev-mode {
 		@include __blueprint-button-resting-state;
@@ -868,6 +1061,11 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.38 RESTING SILENCE: Silence Cards and Objects embedded in another Card
 // ==========================================================================
+
+/// Blueprint mixin stripping shadows and transforms from nested elements inside active card containers.
+///
+/// @group Physics Resting States
+/// @outputs Resets `box-shadow` and `transform`
 @mixin __blueprint-resting-silence {
 
 	// Reset shadow and transform
@@ -878,6 +1076,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include lumina-debug('silence');
 }
 
+/// Placeholder selector for resting silence.
+///
+/// @group Physics Resting States
 %physics-resting-silence {
 	/* ==========================================================================
 	   02.38 RESTING SILENCE: Silence Cards and Objects embedded in another Card
@@ -885,6 +1086,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-resting-silence;
 }
 
+/// Applies resting silence to embedded nested elements.
+///
+/// @group Physics Resting States
 @mixin apply-resting-silence {
 	@if config.$lumina-dev-mode {	
 		@include __blueprint-resting-silence;
@@ -896,6 +1100,11 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 // ==========================================================================
 // 02.39 RESTING SILENCE SHADOW: Silence shadows on embedded images
 // ==========================================================================
+
+/// Blueprint mixin stripping box shadows from images embedded inside cards.
+///
+/// @group Physics Resting States
+/// @outputs Resets `box-shadow`
 @mixin __blueprint-resting-silence-shadow {
 
 	// Reset shadow and transform
@@ -906,6 +1115,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include lumina-debug('silence-shadow');
 }
 
+/// Placeholder selector for silenced image shadows at rest.
+///
+/// @group Physics Resting States
 %physics-resting-silence-shadow {
 	/* ==========================================================================
 	   02.39 RESTING SILENCE SHADOW: Silence shadows on embedded images
@@ -913,6 +1125,9 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 	@include __blueprint-resting-silence-shadow;
 }
 
+/// Applies resting shadow silence to embedded image assets.
+///
+/// @group Physics Resting States
 @mixin apply-resting-silence-shadow {
 	@if config.$lumina-dev-mode {	
 		@include __blueprint-resting-silence-shadow;
@@ -920,4 +1135,3 @@ $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='%
 		@extend %physics-resting-silence-shadow;
 	}
 }
-

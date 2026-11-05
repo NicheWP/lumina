@@ -1,9 +1,15 @@
-// /* ==========================================================================
-//    05 GLOBAL PHYSICS ENGINE: Styles outside of the core engine loops
-//    ========================================================================== */
+// ==========================================================================
+//   05 GLOBAL PHYSICS ENGINE: Styles outside of the core engine loops
+// ==========================================================================
 
 @use '00-config' as config;
 
+/// Applies global physics engine styles, reduced motion accessibility defaults,
+/// avatar frame overrides, and interactive card arrow overlay badges.
+///
+/// @group Physics Global
+/// @param {Boolean} $interactive [false] - Evaluates whether to render resting or interactive states
+/// @outputs Injects global root variable overrides, badge positioning, and mask engine styles
 @mixin apply-global-logic($interactive: false) {
 
 /* ==========================================================================
@@ -49,7 +55,12 @@
 		// ==========================================================================
 		// LUMINA OVERLAY BADGE CONFIGURATION
 		// ==========================================================================
-		$overlay-badge-size: 28px !default; // Master diameter variable (e.g. 24px, 28px, 32px)
+		
+		/// Master diameter variable for card overlay badges (e.g. 24px, 28px, 32px).
+		///
+		/// @group Physics Global
+		/// @type Length
+		$overlay-badge-size: 28px !default;
 		
 		/* -----------------------------------------------------------------------------
 		   Lumina Card Overlay Badge (Resting State Definitions)
@@ -227,5 +238,4 @@
 		}
 
 	}
-
 }

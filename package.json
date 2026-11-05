@@ -4,12 +4,15 @@
   "description": "Lumina Wordpress Theme",
   "main": "index.js",
   "scripts": {
-    "build": "wp-scripts build --webpack-src-dir=src/scss --output-path=assets/css && npm run copy:readme",
+    "build": "npm run docs && wp-scripts build --webpack-src-dir=src/scss --output-path=assets/css && npm run copy:readme",
     "watch:readme": "onchange \"readme.txt\" -- shx cp readme.txt readme.md",
     "start": "concurrently \"wp-scripts start --webpack-src-dir=src/scss --output-path=assets/css\" \"npm run watch:readme\"",
     "copy:readme": "shx cp readme.txt readme.md",
     "theme-zip": "npm run build && npm run copy:readme && zip -r lumina-theme.zip . -x \"*.DS_Store\" \"node_modules/*\" \"zz_unused/*\" \".git*\" \"src/*\" \"package*\" \"webpack*\" \"postcss*\" \"readme.md\"",
-	"doc:php": "mkdir -p ./docs/php && rm -rf ./docs/php/* && phpdoc"
+    "docs:php": "mkdir -p ./docs/php && rm -rf ./docs/php/* && phpdoc",
+    "docs:scss": "sassdoc src/scss --dest docs/scss",
+    "docs:patterns": "./utils/docs-patterns.sh",
+    "docs": "npm run docs:php && npm run docs:scss && npm run docs:patterns"
   },
   "devDependencies": {
     "@wordpress/icons": "^15.5.0",

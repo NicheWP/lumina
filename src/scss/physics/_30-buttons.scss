@@ -1,6 +1,6 @@
-//* ==========================================================================
+// ==========================================================================
 //   30 BUTTONS: Buttons and Button-like Objects (e.g. Buttons, Tag Clouds)
-//   ========================================================================== */
+// ==========================================================================
 
 @use 'sass:list';
 @use 'sass:map';
@@ -10,6 +10,13 @@
 @use '00-config' as config;
 @use '04-registry' as phys;
 
+/// Evaluates block registry button entries (interactive buttons, avatars, tag 
+///		clouds, legacy HTML form triggers).
+///
+/// @group Physics Modules
+/// @param {Boolean} $interactive [false] - Phase switch (false = resting engine | 
+///		true = hover/focus interactions)
+/// @outputs Emits CSS selectors and rules for button targets
 @mixin apply-button-logic($interactive: false) {
 
 	@if config.$lumina-dev-mode {

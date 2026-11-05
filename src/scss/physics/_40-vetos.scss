@@ -1,6 +1,6 @@
-//* ==========================================================================
+// ==========================================================================
 //   40 VETOS: Centralized Nesting Boundary Controller
-//   ========================================================================== */
+// ==========================================================================
 
 @use 'sass:list';
 
@@ -9,6 +9,15 @@
 @use '00-config' as config;
 @use '04-registry' as phys;
 
+/// Evaluates accumulated cards, objects, and images to generate nesting 
+///		boundary overrides.
+/// Silences inner cards and shadow depth when contained inside an active parent 
+///		card.
+///
+/// @group Physics Modules
+/// @param {Boolean} $interactive [false] - Phase switch (false = resting engine | 
+///		true = hover/focus interactions)
+/// @outputs Emits silence override rules across nested boundary paths
 @mixin apply-veto-logic($interactive: false) {
 
 	@if config.$lumina-dev-mode {
@@ -34,7 +43,8 @@
 		@each $parent in $cards {
 			
 			// TRACK A: CARD-IN-CARD BOUNDARIES
-			// Silences nested cards (e.g., columns or inner groups) inside a parent card
+			// Silences nested cards (e.g., columns or inner groups) inside a 
+			//		parent card
 			@each $child-card in $cards {
 				@if not $interactive {
 					#{$parent} #{$child-card} {
@@ -49,7 +59,8 @@
 			}
 
 			// TRACK B: OBJECT-IN-CARD BOUNDARIES
-			// Silences inner elements (e.g., column block) when the parent card lifts
+			// Silences inner elements (e.g., column block) when the parent 
+			//		card lifts
 			@if list.length($objects) > 0 {
 				@each $child-object in $objects {
 	
@@ -67,7 +78,8 @@
 			}
 
 			// TRACK C: IMAGE-IN-CARD BOUNDARIES
-			// Silences only shadows (e.g., image block) when the parent card lifts
+			// Silences only shadows (e.g., image block) when the parent card 
+			//		lifts
 			@if list.length($images) > 0 {
 				@each $child-image in $images {
 	

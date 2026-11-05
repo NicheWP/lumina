@@ -1,25 +1,45 @@
-//* ==========================================================================
+// ==========================================================================
 //   00 LUMINA CONFIGURATION: Physics Maps (Roles, Constants, Debug Variables)
-//   ========================================================================== */
+// ==========================================================================
 
 // ==========================================================================
 // LUMINA BLOCK REGISTRY: Declare each block and how the engine handles it
 // Schema: (Block, Is, Has, Trigger, Target, Spacing, Role)
 // ==========================================================================
 
-// SETUP DEFAULTS SO WE DON'T HAVE TO INCLUDE ALL FIELDS IN THE REGISTRY
+/// Centralized Block Registry Configuration Map.
+///
+/// Maps WordPress Gutenberg blocks to physical roles, structural gates, and 
+///		interaction scopes.
+/// SETUP DEFAULTS SO WE DON'T HAVE TO INCLUDE ALL FIELDS IN THE REGISTRY
+///
+/// @group Config
+/// @type Map
+/// @prop {String} block ['*'] - Base block selector or wildcard
+/// @prop {String} is ['none'] - Mandatory CSS class filters (e.g. .has-background)
+/// @prop {String} has ['a, button'] - Required structural child gate
+/// @prop {String} exclude ['.alignfull'] - Excluded container contexts
+/// @prop {String} trigger ['self'] - Action boundary selector
+/// @prop {String} target ['self'] - Kinetic animation target selector
+/// @prop {Boolean} spacing [false] - Structural spacing override flag
+/// @prop {String} role ['object'] - Role classification: card | object | 
+///		object-zoom | object-grow | button
 $registry-defaults: (
-	block:   '*',       	// Block wildcard [class*="wp-block-"]
-	is:      'none',    	// Don't require specific classes
-	has:     'a, button',   // Default to requiring an embedded link or button
-	exclude: '.alignfull', 	// Don't let full-width blocks become cards
-	trigger: 'self',    	// Default hover trigger to the block
-	target:  'self',    	// Default traget class to receive animation to the block
-	spacing: false,			// Add margin only to html buttons
-	role:    'object' 		// Default role to Object
+	block:   '*',          // Block wildcard [class*="wp-block-"]
+	is:      'none',       // Don't require specific classes
+	has:     'a, button',  // Default to requiring an embedded link or button
+	exclude: '.alignfull', // Don't let full-width blocks become cards
+	trigger: 'self',       // Default hover trigger to the block
+	target:  'self',       // Default target class to receive animation to the block
+	spacing: false,        // Add margin only to html buttons
+	role:    'object'      // Default role to Object
 );
 
-// PUT WILDCARDS AND/OR SPECIFIC BLOCKS INTO THE REGISTRY
+/// Master Block Registry Map.
+/// PUT WILDCARDS AND/OR SPECIFIC BLOCKS INTO THE REGISTRY
+///
+/// @group Config
+/// @type Map
 $lumina-block-registry: (
 
 	// --------------------------------------------------------------------------
@@ -169,128 +189,292 @@ $lumina-block-registry: (
 	),
 
 	// Legacy HTML buttons for WordPress.org theme preview
-	( trigger: 'input[type="submit"]:not(.wp-element-button)', has: 'none', spacing: true, role: 'button' ),
-	( trigger: 'input[type="button"]:not(.wp-element-button)', has: 'none', spacing: true, role: 'button' ),
-	( trigger: 'input[type="reset"]:not(.wp-element-button)', has: 'none', spacing: true, role: 'button' ),
-// 	( trigger: 'input[type=file]::file-selector-button', has: 'none', spacing: true, role: 'button' ),    
-	( trigger: 'input[type=file]', target: '::file-selector-button', has: 'none', spacing: true, role: 'button' ),
+	( trigger: 'input[type="submit"]:not(.wp-element-button)', has: 'none', 
+			spacing: true, role: 'button' 
+	),
+	( trigger: 'input[type="button"]:not(.wp-element-button)', has: 'none', 
+			spacing: true, role: 'button' 
+	),
+	( trigger: 'input[type="reset"]:not(.wp-element-button)', has: 'none', 
+			spacing: true, role: 'button' 
+	),
+	( trigger: 'input[type=file]', target: '::file-selector-button', has: 'none', 
+			spacing: true, role: 'button' 
+	),
+// 	( trigger: 'input[type=file]::file-selector-button', has: 'none', 
+// 		spacing: true, role: 'button' 
+// 	),
 );
 
-//**
-// * 00.2 ADDITIONAL LISTS
-// * 	  Blocks w/no border radius, images with custom block styles, 
-// *	  HTML-only button spacing
-// */
+// --------------------------------------------------------------------------
+// 00.2 ADDITIONAL LISTS
+// 	  Blocks w/no border radius, images with custom block styles, 
+//	  HTML-only button spacing
+// --------------------------------------------------------------------------
 
-// Rounding Hard Stop: Blocks where the engine shouldn't even write CSS for
-// borders/rounding
+/// Rounding Hard Stop: Blocks where the engine shouldn't even write CSS for
+///		borders/rounding.
+///
+/// @group Config
+/// @type List
 $blocks-no-rounding: (
  	'.wp-block-media-text__media', 
   	'.wp-block-media-text__content',
 );
 
-// Rounding Conditional Stop: Layout containers that use Track B (inset hairlines)
+/// Rounding Conditional Stop: Layout containers that use Track B (inset hairlines).
+///
+/// @group Config
+/// @type List
 $blocks-layout-brakes: (
 	'.wp-block-media-text *',
 	'.is-style-no-gap *',
 );
 
-// Truly Plain Elements: Completely borderless / shadowless
+/// Truly Plain Elements: Completely borderless / shadowless.
+///
+/// @group Config
+/// @type List
 $blocks-plain: (
 	'.is-style-object-static',
 	'.is-style-image-no-border',
 );
 
-// Blocks that have custom block styles to add to the compiled CSS
-$blocks-custom-borders: ('.wp-block-image', '.wp-block-post-featured-image');
+/// Blocks that have custom block styles to add to the compiled CSS.
+///
+/// @group Config
+/// @type List
+$blocks-custom-borders: (
+	'.wp-block-image',
+	'.wp-block-post-featured-image'
+);
 
-// HTML-only Buttons
+/// HTML-only Buttons spacing metric.
+///
+/// @group Config
+/// @type Length
 $html-button-spacing: var(--wp--preset--spacing--30);
 
-//**
-// * 00.3 PHYSICS VARIABLES: Animation for grow and shift up
-// */
+// --------------------------------------------------------------------------
+// 00.3 PHYSICS VARIABLES: Animation for grow and shift up
+// --------------------------------------------------------------------------
 
-// Shadow default resting state (Natural)
+/// Shadow default resting state (Natural).
+///
+/// @group Physics Variables
+/// @type Shadow
 $shadow-default: var(--wp--custom--color--shadow--default, 
 				 var(--wp--preset--shadow--natural, 
 				 1px 4px 8px rgba(42, 50, 61, 0.14), 1px 2px 3px rgba(42, 50, 61, 0.08)
 ));
 				 
-// Shadow hover (Deep)
+/// Shadow hover (Deep).
+///
+/// @group Physics Variables
+/// @type Shadow
 $shadow-hover:   var(--wp--custom--color--shadow--hover, 
                  var(--wp--preset--shadow--deep, 
 				 3px 8px 16px rgba(42, 50, 61, 0.20), 1px 4px 6px rgba(42, 50, 61, 0.12)
 ));
 
-// Base Timing Tokens (Short = 250ms for Cards/Buttons | Medium = 500ms for Images/Assets)
+/// Base Timing Tokens (Short = 250ms for Cards/Buttons).
+///
+/// @group Physics Variables
+/// @type Transition
 $lumina-timing: 		 var(--wp--custom--animation--duration--short, 250ms) var(--wp--custom--animation--timing-function, cubic-bezier(0.4, 0, 0.2, 1));
 
+/// Medium Timing Tokens (Medium = 500ms for Images/Assets).
+///
+/// @group Physics Variables
+/// @type Transition
 $lumina-timing-medium: 	 var(--wp--custom--animation--duration--medium, 500ms) var(--wp--custom--animation--timing-function, cubic-bezier(0.4, 0, 0.2, 1));
 
-// 1. Role: Cards (Engine applies $shift-subtle to interactive card containers)
+/// 1. Role: Cards (Engine applies $shift-subtle to interactive card containers).
+///
+/// @group Physics Variables
+/// @type Transform
 $shift-subtle:  		 var(--wp--custom--animation--card--hover-transform, 
 						 translateY(-3px));
 
-// 2. Role: Standard Images (Engine applies $shift-standard to core image blocks)
+/// 2. Role: Standard Images (Engine applies $shift-standard to core image blocks).
+///
+/// @group Physics Variables
+/// @type Transform
 $shift-standard: 		 var(--wp--custom--animation--image--hover-transform, 
 						 translateY(-3px));
 
-// 3. Role: Buttons (Engine applies $grow-large to button elements)
+/// 3. Role: Buttons (Engine applies $grow-large to button elements).
+///
+/// @group Physics Variables
+/// @type Transform
 $grow-large:    		 var(--wp--custom--animation--button--hover-transform, 
 						 var(--wp--custom--animation--default--hover-transform, 
 						 scale(1.05)));
 
-// 4. Role: Media & Text (Engine applies $grow-standard to constrained image zooms)
+/// 4. Role: Media & Text (Engine applies $grow-standard to constrained image zooms).
+///
+/// @group Physics Variables
+/// @type Transform
 $grow-standard: 		 var(--wp--custom--animation--media-text--hover-transform, 
 						 scale(1.08));
 
-// Reserved Growth Legacy Token
+/// Reserved Growth Legacy Token.
+///
+/// @group Physics Variables
+/// @type Transform
 $grow-small: 			 var(--wp--custom--animation--object--hover-transform, 
 						 scale(1.03));
 						 
-// Image Frame Config
-// $img-frame-padding: var(--wp--preset--spacing--20, 4px);
-$img-frame-padding: 0px;
+/// Image Frame Padding.
+///
+/// @group Physics Variables
+/// @type Length
+$img-frame-padding: 0px; //var(--wp--preset--spacing--20, 4px);
+
+/// Image Border Width.
+///
+/// @group Physics Variables
+/// @type Length
 $img-border-width: var(--wp--custom--border--width, 1px);
 
-// Theme Fluid Radius Tokens
+/// Theme Fluid Radius Tokens - Shallow Aspect Selector (16:4.5 Slim & 21:9 Ultrawide).
+///
+/// @group Physics Variables
+/// @type Selector
 $shallow-aspect-selector: ':is([style*="16/4.5"], [style*="16 / 4.5"], [style*="21/9"], [style*="21 / 9"], .size-cropped-slim, .size-cropped-ultrawide, :has([style*="16/4.5"]), :has([style*="16 / 4.5"]), :has([style*="21/9"]), :has([style*="21 / 9"]), :has(.size-cropped-slim), :has(.size-cropped-ultrawide))';
 
+/// Large image radius token.
+///
+/// @group Physics Variables
+/// @type Length
 $img-radius-lg: var(--wp--preset--border-radius--lg, 16px);
+
+/// Small image radius token.
+///
+/// @group Physics Variables
+/// @type Length
 $img-radius-sm: var(--wp--preset--border-radius--sm, 6px);
 
-// Hardware Mockup Fixed Radii
+/// Hardware Mockup Fixed Radii.
+///
+/// @group Physics Variables
+/// @type Length
 $hardware-device-radius: 18px;
 
-// Image Filter
+/// Resting image filter.
+///
+/// @group Physics Variables
+/// @type String
 $image-filter:			''; //var(--wp--custom--image--filter, brightness(1));
+
+/// Active hover state image filter.
+///
+/// @group Physics Variables
+/// @type String
 $image-hover-filter:	''; //var(--wp--custom--image--hover-filter, brightness(1.15));
 
-// Image Overlay
+/// Image overlay background color.
+///
+/// @group Physics Variables
+/// @type String
 $overlay-background:    ''; //'var(--wp--preset--color--primary)'; //var(--wp--custom--color--overlay--background, var(--wp--preset--color--primary));
+
+/// Image overlay resting opacity.
+///
+/// @group Physics Variables
+/// @type String
 $overlay-opacity:   	''; //var(--wp--custom--color--overlay--opacity, 0.6);
+
+/// Image overlay active hover opacity.
+///
+/// @group Physics Variables
+/// @type String
 $overlay-hover-opacity: ''; //var(--wp--custom--color--overlay--hover-opacity, 0);
 
-// Veil visual definitions (types: x, crosshair, brackets, matrix)
+/// Veil visual definitions (types: x, crosshair, brackets, matrix).
+///
+/// @group Physics Variables
+/// @type String
 $veil-type:				''; //'link-detect'; //'brackets'; //'crosshair'; //'matrix';, //'x';
+
+/// Veil stroke color.
+///
+/// @group Physics Variables
+/// @type String
 $veil-color:			''; //var(--wp--custom--color--veil--color, var(--wp--preset--color--base));
+
+/// Veil resting state opacity.
+///
+/// @group Physics Variables
+/// @type Number
 $veil-opacity:   		1; //var(--wp--custom--color--veil--opacity, 0);
+
+/// Veil active hover state opacity.
+///
+/// @group Physics Variables
+/// @type Number
 $veil-hover-opacity: 	1; //var(--wp--custom--color--veil--hover-opacity, 0.85);
 
-//**
-// * 00.5 DEBUGGING: Outline colors for visual debugging
-// */
-$lumina-debug: 			false; // Turns on debug outlines
-$lumina-dev-mode: 		false;  // Separates selectors (larger file size)
+// --------------------------------------------------------------------------
+// 00.5 DEBUGGING: Outline colors for visual debugging
+// --------------------------------------------------------------------------
 
+/// Turns on debug outlines site-wide.
+///
+/// @group Debugging
+/// @type Boolean
+$lumina-debug: 			false;
+
+/// Separates selectors for debugging (larger file size).
+///
+/// @group Debugging
+/// @type Boolean
+$lumina-dev-mode: 		false;
+
+/// Debug outline for registry items.
+///
+/// @group Debugging
+/// @type Outline
 $debug-registry:   		1px dashed #ff8c00; // Orange
+
+/// Debug outline for resting wrapper containers.
+///
+/// @group Debugging
+/// @type Outline
 $debug-wrapper:   		1px dashed #ff8c00; // Purple
 
+/// Debug outline for active wrapper containers.
+///
+/// @group Debugging
+/// @type Outline
 $debug-wrapper-active:  1px solid  #ff00ff; // Purple
+
+/// Debug outline for active cards.
+///
+/// @group Debugging
+/// @type Outline
 $debug-card:       		1px solid  #00ffff; // Cyan
+
+/// Debug outline for active objects.
+///
+/// @group Debugging
+/// @type Outline
 $debug-object:  		1px solid  #00ffff; // Cyan
+
+/// Debug outline for active buttons.
+///
+/// @group Debugging
+/// @type Outline
 $debug-button:  		1px solid  #00ffff; // Cyan
 
+/// Debug outline for resting silenced elements.
+///
+/// @group Debugging
+/// @type Outline
 $debug-silence:    		1px dashed #ff3b30; // Red
+
+/// Debug outline for active silenced elements.
+///
+/// @group Debugging
+/// @type Outline
 $debug-silence-active:	1px solid  #ff3b30; // Red

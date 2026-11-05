@@ -83,7 +83,7 @@
 
 .wp-block-column .wp-block-image:not(.alignfull):has(a:not(figcaption a)):not(.wp-block-media-text *, .is-style-no-gap *) {
   /* ==========================================================================
-    02.35 IMAGE CUSTOM BORDERS: Theme custom image block border styles
+    02.35 IMAGE WRAPPER CUSTOM BORDERS: Theme custom image block border styles
     ========================================================================== */
 }
 .wp-block-column .is-style-image-border.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a:not(figcaption a)) {
@@ -101,9 +101,6 @@
 }
 .wp-block-column .is-style-image-border.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):is(:is([style*="16/4.5"], [style*="16 / 4.5"], [style*="21/9"], [style*="21 / 9"], .size-cropped-slim, .size-cropped-ultrawide, :has([style*="16/4.5"]), :has([style*="16 / 4.5"]), :has([style*="21/9"]), :has([style*="21 / 9"]), :has(.size-cropped-slim), :has(.size-cropped-ultrawide))):not(.alignfull):has(a:not(figcaption a)) > a, .wp-block-column .is-style-image-border.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):has(:is([style*="16/4.5"], [style*="16 / 4.5"], [style*="21/9"], [style*="21 / 9"], .size-cropped-slim, .size-cropped-ultrawide, :has([style*="16/4.5"]), :has([style*="16 / 4.5"]), :has([style*="21/9"]), :has([style*="21 / 9"]), :has(.size-cropped-slim), :has(.size-cropped-ultrawide))):not(.alignfull):has(a:not(figcaption a)) > a {
   border-radius: max(0px, var(--wp--preset--border-radius--sm, 6px) - 0px - var(--wp--custom--border--width, 1px)) !important;
-}
-.wp-block-column .is-style-image-border.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a:not(figcaption a)) {
-  /* Slim Aspect Ratio Clamp (16:4.5) */
 }
 .wp-block-column .is-style-rounded.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a:not(figcaption a)), .wp-block-column .is-style-image-round-border.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a:not(figcaption a)) {
   border: var(--wp--custom--border--width, 1px) var(--wp--custom--border--style, solid) var(--wp--custom--color--border, color-mix(in srgb, currentColor 15%, transparent));
@@ -181,12 +178,6 @@
   box-shadow: none;
 }
 
-/* ==========================================================================
-   03.10 APPLY CARD: Apply physics and active shadow
-   ========================================================================== */
-/* ==========================================================================
-   03.11 APPLY CARD INSET: Unrounded / Braked Cards (Track B)
-   ========================================================================== */
 /* ==========================================================================
    05 GLOBAL PHYSICS ENGINE: Styles outside of the core engine loops
    ========================================================================== */
