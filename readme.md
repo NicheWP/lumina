@@ -11,6 +11,7 @@ For more information, see
 * [Lumina WordPress Theme](https://nichewp.com/wordpress/lumina/)
 * [Lumina Theme Demo](https://lumina.nichewp.com)
 * [![Try Lumina in Browser](https://img.shields.io/badge/Live_Demo-WordPress_Playground-blue?style=for-the-badge&logo=wordpress)](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/nichewp/lumina/main/blueprint.json)
+* [Lumina Technical Documentation](https://nichewp.github.io/lumina/)
 
 == Quick Start Guide ==
 
