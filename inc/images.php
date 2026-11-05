@@ -1,10 +1,11 @@
 <?php
 /**
- * File:        images.php
+ * File:        inc/images.php
  * Theme:       Shared Media Functions
  *
  * Unified Media Architecture. Handles native image blocks,
- * cover toggles, media-text toggles, site logo fallbacks, lightboxes, and legacy post loops.
+ * cover toggles, media-text toggles, site logo fallbacks, lightboxes, and legacy 
+ * post loops.
  *
  * @package     NicheWP
  */
@@ -15,45 +16,70 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * TEST & OVERRIDE CONFIGURATION
- * Set to true to force default fallback images across posts or site logos for testing.
- * Set to false for normal production operation.
- */
 if ( ! defined( 'FORCE_DEFAULT_IMAGE' ) ) {
+	/**
+	 * Flag to force default fallback IMAGE rendering during testing.
+	 *
+	 * @var bool
+	 */
 	define( 'FORCE_DEFAULT_IMAGE', false ); // Set to false for production
 }
 
 if ( ! defined( 'FORCE_DEFAULT_SITE_LOGO' ) ) {
+	/**
+	 * Flag to force default site LOGO rendering during testing.
+	 *
+	 * @var bool
+	 */
 	define( 'FORCE_DEFAULT_SITE_LOGO', false ); // Set to false for production
 }
 
-/**
- * DEFAULT MEDIA ASSETS & DIMENSIONS CONFIGURATION
- * Fallback relative paths and default pixel dimensions for site logo and featured images.
- */
 if ( ! defined( 'DEFAULT_SITE_LOGO' ) ) {
+	/**
+	 * Default fallback site LOGO asset path.
+	 *
+	 * @var string
+	 */
 	define( 'DEFAULT_SITE_LOGO', 'assets/images/logo/site-logo.webp' );
 }
 
 if ( ! defined( 'DEFAULT_SITE_LOGO_WIDTH' ) ) {
+	/**
+	 * Default fallback site logo pixel width.
+	 *
+	 * @var int
+	 */
 	define( 'DEFAULT_SITE_LOGO_WIDTH', 56 );
 }
 
 if ( ! defined( 'DEFAULT_SITE_LOGO_HEIGHT' ) ) {
+	/**
+	 * Default fallback site logo pixel height.
+	 *
+	 * @var int
+	 */
 	define( 'DEFAULT_SITE_LOGO_HEIGHT', 56 );
 }
 
 if ( ! defined( 'DEFAULT_FEATURED_IMAGE' ) ) {
+	/**
+	 * Default fallback featured IMAGE asset path.
+	 *
+	 * @var string
+	 */
 	define( 'DEFAULT_FEATURED_IMAGE', 'assets/images/pages/home-hero.webp' );
 }
 
-/**
- * 1A. THE FEATURED IMAGE ENGINE CORE
- * Dynamically scans Lumina's asset directory for fallback featured images.
- */
 if ( ! function_exists( __NAMESPACE__ . '\get_featured_image_fallback_data' ) ) {
 
+	/**
+	 * 1A. THE FEATURED IMAGE ENGINE CORE
+	 * Dynamically scans Lumina's asset directory for fallback featured images.
+	 *
+	 * @package NicheWP
+	 * @param int|null $post_id Optional post ID to calculate hashed image selections.
+	 * @return array{url: string, alt: string} Fallback image URL and alt text array.
+	 */
 	function get_featured_image_fallback_data( $post_id = null ) {
 
 		$pid = $post_id ? $post_id : get_the_ID();
@@ -241,12 +267,15 @@ if ( ! function_exists( __NAMESPACE__ . '\get_featured_image_fallback_data' ) ) 
 	}
 }
 
-/**
- * 1B. THE SITE LOGO ENGINE CORE
- * Resolves default site logo from theme.json (custom.color.theme.logoDefault)
- * with a fallback to DEFAULT_SITE_LOGO, verifying physical file existence on disk.
- */
 if ( ! function_exists( __NAMESPACE__ . '\get_default_site_logo_url' ) ) {
+
+	/**
+	 * 1B. THE SITE LOGO ENGINE CORE
+	 * Resolves default site logo from theme settings with fallback to DEFAULT_SITE_LOGO.
+	 *
+	 * @package NicheWP
+	 * @return string Filtered logo image URL.
+	 */
 	function get_default_site_logo_url() {
 		$true_default = defined( 'DEFAULT_SITE_LOGO' ) ? DEFAULT_SITE_LOGO : 'assets/images/logo/site-logo.webp';
 
@@ -285,11 +314,16 @@ if ( ! function_exists( __NAMESPACE__ . '\get_default_site_logo_url' ) ) {
 	}
 }
 
-/**
- * 1C. LOGO DIMENSIONS RESOLVER
- * Resolves intrinsic or configured dimensions for the fallback site logo.
- */
 if ( ! function_exists( __NAMESPACE__ . '\get_default_site_logo_dimensions' ) ) {
+	
+	/**
+ 	 * 1C. LOGO DIMENSIONS RESOLVER
+	 * Resolves intrinsic or configured pixel dimensions for the fallback site logo.
+	 *
+	 * @package NicheWP
+	 * @param int $target_width Requested target pixel width.
+	 * @return array{width: int, height: int} Dimension array containing width and height.
+	 */
 	function get_default_site_logo_dimensions( $target_width = 0 ) {
 		$true_default_w = defined( 'DEFAULT_SITE_LOGO_WIDTH' ) ? (int) DEFAULT_SITE_LOGO_WIDTH : 56;
 		$true_default_h = defined( 'DEFAULT_SITE_LOGO_HEIGHT' ) ? (int) DEFAULT_SITE_LOGO_HEIGHT : 56;
@@ -334,11 +368,17 @@ if ( ! function_exists( __NAMESPACE__ . '\get_default_site_logo_dimensions' ) ) 
 	}
 }
 
-/**
- * 2A. THE COVER TOGGLE INTERCEPT
- * Swaps image src or inline background URL while stripping responsive srcset attributes.
- */
 if ( ! function_exists( __NAMESPACE__ . '\filter_cover_block_fallback' ) ) {
+	
+	/**
+	 * 2A. THE COVER TOGGLE INTERCEPT
+	 * Intercepts Core Cover block rendering to inject fallback featured images.
+	 *
+	 * @package NicheWP
+	 * @param string               $block_content Rendered HTML output of the Cover block.
+	 * @param array<string, mixed> $block         Block configuration and attributes array.
+	 * @return string Filtered Cover block HTML output.
+	 */
 	function filter_cover_block_fallback( $block_content, $block ) {
 		$force_override = defined( 'FORCE_DEFAULT_IMAGE' ) && FORCE_DEFAULT_IMAGE;
 
@@ -359,11 +399,17 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_cover_block_fallback' ) ) {
 	add_filter( 'render_block_core/cover', __NAMESPACE__ . '\filter_cover_block_fallback', 10, 2 );
 }
 
-/**
- * 2B. THE MEDIA & TEXT TOGGLE INTERCEPT
- * Swaps src or background URL on existing markup while preserving block dimensions.
- */
 if ( ! function_exists( __NAMESPACE__ . '\filter_media_text_block_fallback' ) ) {
+
+	/**
+	 * 2B. THE MEDIA & TEXT TOGGLE INTERCEPT
+	 * Intercepts Core Media & Text block rendering to inject fallback featured images.
+	 *
+	 * @package NicheWP
+	 * @param string               $block_content Rendered HTML output of the Media & Text block.
+	 * @param array<string, mixed> $block         Block configuration and attributes array.
+	 * @return string Filtered Media & Text block HTML output.
+	 */
 	function filter_media_text_block_fallback( $block_content, $block ) {
 		$force_override = defined( 'FORCE_DEFAULT_IMAGE' ) && FORCE_DEFAULT_IMAGE;
 
@@ -400,12 +446,19 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_media_text_block_fallback' ) ) 
 	add_filter( 'render_block_core/media-text', __NAMESPACE__ . '\filter_media_text_block_fallback', 10, 2 );
 }
 
-/**
- * 2C. THE SITE LOGO BLOCK INTERCEPT
- * Governed strictly by FORCE_DEFAULT_SITE_LOGO or missing custom logo. Swaps src on existing markup
- * while ensuring width & height attributes are explicitly output to prevent CLS.
- */
 if ( ! function_exists( __NAMESPACE__ . '\filter_site_logo_block_fallback' ) ) {
+
+	/**
+	 * 2C. THE SITE LOGO BLOCK INTERCEPT
+	 * Intercepts Core Site Logo block rendering to supply fallback logo markup.
+	 *
+	 * @package NicheWP
+	 * @param string               $block_content Rendered HTML output of the Site Logo
+	 * 		block.
+	 * @param array<string, mixed> $block         Block configuration and attributes
+	 * 		array.
+	 * @return string Filtered Site Logo block HTML output.
+	 */
 	function filter_site_logo_block_fallback( $block_content, $block ) {
 		$force_override = defined( 'FORCE_DEFAULT_SITE_LOGO' ) && FORCE_DEFAULT_SITE_LOGO;
 
@@ -476,11 +529,17 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_site_logo_block_fallback' ) ) {
 	add_filter( 'render_block_core/site-logo', __NAMESPACE__ . '\filter_site_logo_block_fallback', 10, 2 );
 }
 
-/**
- * 2D. THE LEGACY CUSTOM LOGO INTERCEPT
- * Governed strictly by FORCE_DEFAULT_SITE_LOGO or missing custom logo.
- */
 if ( ! function_exists( __NAMESPACE__ . '\filter_get_custom_logo_fallback' ) ) {
+
+	/**
+	 * 2D. THE LEGACY CUSTOM LOGO INTERCEPT
+	 * Intercepts legacy get_custom_logo HTML output to supply fallback site logo.
+	 *
+	 * @package NicheWP
+	 * @param string   $html    Existing custom logo HTML string.
+	 * @param int|null $blog_id Optional blog ID context.
+	 * @return string Filtered logo HTML string.
+	 */
 	function filter_get_custom_logo_fallback( $html, $blog_id = null ) {
 		$force_override = defined( 'FORCE_DEFAULT_SITE_LOGO' ) && FORCE_DEFAULT_SITE_LOGO;
 
@@ -526,10 +585,15 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_get_custom_logo_fallback' ) ) {
 	add_filter( 'get_custom_logo', __NAMESPACE__ . '\filter_get_custom_logo_fallback', 10, 2 );
 }
 
-/**
- * Helper: Dynamically resolves width and height for standard or custom registered image sizes.
- */
 if ( ! function_exists( __NAMESPACE__ . '\get_registered_image_size_dimensions' ) ) {
+
+	/**
+	 * Helper function to resolve pixel dimensions for standard or custom image sizes.
+	 *
+	 * @package NicheWP
+	 * @param string|int[] $size Registered image size slug string or array of dimensions.
+	 * @return array{width: int, height: int} Resolved width and height dimension array.
+	 */
 	function get_registered_image_size_dimensions( $size ) {
 		if ( is_array( $size ) ) {
 			return [
@@ -559,10 +623,20 @@ if ( ! function_exists( __NAMESPACE__ . '\get_registered_image_size_dimensions' 
 	}
 }
 
-/**
- * 3. THE POST THUMBNAIL / FEATURED IMAGE INTERCEPT
- */
 if ( ! function_exists( __NAMESPACE__ . '\filter_legacy_post_thumbnail_html' ) ) {
+
+	/**
+	 * 3. THE POST THUMBNAIL / FEATURED IMAGE INTERCEPT
+	 * Intercepts post_thumbnail_html to output fallback featured images for posts missing thumbnails.
+	 *
+	 * @package NicheWP
+	 * @param string               $html              Existing post thumbnail HTML output.
+	 * @param int                  $pid               Post ID context.
+	 * @param int                  $post_thumbnail_id Attachment ID of the thumbnail.
+	 * @param string|int[]         $size              Requested image size slug or array.
+	 * @param array<string, mixed> $attr              Attributes array for the img tag.
+	 * @return string Filtered post thumbnail HTML markup.
+	 */
 	function filter_legacy_post_thumbnail_html( $html, $pid, $post_thumbnail_id, $size, $attr ) {
 		$force_override = defined( 'FORCE_DEFAULT_IMAGE' ) && FORCE_DEFAULT_IMAGE;
 
@@ -629,10 +703,18 @@ if ( ! function_exists( __NAMESPACE__ . '\filter_legacy_post_thumbnail_html' ) )
 	add_filter( 'post_thumbnail_html', __NAMESPACE__ . '\filter_legacy_post_thumbnail_html', 10, 5 );
 }
 
-/**
- * 4. FORCE TRUE FOR WRAPPERS CONSISTENCY
- */
 if ( ! function_exists( __NAMESPACE__ . '\has_post_thumbnail_fallback' ) ) {
+	
+	/**
+	 * 4. FORCE TRUE FOR WRAPPERS CONSISTENCY
+	 * Forces has_post_thumbnail to return true so theme wrappers always render fallback markup.
+	 *
+	 * @package NicheWP
+	 * @param bool     $has_thumbnail Existing has_thumbnail check result.
+	 * @param \WP_Post $post          Post object being evaluated.
+	 * @param int      $thumbnail_id  Thumbnail attachment ID.
+	 * @return bool Always true to enable fallback rendering.
+	 */
 	function has_post_thumbnail_fallback( $has_thumbnail, $post, $thumbnail_id ) {
 		return true;
 	}

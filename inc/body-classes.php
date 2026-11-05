@@ -30,7 +30,8 @@ const TRANSIENT_PREFIX = 'xs_theme_meta_';
 /**
  * Returns a transient key dynamically scoped to the current theme/child-theme slug.
  * 
- * @return string	WordPress Transient Database Key (Prefix + Theme Slug)
+ * @package NicheWP
+ * @return string WordPress Transient Database Key (Prefix + Theme Slug)
  */
 function get_transient_key() {
 	return TRANSIENT_PREFIX . get_stylesheet();
@@ -74,6 +75,12 @@ function hsl_to_rgb( $h, $s, $l ) {
 
 /**
  * Helper function for HSL conversion steps.
+ *
+ * @package NicheWP
+ * @param float|int $p First color helper value.
+ * @param float|int $q Second color helper value.
+ * @param float|int $t Channel tint/hue component value.
+ * @return float|int Calculated RGB color component.
  */
 function hue_to_rgb( $p, $q, $t ) {
 	if ( $t < 0 ) { $t += 1; }
@@ -85,7 +92,14 @@ function hue_to_rgb( $p, $q, $t ) {
 }
 
 if ( ! function_exists( __NAMESPACE__ . '\add_body_classes' ) ) :
- 
+
+	/**
+	 * Appends dynamic canvas luminance, theme mode, and color scheme variant classes to the body class array.
+	 *
+	 * @package NicheWP
+	 * @param array $classes Array of existing body class names.
+	 * @return array Array of modified body class names.
+	 */
 	function add_body_classes( $classes ) {
 		// DEVELOPER SWITCH: Set to true during active styling tests to bypass transient cache
 		$bypass_cache = false; 
@@ -186,6 +200,13 @@ add_action( 'clean_theme_cache', __NAMESPACE__ . '\clear_lightness_transient' );
 add_action( 'save_post_wp_global_styles', __NAMESPACE__ . '\clear_lightness_transient' );
 
 if ( ! function_exists( __NAMESPACE__ . '\clear_lightness_transient' ) ) :
+
+	/**
+	 * Clears the lightness transient metadata cache for the active theme.
+	 *
+	 * @package NicheWP
+	 * @return void
+	 */
 	function clear_lightness_transient() {
 		delete_transient( get_transient_key() );
 	}

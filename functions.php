@@ -17,6 +17,9 @@ if ( ! function_exists( 'lumina_theme_support' ) ) :
 
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * @package lumina
+	 * @return void
 	 */
 	function lumina_theme_support() {
 
@@ -95,6 +98,7 @@ if ( ! function_exists( 'lumina_load_styles' ) ) :
 	 * Enqueues core styles, theme mode variations, interactive scripts, and versioned
 	 * assets.
 	 *
+	 * @package lumina
 	 * @return void
 	 */
 	function lumina_load_styles() {
@@ -156,6 +160,9 @@ if ( ! function_exists( 'lumina_load_block_styles' ) ) :
 
 	/**
 	 * Load INDIVIDUAL Block CSS styles on 'init' (Applies to Front-End and Editor)
+	 *
+	 * @package lumina
+	 * @return void
 	 */
 	function lumina_load_block_styles() {
 
@@ -222,6 +229,10 @@ if ( ! function_exists( 'lumina_template_part_areas' ) ) :
 
 	/**
 	 * Custom Template Part Areas
+	 *
+	 * @package lumina
+	 * @param array $areas Existing template part areas.
+	 * @return array Modified template part areas.
 	 */
 	function lumina_template_part_areas( array $areas ) {
 
@@ -258,6 +269,10 @@ if ( ! function_exists( 'lumina_image_sizes' ) ) :
 
 	/**
 	 * Image Size Chooser Options
+	 *
+	 * @package lumina
+	 * @param array $sizes Existing image sizes.
+	 * @return array Merged image sizes.
 	 */
 	function lumina_image_sizes( $sizes ) {
 		return array_merge( $sizes, array(
@@ -277,6 +292,9 @@ if ( ! function_exists( 'lumina_body_open' ) && ! is_child_theme() ):
 
 	/**
 	 * Anchor Tags for Scroll-To-Top
+	 *
+	 * @package lumina
+	 * @return void
 	 */
 	function lumina_body_open() { 
 		echo '<a id="page"></a><a id="wrapper"></a>'; 
@@ -301,6 +319,11 @@ if ( ! function_exists( 'lumina_enqueue_style' ) ) :
 	/**
 	 * Helper utility function to enqueue CSS styles with asset file versions
 	 * Accepts a relative theme path (e.g. 'assets/css/theme-styles.css')
+	 *
+	 * @package lumina
+	 * @param string $relative_path Relative path to CSS file.
+	 * @param array  $custom_deps   Optional custom dependencies.
+	 * @return void
 	 */
 	function lumina_enqueue_style( $relative_path, $custom_deps = array() ) {
 
@@ -341,6 +364,9 @@ if ( ! function_exists( 'lumina_get_active_theme_mode' ) ) :
 	/**
 	 * Detect active theme canvas mode ('dark' vs 'light') from global settings or
 	 * calculated luminance.
+	 *
+	 * @package lumina
+	 * @return string Active theme mode ('dark' or 'light').
 	 */
 	function lumina_get_active_theme_mode() {
 
