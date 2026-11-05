@@ -1,29 +1,76 @@
-/*--------------------------------------------------------------
-# LUMINA Heading & Text Block Styles (Global Space)
---------------------------------------------------------------*/
+/* ==========================================================================
+   LUMINA HEADING & TEXT BLOCK STYLES
+   ========================================================================== */
 
-/*--------------------------------------------------------------
-## Custom: Heading w/Separator (Native Block & Flex Edition)
---------------------------------------------------------------*/
+////
+/// @group Heading Styles
+////
 
+/* --------------------------------------------------------------------------
+   01. HEADING SEPARATOR CONFIGURATION
+   -------------------------------------------------------------------------- */
+
+/// Primary separator line color
+///
+/// @group Heading Styles
+/// @type String
 $sep-color: var(--wp--custom--color--heading--separator, var(--wp--preset--color--tertiary));
 
+/// Secondary separator line color
+///
+/// @group Heading Styles
+/// @type String
 $sep-color-2: var(--wp--custom--color--heading--separator2, var(--wp--preset--color--secondary));
 
+/// Tertiary / Neutral separator line color
+///
+/// @group Heading Styles
+/// @type String
 $sep-color-3: var(--wp--custom--color--heading--separator3, var(--wp--preset--color--neutral));
 
+/// Map binding heading separator class variations to color variables
+///
+/// @group Heading Styles
+/// @type Map
 $separators: (
     '.is-style-separator': $sep-color,
     '.is-style-separator-2': $sep-color-2,
     '.is-style-separator-3': $sep-color-3,
 );
 
+/// Line thickness height for heading separators
+///
+/// @group Heading Styles
+/// @type Number
 $sep-height: 3px;
+
+/// Width calculation for heading separators
+///
+/// @group Heading Styles
+/// @type String
 $sep-width: calc(10 * var(--wp--style--block-gap));
 
-$sep-top: var(--wp--preset--spacing--20);      // Space between heading text baseline and line
-$sep-top-flex: var(--wp--preset--spacing--30); // Clearance gap below flex group content
-$sep-bottom: var(--wp--preset--spacing--30);   // Space between line and next block
+/// Space between heading baseline and separator line in block layout
+///
+/// @group Heading Styles
+/// @type String
+$sep-top: var(--wp--preset--spacing--20);
+
+/// Clearance gap below flex group content for separators
+///
+/// @group Heading Styles
+/// @type String
+$sep-top-flex: var(--wp--preset--spacing--30);
+
+/// Space between separator line and next block element
+///
+/// @group Heading Styles
+/// @type String
+$sep-bottom: var(--wp--preset--spacing--30);
+
+/* --------------------------------------------------------------------------
+   02. HEADING SEPARATOR RULES
+   -------------------------------------------------------------------------- */
 
 @each $separator, $color in $separators {
     #{$separator} {
@@ -88,10 +135,14 @@ $sep-bottom: var(--wp--preset--spacing--30);   // Space between line and next bl
     }
 }
 
-/*--------------------------------------------------------------
-## Custom Heading Link Animation (Responsive & Mobile-Locked)
---------------------------------------------------------------*/
+/* --------------------------------------------------------------------------
+   03. HEADING LINK ANIMATION CONFIGURATION
+   -------------------------------------------------------------------------- */
 
+/// List of selector strings targeted for animated underline heading links
+///
+/// @group Heading Styles
+/// @type List
 $heading-links: (
     '.wp-block-heading a',
     '.wp-block-site-title a',
@@ -99,9 +150,27 @@ $heading-links: (
     '.wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title'
 );
 
+/// Underline height thickness for heading link animation
+///
+/// @group Heading Styles
+/// @type Number
 $link-height: 2px;
+
+/// Underline baseline offset space for heading links
+///
+/// @group Heading Styles
+/// @type String
 $link-offset: var(--wp--custom--link--offset, 0.1em);
+
+/// Underline accent color for heading link animation
+///
+/// @group Heading Styles
+/// @type String
 $link-color: var(--wp--custom--color--heading--separator, var(--wp--preset--color--primary));
+
+/* --------------------------------------------------------------------------
+   04. HEADING LINK ANIMATION RULES
+   -------------------------------------------------------------------------- */
 
 @each $link in $heading-links {
     #{$link} {

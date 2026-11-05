@@ -2,40 +2,152 @@
    FEATURED HERO PAN & ZOOM (CINEMATIC CAMERA SLIDER ENGINE)
    ========================================================================== */
 
-// 1. Desktop Standard Motion Variables
-$pan-duration:              10s !default; //8s !default;
+////
+/// @group Motion Engine
+////
+
+/* --------------------------------------------------------------------------
+   00. DESKTOP & GLOBAL MOTION TOKENS
+   -------------------------------------------------------------------------- */
+
+/// Standard desktop animation loop duration
+///
+/// @group Motion Engine
+/// @type Number
+$pan-duration:              10s !default;
+
+/// Standard motion timing function easing curve
+///
+/// @group Motion Engine
+/// @type String
 $pan-easing:                cubic-bezier(0.42, 0, 0.58, 1) !default;
-$pan-scale-start:           1.15 !default;  // Resting camera zoom
-$pan-scale-end:             1.32 !default;  // Max camera push-in depth
-$pan-shift-x:               3.5% !default;  // Horizontal dolly travel
-$pan-shift-y:               2.5% !default;  // Vertical jib travel
 
-// 2. Experimental Light Engine Toggle
-// Set to true to test CSS brightness filter (may cause WebKit paint leaks/jerks over time)
-// Set to false for 0-paint pure GPU transform engine
+/// Resting camera scale zoom factor at keyframe 0%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-scale-start:           1.15 !default;
+
+/// Max camera push-in depth scale factor at keyframe 100%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-scale-end:             1.32 !default;
+
+/// Horizontal dolly travel translation offset
+///
+/// @group Motion Engine
+/// @type Number
+$pan-shift-x:               3.5% !default;
+
+/// Vertical jib travel translation offset
+///
+/// @group Motion Engine
+/// @type Number
+$pan-shift-y:               2.5% !default;
+
+/// Toggle for CSS brightness filter engine versus pure 0-paint GPU transform engine
+///
+/// @group Motion Engine
+/// @type Boolean
 $pan-use-filter-brightness: false !default;
-$pan-light-start:           1.00 !default;  // Base light
-$pan-light-end:             1.10 !default;  // Subtle highlight as camera moves in
 
-// 3. Mobile Motion Variables (<= 781px)
-$pan-mobile-duration:       6.6s !default; // 5.5s !default; 
-$pan-mobile-scale-0:        1.25 !default; 
-$pan-mobile-scale-50:       1.42 !default; 
-$pan-mobile-scale-100:      1.28 !default; 
+/// Base light level brightness factor at keyframe 0%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-light-start:           1.00 !default;
 
-// 4. Slim & Ultra-Wide Motion Variables (Shallow Viewports)
-$pan-slim-duration:         6.2s !default; 
-$pan-slim-scale-start:      1.18 !default; //1.12 !default; 
-$pan-slim-scale-end:        1.26 !default; 
-$pan-slim-shift-x:          4.5% !default; 
-$pan-slim-shift-y:          7.2% !default; 
+/// Subtle highlight brightness factor at keyframe 100%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-light-end:             1.10 !default;
 
-// 5. Motion Icon Path
+/* --------------------------------------------------------------------------
+   01. RESPONSIVE & SHALLOW VIEWPORT TOKENS
+   -------------------------------------------------------------------------- */
+
+/// Mobile viewport animation loop duration (<= 781px)
+///
+/// @group Motion Engine
+/// @type Number
+$pan-mobile-duration:       6.6s !default;
+
+/// Mobile camera scale factor at keyframe 0%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-mobile-scale-0:        1.25 !default;
+
+/// Mobile camera scale factor at keyframe 50%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-mobile-scale-50:       1.42 !default;
+
+/// Mobile camera scale factor at keyframe 100%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-mobile-scale-100:      1.28 !default;
+
+/// Shallow / ultrawide viewport animation loop duration
+///
+/// @group Motion Engine
+/// @type Number
+$pan-slim-duration:         6.2s !default;
+
+/// Shallow viewport camera scale factor at keyframe 0%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-slim-scale-start:      1.18 !default;
+
+/// Shallow viewport camera scale factor at keyframe 100%
+///
+/// @group Motion Engine
+/// @type Number
+$pan-slim-scale-end:        1.26 !default;
+
+/// Shallow viewport horizontal dolly travel translation offset
+///
+/// @group Motion Engine
+/// @type Number
+$pan-slim-shift-x:          4.5% !default;
+
+/// Shallow viewport vertical jib travel translation offset
+///
+/// @group Motion Engine
+/// @type Number
+$pan-slim-shift-y:          7.2% !default;
+
+/// Path reference to motion badge indicator SVG icon
+///
+/// @group Motion Engine
+/// @type String
 $pan-motion-icon:           '../icons/theme/motion.svg' !default;
 
-// 6. Theme JSON Custom Motion Multipliers
+/* --------------------------------------------------------------------------
+   02. THEME JSON MULTIPLIER BINDINGS
+   -------------------------------------------------------------------------- */
+
+/// CSS custom property multiplier for pan translation intensity
+///
+/// @group Motion Engine
+/// @type String
 $var-pan:      var(--wp--custom--animation--motion--pan-intensity, 1);
+
+/// CSS custom property multiplier for zoom scale intensity
+///
+/// @group Motion Engine
+/// @type String
 $var-zoom:     var(--wp--custom--animation--motion--zoom-intensity, 1);
+
+/// CSS custom property multiplier for motion duration factor
+///
+/// @group Motion Engine
+/// @type String
 $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 
 /* ==========================================================================
@@ -46,7 +158,7 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 	0% {
 		transform: translate3d(
 			calc(-1 * #{$pan-shift-x} * #{$var-pan}), 
-			calc(-1 * #{$pan-shift-y} * #{$var-pan}), // Changed from + to - (Top-Left start)
+			calc(-1 * #{$pan-shift-y} * #{$var-pan}),
 			0
 		) scale(calc(1 + (#{$pan-scale-start} - 1) * #{$var-zoom}));
 		@if $pan-use-filter-brightness {
@@ -56,7 +168,7 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 	100% {
 		transform: translate3d(
 			calc(#{$pan-shift-x} * #{$var-pan}), 
-			calc(#{$pan-shift-y} * #{$var-pan}),     // Changed from - to + (Bottom-Right end)
+			calc(#{$pan-shift-y} * #{$var-pan}),
 			0
 		) scale(calc(1 + (#{$pan-scale-end} - 1) * #{$var-zoom}));
 		@if $pan-use-filter-brightness {
@@ -130,7 +242,7 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 	overflow: hidden;
 	border-radius: var(--wp--preset--border-radius--lg, 16px);
 
-	// Strip border-radius if the block itself OR any parent container (group / template-part) is alignfull
+	// Strip border-radius if the block itself OR any parent container is alignfull
 	&.alignfull,
 	.alignfull > & {
 		border: none !important;
@@ -149,11 +261,6 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 		position: relative;
 		overflow: hidden;
 	}
-
-// 	&.is-image-fill-element > .wp-block-media-text__content {
-// 		padding-left: 0 !important;
-// 		padding-right: 0 !important;
-// 	}
 }
 
 .wp-block-media-text:not(.is-image-fill-element):is(.is-style-pan-zoom, .is-style-pan-zoom-hover) .wp-block-media-text__media {
@@ -199,12 +306,14 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 	}
 }
 
-
 /* ==========================================================================
    HOVER / TAP MOTION MODIFIER (.is-style-pan-zoom-hover)
    ========================================================================== */
 
-// Local Badge Sizing Configuration (Can match $overlay-badge-size in _05-global)
+/// Badge icon size diameter token
+///
+/// @group Motion Engine
+/// @type Number
 $overlay-badge-size: 28px !default;
 
 .is-style-pan-zoom-hover {
@@ -216,7 +325,6 @@ $overlay-badge-size: 28px !default;
 	img,
 	.wp-block-cover__image-background {
 		animation-play-state: paused !important;
-// 		transform-style: preserve-3d;
 		backface-visibility: hidden;
 	}
 
@@ -259,15 +367,9 @@ $overlay-badge-size: 28px !default;
 		color: var(--wp--preset--color--base, #ffffff);
 		background-color: currentColor;
 
-// 		-webkit-mask-image: url($pan-motion-icon);
 		mask-image: url($pan-motion-icon);
-		
-		// 60% Optical Fill Calculation relative to badge diameter
-// 		-webkit-mask-size: calc(#{$overlay-badge-size} * 0.6);
 		mask-size: calc(#{$overlay-badge-size} * 0.6);
-// 		-webkit-mask-repeat: no-repeat;
 		mask-repeat: no-repeat;
-// 		-webkit-mask-position: center;
 		mask-position: center;
 	}
 
@@ -304,7 +406,10 @@ $overlay-badge-size: 28px !default;
    SHALLOW VIEWPORT DYNAMIC SCALE FLOOR ENGINE
    ========================================================================== */
 
-// Calculates the exact minimum scale required to cover the requested Y-shift + 2% buffer
+/// Dynamically calculated scale floor required to cover Y-shift + buffer in shallow viewports
+///
+/// @group Motion Engine
+/// @type String
 $slim-scale-floor: calc(1 + max(2 * #{$pan-slim-shift-y} * #{$var-pan} + 0.02, (#{$pan-slim-scale-start} - 1) * #{$var-zoom}));
 
 :is(.is-style-pan-zoom, .is-style-pan-zoom-hover):is(
@@ -328,7 +433,6 @@ $slim-scale-floor: calc(1 + max(2 * #{$pan-slim-shift-y} * #{$var-pan} + 0.02, (
 		animation-name: luminaPanZoomSlimLoop;
 		animation-duration: calc(#{$pan-slim-duration} * #{$var-duration});
 		
-		// Dynamically scales the image UP if --pan-intensity increases in theme.json
 		transform: translate3d(
 			calc(-1 * #{$pan-slim-shift-x} * #{$var-pan}), 
 			calc(-1 * #{$pan-slim-shift-y} * #{$var-pan}), 

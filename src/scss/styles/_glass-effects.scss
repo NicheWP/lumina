@@ -2,42 +2,84 @@
    LUMINA GLASS ENGINE: Glass & Specular Overlay Engine
    ========================================================================== */
 
-// /* --------------------------------------------------------------------------
-//    00. CONFIG & TOKENS (SCSS and theme.json Driven)
-//    -------------------------------------------------------------------------- */
+////
+/// @group Glass Engine
+////
 
-// 1. Theme.json Tint Tokens
-// Default accent tint for uncolored glass blocks
+/* --------------------------------------------------------------------------
+   00. CONFIG & TOKENS (SCSS and theme.json Driven)
+   -------------------------------------------------------------------------- */
+
+/// Default accent tint for uncolored glass blocks
+///
+/// @group Glass Engine
+/// @type String
 $glass-tint-default:        var(--wp--custom--color--opacity--tint-color, var(--wp--preset--color--secondary)) !default;
 
-// Button fallback tint
+/// Button fallback tint
+///
+/// @group Glass Engine
+/// @type String
 $glass-tint-button-default: var(--wp--custom--color--button--background, var(--wp--preset--color--primary)) !default;
 
-// Standard glass uses base color so it flips to dark charcoal in dark mode
+/// Standard glass tint primitive (flips to dark charcoal in dark mode)
+///
+/// @group Glass Engine
+/// @type String
 $glass-tint-standard:       var(--wp--custom--color--opacity--tint, var(--wp--preset--color--base)) !default;
 
-// Frosted glass uses white so it remains frosted across all color schemes
+/// Frosted glass tint primitive (white tone remains frosted across color schemes)
+///
+/// @group Glass Engine
+/// @type String
 $glass-tint-frosted:        var(--wp--custom--color--opacity--tint-frosted, white) !default;
 
-// Dark glass uses contrast color so it flips to light in dark mode schemes
+/// Dark glass tint primitive (contrast color flips to light in dark mode schemes)
+///
+/// @group Glass Engine
+/// @type String
 $glass-tint-dark:           var(--wp--custom--color--opacity--tint-dark, var(--wp--preset--color--contrast)) !default;
 
-// 2. Theme.json Blur Tokens
+/// Standard glass backdrop filter blur definition
+///
+/// @group Glass Engine
+/// @type String
 $glass-blur-standard:       var(--wp--custom--color--opacity--blur, blur(6px)) !default;
+
+/// Dense glass backdrop filter blur definition
+///
+/// @group Glass Engine
+/// @type String
 $glass-blur-dense:          var(--wp--custom--color--opacity--blur-dense, blur(10px)) !default;
 
-// 3. Optical Wash & Rim Tokens (Derived Inset & Specular Shadows)
+/// Derived inset border box-shadow token
+///
+/// @group Glass Engine
+/// @type String
 $glass-border-inset:        inset 0 1px 0 0 color-mix(in srgb, var(--wp--preset--color--base) var(--wp--custom--color--opacity--subtle, 12%), transparent) !default;
 
+/// Derived light wash specular overlay color-mix token
+///
+/// @group Glass Engine
+/// @type String
 $glass-wash-overlay:        color-mix(in srgb, white var(--wp--custom--color--opacity--subtle, 12%), transparent) !default;
 
+/// Derived dark wash specular overlay color-mix token
+///
+/// @group Glass Engine
+/// @type String
 $glass-wash-dark-overlay:   color-mix(in srgb, #{$glass-tint-dark} var(--wp--custom--color--opacity--emphasis, 20%), transparent) !default;
 
+/// Combined specular rim and edge refraction box-shadow token
+///
+/// @group Glass Engine
+/// @type String
 $glass-rim-overlay:         inset 1px 1px 1px 0 #{$glass-wash-overlay}, inset -1px -1px 1px 0 color-mix(in srgb, white var(--wp--custom--color--opacity--faint, 6%), transparent) !default;
 
 /* --------------------------------------------------------------------------
    01. GLASS CONTAINERS (Groups, Columns, Covers, Headers)
    -------------------------------------------------------------------------- */
+
 [class*='is-style-glass']:not(.wp-block-button) {
 	position: relative;
 	isolation: isolate;
@@ -51,9 +93,6 @@ $glass-rim-overlay:         inset 1px 1px 1px 0 #{$glass-wash-overlay}, inset -1
 	// Replace outside border with inset shadow border
 	border: none !important; 
 	box-shadow: #{$glass-border-inset};
-
-	// Wipe any background color
-// 	background: transparent !important;
 
 	// Default primary tint glass
 	&::before {
@@ -83,7 +122,6 @@ $glass-rim-overlay:         inset 1px 1px 1px 0 #{$glass-wash-overlay}, inset -1
 	}
 
 	// If glass on colored background or cover image, then use clear glass instead
-//     :is(.has-background, .wp-block-cover, [class*='is-style-glass']) &.is-style-glass,
     :is(.has-background, .wp-block-cover) &.is-style-glass,
     &.is-style-glass:is(.has-background, .wp-block-cover) {
     
@@ -126,8 +164,6 @@ $glass-rim-overlay:         inset 1px 1px 1px 0 #{$glass-wash-overlay}, inset -1
    02. GLASS BUTTONS
    -------------------------------------------------------------------------- */
 
-// Inner Button Link Surface
-// [class*='is-style-glass']:not(.wp-block-button),
 [class*='is-style-glass'].wp-block-button > :is(.wp-element-button, .wp-block-button__link) {
 	position: relative;
 	isolation: isolate;
@@ -176,10 +212,9 @@ $glass-rim-overlay:         inset 1px 1px 1px 0 #{$glass-wash-overlay}, inset -1
 	}
 }
 
-//* --------------------------------------------------------------------------
-//    CONTEXTUAL OVERRIDES: Shift Button Glass Tints on Colored/Glass Canvases
-//    Triggers when sitting inside a Cover block, colored section, or glass container
-//    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   03. CONTEXTUAL BUTTON OVERRIDES
+   -------------------------------------------------------------------------- */
 
 $glass-context-parents: ":is(.has-background, .wp-block-cover, [class*='is-style-glass'])";
 

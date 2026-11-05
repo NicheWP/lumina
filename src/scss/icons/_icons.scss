@@ -1,11 +1,21 @@
-//------------------------------------------------------------------------------
-// SVG Icon Mixins
-//------------------------------------------------------------------------------
+/* ==========================================================================
+   SVG ICON MIXINS
+   ========================================================================== */
+
+////
+/// @group Icons
+////
 
 // Load string functions
 @use "sass:string";
 
-// Assign SVG attributes to ::before or ::after
+/* -----------------------------------------------------------------------------
+   ICON PLACEHOLDERS
+   -------------------------------------------------------------------------- */
+
+/// Shared base properties for SVG mask-image icon pseudo-elements.
+///
+/// @group Icons
 %icon-pseudo {
 	content: '';
 	display: inline-block;
@@ -21,14 +31,19 @@
 	mask-position: center;
 }
 
-// SVG Icon Mixin: Adds SVG icon to a block and/or its links
-//
-// @class		string	CSS class to add icon. e.g. wp-block-post-date
-// @icon		string	Icon slug. e.g. ('calendar-alt', 'category')
-// @location	string	Either 'before' or 'after'
-// @link		bool	Add icon to link or the element itself
-// @margin		bool	Add margin before or after
-//
+/* -----------------------------------------------------------------------------
+   ICON GENERATOR MIXINS
+   -------------------------------------------------------------------------- */
+
+/// Adds an SVG icon mask image to a CSS class selector or its nested link tag.
+///
+/// @group Icons
+/// @param {String} $class - Target CSS class selector (e.g. 'wp-block-post-date')
+/// @param {String} $icon - Icon slug identifier (e.g. 'calendar-alt', 'category')
+/// @param {String} $location - Pseudo-element location ('before' or 'after')
+/// @param {Boolean} $link [false] - Whether to apply icon to nested link element
+/// @param {Boolean} $margin [true] - Whether to add margin spacing before/after icon
+/// @output Generates pseudo-element mask-image rules and optional inline spacing
 @mixin svg-icon(
 	$class,
 	$icon,
@@ -44,10 +59,6 @@
 	}		
 
 	// Determine the SVG Icon path. Note: include trailing slash.
-// 	$path: '../icons/';
-// 	@if ( string.index($class, 'wp-block-') ) {
-// 		$path: '../../icons/';
-// 	}
 	$path: '../../icons/theme/';
 
 	// Add the ::before or ::after styles, the SVG Icon, and optionally margin
@@ -66,13 +77,14 @@
 	}
 }
 
-// SVG Icons Mixin: Adds SVG icons to multiple CSS classes and optional aliases
-//
-// @param $icons     list|string  Array or single icon slug. e.g. ('calendar-alt', 'category')
-// @param $location  string       Pseudo location: 'before' or 'after'
-// @param $link      bool         Whether icon applies to an <a> tag
-// @param $aliases   list|string  Class suffix(es) or alias slug(s). e.g. '-no-text' or ('-no-text', '-compact', 'custom-icon')
-//
+/// Batch generates SVG icon block styles across multiple CSS classes and optional aliases.
+///
+/// @group Icons
+/// @param {List|String} $icons - Single icon slug or list of slugs (e.g. 'calendar-alt', 'category')
+/// @param {String} $location - Pseudo-element location ('before' or 'after')
+/// @param {Boolean} $link [false] - Whether icon applies to an <a> link tag
+/// @param {List|String} $aliases [null] - Class suffix(es) or alias slug(s) (e.g. '-no-text')
+/// @output Iterates icon list and generates corresponding svg-icon mixin rules
 @mixin svg-icons(
 	$icons,
 	$location,
