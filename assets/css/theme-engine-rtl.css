@@ -186,7 +186,6 @@
   :root {
     --wp--custom--animation--duration--short: 400ms;
     --wp--custom--animation--duration--medium: 800ms;
-    --wp--custom--animation--duration--normal: 1000ms;
     --wp--custom--animation--default--hover-transform: scale(1.01);
     --wp--custom--animation--button--hover-transform: scale(1.01);
     --wp--custom--animation--card--hover-transform: translateY(-1px);
@@ -238,7 +237,6 @@ a > .avatar {
   transform: scale(0.65);
   transition: opacity var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1), transform var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1), visibility var(--wp--custom--animation--duration--short, 250ms);
   box-shadow: var(--wp--custom--color--shadow--default, var(--wp--preset--shadow--natural, 1px 4px 8px rgba(42, 50, 61, 0.14), 1px 2px 3px rgba(42, 50, 61, 0.08)));
-  /* --- TOOLTIP TEXT BUBBLE (::before) --- */
 }
 .lumina-card-arrow-overlay::before {
   position: absolute;
@@ -261,9 +259,6 @@ a > .avatar {
   z-index: 11;
   box-shadow: var(--wp--custom--color--shadow--default, var(--wp--preset--shadow--natural, 1px 4px 8px rgba(42, 50, 61, 0.14), 1px 2px 3px rgba(42, 50, 61, 0.08)));
 }
-.lumina-card-arrow-overlay {
-  /* Dynamic Action Labels */
-}
 .lumina-card-arrow-overlay.lumina-action-internal::before {
   content: "View Page";
 }
@@ -275,9 +270,6 @@ a > .avatar {
 }
 .lumina-card-arrow-overlay.lumina-action-scroll-down::before {
   content: "Scroll Down";
-}
-.lumina-card-arrow-overlay {
-  /* --- SVG ICON MASK ENGINE (::after) --- */
 }
 .lumina-card-arrow-overlay::after {
   content: "";
@@ -292,9 +284,6 @@ a > .avatar {
   -webkit-mask-position: center;
           mask-position: center;
   transition: transform var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1);
-}
-.lumina-card-arrow-overlay {
-  /* SVG Mask Assignments */
 }
 .lumina-card-arrow-overlay.lumina-action-internal::after {
   -webkit-mask-image: url("../icons/theme/internal-link.svg");

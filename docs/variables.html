@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lumina Custom CSS Variables Specification</title>
+	<style>
+		:root {
+			--bg: #0f172a;
+			--card: #1e293b;
+			--border: #334155;
+			--text: #f8fafc;
+			--text-sub: #94a3b8;
+			--accent: #38bdf8;
+			--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		}
+		body { background: var(--bg); color: var(--text); font-family: var(--font); padding: 2rem; margin: 0; }
+		.container { max-width: 1400px; margin: 0 auto; }
+		header { margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+		header h1 { margin: 0 0 0.5rem 0; font-size: 2rem; }
+		header a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+		table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 8px; overflow: hidden; table-layout: fixed; }
+		th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; word-wrap: break-word; }
+		th { background: #0f172a; color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; }
+		th:nth-child(1) { width: 32%; }
+		th:nth-child(2) { width: 18%; }
+		th:nth-child(3) { width: 20%; }
+		th:nth-child(4) { width: 30%; }
+		tr:last-child td { border-bottom: none; }
+		code { background: #0f172a; color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.85rem; display: inline-block; word-break: break-all; }
+		.file-list { color: var(--text-sub); font-size: 0.85rem; line-height: 1.6; }
+		.file-list code { margin-bottom: 0.25rem; display: inline-block; color: #cbd5e1; }
+		.badge-type { display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.1rem 0.35rem; border-radius: 3px; margin-right: 0.3rem; text-transform: uppercase; }
+		.badge-scss { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+		.badge-json { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3); }
+		.badge-php { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+		.badge-html { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+		.badge-js { background: rgba(251, 191, 36, 0.15); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
+		.none-val { color: #64748b; font-style: italic; font-size: 0.85rem; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Lumina Custom CSS Variables</h1>
+			<a href="index.html">&larr; Back to Documentation Portal</a>
+		</header>
+		<table>
+			<thead>
+				<tr>
+					<th>CSS Variable Name</th>
+					<th><code>theme.json</code> Value</th>
+					<th>SCSS Fallback Value</th>
+					<th>File References</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>--wp--custom--animation--button--hover-transform</code></td>
+					<td><code>scale(1.05)</code></td>
+					<td><code>scale(1.05)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--button--transform</code></td>
+					<td><code>*(Style Variation)* none (200-tactical.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--card--hover-transform</code></td>
+					<td><code>translateY(-3px)</code></td>
+					<td><code>translateY(-3px)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--card--transform</code></td>
+					<td><code>*(Style Variation)* none (200-tactical.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--default--hover-transform</code></td>
+					<td><code>*(Style Variation)* scale(1.02) (100-gallery.json)</code></td>
+					<td><code>scale(1.05)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--default--transform</code></td>
+					<td><code>*(Style Variation)* none (200-tactical.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--duration--medium</code></td>
+					<td><code>*(Style Variation)* 800ms (100-gallery.json)</code></td>
+					<td><code>500ms</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/social-links.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_separator-styles.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div><div><span class="badge-type badge-js">JS</span><code>assets/js/smoothscroll.js</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--duration--short</code></td>
+					<td><code>*(Style Variation)* 200ms (100-gallery.json)</code></td>
+					<td><code>250ms</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/details.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_images-motion.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_inset-border.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--fill-mode</code></td>
+					<td><code>*(Style Variation)* both (100-gallery.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--image--hover-transform</code></td>
+					<td><code>translateY(-3px)</code></td>
+					<td><code>translateY(-3px)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--image--transform</code></td>
+					<td><code>*(Style Variation)* none (200-tactical.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--media-text--hover-transform</code></td>
+					<td><code>scale(1.08)</code></td>
+					<td><code>scale(1.08)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--motion--duration-factor</code></td>
+					<td><code>*(Style Variation)* 1.25 (100-gallery.json)</code></td>
+					<td><code>1</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_images-motion.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--motion--pan-intensity</code></td>
+					<td><code>*(Style Variation)* 0.85 (100-gallery.json)</code></td>
+					<td><code>1</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_images-motion.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--motion--zoom-intensity</code></td>
+					<td><code>*(Style Variation)* 0.85 (100-gallery.json)</code></td>
+					<td><code>1</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_images-motion.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--object--hover-transform</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>scale(1.03)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--animation--timing-function</code></td>
+					<td><code>*(Style Variation)* cubic-bezier(0.2, 0, 0, 1) (100-gallery.json)</code></td>
+					<td><code>cubic-bezier(0.4, 0, 0.2, 1)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_separator-styles.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--border--radius</code></td>
+					<td><code>16px</code></td>
+					<td><code>var(--wp--preset--border-radius--lg)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/022-rounded-border-code.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/030-image-border.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/040-image-border-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/gallery.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/group_headers.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/latest-posts.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/post-content.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_02-resting.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_elements.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--border--style</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>solid</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/media-text_image-border.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/video.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_images-motion.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_02-resting.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_elements.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--border--width</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>1px</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/media-text_image-border.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/video.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_images-motion.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_02-resting.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_elements.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--button--radius</code></td>
+					<td><code>var(--wp--preset--border-radius--3-xl)</code></td>
+					<td><code>var(--wp--preset--border-radius--sm, 8px)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--border</code></td>
+					<td><code>color-mix(in srgb, currentColor 15%, transparent)</code></td>
+					<td><code>color-mix(in srgb, currentColor 15%, transparent)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/020-rounded-border.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/022-rounded-border-code.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/026-rounded-border-icons.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/028-rounded-outline.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/030-image-border.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/032-image-round-border.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/040-image-border-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/042-image-pan-zoom.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/blocks/044-image-pan-zoom-hover.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/details.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/group_headers.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/latest-posts.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/media-text_image-border.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/post-content.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/video.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_images-motion.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_02-resting.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_05-global.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_elements.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_forms.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--border-hover</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>color-mix(in srgb, currentColor 28%, transparent)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_03-actions.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--button--background</code></td>
+					<td><code>var(--wp--preset--color--tertiary)</code></td>
+					<td><code>var(--wp--preset--color--primary)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/230-ember.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/320-dusk.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--button--hover-opacity</code></td>
+					<td><code>*(Style Variation)* 1 (910-lumina-default-all.json)</code></td>
+					<td><code>1</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/buttons_hover.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/details.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_03-actions.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--button--hover-tint</code></td>
+					<td><code>*(Style Variation)* 0.15 (910-lumina-default-all.json)</code></td>
+					<td><code>0.15</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/buttons_hover.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--button--text</code></td>
+					<td><code>var(--wp--preset--color--off-white)</code></td>
+					<td><code>var(--wp--preset--color--off-white)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/230-ember.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>#{$fallback}</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_00-config.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_01-logic.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_20-gradients.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--light-gray</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (410-low-tide.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--neutral</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (410-low-tide.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--neutral-alt</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (410-low-tide.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--primary</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--contrast) (510-light.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--primary-alt</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--contrast) (510-light.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--primary-subtle</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (410-low-tide.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--primary-subtle-alt</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (420-zinc.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--secondary</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--contrast) (510-light.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--secondary-alt</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--contrast) (510-light.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--secondary-subtle</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (410-low-tide.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--secondary-subtle-alt</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (420-zinc.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--tertiary</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--contrast) (510-light.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--tertiary-alt</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--contrast) (510-light.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--tertiary-subtle</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (410-low-tide.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--tertiary-subtle-alt</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (420-zinc.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--very-dark-gray</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--almost-black) (410-low-tide.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--contrast--very-light-gray</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--off-white) (410-low-tide.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--divider</code></td>
+					<td><code>color-mix(in srgb, currentColor 18%, transparent)</code></td>
+					<td><code>color-mix(in srgb, currentColor 18%, transparent)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/columns_dividers.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/latest-posts_dividers.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation_dividers.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_inset-border.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_list-dividers.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--field--outline</code></td>
+					<td><code>*(Style Variation)* color-mix(in srgb, currentColor 12%, transparent) (510-light.json)</code></td>
+					<td><code>color-mix(in srgb, currentColor 20%, transparent)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_forms.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--header--background</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>var(--wp--preset--color--base)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--heading--separator</code></td>
+					<td><code>var(--wp--preset--color--primary)</code></td>
+					<td><code>var(--wp--preset--color--tertiary)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/110-elements.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/210-heritage.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/230-ember.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/310-velvet.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/320-dusk.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_separator-styles.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--heading--separator2</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>var(--wp--preset--color--secondary)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_separator-styles.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--heading--separator3</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>var(--wp--preset--color--neutral)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_separator-styles.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--heading--text</code></td>
+					<td><code>var(--wp--preset--color--dark)</code></td>
+					<td><code>var(--wp--preset--color--dark)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/110-elements.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/210-heritage.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/230-ember.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/310-velvet.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/320-dusk.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_01-logic.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--highlight</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>var(--wp--preset--color--highlight)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_01-logic.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--highlight--darken</code></td>
+					<td><code>*(Style Variation)* brightness(0.40) saturate(1.15) (910-lumina-default-all.json)</code></td>
+					<td><code>brightness(0.40) saturate(1.15)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--highlight-alt</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>var(--wp--preset--color--highlight-alt)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_01-logic.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--highlight-alt--lighten</code></td>
+					<td><code>brightness(1.6) saturate(0.80)</code></td>
+					<td><code>brightness(1.5) saturate(0.80)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/110-elements.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/210-heritage.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/230-ember.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/310-velvet.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--image--hover-opacity</code></td>
+					<td><code>*(Style Variation)* 0.8 (510-light.json)</code></td>
+					<td><code>1</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/400-minimal.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_images-hover.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--link--hover-opacity</code></td>
+					<td><code>0.75</code></td>
+					<td><code>0.75</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/230-ember.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/310-velvet.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/details.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/utils/_icons.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--navigation--background</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--base) (910-lumina-default-all.json)</code></td>
+					<td><code>var(--wp--preset--color--base)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--navigation--background-opacity</code></td>
+					<td><code>*(Style Variation)* 100% (910-lumina-default-all.json)</code></td>
+					<td><code>100%</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--navigation--blur</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>none</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--navigation--dropdown-glass-opacity</code></td>
+					<td><code>*(Style Variation)* 95% (910-lumina-default-all.json)</code></td>
+					<td><code>95%</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--navigation--dropdown-opacity</code></td>
+					<td><code>*(Style Variation)* 100% (910-lumina-default-all.json)</code></td>
+					<td><code>100%</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--navigation--highlight</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--highlight-alt) (120-horizon.json)</code></td>
+					<td><code>var(--wp--preset--color--highlight-alt)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--navigation--hover-overlay-opacity</code></td>
+					<td><code>*(Style Variation)* 10% (910-lumina-default-all.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--navigation--text</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--contrast) (910-lumina-default-all.json)</code></td>
+					<td><code>var(--wp--preset--color--almost-black)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation_dividers.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--blur</code></td>
+					<td><code>*(Style Variation)* blur(6px) (910-lumina-default-all.json)</code></td>
+					<td><code>blur(8px)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--blur-dense</code></td>
+					<td><code>*(Style Variation)* blur(10px) (910-lumina-default-all.json)</code></td>
+					<td><code>blur(12px)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--emphasis</code></td>
+					<td><code>*(Style Variation)* 20% (910-lumina-default-all.json)</code></td>
+					<td><code>20%</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--faint</code></td>
+					<td><code>*(Style Variation)* 6% (910-lumina-default-all.json)</code></td>
+					<td><code>6%</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--muted</code></td>
+					<td><code>*(Style Variation)* 60% (910-lumina-default-all.json)</code></td>
+					<td><code>60%</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--subtle</code></td>
+					<td><code>*(Style Variation)* 12% (910-lumina-default-all.json)</code></td>
+					<td><code>12%</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--tint</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--base) (910-lumina-default-all.json)</code></td>
+					<td><code>var(--wp--preset--color--base)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--tint-color</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--secondary) (210-heritage.json)</code></td>
+					<td><code>var(--wp--preset--color--secondary)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/210-heritage.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--tint-dark</code></td>
+					<td><code>*(Style Variation)* var(--wp--preset--color--contrast) (910-lumina-default-all.json)</code></td>
+					<td><code>var(--wp--preset--color--contrast)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--opacity--tint-frosted</code></td>
+					<td><code>*(Style Variation)* white (910-lumina-default-all.json)</code></td>
+					<td><code>white</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_glass-effects.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--outline</code></td>
+					<td><code>*(Style Variation)* color-mix(in srgb, currentColor 20%, transparent) (910-lumina-default-all.json)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--overlay--background</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>var(--wp--preset--color--primary)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--overlay--hover-opacity</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>0</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--overlay--opacity</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>0.6</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--shadow--crisp</code></td>
+					<td><code>6px 16px 28px rgba(42, 50, 61, 0.22), 3px 12px 14px rgba(42, 50, 61, 0.12)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--shadow--deep</code></td>
+					<td><code>3px 8px 16px rgba(42, 50, 61, 0.20), 1px 4px 6px rgba(42, 50, 61, 0.12)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--shadow--default</code></td>
+					<td><code>*(Style Variation)* var:preset|shadow|natural (910-lumina-default-all.json)</code></td>
+					<td><code>var(--wp--preset--shadow--natural, 1px 4px 8px rgba(42, 50, 61, 0.14), 1px 2px 3px rgba(42, 50, 61, 0.08) )</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--shadow--hover</code></td>
+					<td><code>*(Style Variation)* var:preset|shadow|deep (910-lumina-default-all.json)</code></td>
+					<td><code>var(--wp--preset--shadow--deep, 3px 8px 16px rgba(42, 50, 61, 0.20), 1px 4px 6px rgba(42, 50, 61, 0.12) )</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--shadow--natural</code></td>
+					<td><code>1px 4px 8px rgba(42, 50, 61, 0.14), 1px 2px 3px rgba(42, 50, 61, 0.08)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--shadow--outline</code></td>
+					<td><code>0 0 0 2px var(--wp--preset--color--neutral-alt), 1px 4px 8px rgba(42, 50, 61, 0.14)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--shadow--sharp</code></td>
+					<td><code>4px 12px 22px rgba(42, 50, 61, 0.24), 2px 8px 10px rgba(42, 50, 61, 0.14)</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--theme--image-default</code></td>
+					<td><code>/assets/images/pages/home-hero.webp</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--theme--image-folders</code></td>
+					<td><code>['gallery-1', 'gallery-2']</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--theme--logo-default</code></td>
+					<td><code>/assets/images/logo/site-logo.webp</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-php">PHP</span><code>inc/images.php</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--theme--mode</code></td>
+					<td><code>is-light-theme</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/110-elements.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/210-heritage.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/230-ember.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/310-velvet.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/320-dusk.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-php">PHP</span><code>functions.php</code></div><div><span class="badge-type badge-php">PHP</span><code>inc/body-classes.php</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--theme--scheme</code></td>
+					<td><code>lumina</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/110-elements.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/120-horizon.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/210-heritage.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/230-ember.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/310-velvet.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/320-dusk.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/410-low-tide.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/420-zinc.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/510-light.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/910-lumina-default-all.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_500-light-SAVE-original-green-blue-gold.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-before-adding-3rd-dark-pair.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-gold-primary-before-darkening-it.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/colors/_510-light-SAVE-horizon-terracotta-blue-gold.json</code></div><div><span class="badge-type badge-php">PHP</span><code>inc/body-classes.php</code></div><div><span class="badge-type badge-php">PHP</span><code>inc/images.php</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--veil--color</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>var(--wp--preset--color--base)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--veil--hover-opacity</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>0.85</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--color--veil--opacity</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>0</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--header--height</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>77px</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/group_headers.scss</code></div><div><span class="badge-type badge-js">JS</span><code>assets/js/smoothscroll.js</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--header--offset</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>0px</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/cover.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/group_headers.scss</code></div><div><span class="badge-type badge-js">JS</span><code>assets/js/smoothscroll.js</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--image--filter</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>brightness(1)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--image--hover-filter</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>brightness(1.15)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/physics/_00-config.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--layout--full-size</code></td>
+					<td><code>1600px</code></td>
+					<td><code>1600px</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_alignments.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--link--offset</code></td>
+					<td><code>*(Style Variation)* 4px (100-gallery.json)</code></td>
+					<td><code>0.1em</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/styles/_separator-styles.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--link--position</code></td>
+					<td><code>*(Style Variation)* under (100-gallery.json)</code></td>
+					<td><code>under</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--link--special-style</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>dotted</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/colors/_01-logic.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--link--style</code></td>
+					<td><code>*(Style Variation)* solid (100-gallery.json)</code></td>
+					<td><code>solid</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--link--thickness</code></td>
+					<td><code>*(Style Variation)* 1px (100-gallery.json)</code></td>
+					<td><code>1px</code></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--navigation--width</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>260px</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--shadow--default</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>none</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/latest-posts.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/post-comments-form.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/post-featured-image.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--shadow--dropdown</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>0 12px 32px rgba(0, 0, 0, 0.12)</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--sidebar--width</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>350px</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/columns.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--spacing--gap</code></td>
+					<td><code>24px</code></td>
+					<td><span class="none-val">N/A</span></td>
+					<td class="file-list"><div><span class="badge-type badge-json">JSON</span><code>theme.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/100-gallery.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/200-tactical.json</code></div><div><span class="badge-type badge-json">JSON</span><code>styles/global/300-spacious.json</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--typography--font-weight--bold</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>400</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_elements.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--typography--font-weight--medium</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>400</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/details.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/blocks/navigation.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_buttons-links.scss</code></div></td>
+				</tr>
+				<tr>
+					<td><code>--wp--custom--typography--font-weight--normal</code></td>
+					<td><code>*Not in theme.json*</code></td>
+					<td><code>300</code></td>
+					<td class="file-list"><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/utils/_dashicons.scss</code></div><div><span class="badge-type badge-scss">SCSS</span><code>src/scss/base/_forms.scss</code></div></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

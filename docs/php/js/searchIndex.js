@@ -123,22 +123,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DEFAULT_SITE_LOGO",
             "name": "DEFAULT_SITE_LOGO",
-            "summary": "Default\u0020fallback\u0020site\u0020LOGO\u0020asset\u0020path.",
+            "summary": "Default\u0020fallback\u0020site\u0020LOGO\u0020asset\u0020PATH.",
             "url": "namespaces/default.html#constant_DEFAULT_SITE_LOGO"
         },                {
             "fqsen": "\\DEFAULT_SITE_LOGO_WIDTH",
             "name": "DEFAULT_SITE_LOGO_WIDTH",
-            "summary": "Default\u0020fallback\u0020site\u0020logo\u0020pixel\u0020width.",
+            "summary": "Default\u0020fallback\u0020site\u0020LOGO\u0020pixel\u0020WIDTH.",
             "url": "namespaces/default.html#constant_DEFAULT_SITE_LOGO_WIDTH"
         },                {
             "fqsen": "\\DEFAULT_SITE_LOGO_HEIGHT",
             "name": "DEFAULT_SITE_LOGO_HEIGHT",
-            "summary": "Default\u0020fallback\u0020site\u0020logo\u0020pixel\u0020height.",
+            "summary": "Default\u0020fallback\u0020site\u0020LOGO\u0020pixel\u0020HEIGHT.",
             "url": "namespaces/default.html#constant_DEFAULT_SITE_LOGO_HEIGHT"
         },                {
             "fqsen": "\\DEFAULT_FEATURED_IMAGE",
             "name": "DEFAULT_FEATURED_IMAGE",
-            "summary": "Default\u0020fallback\u0020featured\u0020IMAGE\u0020asset\u0020path.",
+            "summary": "Default\u0020fallback\u0020featured\u0020IMAGE\u0020asset\u0020PATH.",
             "url": "namespaces/default.html#constant_DEFAULT_FEATURED_IMAGE"
         },                {
             "fqsen": "\\NicheWP\\get_featured_image_fallback_data\u0028\u0029",

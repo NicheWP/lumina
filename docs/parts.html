@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lumina Template Parts Catalog</title>
+	<style>
+		:root {
+			--bg: #0f172a;
+			--card: #1e293b;
+			--border: #334155;
+			--text: #f8fafc;
+			--text-sub: #94a3b8;
+			--accent: #38bdf8;
+			--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		}
+		body { background: var(--bg); color: var(--text); font-family: var(--font); padding: 2rem; margin: 0; }
+		.container { max-width: 1200px; margin: 0 auto; }
+		header { margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+		header h1 { margin: 0 0 0.5rem 0; font-size: 2rem; }
+		header a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+		table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 8px; overflow: hidden; }
+		th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+		th { background: #0f172a; color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; }
+		tr:last-child td { border-bottom: none; }
+		code { background: #0f172a; color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.875rem; }
+		.badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: rgba(56,189,248,0.1); color: var(--accent); border: 1px solid rgba(56,189,248,0.2); }
+		.desc { color: var(--text-sub); font-size: 0.9rem; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Lumina Template Parts Catalog</h1>
+			<a href="index.html">&larr; Back to Documentation Portal</a>
+		</header>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Part Name</th>
+					<th>Area</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><strong>Error (404) Title</strong></td>
+					<td><code>404-title</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for the error page (404)</td>
+				</tr>
+				<tr>
+					<td><strong>About</strong></td>
+					<td><code>about-us</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">About for Footer (tagline, site description)</td>
+				</tr>
+				<tr>
+					<td><strong>Archive Title</strong></td>
+					<td><code>archive-title</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for archives (categories, tags, etc.)</td>
+				</tr>
+				<tr>
+					<td><strong>Author Bio</strong></td>
+					<td><code>author-bio</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Author avatar, name, and bio</td>
+				</tr>
+				<tr>
+					<td><strong>Page Hero Banner Media & Text</strong></td>
+					<td><code>banner-page-hero-mt</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Page hero as media & text with page title and excerpt</td>
+				</tr>
+				<tr>
+					<td><strong>Comments</strong></td>
+					<td><code>comments</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Comments list and comment form</td>
+				</tr>
+				<tr>
+					<td><strong>Contact Info</strong></td>
+					<td><code>contact-info</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Contact Info (e.g. address, phone, email)</td>
+				</tr>
+				<tr>
+					<td><strong>Article Content w/Image Left</strong></td>
+					<td><code>content-article-img-left</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Blog list article (featured image on left, title, date, and excerpt)</td>
+				</tr>
+				<tr>
+					<td><strong>Article Content w/16:9 Image</strong></td>
+					<td><code>content-article-wide</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Article content with 16:9 featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Article Content</strong></td>
+					<td><code>content-article</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Article content with image</td>
+				</tr>
+				<tr>
+					<td><strong>Content Home Top (when blog is front page)</strong></td>
+					<td><code>content-home-top</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Lumina theme content for top of the home page (when blog is front page)</td>
+				</tr>
+				<tr>
+					<td><strong>Content Sitemap</strong></td>
+					<td><code>content-sitemap</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Sitemap content (pages, categories, recent posts)</td>
+				</tr>
+				<tr>
+					<td><strong>Page Cover Image</strong></td>
+					<td><code>cover-scroll-page-header</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Page cover image with overlay page title and excerpt</td>
+				</tr>
+				<tr>
+					<td><strong>Featured Image (linked)</strong></td>
+					<td><code>featured-image-linked</code></td>
+					<td><span class="badge">image</span></td>
+					<td class="desc">Linked featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Slim Featured Image (linked)</strong></td>
+					<td><code>featured-image-slim-linked</code></td>
+					<td><span class="badge">image</span></td>
+					<td class="desc">Linked slim (16:4.5) featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Slim Featured Image</strong></td>
+					<td><code>featured-image-slim</code></td>
+					<td><span class="badge">image</span></td>
+					<td class="desc">Slim (16:4.5) featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Ultrawide Featured Image (linked)</strong></td>
+					<td><code>featured-image-ultrawide-linked</code></td>
+					<td><span class="badge">image</span></td>
+					<td class="desc">Linked ultrawide (21:9) featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Ultrawide Featured Image</strong></td>
+					<td><code>featured-image-ultrawide</code></td>
+					<td><span class="badge">image</span></td>
+					<td class="desc">Ultrawide (21:9) featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Wide Featured Image (linked)</strong></td>
+					<td><code>featured-image-wide-linked</code></td>
+					<td><span class="badge">image</span></td>
+					<td class="desc">Linked wide (16:9) featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Wide Featured Image</strong></td>
+					<td><code>featured-image-wide</code></td>
+					<td><span class="badge">image</span></td>
+					<td class="desc">Wide (16:9) featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Featured Image</strong></td>
+					<td><code>featured-image</code></td>
+					<td><span class="badge">image</span></td>
+					<td class="desc">Lumina featured image</td>
+				</tr>
+				<tr>
+					<td><strong>Footer 3 Blocks + 3 Blocks</strong></td>
+					<td><code>footer-3-blocks-nav-site-social</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Footer w/3 blocks in main footer plus 3 blocks in sub-footer</td>
+				</tr>
+				<tr>
+					<td><strong>Footer 3 Blocks</strong></td>
+					<td><code>footer-3-blocks</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Footer 3 blocks (e.g. recent posts, recent comments, about)</td>
+				</tr>
+				<tr>
+					<td><strong>Colored Footer 4 Blocks</strong></td>
+					<td><code>footer-4-blocks-colored</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Colored Footer w/4 blocks (e.g. about, 2 nav menus, and contact info)</td>
+				</tr>
+				<tr>
+					<td><strong>Dark Footer 4 Blocks</strong></td>
+					<td><code>footer-4-blocks-dark</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Dark Footer w/4 blocks (e.g. about, 2 nav menus, and contact info)</td>
+				</tr>
+				<tr>
+					<td><strong>Footer 4 Blocks</strong></td>
+					<td><code>footer-4-blocks</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Footer w/4 blocks (e.g. about, 2 nav menus, and contact info)</td>
+				</tr>
+				<tr>
+					<td><strong>Colored Footer 4 Blocks + Site Copyright</strong></td>
+					<td><code>footer-colored</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Colored Footer w/4 blocks in main footer plus site copyright in sub-footer</td>
+				</tr>
+				<tr>
+					<td><strong>Footer Compact Nav Menu & Site Info</strong></td>
+					<td><code>footer-compact-nav-site-info</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Compact footer w/nav menu, site copyright and theme info</td>
+				</tr>
+				<tr>
+					<td><strong>Colored Footer Compact 3 Blocks</strong></td>
+					<td><code>footer-compact-nav-site-social-colored</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Compact Colored footer w/3 blocks (e.g. nav menu, social icons, and site info)</td>
+				</tr>
+				<tr>
+					<td><strong>Footer Compact 3 Blocks</strong></td>
+					<td><code>footer-compact-nav-site-social</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Compact footer w/3 blocks (e.g. nav menu, social icons, and site info)</td>
+				</tr>
+				<tr>
+					<td><strong>Colored Footer Compact Site Info</strong></td>
+					<td><code>footer-compact-site-info-colored</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Colored Compact footer w/site info</td>
+				</tr>
+				<tr>
+					<td><strong>Dark Footer Compact Site Info</strong></td>
+					<td><code>footer-compact-site-info-dark</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Dark Compact footer w/site info</td>
+				</tr>
+				<tr>
+					<td><strong>Footer Compact Site Info</strong></td>
+					<td><code>footer-compact-site-info</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Compact footer w/site info</td>
+				</tr>
+				<tr>
+					<td><strong>Dark Footer 4 Blocks + Site Copyright</strong></td>
+					<td><code>footer-dark</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Dark Footer w/4 blocks in main footer plus site copyright in sub-footer</td>
+				</tr>
+				<tr>
+					<td><strong>Default Footer 4 Blocks + Site Copyright</strong></td>
+					<td><code>footer-default</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Default Footer w/4 blocks in main footer plus site copyright in sub-footer</td>
+				</tr>
+				<tr>
+					<td><strong>Footer w/Map & Contact Info</strong></td>
+					<td><code>footer-map-static</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Footer w/map and contact info</td>
+				</tr>
+				<tr>
+					<td><strong>Footer w/Site Motto + Social Icons</strong></td>
+					<td><code>footer-motto-social-icons</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Footer w/site motto and huge social icons</td>
+				</tr>
+				<tr>
+					<td><strong>Footer w/Site Motto + Social Icons + Site Info</strong></td>
+					<td><code>footer-motto-social-site</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Footer w/site motto, social icons, and site info</td>
+				</tr>
+				<tr>
+					<td><strong>Footer w/Colored Social Icons + Map & Contact Info</strong></td>
+					<td><code>footer-social-map-static</code></td>
+					<td><span class="badge">footer</span></td>
+					<td class="desc">Footer w/colored social icons plus map and contact info</td>
+				</tr>
+				<tr>
+					<td><strong>Footer Wrapper</strong></td>
+					<td><code>footer</code></td>
+					<td><span class="badge">uncategorized</span></td>
+					<td class="desc">Footer Wrapper</td>
+				</tr>
+				<tr>
+					<td><strong>Header Centered Nav Fixed</strong></td>
+					<td><code>header-centered-nav-fixed</code></td>
+					<td><span class="badge">header</span></td>
+					<td class="desc">Fixed header with centered navigation</td>
+				</tr>
+				<tr>
+					<td><strong>Colored Header Fixed</strong></td>
+					<td><code>header-colored-fixed</code></td>
+					<td><span class="badge">header</span></td>
+					<td class="desc">Colored header fixed to top (very light gray)</td>
+				</tr>
+				<tr>
+					<td><strong>Header Dark Fixed</strong></td>
+					<td><code>header-dark-fixed</code></td>
+					<td><span class="badge">header</span></td>
+					<td class="desc">Fixed dark header</td>
+				</tr>
+				<tr>
+					<td><strong>Header Fixed</strong></td>
+					<td><code>header-fixed</code></td>
+					<td><span class="badge">header</span></td>
+					<td class="desc">Fixed header</td>
+				</tr>
+				<tr>
+					<td><strong>Fluid Header</strong></td>
+					<td><code>header-fluid</code></td>
+					<td><span class="badge">header</span></td>
+					<td class="desc">Standard header that scrolls away</td>
+				</tr>
+				<tr>
+					<td><strong>Header Logo Fixed</strong></td>
+					<td><code>header-logo-fixed</code></td>
+					<td><span class="badge">header</span></td>
+					<td class="desc">Logo only fixed header</td>
+				</tr>
+				<tr>
+					<td><strong>Header Wrapper</strong></td>
+					<td><code>header</code></td>
+					<td><span class="badge">uncategorized</span></td>
+					<td class="desc">Site Header Wrapper</td>
+				</tr>
+				<tr>
+					<td><strong>Home Title</strong></td>
+					<td><code>home-title</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for the home page</td>
+				</tr>
+				<tr>
+					<td><strong>Jetpack Sharing Buttons</strong></td>
+					<td><code>jetpack-sharing</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Jetpack social sharing integration</td>
+				</tr>
+				<tr>
+					<td><strong>Page Title No Excerpt</strong></td>
+					<td><code>page-title-noexcerpt</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for pages without excerpt</td>
+				</tr>
+				<tr>
+					<td><strong>Page Title</strong></td>
+					<td><code>page-title</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for pages</td>
+				</tr>
+				<tr>
+					<td><strong>Post Meta</strong></td>
+					<td><code>post-meta</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Post meta (author, categories, and tags)</td>
+				</tr>
+				<tr>
+					<td><strong>Post Navigation</strong></td>
+					<td><code>post-navigation</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Next and previous post links</td>
+				</tr>
+				<tr>
+					<td><strong>Post Title No Meta</strong></td>
+					<td><code>post-title-nometa</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for posts without post meta</td>
+				</tr>
+				<tr>
+					<td><strong>Post Title</strong></td>
+					<td><code>post-title</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for posts</td>
+				</tr>
+				<tr>
+					<td><strong>Query Template</strong></td>
+					<td><code>query</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Query Template Part</td>
+				</tr>
+				<tr>
+					<td><strong>Search Title</strong></td>
+					<td><code>search-title</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for the search page</td>
+				</tr>
+				<tr>
+					<td><strong>Sidebar</strong></td>
+					<td><code>sidebar</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Sidebar (e.g. search, account, categories, social links)</td>
+				</tr>
+				<tr>
+					<td><strong>Site Copyright</strong></td>
+					<td><code>site-copyright</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Site copyright (© site-name)</td>
+				</tr>
+				<tr>
+					<td><strong>Sitemap Title</strong></td>
+					<td><code>sitemap-title</code></td>
+					<td><span class="badge">title</span></td>
+					<td class="desc">Title for the sitemap page</td>
+				</tr>
+				<tr>
+					<td><strong>Huge Social Icons</strong></td>
+					<td><code>social-icons-huge</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Huge social media icons (centered)</td>
+				</tr>
+				<tr>
+					<td><strong>Social Icons Monochrome</strong></td>
+					<td><code>social-icons-neutral</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Huge social media icons in neutral color</td>
+				</tr>
+				<tr>
+					<td><strong>Social Icons</strong></td>
+					<td><code>social-icons</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Social media icons with links</td>
+				</tr>
+				<tr>
+					<td><strong>Theme Tagline</strong></td>
+					<td><code>theme-tagline</code></td>
+					<td><span class="badge">content</span></td>
+					<td class="desc">Theme tagline (e.g. theme by xtremelysocial)</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -9,7 +9,6 @@
 			--bg-color: #0f172a;
 			--card-bg: #1e293b;
 			--card-border: #334155;
-			--card-hover: #475569;
 			--text-primary: #f8fafc;
 			--text-secondary: #94a3b8;
 			--accent-color: #38bdf8;
@@ -35,7 +34,7 @@
 		}
 
 		.container {
-			max-width: 1100px;
+			max-width: 1200px;
 			margin: 0 auto;
 			padding: 3rem 1.5rem;
 			width: 100%;
@@ -62,7 +61,7 @@
 
 		.grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 			gap: 1.5rem;
 		}
 
@@ -136,15 +135,6 @@
 			color: var(--text-secondary);
 			font-size: 0.875rem;
 		}
-
-		footer a {
-			color: var(--accent-color);
-			text-decoration: none;
-		}
-
-		footer a:hover {
-			text-decoration: underline;
-		}
 	</style>
 </head>
 <body>
@@ -152,11 +142,11 @@
 	<div class="container">
 		<header>
 			<h1>Lumina Theme Architecture</h1>
-			<p>Central Portal for PHP Engine, SCSS Physics, and Block Pattern Specifications</p>
+			<p>Central Portal for PHP Engine, SCSS Physics, and Block Theme Specifications</p>
 		</header>
 
 		<main class="grid">
-			<!-- PHP Engine Documentation -->
+			<!-- PHP Engine -->
 			<a href="php/index.html" class="card">
 				<div>
 					<div class="card-header">
@@ -164,44 +154,80 @@
 						<span class="badge">phpDocumentor</span>
 					</div>
 					<p class="card-body">
-						Complete API reference for layout engines, dynamic transient caching, custom icon registration, and theme hooks.
+						API reference for layout engines, dynamic transient caching, custom icon registration, and theme hooks.
 					</p>
 				</div>
-				<div class="card-link">
-					Explore PHP Docs &rarr;
-				</div>
+				<div class="card-link">Explore PHP Docs &rarr;</div>
 			</a>
 
-			<!-- SCSS Physics Engine Documentation -->
+			<!-- SCSS Physics Engine -->
 			<a href="scss/index.html" class="card">
 				<div>
 					<div class="card-header">
-						<h2 class="card-title">SCSS Physics Engine</h2>
+						<h2 class="card-title">SCSS Physics</h2>
 						<span class="badge">SassDoc</span>
 					</div>
 					<p class="card-body">
-						Catalog of SCSS physics maps, compiler functions, responsive aspect clamps, depth mixins, and registry loops.
+						Catalog of SCSS physics maps, compiler functions, responsive aspect clamps, and veto boundary loops.
 					</p>
 				</div>
-				<div class="card-link">
-					Explore SCSS Engine &rarr;
-				</div>
+				<div class="card-link">Explore SCSS Engine &rarr;</div>
 			</a>
 
-			<!-- Block Patterns Catalog -->
+			<!-- Custom JSON Variables -->
+			<a href="variables.html" class="card">
+				<div>
+					<div class="card-header">
+						<h2 class="card-title">Custom Variables</h2>
+						<span class="badge">JSON / SCSS</span>
+					</div>
+					<p class="card-body">
+						Index of all <code>--wp--custom--*</code> CSS variables, mapping <code>settings.custom</code> JSON keys to SCSS usage and fallbacks.
+					</p>
+				</div>
+				<div class="card-link">View CSS Variables &rarr;</div>
+			</a>
+
+			<!-- Block Patterns -->
 			<a href="patterns.html" class="card">
 				<div>
 					<div class="card-header">
-						<h2 class="card-title">Patterns & Parts</h2>
-						<span class="badge">HTML / MD Catalog</span>
+						<h2 class="card-title">Block Patterns</h2>
+						<span class="badge">Patterns</span>
 					</div>
 					<p class="card-body">
-						Auto-generated inventory catalog listing active Lumina Gutenberg block patterns, template parts, and category mappings.
+						Auto-generated inventory of active Lumina Gutenberg block patterns, category tags, and block types.
 					</p>
 				</div>
-				<div class="card-link">
-					View Pattern Catalog &rarr;
+				<div class="card-link">View Patterns &rarr;</div>
+			</a>
+
+			<!-- Template Parts -->
+			<a href="parts.html" class="card">
+				<div>
+					<div class="card-header">
+						<h2 class="card-title">Template Parts</h2>
+						<span class="badge">Parts</span>
+					</div>
+					<p class="card-body">
+						Catalog of structural template parts including headers, footers, sidebars, and component fragments.
+					</p>
 				</div>
+				<div class="card-link">View Parts &rarr;</div>
+			</a>
+
+			<!-- Page Templates -->
+			<a href="templates.html" class="card">
+				<div>
+					<div class="card-header">
+						<h2 class="card-title">Page Templates</h2>
+						<span class="badge">Templates</span>
+					</div>
+					<p class="card-body">
+						Inventory of core WordPress hierarchy templates and custom FSE page layout variations.
+					</p>
+				</div>
+				<div class="card-link">View Templates &rarr;</div>
 			</a>
 		</main>
 	</div>

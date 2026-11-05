@@ -118,14 +118,14 @@
 
 // %engine-link-custom-highlight {
 // 	/* Set link color to highlight for dark backgrounds */
-//     color: var(--wp--custom--color--highlight);
+//     color: var(--wp--custom--color--highlight, var(--wp--preset--color--highlight));
 // // 	filter: brightness(2.05) saturate(0.87);
 // // 	filter: none; // Needed only for overriding parent
 // }
 // 
 // %engine-link-custom-highlight-alt {
 // 	/* Set link color to highlight-alt for light backgrounds */
-//     color: var(--wp--custom--color--highlight-alt);
+//     color: var(--wp--custom--color--highlight-alt, var(--wp--preset--color--highlight-alt));
 // // 	filter: brightness(0.41) saturate(1.15);
 // // 	filter: none; // Needed only for overriding parent
 // }

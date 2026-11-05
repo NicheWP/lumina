@@ -26,7 +26,6 @@
 			:root {
 				--wp--custom--animation--duration--short: 400ms;
 				--wp--custom--animation--duration--medium: 800ms;
-				--wp--custom--animation--duration--normal: 1000ms;
 
 				--wp--custom--animation--default--hover-transform: scale(1.01);
 				--wp--custom--animation--button--hover-transform: scale(1.01);
@@ -105,7 +104,7 @@
 			
 			box-shadow: config.$shadow-default;
 		
-			/* --- TOOLTIP TEXT BUBBLE (::before) --- */
+			// --- TOOLTIP TEXT BUBBLE (::before) ---
 			&::before {
 				position: absolute;
 				right: calc(#{$overlay-badge-size} + 8px);
@@ -130,13 +129,13 @@
 				box-shadow: config.$shadow-default;
 			}
 		
-			/* Dynamic Action Labels */
+			// Dynamic Action Labels 
 			&.lumina-action-internal::before { content: "View Page"; }
 			&.lumina-action-external::before { content: "External Link"; }
 			&.lumina-action-scroll-up::before { content: "Scroll Up"; }
 			&.lumina-action-scroll-down::before { content: "Scroll Down"; }
 		
-			/* --- SVG ICON MASK ENGINE (::after) --- */
+			// --- SVG ICON MASK ENGINE (::after) ---
 			&::after {
 				content: "";
 				display: block;
@@ -149,7 +148,7 @@
 				transition: transform var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1);
 			}
 		
-			/* SVG Mask Assignments */
+			// SVG Mask Assignments
 			&.lumina-action-internal::after {
 				mask-image: url('../icons/theme/internal-link.svg');
 				transform: translateX(-1px);
@@ -194,7 +193,7 @@
 	// ----------------------------------------------------------------------
 	} @else {
 	
-		// Remove shadow on hover for static custom block style
+		/* Remove shadow on hover for static custom block style */
 		[class*=wp-block-].is-style-object-static {
 			&:hover,
 			&:has(:focus-visible) {
@@ -203,7 +202,7 @@
 			}
 		}		
 		
-		// Remove shadow from logo-only social icons
+		/* Remove shadow from logo-only social icons */
 		.wp-site-blocks .wp-block-social-links.is-style-logos-only {
 			& .wp-block-social-link:hover,
 			& .wp-block-social-link:has(:focus-visible) {
@@ -215,7 +214,7 @@
 		   Lumina Card Overlay Badge (Hover & Active Triggers)
 		   --------------------------------------------------------------------------- */
 		
-		/* Reveal Badge on Scoped Container Hover */
+		// Reveal Badge on Scoped Container Hover
 		:is(.is-interactive-card, .is-interactive-image):hover .lumina-card-arrow-overlay,
 		:is(.is-interactive-card, .is-interactive-image).is-active .lumina-card-arrow-overlay,
 		:is(.is-interactive-card, .is-interactive-image):has(:focus-visible) .lumina-card-arrow-overlay {
@@ -230,7 +229,7 @@
 			&.lumina-action-scroll-down::after { transform: translate(-1px, -1px); }
 		}
 		
-		/* Reveal Text Tooltip ONLY when hovering directly on the badge itself */
+		// Reveal Text Tooltip ONLY when hovering directly on the badge itself
 		.lumina-card-arrow-overlay:hover::before {
 			opacity: 1;
 			visibility: visible;

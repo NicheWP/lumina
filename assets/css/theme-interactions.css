@@ -98,11 +98,13 @@
 /* ==========================================================================
    05 GLOBAL PHYSICS ENGINE: Styles outside of the core engine loops
    ========================================================================== */
+/* Remove shadow on hover for static custom block style */
 [class*=wp-block-].is-style-object-static:hover, [class*=wp-block-].is-style-object-static:has(:focus-visible) {
   box-shadow: none !important;
   transform: none !important;
 }
 
+/* Remove shadow from logo-only social icons */
 .wp-site-blocks .wp-block-social-links.is-style-logos-only .wp-block-social-link:hover, .wp-site-blocks .wp-block-social-links.is-style-logos-only .wp-block-social-link:has(:focus-visible) {
   box-shadow: none;
 }
@@ -110,7 +112,6 @@
 /* -----------------------------------------------------------------------------
    Lumina Card Overlay Badge (Hover & Active Triggers)
    --------------------------------------------------------------------------- */
-/* Reveal Badge on Scoped Container Hover */
 :is(.is-interactive-card, .is-interactive-image):hover .lumina-card-arrow-overlay,
 :is(.is-interactive-card, .is-interactive-image).is-active .lumina-card-arrow-overlay,
 :is(.is-interactive-card, .is-interactive-image):has(:focus-visible) .lumina-card-arrow-overlay {
@@ -140,7 +141,6 @@
   transform: translate(-1px, -1px);
 }
 
-/* Reveal Text Tooltip ONLY when hovering directly on the badge itself */
 .lumina-card-arrow-overlay:hover::before {
   opacity: 1;
   visibility: visible;

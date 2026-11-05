@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lumina Page Templates Catalog</title>
+	<style>
+		:root {
+			--bg: #0f172a;
+			--card: #1e293b;
+			--border: #334155;
+			--text: #f8fafc;
+			--text-sub: #94a3b8;
+			--accent: #38bdf8;
+			--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		}
+		body { background: var(--bg); color: var(--text); font-family: var(--font); padding: 2rem; margin: 0; }
+		.container { max-width: 1200px; margin: 0 auto; }
+		header { margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+		header h1 { margin: 0 0 0.5rem 0; font-size: 2rem; }
+		header a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+		table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 8px; overflow: hidden; }
+		th, td { padding: 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+		th { background: #0f172a; color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; }
+		tr:last-child td { border-bottom: none; }
+		code { background: #0f172a; color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.875rem; }
+		.badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; background: rgba(56,189,248,0.1); color: var(--accent); border: 1px solid rgba(56,189,248,0.2); }
+		.desc { color: var(--text-sub); font-size: 0.9rem; }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Lumina Page Templates Catalog</h1>
+			<a href="index.html">&larr; Back to Documentation Portal</a>
+		</header>
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Template Slug</th>
+					<th>Type</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><strong>404 Error Page</strong></td>
+					<td><code>404</code></td>
+					<td><span class="badge">Core Hierarchy</span></td>
+					<td class="desc">Template rendered when content is not found.</td>
+				</tr>
+				<tr>
+					<td><strong>Archive (Categories & Tags)</strong></td>
+					<td><code>archive</code></td>
+					<td><span class="badge">Core Hierarchy</span></td>
+					<td class="desc">Template for post category, tag, and date archives.</td>
+				</tr>
+				<tr>
+					<td><strong>Author Archive</strong></td>
+					<td><code>author</code></td>
+					<td><span class="badge">Core Hierarchy</span></td>
+					<td class="desc">Template displaying author posts and bio.</td>
+				</tr>
+				<tr>
+					<td><strong>Blog Home Index</strong></td>
+					<td><code>home</code></td>
+					<td><span class="badge">Core Hierarchy</span></td>
+					<td class="desc">Blog posts index template.</td>
+				</tr>
+				<tr>
+					<td><strong>Index / Main Fallback</strong></td>
+					<td><code>index</code></td>
+					<td><span class="badge">Core Hierarchy</span></td>
+					<td class="desc">Main fallback template for all site views.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Cover Image Sidebar Right</strong></td>
+					<td><code>page-featured-cover-sidebar-right</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Featured Cover Image</strong></td>
+					<td><code>page-featured-cover</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Featured Image Sidebar Right</strong></td>
+					<td><code>page-featured-image-sidebar-right</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Featured Image</strong></td>
+					<td><code>page-featured-image</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Media & Text Hero with Sidebar Right</strong></td>
+					<td><code>page-hero-banner-sidebar-right</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Media & Text Hero</strong></td>
+					<td><code>page-hero-banner</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Home (Content Home Top)</strong></td>
+					<td><code>page-home</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page No Featured Image or Excerpt</strong></td>
+					<td><code>page-noimage-noexcerpt</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page No Featured Image</strong></td>
+					<td><code>page-noimage</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page No Title</strong></td>
+					<td><code>page-notitle</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Right Sidebar</strong></td>
+					<td><code>page-sidebar-right</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page Site Map</strong></td>
+					<td><code>page-sitemap</code></td>
+					<td><span class="badge">Custom (page)</span></td>
+					<td class="desc">Custom layout template assigned to page.</td>
+				</tr>
+				<tr>
+					<td><strong>Page (Default)</strong></td>
+					<td><code>page</code></td>
+					<td><span class="badge">Core Hierarchy</span></td>
+					<td class="desc">Standard page template layout.</td>
+				</tr>
+				<tr>
+					<td><strong>Search Results</strong></td>
+					<td><code>search</code></td>
+					<td><span class="badge">Core Hierarchy</span></td>
+					<td class="desc">Template displaying site search results.</td>
+				</tr>
+				<tr>
+					<td><strong>Post with Cover Image and Sidebar Right</strong></td>
+					<td><code>single-featured-cover-sidebar-right</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post with Featured Cover Image</strong></td>
+					<td><code>single-featured-cover</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post with Featured Image and Sidebar Right</strong></td>
+					<td><code>single-featured-image-sidebar-right</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post with Featured Image</strong></td>
+					<td><code>single-featured-image</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post with Media & Text Hero and Sidebar Right</strong></td>
+					<td><code>single-hero-banner-sidebar-right</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post with Media & Text Hero</strong></td>
+					<td><code>single-hero-banner</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post No Featured Image or Top Post Meta</strong></td>
+					<td><code>single-noimage-notopmeta</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post No Featured Image</strong></td>
+					<td><code>single-noimage</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post No Title</strong></td>
+					<td><code>single-notitle</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Post Sidebar Right</strong></td>
+					<td><code>single-sidebar-right</code></td>
+					<td><span class="badge">Custom (post)</span></td>
+					<td class="desc">Custom layout template assigned to post.</td>
+				</tr>
+				<tr>
+					<td><strong>Single Post (Default)</strong></td>
+					<td><code>single</code></td>
+					<td><span class="badge">Core Hierarchy</span></td>
+					<td class="desc">Standard single blog post layout.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

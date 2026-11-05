@@ -36,7 +36,7 @@ if ( ! defined( 'FORCE_DEFAULT_SITE_LOGO' ) ) {
 
 if ( ! defined( 'DEFAULT_SITE_LOGO' ) ) {
 	/**
-	 * Default fallback site LOGO asset path.
+	 * Default fallback site LOGO asset PATH.
 	 *
 	 * @var string
 	 */
@@ -45,7 +45,7 @@ if ( ! defined( 'DEFAULT_SITE_LOGO' ) ) {
 
 if ( ! defined( 'DEFAULT_SITE_LOGO_WIDTH' ) ) {
 	/**
-	 * Default fallback site logo pixel width.
+	 * Default fallback site LOGO pixel WIDTH.
 	 *
 	 * @var int
 	 */
@@ -54,7 +54,7 @@ if ( ! defined( 'DEFAULT_SITE_LOGO_WIDTH' ) ) {
 
 if ( ! defined( 'DEFAULT_SITE_LOGO_HEIGHT' ) ) {
 	/**
-	 * Default fallback site logo pixel height.
+	 * Default fallback site LOGO pixel HEIGHT.
 	 *
 	 * @var int
 	 */
@@ -63,7 +63,7 @@ if ( ! defined( 'DEFAULT_SITE_LOGO_HEIGHT' ) ) {
 
 if ( ! defined( 'DEFAULT_FEATURED_IMAGE' ) ) {
 	/**
-	 * Default fallback featured IMAGE asset path.
+	 * Default fallback featured IMAGE asset PATH.
 	 *
 	 * @var string
 	 */
