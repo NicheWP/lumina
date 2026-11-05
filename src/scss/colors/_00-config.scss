@@ -1,47 +1,46 @@
-//* ==========================================================================
-//   00 COLOR CONFIGURATION: Colors Engine (Text, heading, link colors)
-//	 	v1.0.0 Alpha
-//   ========================================================================== */
-
 // ==========================================================================
-// LUMINA COLOR REGISTRY: Declare each color and how the engine handles it
-// Schema: (Color, Text, Heading, Link, Footer)
+//   00 COLORS CONFIGURATION: Color registry map, gradient tracks, etc.
 // ==========================================================================
 
-/*-----------------------------------------------------------------------------
-  COLORS: DEFAULT TEXT, HEADING, AND LINK COLORS
- -----------------------------------------------------------------------------*/
-/*
- * Default contrast (text) color based on background color.
- *
- * To override, set these in theme.json:
- *		--wp--custom--color--contrast--{color}
- */
+// ==========================================================================
+// LUMINA COLORS REGISTRY: Declares the color registry map, default schema 
+// 	attributes, gradient tracks, and relative filter variables.
+// ==========================================================================
 
-//*-----------------------------------------------------------------------------
-// 0.1  SETUP: COLOR REGISTRY ENTRY DEFAULTS
-// -----------------------------------------------------------------------------*/
-
-// SETUP DEFAULTS SO WE DON'T HAVE TO INCLUDE ALL FIELDS IN THE REGISTRY
+/// Default configuration schema map merged into each color registry entry.
+///
+/// @group Colors Configuration
+/// @type Map
+/// @prop {String} color - Color slug identifier (e.g. primary, neutral-alt)
+/// @prop {String} text - Contrast mode (light, dark, dark-light, light-dark, no-fallback)
+/// @prop {String} heading - Global heading action (inherit, dark, light, lighten, darken, accent)
+/// @prop {String} heading-light - Light-mode heading override
+/// @prop {String} heading-dark - Dark-mode heading override
+/// @prop {String} link - Global link ink action (inherit, dark, light, lighten, darken, highlight, highlight-alt)
+/// @prop {String} link-light - Light-mode link ink override
+/// @prop {String} link-dark - Dark-mode link ink override
+/// @prop {String} footer - Global footer action
+/// @prop {String} footer-dark - Dark-mode footer override
 $color-defaults: (
-    color:           null, 	// color slug (e.g. primary, neutral-alt, etc.)
-    text:            null,	// dark, light, dark-light, light-dark, no-fallback
-    heading:		 null,	// inherit, dark, light, lighten, darken, accent
-    heading-light:	 null,	// inherit, dark, light, lighten, darken, accent
-    heading-dark:    null, 	// inherit, dark, light, lighten, darken, accent
-    link:            null,	// inherit, dark, light, lighten, darken, highlight, highlight-alt
-    link-light:      null,	// inherit, dark, light, lighten, darken, highlight, highlight-alt
-    link-dark:       null, 	// inherit, dark, light, lighten, darken, highlight, highlight-alt
-    footer:          null,  // hover-highlight, hover-highlight-alt
-    footer-dark:     null,  // hover-highlight, hover-highlight-alt
+    color:           null,
+    text:            null,
+    heading:		 null,
+    heading-light:	 null,
+    heading-dark:    null,
+    link:            null,
+    link-light:      null,
+    link-dark:       null,
+    footer:          null,
+    footer-dark:     null,
 );
 
-//*-----------------------------------------------------------------------------
-// 0.2  SETUP: LUMINA COLOR REGISTRY
-// -----------------------------------------------------------------------------*/
+/// Master Color Registry Map connecting Gutenberg blocks, themes, and contrast states.
+///
+/// @group Colors Configuration
+/// @type Map
 $color-registry: (
 
-	// --- MAIN SEMANTIC COLORS  ---
+	// --- MAIN SEMANTIC COLORS ---
     ( color: 'primary',          	text: 'light',  	link: 'inherit', 
     		heading: 'inherit' 
     ),
@@ -53,7 +52,7 @@ $color-registry: (
     		heading: 'inherit',		footer-dark: 'hover-highlight'  
     ),
     
-	// --- MAIN ALT SEMANTIC COLORS  ---
+	// --- MAIN ALT SEMANTIC COLORS ---
     ( color: 'secondary-alt',    	text: 'light',  	link: 'lighten',
     		heading: 'inherit',		footer-dark: 'hover-highlight'  
     ), 
@@ -69,7 +68,7 @@ $color-registry: (
     ( color: 'secondary-subtle',    text: 'dark-light', heading: 'accent' ),						
     ( color: 'tertiary-subtle',     text: 'dark-light', heading: 'accent' ),
     
-    // --- SUBTLE ALT SEMANTIC COLORS (LUMINA ONLY) ---
+    // --- SUBTLE ALT SEMANTIC COLORS ---
     ( color: 'primary-subtle-alt',  text: 'dark-light', heading: 'accent', 
     		link-light: 'dark',		footer: 'hover-highlight-alt' 
     ),
@@ -81,11 +80,10 @@ $color-registry: (
     ),
 
     // --- CORE CANVAS CONTRASTS ---
-// 	( color: 'base',              	text: 'no-fallback' ),      
 	( color: 'contrast',          	text: 'light-dark', link-light: 'highlight', 
 			heading: 'inherit',		link-dark: 'highlight-alt' ),
 
-    // --- NEUTRALS (E.G. SIDEBAR, BORDERS, DEFAULT CARD COLORS) ---
+    // --- NEUTRALS ---
     ( color: 'neutral',             text: 'dark-light', heading: 'accent',
     		footer-dark: 'hover-highlight' 
     ),
@@ -93,12 +91,10 @@ $color-registry: (
     		footer-dark: 'hover-highlight'  
     ),
 
-    // --- HIGHLIGHT COLORS (E.G. LINKS, BUTTONS) ---
-    // 1. Luminous Glow Surfaces (Light Fills -> High-Contrast Dark Text & Dark Links)
+    // --- HIGHLIGHT COLORS ---
     ( color: 'highlight',            text: 'dark', link: 'dark', heading-dark: 'dark' ),
     ( color: 'highlight-accent',     text: 'dark', link: 'dark', heading-dark: 'dark' ),
 
-    // 2. Deep Ink Surfaces (Dark Action Fills -> Crisp Light Text & Light Links)
     ( color: 'highlight-alt',        text: 'light', link: 'light', heading: 'inherit' ),
     ( color: 'highlight-accent-alt', text: 'light', link: 'light', heading: 'inherit' ),
         
@@ -146,10 +142,6 @@ $color-registry: (
     ( color: 'almost-black',	text: 'light',	link: 'highlight', heading: 'inherit' ),
     ( color: 'black',			text: 'light',	link: 'highlight', heading: 'inherit' ), 
     
-	//*-----------------------------------------------------------------------------
-	// FLAT BLOCKS NAMED COLORS
-	// -----------------------------------------------------------------------------*/
-
     // --- GREEN NAMED COLORS ---
     ( color: 'light-green',       text: 'dark',  	link: 'inherit' ),
     ( color: 'green',             text: 'light',  	link: 'inherit' ),
@@ -170,7 +162,6 @@ $color-registry: (
     ( color: 'midnight-blue',     text: 'light',  	link: 'inherit' ),
 
     ( color: 'dark-midnight-blue',text: 'light',  	link: 'highlight' ),
-//     ( color: 'dark-midnight-blue',text: 'light',  	link: 'lighten' ),
 
     // --- PURPLE NAMED COLORS ---
     ( color: 'light-purple',      text: 'dark',  	link: 'inherit' ),
@@ -184,11 +175,10 @@ $color-registry: (
 
 );
 
-//*-----------------------------------------------------------------------------
-// 0.3  SETUP: LUMINA GRADIENTS
-// -----------------------------------------------------------------------------*/
-
-// 1. List of dark gradient tracks that require light contrast text
+/// Map of gradient tracks and their associated class slugs for Gutenberg background styling.
+///
+/// @group Colors Configuration
+/// @type Map
 $gradient-tracks: (
 	'primary':            	('primary'),
 	'secondary':          	('secondary'),
@@ -197,17 +187,25 @@ $gradient-tracks: (
 	'highlight-accent':		('highlight-accent')
 ) !default;
 
-// 2. List of light/subtle gradients that preserve default dark body & heading text
+/// List of gradient class slugs that preserve custom contrasting text colors.
+///
+/// @group Colors Configuration
+/// @type List
 $gradient-preserve-colors: (
-// 	'yellow', // FLAT BLOCKS ONLY
 	'gray',
 	'primary-subtle',
 	'secondary-subtle',
 	'tertiary-subtle'
 ) !default;
 
-//*-----------------------------------------------------------------------------
-// 0.4 SETUP: LIGHTEN AND DARKEN FOR LINKS AND HEADERS
-// -----------------------------------------------------------------------------*/
-$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, brightness(1.5) saturate(0.80)) !default;
+/// Lighten brightness filter metric applied to link hover and focus states.
+///
+/// @group Colors Configuration
+/// @type String
+$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, brightness(1.75) saturate(0.80)) !default;
+
+/// Darken brightness filter metric applied to link hover and focus states.
+///
+/// @group Colors Configuration
+/// @type String
 $filter-link-darken:  var(--wp--custom--color--highlight--darken, brightness(0.40) saturate(1.15)) !default;

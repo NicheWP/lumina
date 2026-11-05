@@ -15,6 +15,12 @@
 // # Text, headings, and links default to light in dark mode
 // -----------------------------------------------------------------------------*/
 
+/// Pass 4 of 5-Pass Colors Engine: Applies text, heading, link, and footer 
+///		action overrides for dark-mode theme contexts.
+///
+/// @group Colors Modules
+/// @output Generates .is-dark-theme scoped contrast, heading action, link color, 
+///		and footer-dark action rules
 @mixin apply-colors-dark-mode {
 
 	/* ==========================================================================

@@ -16,6 +16,11 @@
 // # Text, headings, and links default to dark in the main theme palette
 //*-----------------------------------------------------------------------------
 
+/// Pass 1 of 5-Pass Colors Engine: Applies static global text, heading, and link 
+/// 	defaults across all registered palette tokens.
+///
+/// @group Colors Modules
+/// @output Generates root-scoped CSS contrast, heading action, and link ink rules
 @mixin apply-colors-global {
 
 	/* ==========================================================================

@@ -1,5 +1,5 @@
 // ==========================================================================
-//   00 LUMINA CONFIGURATION: Physics Maps (Roles, Constants, Debug Variables)
+//   00 PHYSICS CONFIGURATION: Physics Maps (Roles, Constants, Debug Variables)
 // ==========================================================================
 
 // ==========================================================================
@@ -13,7 +13,7 @@
 ///		interaction scopes.
 /// SETUP DEFAULTS SO WE DON'T HAVE TO INCLUDE ALL FIELDS IN THE REGISTRY
 ///
-/// @group Config
+/// @group Physics Configuration
 /// @type Map
 /// @prop {String} block ['*'] - Base block selector or wildcard
 /// @prop {String} is ['none'] - Mandatory CSS class filters (e.g. .has-background)
@@ -38,7 +38,7 @@ $registry-defaults: (
 /// Master Block Registry Map.
 /// PUT WILDCARDS AND/OR SPECIFIC BLOCKS INTO THE REGISTRY
 ///
-/// @group Config
+/// @group Physics Configuration
 /// @type Map
 $lumina-block-registry: (
 
@@ -215,7 +215,7 @@ $lumina-block-registry: (
 /// Rounding Hard Stop: Blocks where the engine shouldn't even write CSS for
 ///		borders/rounding.
 ///
-/// @group Config
+/// @group Physics Configuration
 /// @type List
 $blocks-no-rounding: (
  	'.wp-block-media-text__media', 
@@ -224,7 +224,7 @@ $blocks-no-rounding: (
 
 /// Rounding Conditional Stop: Layout containers that use Track B (inset hairlines).
 ///
-/// @group Config
+/// @group Physics Configuration
 /// @type List
 $blocks-layout-brakes: (
 	'.wp-block-media-text *',
@@ -233,7 +233,7 @@ $blocks-layout-brakes: (
 
 /// Truly Plain Elements: Completely borderless / shadowless.
 ///
-/// @group Config
+/// @group Physics Configuration
 /// @type List
 $blocks-plain: (
 	'.is-style-object-static',
@@ -242,7 +242,7 @@ $blocks-plain: (
 
 /// Blocks that have custom block styles to add to the compiled CSS.
 ///
-/// @group Config
+/// @group Physics Configuration
 /// @type List
 $blocks-custom-borders: (
 	'.wp-block-image',
@@ -251,7 +251,7 @@ $blocks-custom-borders: (
 
 /// HTML-only Buttons spacing metric.
 ///
-/// @group Config
+/// @group Physics Configuration
 /// @type Length
 $html-button-spacing: var(--wp--preset--spacing--30);
 
@@ -421,60 +421,60 @@ $veil-hover-opacity: 	1; //var(--wp--custom--color--veil--hover-opacity, 0.85);
 
 /// Turns on debug outlines site-wide.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Boolean
 $lumina-debug: 			false;
 
 /// Separates selectors for debugging (larger file size).
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Boolean
 $lumina-dev-mode: 		false;
 
 /// Debug outline for registry items.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Outline
 $debug-registry:   		1px dashed #ff8c00; // Orange
 
 /// Debug outline for resting wrapper containers.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Outline
 $debug-wrapper:   		1px dashed #ff8c00; // Purple
 
 /// Debug outline for active wrapper containers.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Outline
 $debug-wrapper-active:  1px solid  #ff00ff; // Purple
 
 /// Debug outline for active cards.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Outline
 $debug-card:       		1px solid  #00ffff; // Cyan
 
 /// Debug outline for active objects.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Outline
 $debug-object:  		1px solid  #00ffff; // Cyan
 
 /// Debug outline for active buttons.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Outline
 $debug-button:  		1px solid  #00ffff; // Cyan
 
 /// Debug outline for resting silenced elements.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Outline
 $debug-silence:    		1px dashed #ff3b30; // Red
 
 /// Debug outline for active silenced elements.
 ///
-/// @group Debugging
+/// @group Physics Debugging
 /// @type Outline
 $debug-silence-active:	1px solid  #ff3b30; // Red

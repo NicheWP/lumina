@@ -9,20 +9,62 @@ HTML_FILE="${DOCS_DIR}/patterns.html"
 
 mkdir -p "$DOCS_DIR"
 
-# -----------------------------------------------------------------------------
-# 1. GENERATE PATTERNS.MD (FOR GITHUB REPO BROWSING)
-# -----------------------------------------------------------------------------
-cat << 'EOF' > "$MD_FILE"
-# Lumina Theme Architecture: Block Patterns Catalog
+# Collect all pattern files
+pattern_files=("${THEME_ROOT}"/patterns/**/*.php(N))
 
-| Title | Slug | Categories | Description |
-| :--- | :--- | :--- | :--- |
-EOF
+if (( ${#pattern_files} == 0 )); then
+    echo "⚠️  No pattern files found in ${THEME_ROOT}/patterns"
+    exit 0
+fi
 
 # -----------------------------------------------------------------------------
-# 2. GENERATE PATTERNS.HTML (FOR GITHUB PAGES PORTAL)
+# SINGLE-PASS PARSING ENGINE (Perl)
 # -----------------------------------------------------------------------------
-cat << 'EOF' > "$HTML_FILE"
+perl -e '
+use strict;
+use warnings;
+
+my $md_file   = shift @ARGV;
+my $html_file = shift @ARGV;
+my @rows      = ();
+
+for my $file (sort @ARGV) {
+    open my $fh, "<", $file or next;
+    local $/ = undef;
+    my $content = <$fh>;
+    close $fh;
+
+    my ($title) = $content =~ /^[ \t]*\*[ \t]*Title:[ \t]*(.+?)\r?$/mi;
+    my ($slug)  = $content =~ /^[ \t]*\*[ \t]*Slug:[ \t]*(.+?)\r?$/mi;
+    my ($cats)  = $content =~ /^[ \t]*\*[ \t]*Categories:[ \t]*(.+?)\r?$/mi;
+    my ($desc)  = $content =~ /^[ \t]*\*[ \t]*Description:[ \t]*(.+?)\r?$/mi;
+
+    $title = "" unless defined $title;
+    $slug  = "" unless defined $slug;
+    $cats  = "" unless defined $cats;
+    $desc  = "" unless defined $desc;
+
+    # Strip whitespace
+    s/^\s+|\s+$//g for ($title, $slug, $cats, $desc);
+
+    if ($title ne "" && $slug ne "") {
+        push @rows, { title => $title, slug => $slug, cats => $cats, desc => $desc };
+    }
+}
+
+# Write Markdown
+open my $mfh, ">", $md_file or die "Cannot write $md_file: $!";
+print $mfh "# Lumina Theme Architecture: Block Patterns Catalog\n\n";
+print $mfh "| Title | Slug | Categories | Description |\n";
+print $mfh "| :--- | :--- | :--- | :--- |\n";
+for my $r (@rows) {
+    print $mfh "| **$r->{title}** | `$r->{slug}` | `$r->{cats}` | $r->{desc} |\n";
+}
+close $mfh;
+
+# Write HTML
+open my $hfh, ">", $html_file or die "Cannot write $html_file: $!";
+print $hfh <<"HTML_HEADER";
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,40 +110,25 @@ cat << 'EOF' > "$HTML_FILE"
 				</tr>
 			</thead>
 			<tbody>
-EOF
+HTML_HEADER
 
-# -----------------------------------------------------------------------------
-# 3. PARSE PHP PATTERN HEADERS
-# -----------------------------------------------------------------------------
-find "${THEME_ROOT}/patterns" -name "*.php" | sort | while read -r file; do
-    title=$(grep -i "Title:" "$file" | sed -E 's/.*Title:[[:space:]]*//I' | tr -d '\r')
-    slug=$(grep -i "Slug:" "$file" | sed -E 's/.*Slug:[[:space:]]*//I' | tr -d '\r')
-    cats=$(grep -i "Categories:" "$file" | sed -E 's/.*Categories:[[:space:]]*//I' | tr -d '\r')
-    desc=$(grep -i "Description:" "$file" | sed -E 's/.*Description:[[:space:]]*//I' | tr -d '\r')
+for my $r (@rows) {
+    print $hfh "\t\t\t\t<tr>\n";
+    print $hfh "\t\t\t\t\t<td><strong>$r->{title}</strong></td>\n";
+    print $hfh "\t\t\t\t\t<td><code>$r->{slug}</code></td>\n";
+    print $hfh "\t\t\t\t\t<td><code>$r->{cats}</code></td>\n";
+    print $hfh "\t\t\t\t\t<td class=\"desc\">$r->{desc}</td>\n";
+    print $hfh "\t\t\t\t</tr>\n";
+}
 
-    if [[ -n "$title" && -n "$slug" ]]; then
-        # Append to Markdown
-        echo "| **${title}** | \`${slug}\` | \`${cats}\` | ${desc} |" >> "$MD_FILE"
-
-        # Append to HTML
-        cat << EOF >> "$HTML_FILE"
-				<tr>
-					<td><strong>${title}</strong></td>
-					<td><code>${slug}</code></td>
-					<td><code>${cats}</code></td>
-					<td class="desc">${desc}</td>
-				</tr>
-EOF
-    fi
-done
-
-# Close HTML File
-cat << 'EOF' >> "$HTML_FILE"
+print $hfh <<"HTML_FOOTER";
 			</tbody>
 		</table>
 	</div>
 </body>
 </html>
-EOF
+HTML_FOOTER
+close $hfh;
+' "$MD_FILE" "$HTML_FILE" "${pattern_files[@]}"
 
 echo "🎉 Generated both ${MD_FILE#$THEME_ROOT/} and ${HTML_FILE#$THEME_ROOT/}"

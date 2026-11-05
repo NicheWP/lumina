@@ -14,6 +14,12 @@
 // # PASS 5: EDITOR COLOR STYLES
 // # Text, heading, and/or link color overrides needed for the Editor
 //*-----------------------------------------------------------------------------
+/// Pass 5 of 5-Pass Colors Engine: Generates high-specificity link hover 
+///		overrides required for Gutenberg block editor styles.
+///
+/// @group Colors Modules
+/// @output Generates editor-scoped link hover state overrides across registered 
+///		color entries
 @mixin build-editor-hover-overrides() {
 
 	/* ==========================================================================

@@ -7,7 +7,7 @@
 /// Applies global physics engine styles, reduced motion accessibility defaults,
 /// avatar frame overrides, and interactive card arrow overlay badges.
 ///
-/// @group Physics Global
+/// @group Physics Modules
 /// @param {Boolean} $interactive [false] - Evaluates whether to render resting or interactive states
 /// @outputs Injects global root variable overrides, badge positioning, and mask engine styles
 @mixin apply-global-logic($interactive: false) {

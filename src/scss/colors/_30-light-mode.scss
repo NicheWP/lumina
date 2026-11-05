@@ -1,6 +1,6 @@
-//* ==========================================================================
-//   30 LIGHT-MODE COLORS: Set colors for light-mode color schemes
-//   ========================================================================== */
+// ==========================================================================
+//  30 LIGHT-MODE COLORS: Set colors for light-mode color schemes
+//  ========================================================================== */
 
 @use 'sass:map';
 
@@ -14,7 +14,12 @@
 // # PASS 3: LIGHT THEME CONTEXT
 // # Text, headings, and links default to dark in light mode
 // -----------------------------------------------------------------------------*/
-
+/// Pass 3 of 5-Pass Colors Engine: Applies text, heading, link, and footer 
+///		action overrides for light-mode theme contexts.
+///
+/// @group Colors Modules
+/// @output Generates body:not(.is-dark-theme) scoped contrast, heading action, 
+///		link color, and footer action rules
 @mixin apply-colors-light-mode {
 
 	/* ==========================================================================

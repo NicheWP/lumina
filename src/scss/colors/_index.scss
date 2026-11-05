@@ -3,6 +3,7 @@
 //	 Configuration, logic (mixins and %extends)
 //   ========================================================================== */
 
-// File: src/scss/colors/_index.scss
+/// @group Colors Main Index
+/// @author NicheWP
 @forward "00-config";
 @forward "01-logic";

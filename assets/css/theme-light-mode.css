@@ -17,15 +17,6 @@
    LUMINA THEME: LIGHT Mode CSS styles
    v1.0.0 Alpha
    ========================================================================== */
-/*-----------------------------------------------------------------------------
-  COLORS: DEFAULT TEXT, HEADING, AND LINK COLORS
- -----------------------------------------------------------------------------*/
-/*
- * Default contrast (text) color based on background color.
- *
- * To override, set these in theme.json:
- *		--wp--custom--color--contrast--{color}
- */
 :where(:root) :where(body:not(.is-dark-theme)) .has-contrast-background-color :is(.wp-block-heading,
 .wp-block-post-title,
 .wp-block-query-title,
@@ -42,12 +33,10 @@ h1, h2, h3, h4, h5, h6), :where(:root) :where(body:not(.is-dark-theme)) .has-ver
 .wp-block-site-title,
 .wp-block-site-tagline,
 h1, h2, h3, h4, h5, h6) {
-  /* Set heading color to light text */
   color: var(--wp--preset--color--off-white);
 }
 
 :where(:root) :where(body:not(.is-dark-theme)) .has-primary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-secondary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
-  /* Set link color to dark text */
   color: var(--wp--preset--color--almost-black);
 }
 
@@ -55,7 +44,6 @@ h1, h2, h3, h4, h5, h6) {
 :where(:root) :where(body:not(.is-dark-theme)) .has-dark-alt-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-primary-dark-alt-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-primary-dark-alt-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-dark-alt-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-dark-alt-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover {
-  /* Set link color to highlight for dark backgrounds */
   color: var(--wp--preset--color--highlight);
 }
 
@@ -70,23 +58,19 @@ h1, h2, h3, h4, h5, h6) {
 :where(:root) :where(body:not(.is-dark-theme)) .has-gray-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-dark-gray-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-dark-gray-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-very-dark-gray-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-very-dark-gray-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover {
-  /* Set link color to highlight-alt for light backgrounds */
   color: var(--wp--preset--color--highlight-alt);
 }
 
 :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-primary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-secondary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-tertiary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
-  /* Underline links */
   text-decoration-line: underline;
 }
 
 :where(:root) :where(body:not(.is-dark-theme)) .has-primary-subtle-alt-background-color:is(.site-footer, .footer-info) p :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-secondary-subtle-alt-background-color:is(.site-footer, .footer-info) p :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-subtle-alt-background-color:is(.site-footer, .footer-info) p :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
-  /* Special underline links in footers */
   text-decoration-style: var(--wp--custom--link--special-style, dotted);
   text-decoration-line: underline;
 }
 
 :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-contrast-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-gray-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-dark-gray-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-very-dark-gray-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
-  /* Underline links */
   text-decoration-line: none;
 }
 

@@ -16,6 +16,10 @@
 // # Text, heading, and link defaults on gradient backgrounds
 //*-----------------------------------------------------------------------------
 
+/// Pass 2 of 5-Pass Colors Engine: Applies contrast text, heading, and link defaults to gradient background containers.
+///
+/// @group Colors Modules
+/// @output Generates scoped utility gradient catch-all rules and track-specific contrast overrides
 @mixin apply-colors-gradients {
 
 	@if logic.$gradient-tracks or logic.$gradient-preserve-colors {
