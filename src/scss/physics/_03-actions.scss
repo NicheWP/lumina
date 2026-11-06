@@ -17,7 +17,7 @@
 
 /// Blueprint mixin applying subtle vertical hover lift transforms to card containers.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects `transform: translateY(-3px)`
 @mixin __blueprint-lift-subtle {
     transform: #{config.$shift-subtle}; 
@@ -25,7 +25,7 @@
 
 /// Placeholder selector for subtle lift motion.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-lift-subtle {
 	/* ==========================================================================
 	   03.01 SUBTLE LIFT: Apply shift up (e.g. -2px)
@@ -39,7 +39,7 @@
 
 /// Blueprint mixin applying standard vertical hover lift to image elements.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects `transform: translateY(-3px)`
 @mixin __blueprint-lift-standard {
     transform: #{config.$shift-standard}; 
@@ -48,7 +48,7 @@
 
 /// Placeholder selector for standard lift motion.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-lift-standard {
 	/* ==========================================================================
 	   03.02 DEFAULT LIFT: Apply shift up (e.g. -2px)
@@ -62,7 +62,7 @@
 
 /// Blueprint mixin applying minor scale growth (1.03x).
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects `transform` scale
 @mixin __blueprint-grow-small {
     transform: translateY(0) #{config.$grow-small};     
@@ -70,7 +70,7 @@
 
 /// Placeholder selector for small scale growth.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-grow-small  {
 	/* ==========================================================================
 	   03.03 GROW SMALL: Apply small growth (e.g. 1.03x)
@@ -84,7 +84,7 @@
 
 /// Blueprint mixin applying standard scale growth (1.08x).
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects `transform` scale
 @mixin __blueprint-grow-standard {
     transform: translateY(0) #{config.$grow-standard};     
@@ -92,7 +92,7 @@
 
 /// Placeholder selector for standard scale growth.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-grow-standard  {
 	/* ==========================================================================
 	   03.04 STANDARD GROW: Apply standard growth (e.g. 1.05x)
@@ -106,7 +106,7 @@
 
 /// Blueprint mixin applying large button scale growth (1.05x+).
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects `transform` scale
 @mixin __blueprint-grow-large {
     transform: translateY(0) #{config.$grow-large}; 
@@ -114,7 +114,7 @@
 
 /// Placeholder selector for large scale growth.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-grow-large  {
 	/* ==========================================================================
 	   03.05 LARGE GROW: Apply large growth (e.g. 1.1x)
@@ -128,7 +128,7 @@
 
 /// Blueprint mixin applying deep hover box shadows.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects elevated `box-shadow`
 @mixin __blueprint-shadow-deep {
 	box-shadow: config.$shadow-hover;
@@ -136,7 +136,7 @@
 
 /// Placeholder selector for deep hover shadow.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-shadow-deep {
 	/* ==========================================================================
 	   03.06 DEEP SHADOW: Apply deep shadow
@@ -150,7 +150,7 @@
 
 /// Applies subtle lift motion and elevated deep shadows to active card containers.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-card {
 
     // Apply physics
@@ -177,7 +177,7 @@
 
 /// Blueprint mixin for active unrounded cards combining inset hover hairlines and elevation shadows.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects inset `box-shadow` and hover depth
 @mixin __blueprint-card-inset {
 	box-shadow: inset 0 0 0 1px var(--wp--custom--color--border-hover, color-mix(in srgb, currentColor 28%, transparent)),
@@ -186,7 +186,7 @@
 
 /// Placeholder selector for active inset card states.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-card-inset {
 	// Unrounded card active state: composed inset hairline & hover elevation
 	@include __blueprint-card-inset;
@@ -194,7 +194,7 @@
 
 /// Applies active state physics and inset hairline shadows to braked layout containers.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-card-inset {
 
     // Apply physics
@@ -221,7 +221,7 @@
 
 /// Applies standard vertical lift and deep shadow to interactive image objects.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-object {
 
 	// Apply to wrapper!
@@ -252,7 +252,7 @@
 
 /// Applies minor scale growth and deep shadow to gallery and image elements.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-object-grow {
 
     // Apply Physics
@@ -279,7 +279,7 @@
 
 /// Blueprint mixin setting target hover opacity on image mask overlays.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects `opacity`
 @mixin __blueprint-remove-overlay {
 	opacity: config.$overlay-hover-opacity;
@@ -287,7 +287,7 @@
 
 /// Placeholder selector for removing active mask overlays.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-remove-overlay {
 	/* ==========================================================================
 	   03.22 REMOVE OVERLAY: Fade out the overlay color
@@ -297,7 +297,7 @@
 
 /// Fades out tinted image overlays on hover when configured.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-remove-overlay {
 
 	// Only apply overlay if configured
@@ -322,7 +322,7 @@
 
 /// Blueprint mixin applying hover state image filters (such as brightness adjustments).
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects hover `filter`
 @mixin __blueprint-filter-image {
 	filter: config.$image-hover-filter;
@@ -330,7 +330,7 @@
 
 /// Placeholder selector for active hover image filters.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-filter-image {
 	/* ==========================================================================
 	   03.23 FILTER IMAGE: Apply hover filter (e.g. brightness) on the image
@@ -340,7 +340,7 @@
 
 /// Applies active hover filters to raster graphic elements.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-filter-image {
 
 	// Only apply image filter if configured
@@ -362,7 +362,7 @@
 
 /// Blueprint mixin setting hover opacity for vector veil overlays.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects veil hover `opacity`
 @mixin __blueprint-veil-reveal {
 	opacity: config.$veil-hover-opacity; 
@@ -370,7 +370,7 @@
 
 /// Placeholder selector for revealing vector veil graphics on hover.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-veil-reveal {
 	/* ==========================================================================
 	   03.24 VEIL REVEAL: Reveals veil by setting opacity 
@@ -380,7 +380,7 @@
 
 /// Reveals graphic veil overlays on active hover state when enabled in config.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-veil-reveal {
 
 	// Only apply veil graphic if configured
@@ -404,7 +404,7 @@
 
 /// Applies active shadow, image filters, overlay removals, and veil reveals to zoom wrappers.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-object-zoom-wrapper {
 
 	// Don't apply shadow if braked
@@ -436,7 +436,7 @@
 
 /// Applies active shadows directly to image elements inside wrappers while triggering veil and filter pipelines.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-object-image-wrapper {
 
 	// Don't apply shadow if braked
@@ -471,7 +471,7 @@
 
 /// Scales internal graphical assets inside zoom portals on active hover states.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-object-zoom-asset {
 	@if config.$lumina-dev-mode {
 // 		@include __blueprint-grow-standard;
@@ -491,7 +491,7 @@
 
 /// Blueprint mixin for active button scale growth, hover shadows, and opacity overrides.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Injects scale `transform`, `box-shadow`, and `opacity`
 @mixin __blueprint-button {
 
@@ -511,7 +511,7 @@
 
 /// Placeholder selector for active button physics.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-button {
 	/* ==========================================================================
 	   03.30 BUTTON: Buttons and blocks that work like buttons
@@ -521,7 +521,7 @@
 
 /// Applies active interaction physics to button elements.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-button {
 	@if config.$lumina-dev-mode {
 		@include __blueprint-button;
@@ -536,7 +536,7 @@
 
 /// Blueprint mixin resetting shadows and transforms on active silenced elements inside card containers.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Resets `box-shadow` and `transform`
 @mixin __blueprint-silence {
 
@@ -550,7 +550,7 @@
 
 /// Placeholder selector for active element silence.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-silence {
 	/* ==========================================================================
 	   03.40 SILENCE ACTIVE: Silence Cards and Objects
@@ -560,7 +560,7 @@
 
 /// Applies active silence to embedded elements.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-silence {
 	@if config.$lumina-dev-mode {	
 		@include __blueprint-silence;
@@ -575,7 +575,7 @@
 
 /// Blueprint mixin resetting active box shadows on embedded images inside cards.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 /// @outputs Resets `box-shadow`
 @mixin __blueprint-silence-shadow {
 
@@ -589,7 +589,7 @@
 
 /// Placeholder selector for active shadow silence on embedded images.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 %physics-silence-shadow {
 	/* ==========================================================================
 	   03.41 SILENCE ACTIVE SHADOW: Silence shadows embedded in Cards
@@ -599,7 +599,7 @@
 
 /// Applies active shadow silence to embedded image elements inside cards.
 ///
-/// @group Physics Actions
+/// @group Physics Interactions
 @mixin apply-silence-shadow {
 	@if config.$lumina-dev-mode {	
 		@include __blueprint-silence-shadow;

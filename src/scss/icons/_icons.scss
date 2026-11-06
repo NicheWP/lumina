@@ -3,7 +3,7 @@
    ========================================================================== */
 
 ////
-/// @group Icons
+/// @group Icons Logic
 ////
 
 // Load string functions
@@ -15,7 +15,7 @@
 
 /// Shared base properties for SVG mask-image icon pseudo-elements.
 ///
-/// @group Icons
+/// @group Icons Logic
 %icon-pseudo {
 	content: '';
 	display: inline-block;
@@ -37,7 +37,7 @@
 
 /// Adds an SVG icon mask image to a CSS class selector or its nested link tag.
 ///
-/// @group Icons
+/// @group Icons Logic
 /// @param {String} $class - Target CSS class selector (e.g. 'wp-block-post-date')
 /// @param {String} $icon - Icon slug identifier (e.g. 'calendar-alt', 'category')
 /// @param {String} $location - Pseudo-element location ('before' or 'after')
@@ -79,7 +79,7 @@
 
 /// Batch generates SVG icon block styles across multiple CSS classes and optional aliases.
 ///
-/// @group Icons
+/// @group Icons Logic
 /// @param {List|String} $icons - Single icon slug or list of slugs (e.g. 'calendar-alt', 'category')
 /// @param {String} $location - Pseudo-element location ('before' or 'after')
 /// @param {Boolean} $link [false] - Whether icon applies to an <a> link tag

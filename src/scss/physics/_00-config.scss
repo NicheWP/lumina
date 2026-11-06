@@ -259,9 +259,12 @@ $html-button-spacing: var(--wp--preset--spacing--30);
 // 00.3 PHYSICS VARIABLES: Animation for grow and shift up
 // --------------------------------------------------------------------------
 
+// ==========================================================================
+// 00.3.1 BOX SHADOWS 
+// ==========================================================================
 /// Shadow default resting state (Natural).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Shadow
 $shadow-default: var(--wp--custom--color--shadow--default, 
 				 var(--wp--preset--shadow--natural, 
@@ -270,42 +273,48 @@ $shadow-default: var(--wp--custom--color--shadow--default,
 				 
 /// Shadow hover (Deep).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Shadow
 $shadow-hover:   var(--wp--custom--color--shadow--hover, 
                  var(--wp--preset--shadow--deep, 
 				 3px 8px 16px rgba(42, 50, 61, 0.20), 1px 4px 6px rgba(42, 50, 61, 0.12)
 ));
 
+// ==========================================================================
+// 00.3.2 DURATIONS & TIMING FUNCTIONS
+// ==========================================================================
 /// Base Timing Tokens (Short = 250ms for Cards/Buttons).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Transition
 $lumina-timing: 		 var(--wp--custom--animation--duration--short, 250ms) var(--wp--custom--animation--timing-function, cubic-bezier(0.4, 0, 0.2, 1));
 
 /// Medium Timing Tokens (Medium = 500ms for Images/Assets).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Transition
 $lumina-timing-medium: 	 var(--wp--custom--animation--duration--medium, 500ms) var(--wp--custom--animation--timing-function, cubic-bezier(0.4, 0, 0.2, 1));
 
+// ==========================================================================
+// 00.3.3 CARDS, OBJECTS, IMAGES, BUTTONS
+// ==========================================================================
 /// 1. Role: Cards (Engine applies $shift-subtle to interactive card containers).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Transform
 $shift-subtle:  		 var(--wp--custom--animation--card--hover-transform, 
 						 translateY(-3px));
 
 /// 2. Role: Standard Images (Engine applies $shift-standard to core image blocks).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Transform
 $shift-standard: 		 var(--wp--custom--animation--image--hover-transform, 
 						 translateY(-3px));
 
 /// 3. Role: Buttons (Engine applies $grow-large to button elements).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Transform
 $grow-large:    		 var(--wp--custom--animation--button--hover-transform, 
 						 var(--wp--custom--animation--default--hover-transform, 
@@ -313,105 +322,118 @@ $grow-large:    		 var(--wp--custom--animation--button--hover-transform,
 
 /// 4. Role: Media & Text (Engine applies $grow-standard to constrained image zooms).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Transform
 $grow-standard: 		 var(--wp--custom--animation--media-text--hover-transform, 
 						 scale(1.08));
 
 /// Reserved Growth Legacy Token.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Transform
 $grow-small: 			 var(--wp--custom--animation--object--hover-transform, 
 						 scale(1.03));
 						 
+// ==========================================================================
+// 00.3.4 RADII & PADDING
+// ==========================================================================
 /// Image Frame Padding.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Length
 $img-frame-padding: 0px; //var(--wp--preset--spacing--20, 4px);
 
 /// Image Border Width.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Length
 $img-border-width: var(--wp--custom--border--width, 1px);
 
 /// Theme Fluid Radius Tokens - Shallow Aspect Selector (16:4.5 Slim & 21:9 Ultrawide).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Selector
 $shallow-aspect-selector: ':is([style*="16/4.5"], [style*="16 / 4.5"], [style*="21/9"], [style*="21 / 9"], .size-cropped-slim, .size-cropped-ultrawide, :has([style*="16/4.5"]), :has([style*="16 / 4.5"]), :has([style*="21/9"]), :has([style*="21 / 9"]), :has(.size-cropped-slim), :has(.size-cropped-ultrawide))';
 
 /// Large image radius token.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Length
 $img-radius-lg: var(--wp--preset--border-radius--lg, 16px);
 
 /// Small image radius token.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Length
 $img-radius-sm: var(--wp--preset--border-radius--sm, 6px);
 
 /// Hardware Mockup Fixed Radii.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Length
 $hardware-device-radius: 18px;
 
+// ==========================================================================
+// 00.3.5 VEILS AND OVERLAY ICONS
+// ==========================================================================
+
+/// Master diameter variable for card overlay badges (e.g. 24px, 28px, 32px).
+///
+/// @group Physics Configuration
+/// @type Length
+$overlay-badge-size: 28px !default;
+
 /// Resting image filter.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type String
 $image-filter:			''; //var(--wp--custom--image--filter, brightness(1));
 
 /// Active hover state image filter.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type String
 $image-hover-filter:	''; //var(--wp--custom--image--hover-filter, brightness(1.15));
 
 /// Image overlay background color.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type String
 $overlay-background:    ''; //'var(--wp--preset--color--primary)'; //var(--wp--custom--color--overlay--background, var(--wp--preset--color--primary));
 
 /// Image overlay resting opacity.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type String
 $overlay-opacity:   	''; //var(--wp--custom--color--overlay--opacity, 0.6);
 
 /// Image overlay active hover opacity.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type String
 $overlay-hover-opacity: ''; //var(--wp--custom--color--overlay--hover-opacity, 0);
 
 /// Veil visual definitions (types: x, crosshair, brackets, matrix).
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type String
 $veil-type:				''; //'link-detect'; //'brackets'; //'crosshair'; //'matrix';, //'x';
 
 /// Veil stroke color.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type String
 $veil-color:			''; //var(--wp--custom--color--veil--color, var(--wp--preset--color--base));
 
 /// Veil resting state opacity.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Number
 $veil-opacity:   		1; //var(--wp--custom--color--veil--opacity, 0);
 
 /// Veil active hover state opacity.
 ///
-/// @group Physics Variables
+/// @group Physics Configuration
 /// @type Number
 $veil-hover-opacity: 	1; //var(--wp--custom--color--veil--hover-opacity, 0.85);
 

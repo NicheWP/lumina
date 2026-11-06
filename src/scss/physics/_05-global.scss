@@ -50,17 +50,7 @@
 			border-radius: var(--wp--custom--border--radius, var(--wp--preset--border-radius--lg));
 			padding: config.$img-frame-padding; //var(--wp--preset--spacing--20);
 		}
-		
-		// ==========================================================================
-		// LUMINA OVERLAY BADGE CONFIGURATION
-		// ==========================================================================
-		
-		/// Master diameter variable for card overlay badges (e.g. 24px, 28px, 32px).
-		///
-		/// @group Physics Global
-		/// @type Length
-		$overlay-badge-size: 28px !default;
-		
+				
 		/* -----------------------------------------------------------------------------
 		   Lumina Card Overlay Badge (Resting State Definitions)
 		   -------------------------------------------------------------------------- */
@@ -85,8 +75,8 @@
 			align-items: center;
 			justify-content: center;
 			
-			width: $overlay-badge-size;
-			height: $overlay-badge-size;
+			width: config.$overlay-badge-size;
+			height: config.$overlay-badge-size;
 			padding: 0 !important;
 			border-radius: 50%;
 			
@@ -107,7 +97,7 @@
 			// --- TOOLTIP TEXT BUBBLE (::before) ---
 			&::before {
 				position: absolute;
-				right: calc(#{$overlay-badge-size} + 8px);
+				right: calc(#{config.$overlay-badge-size} + 8px);
 				top: 50%;
 				transform: translateY(-50%) translateX(6px);
 				
@@ -139,8 +129,8 @@
 			&::after {
 				content: "";
 				display: block;
-				width: calc(#{$overlay-badge-size} * 0.6);
-				height: calc(#{$overlay-badge-size} * 0.6);
+				width: calc(#{config.$overlay-badge-size} * 0.6);
+				height: calc(#{config.$overlay-badge-size} * 0.6);
 				background-color: currentColor;
 				mask-size: contain;
 				mask-repeat: no-repeat;

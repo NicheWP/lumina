@@ -17,7 +17,7 @@
 /// Evaluates and compiles clean, mathematically predictable CSS selectors without
 /// specificity inflation.
 ///
-/// @group Physics Compiler
+/// @group Physics Logic
 /// @param {String} $block ['*'] - Target Gutenberg block selector
 /// @param {String} $is ['none'] - Mandatory CSS class filters (e.g. .has-background)
 /// @param {String} $has ['none'] - Structural descendant checks passed to `:has()`
@@ -113,7 +113,7 @@
 
 /// Evaluates whether a given block selector matches the no-rounding exception list.
 ///
-/// @group Physics Compiler
+/// @group Physics Logic
 /// @param {String} $block - Target block selector
 /// @return {Boolean} Returns true if the block resides in $blocks-no-rounding
 @function is-no-rounding($block) {
@@ -126,7 +126,7 @@
 
 /// Performs a substring match to verify if a selector contains custom border styles.
 ///
-/// @group Physics Compiler
+/// @group Physics Logic
 /// @param {String} $block - Target block selector string
 /// @return {Boolean} Returns true if any custom border class is present inside 
 ///		the block selector
@@ -147,7 +147,7 @@
 
 /// Injects visual debugging outlines and offset bounds when debug mode is enabled.
 ///
-/// @group Physics Compiler
+/// @group Physics Logic
 /// @param {String} $role - Target debug role key (registry, wrapper, card, 
 /// 	object, button, silence)
 /// @outputs Injects `outline` and `outline-offset` CSS properties
