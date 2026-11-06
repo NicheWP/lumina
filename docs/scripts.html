@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Lumina Theme Utilities & Build Scripts Catalog</title>
+	<style>
+		:root {
+			--bg: #0f172a;
+			--card: #1e293b;
+			--border: #334155;
+			--text: #f8fafc;
+			--text-sub: #94a3b8;
+			--accent: #38bdf8;
+			--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+		}
+		body { background: var(--bg); color: var(--text); font-family: var(--font); padding: 2rem; margin: 0; }
+		.container { max-width: 1400px; margin: 0 auto; }
+		header { margin-bottom: 2rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; }
+		header h1 { margin: 0 0 0.5rem 0; font-size: 2rem; }
+		header a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+		table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: 8px; overflow: hidden; table-layout: fixed; }
+		th, td { padding: 1.25rem; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; word-wrap: break-word; }
+		th { background: #0f172a; color: var(--accent); font-weight: 600; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+		th:nth-child(1) { width: 20%; }
+		th:nth-child(2) { width: 10%; }
+		th:nth-child(3) { width: 52%; }
+		th:nth-child(4) { width: 18%; }
+		tr:last-child td { border-bottom: none; }
+		code { background: #0f172a; color: var(--accent); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.85rem; display: inline-block; word-break: break-all; }
+		pre { background: #0f172a; color: #cbd5e1; padding: 0.85rem; border-radius: 6px; font-size: 0.825rem; line-height: 1.45; overflow-x: auto; border: 1px solid var(--border); white-space: pre-wrap; margin: 0.75rem 0 0 0; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+		.badge { display: inline-block; padding: 0.25rem 0.55rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; }
+		.badge-shell { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+		.badge-python { background: rgba(251, 191, 36, 0.15); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
+		.badge-javascript { background: rgba(244, 63, 94, 0.15); color: #fb7185; border: 1px solid rgba(244, 63, 94, 0.3); }
+		.script-title { font-size: 1.05rem; font-weight: 600; color: #f8fafc; margin-bottom: 0.35rem; }
+		.desc-text { color: var(--text-sub); font-size: 0.9rem; line-height: 1.55; }
+		.params-header { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: #94a3b8; margin-top: 0.85rem; margin-bottom: 0.35rem; letter-spacing: 0.03em; }
+		.params-list { list-style: none; padding-left: 0; margin: 0; color: #cbd5e1; font-size: 0.85rem; line-height: 1.6; }
+		.params-list li { margin-bottom: 0.2rem; position: relative; padding-left: 1rem; }
+		.params-list li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Lumina Theme Utilities & Build Scripts Catalog</h1>
+			<a href="index.html">&larr; Back to Documentation Portal</a>
+		</header>
+		<table>
+			<thead>
+				<tr>
+					<th>Script Name</th>
+					<th>Language</th>
+					<th>Description, Parameters &amp; Usage</th>
+					<th>File Location</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><strong><code>crop-images.py</code></strong></td>
+					<td><span class="badge badge-python">Python</span></td>
+					<td>
+						<div class="script-title">Image Cropper, Rescaler & EXIF Embedder</div>
+						<div class="desc-text">Recursively scans raw images, crops to a configured aspect ratio and positional anchor (center, top, or bottom), resizes using Lanczos resampling, embeds EXIF metadata (Title, Credit, License), and exports WebP files with macOS extended attribute preservation.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li><code>CROP=center|top|bottom|none</code> — Positional crop anchor strategy (default: center)</li><li><code>TARGET_W=1600 TARGET_H=900</code> — Output aspect ratio & pixel dimensions</li><li><code>QUALITY=85</code> — WebP compression quality percentage</li><li><code>SOURCE_DIR=path</code> — Input directory containing raw stock photos</li><li><code>OUTPUT_DIR=path</code> — Target destination directory for processed images</li></ul>
+						<div class="params-header">Usage Examples:</div><pre># 1. Default Widescreen Run (1600x900 Center Crop):
+python3 utils/crop-images.py
+
+# 2. Portrait Headshots (1200x1600 Top-Anchored Crop):
+CROP=top TARGET_W=1200 TARGET_H=1600 SOURCE_DIR="./zz_unused/raw-headshots" python3 utils/crop-images.py
+
+# 3. Pass-through Mode (No cropping, EXIF embedding & WebP conversion only):
+CROP=none SOURCE_DIR="./zz_unused/raw-photos" python3 utils/crop-images.py</pre>
+					</td>
+					<td><code>utils/crop-images.py</code></td>
+				</tr>
+				<tr>
+					<td><strong><code>dir-tree.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Directory Tree Visualizer</div>
+						<div class="desc-text">Generates a clean ASCII visual directory tree structure for specified theme folders, ignoring hidden system files and dotfiles.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li><code>[target_dir]</code> — Optional relative directory path to inspect (defaults to theme root <code>.</code>)</li></ul>
+						<div class="params-header">Usage Examples:</div><pre># Inspect assets directory
+./utils/dir-tree.sh assets/images
+
+# Inspect block patterns directory
+./utils/dir-tree.sh patterns</pre>
+					</td>
+					<td><code>utils/dir-tree.sh</code></td>
+				</tr>
+				<tr>
+					<td><strong><code>docs-parts.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Template Parts Documentation Generator</div>
+						<div class="desc-text">Parses <code>theme.json</code> templateParts metadata and scans the <code>/parts</code> directory to generate both <code>docs/parts.html</code> and <code>docs/parts.md</code>.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li>No arguments required. Executed directly or via NPM scripts.</li></ul>
+						<div class="params-header">Usage Examples:</div><pre>./utils/docs-parts.sh
+
+# Or via NPM:
+npm run docs:parts</pre>
+					</td>
+					<td><code>utils/docs-parts.sh</code></td>
+				</tr>
+				<tr>
+					<td><strong><code>docs-patterns.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Block Patterns Catalog Generator</div>
+						<div class="desc-text">Parses DocBlock metadata headers (Title, Slug, Categories, Description) across all PHP pattern files in <code>/patterns</code> to generate <code>docs/patterns.html</code> and <code>docs/patterns.md</code>.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li>No arguments required. Executed directly or via NPM scripts.</li></ul>
+						<div class="params-header">Usage Examples:</div><pre>./utils/docs-patterns.sh
+
+# Or via NPM:
+npm run docs:patterns</pre>
+					</td>
+					<td><code>utils/docs-patterns.sh</code></td>
+				</tr>
+				<tr>
+					<td><strong><code>docs-scripts.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Build & Maintenance Scripts Catalog Generator</div>
+						<div class="desc-text">Parses header documentation, parameters, and usage blocks across all CLI utility scripts in <code>/utils</code> to compile <code>docs/scripts.html</code> and <code>docs/scripts.md</code>.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li>No arguments required. Executed directly or via NPM scripts.</li></ul>
+						<div class="params-header">Usage Examples:</div><pre>./utils/docs-scripts.sh
+
+# Or via NPM:
+npm run docs:scripts</pre>
+					</td>
+					<td><code>utils/docs-scripts.sh</code></td>
+				</tr>
+				<tr>
+					<td><strong><code>docs-templates.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Page Templates Catalog Generator</div>
+						<div class="desc-text">Scans the <code>/templates</code> directory and cross-references <code>theme.json</code> customTemplates metadata to generate <code>docs/templates.html</code> and <code>docs/templates.md</code>.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li>No arguments required. Executed directly or via NPM scripts.</li></ul>
+						<div class="params-header">Usage Examples:</div><pre>./utils/docs-templates.sh
+
+# Or via NPM:
+npm run docs:templates</pre>
+					</td>
+					<td><code>utils/docs-templates.sh</code></td>
+				</tr>
+				<tr>
+					<td><strong><code>docs-variables.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Custom CSS Variables Specification Generator</div>
+						<div class="desc-text">Sweeps <code>theme.json</code>, style variation JSON files, SCSS partials, PHP functions, and JS scripts to generate <code>docs/variables.html</code> and <code>docs/variables.md</code> with multi-tier fallback resolution and file reference badges.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li>No arguments required. Executed directly or via NPM scripts.</li></ul>
+						<div class="params-header">Usage Examples:</div><pre>./utils/docs-variables.sh
+
+# Or via NPM:
+npm run docs:variables</pre>
+					</td>
+					<td><code>utils/docs-variables.sh</code></td>
+				</tr>
+				<tr>
+					<td><strong><code>generate-test-pattern-page.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Master Test Pattern Generator</div>
+						<div class="desc-text">Combines active PHP block pattern calls into a single master test layout (<code>patterns/99-page-all-patterns-TEST.php</code>) for rapid visual auditing in the Site Editor.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li><code>[subfolder]</code> — Optional pattern subfolder name to restrict test page generation (e.g., <code>01-heroes</code>)</li></ul>
+						<div class="params-header">Usage Examples:</div><pre># 1. Sweep all active pattern directories:
+./utils/generate-test-pattern-page.sh
+
+# 2. Sweep a specific category subfolder:
+./utils/generate-test-pattern-page.sh 01-heroes</pre>
+					</td>
+					<td><code>utils/generate-test-pattern-page.sh</code></td>
+				</tr>
+				<tr>
+					<td><strong><code>patterns2php.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Lumina Theme Pattern Converter</div>
+						<div class="desc-text">Converts raw HTML block layouts from <code>/patterns/html</code> (or <code>/parts</code>) into production-ready WordPress PHP pattern files in <code>/patterns/converted</code> with <code>esc_html_e()</code> i18n translation functions, asset URI helpers, and clean Block Types comment manifests.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li><code>-f</code> or <code>--force</code> — Force overwrite existing PHP pattern files</li><li><code>[filter_keyword]</code> — Filter conversion to files matching a specific string (e.g., <code>hero</code>)</li><li><code>[custom_folder]</code> — Target custom relative source directory (e.g., <code>parts</code>)</li></ul>
+						<div class="params-header">Usage Examples:</div><pre># 1. Default Run (Skip existing PHP patterns):
+./utils/patterns2php.sh
+
+# 2. Force Overwrite (-f / --force):
+./utils/patterns2php.sh --force
+
+# 3. Filter by Filename Keyword:
+./utils/patterns2php.sh hero
+
+# 4. Target Custom Directory (e.g., Template Parts) with Force Overwrite:
+./utils/patterns2php.sh parts header -f</pre>
+					</td>
+					<td><code>utils/patterns2php.sh</code></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

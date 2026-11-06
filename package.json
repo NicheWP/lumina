@@ -9,10 +9,11 @@
     "watch:docs-php": "onchange \"inc/**/*.php\" \"functions.php\" -- npm run docs:php",
     "watch:docs-scss": "onchange \"src/scss/**/*.scss\" -- npm run docs:scss",
     "watch:docs-patterns": "onchange \"patterns/**/*.php\" -- npm run docs:patterns",
-    "watch:docs-parts": "onchange \"parts/**/*.html\" -- npm run docs:parts",
-    "watch:docs-templates": "onchange \"templates/**/*.html\" -- npm run docs:templates",
+    "watch:docs-parts": "onchange \"parts/*.html\" -- npm run docs:parts",
+    "watch:docs-templates": "onchange \"templates/*.html\" -- npm run docs:templates",
     "watch:docs-variables": "onchange \"theme.json\" \"styles/**/*.json\" \"src/scss/**/*.scss\" \"inc/images.php\" -- npm run docs:variables",
-    "watch:docs": "concurrently --names \"PHP,SCSS,PTRN,PRTS,TMPL,VARS\" -c \"yellow,cyan,green,magenta,blue,red\" \"npm run watch:docs-php\" \"npm run watch:docs-scss\" \"npm run watch:docs-patterns\" \"npm run watch:docs-parts\" \"npm run watch:docs-templates\" \"npm run watch:docs-variables\"",
+    "watch:docs-scripts": "onchange \"utils/*\" -- npm run docs:scripts",
+    "watch:docs": "concurrently --names \"PHP,SCSS,PTRN,PRTS,TMPL,VARS,UTIL\" -c \"yellow,cyan,green,magenta,blue,red,white\" \"npm run watch:docs-php\" \"npm run watch:docs-scss\" \"npm run watch:docs-patterns\" \"npm run watch:docs-parts\" \"npm run watch:docs-templates\" \"npm run watch:docs-variables\" \"npm run watch:docs-scripts\"",
     "start": "npm run docs && concurrently \"wp-scripts start --webpack-src-dir=src/scss --output-path=assets/css\" \"npm run watch:readme\" \"npm run watch:docs\"",
     "copy:readme": "shx cp readme.txt readme.md",
     "theme-zip": "npm run build && npm run copy:readme && zip -r lumina-theme.zip . -x \"*.DS_Store\" \"node_modules/*\" \"zz_unused/*\" \".git*\" \"src/*\" \"package*\" \"webpack*\" \"postcss*\" \"readme.md\"",
@@ -22,7 +23,8 @@
     "docs:parts": "./utils/docs-parts.sh",
     "docs:templates": "./utils/docs-templates.sh",
     "docs:variables": "./utils/docs-variables.sh",
-    "docs": "npm run docs:php && npm run docs:scss && npm run docs:patterns && npm run docs:parts && npm run docs:templates && npm run docs:variables"
+    "docs:scripts": "./utils/docs-scripts.sh",
+    "docs": "npm run docs:php && npm run docs:scss && npm run docs:patterns && npm run docs:parts && npm run docs:templates && npm run docs:variables && npm run docs:scripts"
   },
   "devDependencies": {
     "@wordpress/icons": "^15.5.0",
