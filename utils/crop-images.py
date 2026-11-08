@@ -11,6 +11,11 @@ intelligently parses structured filenames into EXIF metadata, and exports WebP f
   - Files starting with a number (e.g., 01_gold_sea_...) -> Renumbered (01.webp, 02.webp)
   - Files starting with text (e.g., female-01_portrait_...) -> Retains prefix before '_' (female-01.webp)
 
+PER-DIRECTORY DEFAULT CROP SIZES:
+  - /team & /testimonials : 1200x1600 (3:4 Portrait Headshot)
+  - /screenshots          : 1200x900  (Custom Widescreen/Standard)
+  - All other folders     : 1600x900  (Standard Widescreen)
+
 EXIF TAG MAP (WordPress Auto-Extraction Compatible):
   - Tag 270   (ImageDescription) : Title & Keywords -> Auto-populates WP Caption/Title
   - Tag 315   (Artist)           : Photo Source / Author -> Auto-populates WP Credit
@@ -23,34 +28,21 @@ Configured entirely via environment variables.
 USAGE EXAMPLES (RUN FROM REPO ROOT OR SCRIPT FOLDER):
 ------------------------------------------------------------------------------
 
-1. DEFAULT RUN (Center crop & resize to 1600x900 widescreen):
+1. DEFAULT RUN (Recursive sweep with automatic per-directory default crop sizes):
    $ python3 utils/crop-images.py
 
-2. PORTRAIT HEADSHOT RUN (3:4 Ratio / 1200x1600 / Center Crop):
-   $ TARGET_W=1200 TARGET_H=1600 \
-     SOURCE_DIR="./zz_unused/zz_raw-images/raw-lumina-headshots/final-manual-crops" \
-     python3 utils/crop-images.py
+2. CUSTOM QUALITY CONTROL:
+   $ QUALITY=85 python3 utils/crop-images.py
 
-3. TIGHT HEADROOM HEADSHOT RUN (3:4 Ratio / 1200x1600 / Top-Anchored Crop):
-   $ CROP=top TARGET_W=1200 TARGET_H=1600 \
-     SOURCE_DIR="./zz_unused/zz_raw-images/raw-lumina-headshots/final-manual-crops" \
+3. TARGETED SUBFOLDER RUN WITH CUSTOM OVERRIDE (Only allowed when passing a specific subfolder):
+   $ TARGET_W=1200 TARGET_H=1600 \
+     SOURCE_DIR="./src/images/team" \
      python3 utils/crop-images.py
 
 4. NO-CROP PASS-THROUGH (Preserve manual crops, embed EXIF & convert to WebP):
    $ CROP=none \
-     SOURCE_DIR="./zz_unused/zz_raw-images/raw-lumina-headshots/final-manual-crops" \
      python3 utils/crop-images.py
 
-5. CUSTOM SOURCE & OUTPUT DIRECTORIES WITH QUALITY CONTROL:
-   $ SOURCE_DIR="./zz_unused/zz_raw-images" \
-     OUTPUT_DIR="./assets/images/samples" \
-     QUALITY=85 CROP=center \
-     python3 utils/crop-images.py
-     
-6. SCREENSHOT RUN
-   $ TARGET_W=1200 TARGET_H=900 \
-     SOURCE_DIR="./zz_unused/zz_raw-images/nichewp-lumina-screenshots" \
-     python3 utils/crop-images.py
 
 ==============================================================================
 """
@@ -68,9 +60,9 @@ from PIL import Image
 # Allow processing of ultra-high-res raw stock photos (up to 250 Megapixels)
 Image.MAX_IMAGE_PIXELS = 250000000
 
-# Source directory, quality (compression %), and output formats
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DEFAULT_SOURCE = os.path.abspath(os.path.join(SCRIPT_DIR, "../zz_unused/zz_raw-images"))
+DEFAULT_SOURCE = os.path.abspath(os.path.join(SCRIPT_DIR, "../src/images"))
+DEFAULT_OUTPUT_BASE = os.path.abspath(os.path.join(SCRIPT_DIR, "../assets/images"))
 
 QUALITY = int(os.environ.get("QUALITY", "85"))
 OUTPUT_FORMAT = os.environ.get("OUTPUT_FORMAT", "webp").lower()
@@ -79,16 +71,47 @@ OUTPUT_FORMAT = os.environ.get("OUTPUT_FORMAT", "webp").lower()
 CROP = os.environ.get("CROP", os.environ.get("GRAVITY", "center")).lower()
 NO_CROP = os.environ.get("NO_CROP", "0").lower() in ("1", "true", "yes") or CROP in ("none", "passthrough", "false", "0")
 
-# Parameterized crop dimensions (Defaults to 1600x900 widescreen)
-TARGET_W = int(os.environ.get("TARGET_W", "1600"))
-TARGET_H = int(os.environ.get("TARGET_H", "900"))
-TARGET_RATIO = TARGET_W / TARGET_H
-
-SOURCE_DIR = os.environ.get("SOURCE_DIR", DEFAULT_SOURCE)
-DEFAULT_OUT_NAME = f"converted_{OUTPUT_FORMAT}" if NO_CROP else f"cropped_{TARGET_W}x{TARGET_H}"
-OUTPUT_DIR = os.environ.get("OUTPUT_DIR", os.path.join(SOURCE_DIR, DEFAULT_OUT_NAME))
+SOURCE_DIR = os.path.abspath(os.environ.get("SOURCE_DIR", DEFAULT_SOURCE))
+OUTPUT_DIR = os.path.abspath(os.environ.get("OUTPUT_DIR", DEFAULT_OUTPUT_BASE))
 
 VALID_EXTS = (".jpg", ".jpeg", ".png", ".webp", ".bmp", ".tiff")
+
+
+def get_target_dimensions(rel_path):
+    """
+    Determines target crop dimensions based on the folder path.
+    - /team and /testimonials -> 1200x1600
+    - /screenshots -> 1200x900
+    - Default -> 1600x900
+    """
+    # Check if custom TARGET_W or TARGET_H were explicitly requested via environment variables
+    custom_w = os.environ.get("TARGET_W")
+    custom_h = os.environ.get("TARGET_H")
+    
+    if custom_w or custom_h:
+        # Restriction: Custom sizes are only permitted when targeting a specific subfolder (not root recursive sweep)
+        if rel_path == "." or rel_path == "":
+            print("❌ Error: Passing custom TARGET_W/TARGET_H via environment variables is only permitted")
+            print("   when targeting a specific subfolder (e.g., SOURCE_DIR='./src/images/team').")
+            sys.exit(1)
+        
+        # If running on a specific subfolder with custom overrides
+        w = int(custom_w) if custom_w else 1600
+        h = int(custom_h) if custom_h else 900
+        return w, h
+
+    # Automatic per-directory defaults
+    if rel_path == "." or not rel_path:
+        return 1600, 900
+    
+    top_folder = rel_path.split(os.sep)[0].lower()
+    
+    if top_folder in ("team", "testimonials"):
+        return 1200, 1600
+    elif top_folder == "screenshots":
+        return 1200, 900
+    else:
+        return 1600, 900
 
 
 def get_mac_where_from_url(filepath):
@@ -134,7 +157,6 @@ def copy_mac_where_from_attr(src_path, dest_path):
 def parse_filename_metadata(filename, src_path):
     """
     Parses structured filenames and extracts source URLs into metadata fields.
-    Expected format: 01_green_nature_beach-and-sky_pexels.jpg or female-01_young-woman_pexels.jpg
     """
     base_name = os.path.splitext(filename)[0]
     parts = base_name.split('_')
@@ -177,7 +199,7 @@ if not os.path.exists(SOURCE_DIR):
     print(f"❌ Error: Source folder '{SOURCE_DIR}' does not exist.")
     sys.exit(1)
 
-crop_mode_str = "PASSTHROUGH (No Crop)" if NO_CROP else f"CROP [{CROP.upper()}] & RESIZE ({TARGET_W}x{TARGET_H})"
+crop_mode_str = "PASSTHROUGH (No Crop)" if NO_CROP else f"CROP [{CROP.upper()}] (Per-Directory Auto-Sizes)"
 print(f"🚀 Sweeping subdirectories in '{SOURCE_DIR}' [{crop_mode_str}]")
 print(f"   Target Base Output: '{OUTPUT_DIR}'\n")
 
@@ -204,8 +226,14 @@ for current_root, dirs, files in os.walk(SOURCE_DIR):
         continue
 
     # Determine relative subfolder path and construct target output folder
-    rel_path = os.path.relpath(current_root, SOURCE_DIR)
-    if rel_path == ".":
+    try:
+        rel_path = os.path.relpath(current_root, DEFAULT_SOURCE)
+        if rel_path.startswith(".."):
+            rel_path = os.path.relpath(current_root, SOURCE_DIR)
+    except Exception:
+        rel_path = os.path.relpath(current_root, SOURCE_DIR)
+
+    if rel_path == "." or rel_path == "":
         target_out_dir = OUTPUT_DIR
         display_folder = "/"
     else:
@@ -213,14 +241,16 @@ for current_root, dirs, files in os.walk(SOURCE_DIR):
         display_folder = f"/{rel_path}/"
 
     os.makedirs(target_out_dir, exist_ok=True)
-    print(f"📁 Folder: {display_folder} ({len(source_files)} image(s))")
+
+    # Resolve target dimensions for this specific folder
+    target_w, target_h = get_target_dimensions(rel_path)
+    target_ratio = target_w / target_h
+
+    print(f"📁 Folder: {display_folder} ({len(source_files)} image(s)) -> Target: {target_w}x{target_h}")
 
     for idx, filename in enumerate(source_files, start=1):
         src_path = os.path.join(current_root, filename)
 
-        # OUTPUT FILENAME RESOLUTION:
-        # - Starts with a number (e.g. 01_gold_sea...): replace with padded sequence (01.webp, 02.webp)
-        # - Starts with text (e.g. female-01_whatever...): keep string before the first '_' (female-01.webp)
         if filename[0].isdigit():
             out_filename = f"{idx:02d}.{OUTPUT_FORMAT}"
         else:
@@ -233,16 +263,13 @@ for current_root, dirs, files in os.walk(SOURCE_DIR):
             with Image.open(src_path) as img:
                 exif_data = img.getexif()
 
-                # Parse metadata & extract 'Where from' URL
                 meta = parse_filename_metadata(filename, src_path)
 
-                # Assign EXIF tags
-                exif_data[270] = meta["title"]       # ImageDescription -> WP Title / Caption
-                exif_data[315] = meta["artist"]      # Artist -> WP Credit
-                exif_data[33432] = meta["copyright"] # Copyright -> WP Copyright
-                exif_data[37510] = meta["comment"]   # UserComment -> Audit Trail + URL
+                exif_data[270] = meta["title"]
+                exif_data[315] = meta["artist"]
+                exif_data[33432] = meta["copyright"]
+                exif_data[37510] = meta["comment"]
 
-                # Convert color modes for WebP compatibility
                 if img.mode in ("RGBA", "LA") or (img.mode == "P" and "transparency" in img.info):
                     img = img.convert("RGBA")
                 else:
@@ -256,9 +283,8 @@ for current_root, dirs, files in os.walk(SOURCE_DIR):
                 else:
                     orig_ratio = orig_w / orig_h
 
-                    if orig_ratio > TARGET_RATIO:
-                        # Image is wider than target aspect ratio: crop horizontal sides
-                        crop_w = int(orig_h * TARGET_RATIO)
+                    if orig_ratio > target_ratio:
+                        crop_w = int(orig_h * target_ratio)
                         crop_h = orig_h
                         top = 0
                         
@@ -266,19 +292,18 @@ for current_root, dirs, files in os.walk(SOURCE_DIR):
                             left = 0
                         elif CROP == "right":
                             left = orig_w - crop_w
-                        else:  # "center", "top", "bottom"
+                        else:
                             left = (orig_w - crop_w) // 2
                     else:
-                        # Image is taller than target aspect ratio: crop vertical top/bottom
                         crop_w = orig_w
-                        crop_h = int(orig_w / TARGET_RATIO)
+                        crop_h = int(orig_w / target_ratio)
                         left = 0
                         
                         if CROP == "top":
-                            top = 0  # Preserve top headroom at Y=0
+                            top = 0
                         elif CROP == "bottom":
                             top = orig_h - crop_h
-                        else:  # "center"
+                        else:
                             top = (orig_h - crop_h) // 2
 
                     right = left + crop_w
@@ -287,8 +312,8 @@ for current_root, dirs, files in os.walk(SOURCE_DIR):
                     cropped = img.crop((left, top, right, bottom))
 
                     resample_filter = getattr(Image, "Resampling", Image).LANCZOS
-                    final_img = cropped.resize((TARGET_W, TARGET_H), resample_filter)
-                    proc_status = f"Cropped [{CROP.upper()}] ({TARGET_W}x{TARGET_H})"
+                    final_img = cropped.resize((target_w, target_h), resample_filter)
+                    proc_status = f"Cropped [{CROP.upper()}] ({target_w}x{target_h})"
 
                 save_kwargs = {
                     "format": OUTPUT_FORMAT.upper(),

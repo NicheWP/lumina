@@ -435,55 +435,6 @@ ul, ol, .wp-block-list) {
   margin-block-start: var(--wp--preset--spacing--50);
 }
 
-/*-----------------------------------------------------------------------------
-# List: Custom
-#
-# Note: Needed for multiple blocks so load in base stylesheet
------------------------------------------------------------------------------*/
-/* Checkmarks */
-.is-style-list-checkmarks {
-  list-style-type: "✓ ";
-}
-
-.rtl .is-style-list-checkmarks {
-  list-style-type: " ✓";
-}
-
-/* Plain */
-.is-style-list-plain,
-.is-style-list-plain ul,
-.is-style-list-plain ol {
-  list-style: none;
-  padding-right: 0;
-}
-
-.is-style-list-plain li {
-  margin-bottom: var(--wp--preset--spacing--30);
-}
-
-.is-style-list-plain:not(.has-background),
-.is-style-list-plain:not(.has-background) li {
-  margin-right: 0;
-}
-
-.is-style-list-plain:not(.has-background) li ul li {
-  padding-right: var(--wp--preset--spacing--40);
-}
-
-/* Plain Centered */
-.is-style-list-plain-centered,
-.is-style-list-plain-centered ul,
-.is-style-list-plain-centered ol {
-  list-style: none;
-  padding-right: 0;
-  margin-right: 0;
-  text-align: center;
-}
-
-.is-style-list-plain-centered li {
-  margin-right: 0;
-}
-
 /* ==========================================================================
    LUMINA GLASS ENGINE: Glass & Specular Overlay Engine
    ========================================================================== */
@@ -1029,6 +980,55 @@ ol.is-style-list-dividers,
 
 .is-style-list-dividers:not(.has-background) li ul li {
   padding-right: var(--wp--preset--spacing--40);
+}
+
+/*-----------------------------------------------------------------------------
+# List: Custom
+#
+# Note: Needed for multiple blocks so load in base stylesheet
+-----------------------------------------------------------------------------*/
+/* Checkmarks */
+.is-style-list-checkmarks {
+  list-style-type: "✓ ";
+}
+
+.rtl .is-style-list-checkmarks {
+  list-style-type: " ✓";
+}
+
+/* Plain */
+.is-style-list-plain,
+.is-style-list-plain ul,
+.is-style-list-plain ol {
+  list-style: none;
+  padding-right: 0;
+}
+
+.is-style-list-plain li {
+  margin-bottom: var(--wp--preset--spacing--30);
+}
+
+.is-style-list-plain:not(.has-background),
+.is-style-list-plain:not(.has-background) li {
+  margin-right: 0;
+}
+
+.is-style-list-plain:not(.has-background) li ul li {
+  padding-right: var(--wp--preset--spacing--40);
+}
+
+/* Plain Centered */
+.is-style-list-plain-centered,
+.is-style-list-plain-centered ul,
+.is-style-list-plain-centered ol {
+  list-style: none;
+  padding-right: 0;
+  margin-right: 0;
+  text-align: center;
+}
+
+.is-style-list-plain-centered li {
+  margin-right: 0;
 }
 
 /* ==========================================================================

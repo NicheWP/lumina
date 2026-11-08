@@ -11,6 +11,19 @@
  * @since	1.0
  */
 
+
+/**
+ * Override WordPress Core default block-template viewport meta tag for Lumina
+ */
+add_action( 'wp_head', function() {
+	// 1. Unhook core's private viewport callback before priority 0 executes
+	remove_action( 'wp_head', '_block_template_viewport_meta_tag', 0 );
+
+	// 2. Output custom viewport meta tag with safe-area support
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />' . "\n";
+}, PHP_INT_MIN );
+
+// AFTER SETUP THEME
 add_action( 'after_setup_theme', 'lumina_theme_support' );
 
 if ( ! function_exists( 'lumina_theme_support' ) ) :
@@ -78,7 +91,6 @@ $includes = array (
 	'/inc/comments.php',
 	'/inc/icons.php',
 	'/inc/images.php',
-	'/inc/page-tags.php',
 );
 
 $includes = apply_filters( 'lumina_load_includes', $includes );
@@ -90,6 +102,7 @@ foreach ( $includes as $include ) {
 	}
 }
 
+// ENQUEUE SCRIPTS
 add_action( 'wp_enqueue_scripts', 'lumina_load_styles', 20 );
 
 if ( ! function_exists( 'lumina_load_styles' ) ) :
@@ -154,6 +167,7 @@ if ( ! function_exists( 'lumina_load_styles' ) ) :
 	}
 endif;
 
+// INIT HOOK
 add_action( 'init', 'lumina_load_block_styles', 20 );
 
 if ( ! function_exists( 'lumina_load_block_styles' ) ) :
@@ -223,6 +237,7 @@ if ( ! function_exists( 'lumina_load_block_styles' ) ) :
 	}
 endif;
 
+// TEMPLATE PART AREAS
 add_filter( 'default_wp_template_part_areas', 'lumina_template_part_areas' );
 
 if ( ! function_exists( 'lumina_template_part_areas' ) ) :
@@ -263,6 +278,7 @@ if ( ! function_exists( 'lumina_template_part_areas' ) ) :
 	}
 endif;
 
+// IMAGES SIZES
 add_filter( 'image_size_names_choose', 'lumina_image_sizes' );
 
 if ( ! function_exists( 'lumina_image_sizes' ) ) :
@@ -286,9 +302,10 @@ if ( ! function_exists( 'lumina_image_sizes' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'lumina_body_open' ) && ! is_child_theme() ):
+// BODY TAGS
+add_action( 'wp_body_open', 'lumina_body_open' );
 
-	add_action( 'wp_body_open', 'lumina_body_open' );
+if ( ! function_exists( 'lumina_body_open' ) && ! is_child_theme() ):
 
 	/**
 	 * Anchor Tags for Scroll-To-Top
@@ -301,6 +318,7 @@ if ( ! function_exists( 'lumina_body_open' ) && ! is_child_theme() ):
 	}
 endif;
 
+// ADMIN MENUS
 // add_action( 'admin_menu', 'lumina_adjust_admin_menu', 999 );
 // 
 // if ( ! function_exists( 'lumina_adjust_admin_menu' ) ) :
@@ -314,6 +332,7 @@ endif;
 // 	}
 // endif;
 
+// HELPER FOR ENQUEUE STYLES
 if ( ! function_exists( 'lumina_enqueue_style' ) ) :
 
 	/**
@@ -359,6 +378,7 @@ if ( ! function_exists( 'lumina_enqueue_style' ) ) :
 	} 
 endif;
 
+// HELPER FOR GETTING JSON VARIABLES
 if ( ! function_exists( 'lumina_get_active_theme_mode' ) ) :
 
 	/**
