@@ -13,7 +13,6 @@ intelligently parses structured filenames into EXIF metadata, and exports WebP f
 
 PER-DIRECTORY DEFAULT CROP SIZES:
   - /team & /testimonials : 1200x1600 (3:4 Portrait Headshot)
-  - /screenshots          : 1200x900  (Custom Widescreen/Standard)
   - All other folders     : 1600x900  (Standard Widescreen)
 
 EXIF TAG MAP (WordPress Auto-Extraction Compatible):
@@ -81,7 +80,6 @@ def get_target_dimensions(rel_path):
     """
     Determines target crop dimensions based on the folder path.
     - /team and /testimonials -> 1200x1600
-    - /screenshots -> 1200x900
     - Default -> 1600x900
     """
     # Check if custom TARGET_W or TARGET_H were explicitly requested via environment variables
@@ -108,8 +106,6 @@ def get_target_dimensions(rel_path):
     
     if top_folder in ("team", "testimonials"):
         return 1200, 1600
-    elif top_folder == "screenshots":
-        return 1200, 900
     else:
         return 1600, 900
 
