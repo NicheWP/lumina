@@ -5,7 +5,7 @@
  * Breakpoints & Media Queries
  */
 /* ==========================================================================
-   LUMINA: Master Columns & Gutter Dividers Engine (columns_lumina.scss)
+   LUMINA: Master Columns & Gutter Dividers Engine (columns_dividers.scss)
    ========================================================================== */
 /* -------------------------------------------------------------------------
  * 0. FLEX HEIGHT STRETCH (SURGICAL INTENT ONLY)
@@ -87,11 +87,13 @@
 }
 
 /* -------------------------------------------------------------------------
- * 3. TABLET GRID TRANSFORMATIONS (600px to 959px / $break-small to $break-large - 1)
- *    Preserves tablet 2x2 grids for portrait & landscape tablets
+ * 3. TABLET GRID TRANSFORMATIONS
  * ------------------------------------------------------------------------- */
+/* --- A. Tablet Grids & Exceptions (600px to 959px / $break-small to $break-large - 1) ---
+ *    Preserves 2x2 grids for 4-up, 1+2 grids for opt-in 3-up, and Smart 2-Up.
+ */
 @media (min-width: 600px) and (max-width: 959px) {
-  /* --- A. 4-Column Container -> 2x2 Grid on Tablet --- */
+  /* --- A1. 4-Column Container -> 2x2 Grid on Tablet --- */
   .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(4)) {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -148,7 +150,7 @@
     z-index: 2;
     pointer-events: none;
   }
-  /* --- B. OPT-IN 3-Column Container -> 1 + 2 Grid on Tablet ---
+  /* --- A2. OPT-IN 3-Column Container -> 1 + 2 Grid on Tablet ---
      (Triggers when .is-style-first-on-mobile, .is-first-on-mobile, or .first-on-mobile exists) */
   .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):has(> .wp-block-column:is(.is-style-first-on-mobile, .is-first-on-mobile, .first-on-mobile)) {
     display: grid !important;
@@ -196,44 +198,7 @@
     z-index: 2;
     pointer-events: none;
   }
-  /* --- C. Standard 3-Column Container -> Stack to Single Column on Tablet ---
-     (Triggers when NO first-on-mobile class variant is present) */
-  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):not(:has(> .wp-block-column.is-style-first-on-mobile)):not(:has(> .wp-block-column.is-first-on-mobile)):not(:has(> .wp-block-column.first-on-mobile)) {
-    flex-direction: column !important;
-    flex-wrap: wrap !important;
-  }
-  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):not(:has(> .wp-block-column.is-style-first-on-mobile)):not(:has(> .wp-block-column.is-first-on-mobile)):not(:has(> .wp-block-column.first-on-mobile)) > .wp-block-column {
-    flex-basis: 100% !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  /* Hairlines for 3-column containers stacked on tablet */
-  .wp-block-columns.is-style-gutter-dividers:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):not(:has(> .wp-block-column.is-style-first-on-mobile)):not(:has(> .wp-block-column.is-first-on-mobile)):not(:has(> .wp-block-column.first-on-mobile)) > .wp-block-column:not(:first-child)::before {
-    content: "" !important;
-    position: absolute !important;
-    width: 100% !important;
-    height: 1px !important;
-    top: calc(var(--gutter-divider-gap) / -2) !important;
-    bottom: auto !important;
-    right: 0 !important;
-    background-color: var(--wp--custom--color--divider, color-mix(in srgb, currentColor 18%, transparent));
-    z-index: 2;
-    pointer-events: none;
-  }
-  /* --- D. 2-Column Container -> Smart 2-Up vs Stacked CTAs on Tablet --- */
-  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(2)) {
-    /* Default: Stack plain 2-column text containers vertically on tablet */
-    flex-direction: column !important;
-    flex-wrap: wrap !important;
-  }
-  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(2)) > .wp-block-column {
-    flex-basis: 100% !important;
-    width: 100% !important;
-    max-width: 100% !important;
-  }
-  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(2)) {
-    /* Smart 2-Up Exception: Preserves side-by-side when dividers or cards/borders are present */
-  }
+  /* --- A3. Smart 2-Up Exception: Preserves side-by-side on Tablet --- */
   .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(2)):not(.has-background):is(.is-style-keep-2-up,
   .is-style-gutter-dividers,
   :has(> .wp-block-column:is(.has-background,
@@ -260,6 +225,45 @@
     min-width: 0;
     width: auto !important;
     max-width: none !important;
+  }
+}
+/* --- B. Standard Column Stacking (600px to 781px / $break-small to $break-medium - 1) ---
+ *    Matches WordPress Core's 782px ($break-medium) default collapse threshold.
+ *    Standard 3-column & plain 2-column layouts remain side-by-side from 782px to 959px.
+ */
+@media (min-width: 600px) and (max-width: 781px) {
+  /* Standard 3-Column Container -> Stack to Single Column on Portrait Tablet */
+  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):not(:has(> .wp-block-column.is-style-first-on-mobile)):not(:has(> .wp-block-column.is-first-on-mobile)):not(:has(> .wp-block-column.first-on-mobile)) {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+  }
+  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):not(:has(> .wp-block-column.is-style-first-on-mobile)):not(:has(> .wp-block-column.is-first-on-mobile)):not(:has(> .wp-block-column.first-on-mobile)) > .wp-block-column {
+    flex-basis: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Hairlines for standard 3-column containers stacked on portrait tablet */
+  .wp-block-columns.is-style-gutter-dividers:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):not(:has(> .wp-block-column.is-style-first-on-mobile)):not(:has(> .wp-block-column.is-first-on-mobile)):not(:has(> .wp-block-column.first-on-mobile)) > .wp-block-column:not(:first-child)::before {
+    content: "" !important;
+    position: absolute !important;
+    width: 100% !important;
+    height: 1px !important;
+    top: calc(var(--gutter-divider-gap) / -2) !important;
+    bottom: auto !important;
+    right: 0 !important;
+    background-color: var(--wp--custom--color--divider, color-mix(in srgb, currentColor 18%, transparent));
+    z-index: 2;
+    pointer-events: none;
+  }
+  /* Plain 2-Column Container -> Default Stacking on Portrait Tablet */
+  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(2)):not(.has-background):not(.is-style-keep-2-up):not(.is-style-gutter-dividers):not(:has(> .wp-block-column:is(.has-background, .is-style-rounded-border, .is-style-rounded-corners, .is-style-outline-border, .is-style-card, .has-border-color, [class*=has-border-color]))) {
+    flex-direction: column !important;
+    flex-wrap: wrap !important;
+  }
+  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(2)):not(.has-background):not(.is-style-keep-2-up):not(.is-style-gutter-dividers):not(:has(> .wp-block-column:is(.has-background, .is-style-rounded-border, .is-style-rounded-corners, .is-style-outline-border, .is-style-card, .has-border-color, [class*=has-border-color]))) > .wp-block-column {
+    flex-basis: 100% !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }
 /* -------------------------------------------------------------------------

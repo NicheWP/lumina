@@ -8,7 +8,7 @@
 ?>
 <!-- wp:group {"metadata":{"name":"Columns 3 Recent Posts"},"align":"wide","layout":{"type":"constrained"},"anchor":"columns-3-recent-posts"} -->
 <div class="wp-block-group alignwide" id="columns-3-recent-posts">
-<!-- wp:heading {"align":"wide","className":"is-style-separator","style":{"typography":{"textAlign":"left"}},"anchor":"columns-3-recent-posts"} -->
+<!-- wp:heading {"align":"wide","className":"is-style-separator","style":{"typography":{"textAlign":"left"}},"anchor":"our-recent-posts"} -->
 <h2 class="wp-block-heading has-text-align-left alignwide is-style-separator" id="our-recent-posts"><?php esc_html_e("Journal & Studio Notes", "lumina"); ?></h2>
 <!-- /wp:heading -->
 
@@ -20,5 +20,8 @@
 
 <!-- wp:paragraph {"className":"is-style-link-no-underline","style":{"typography":{"textAlign":"right"}}} -->
 <p class="has-text-align-right is-style-link-no-underline"><a href="/blog/"><?php esc_html_e("&gt; Read Journal", "lumina"); ?></a></p>
-<!-- /wp:paragraph --></div>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
 <!-- /wp:group -->
