@@ -8,12 +8,12 @@ This script recursively scans a directory and its subdirectories for raw images,
 crops them to a configured aspect ratio and positional anchor (CROP=center|top|bottom), 
 resizes them using Lanczos resampling (unless CROP=none or NO_CROP=1 is set), 
 intelligently parses structured filenames into EXIF metadata, and exports WebP files:
-  - Files starting with a number (e.g., 01_gold_sea_...) -> Renumbered (01.webp, 02.webp)
+  - Files starting with a number (e.g., 01_gold_sea_...) -> Keeps sequential number (01.webp)
   - Files starting with text (e.g., female-01_portrait_...) -> Retains prefix before '_' (female-01.webp)
 
 PER-DIRECTORY DEFAULT CROP SIZES:
   - /team & /testimonials : 1200x1600 (3:4 Portrait Headshot)
-  - All other folders     : 1600x900  (Standard Widescreen)
+  - All other folders     : 1600x900  (Standard Widescreen / Screenshots)
 
 EXIF TAG MAP (WordPress Auto-Extraction Compatible):
   - Tag 270   (ImageDescription) : Title & Keywords -> Auto-populates WP Caption/Title
@@ -80,7 +80,7 @@ def get_target_dimensions(rel_path):
     """
     Determines target crop dimensions based on the folder path.
     - /team and /testimonials -> 1200x1600
-    - Default -> 1600x900
+    - Default (including /screenshots) -> 1600x900
     """
     # Check if custom TARGET_W or TARGET_H were explicitly requested via environment variables
     custom_w = os.environ.get("TARGET_W")
@@ -247,8 +247,12 @@ for current_root, dirs, files in os.walk(SOURCE_DIR):
     for idx, filename in enumerate(source_files, start=1):
         src_path = os.path.join(current_root, filename)
 
+        # OUTPUT FILENAME RESOLUTION:
+        # - Starts with a number (e.g. 01_gold_sea...): keep the number prefix or format as numeric base
+        # - Starts with text (e.g. female-01_portrait...): keep everything before the first '_' (female-01.webp)
         if filename[0].isdigit():
-            out_filename = f"{idx:02d}.{OUTPUT_FORMAT}"
+            base_part = os.path.splitext(filename)[0].split('_')[0]
+            out_filename = f"{base_part}.{OUTPUT_FORMAT}"
         else:
             base_part = os.path.splitext(filename)[0].split('_')[0]
             out_filename = f"{base_part}.{OUTPUT_FORMAT}"
