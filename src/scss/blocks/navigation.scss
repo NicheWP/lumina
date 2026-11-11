@@ -299,12 +299,12 @@ $nav-link-targets: ":is(.wp-block-navigation-item__content, .wp-block-pages-list
 			}
 			
 			& > #{$nav-link-targets}:hover {
-				color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
+// 				color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
 
-// 				.wp-block-navigation-item__label {
-// 					color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
-// // 					opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
-// 				}
+				.wp-block-navigation-item__label {
+					color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
+// 					opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
+				}
 			}
 
 			&:hover > .wp-block-navigation__submenu-icon {
@@ -389,7 +389,7 @@ $nav-link-targets: ":is(.wp-block-navigation-item__content, .wp-block-pages-list
 .wp-block-navigation__responsive-container.is-menu-open {
 
 	/* 1. Mute dummy links visually at rest & strip touch events */
-	a.wp-block-navigation-item__content:is([href="http://Pages"], [href="#"], [href="#0"]) {
+	a.wp-block-navigation-item__content:is(:not([href]), [href=""], [href="http://Pages"], [href="#"], [href="#0"]) {
 		opacity: 0.65 !important;
 		pointer-events: none !important;
 		cursor: default !important;
@@ -397,7 +397,7 @@ $nav-link-targets: ":is(.wp-block-navigation-item__content, .wp-block-pages-list
 
 	/* 2. Suppress hover/active color flashes & font weight shifts on dummy/accordion items */
 	:is(
-		.wp-block-navigation-item:has(> a:is([href="http://Pages"], [href="#"], [href="#0"]))
+		.wp-block-navigation-item:has(> a:is(:not([href]), [href=""], [href="http://Pages"], [href="#"], [href="#0"]))
 	) {
 		&:hover > #{$nav-link-targets},
 		> #{$nav-link-targets}:hover,

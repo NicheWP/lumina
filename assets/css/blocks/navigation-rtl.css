@@ -227,8 +227,8 @@
 .site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item.current-menu-ancestor > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link) .wp-block-navigation-item__label {
   color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
 }
-.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation-item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover,
-.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover {
+.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation-item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label,
+.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label {
   color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
 }
 .site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation-item:hover > .wp-block-navigation__submenu-icon,
@@ -291,7 +291,7 @@
 .wp-block-navigation__responsive-container.is-menu-open {
   /* 1. Mute dummy links visually at rest & strip touch events */
 }
-.wp-block-navigation__responsive-container.is-menu-open a.wp-block-navigation-item__content:is([href="http://Pages"], [href="#"], [href="#0"]) {
+.wp-block-navigation__responsive-container.is-menu-open a.wp-block-navigation-item__content:is(:not([href]), [href=""], [href="http://Pages"], [href="#"], [href="#0"]) {
   opacity: 0.65 !important;
   pointer-events: none !important;
   cursor: default !important;
@@ -299,9 +299,9 @@
 .wp-block-navigation__responsive-container.is-menu-open {
   /* 2. Suppress hover/active color flashes & font weight shifts on dummy/accordion items */
 }
-.wp-block-navigation__responsive-container.is-menu-open :is(.wp-block-navigation-item:has(> a:is([href="http://Pages"], [href="#"], [href="#0"]))):hover > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link),
-.wp-block-navigation__responsive-container.is-menu-open :is(.wp-block-navigation-item:has(> a:is([href="http://Pages"], [href="#"], [href="#0"]))) > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover,
-.wp-block-navigation__responsive-container.is-menu-open :is(.wp-block-navigation-item:has(> a:is([href="http://Pages"], [href="#"], [href="#0"]))) > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):active {
+.wp-block-navigation__responsive-container.is-menu-open :is(.wp-block-navigation-item:has(> a:is(:not([href]), [href=""], [href="http://Pages"], [href="#"], [href="#0"]))):hover > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link),
+.wp-block-navigation__responsive-container.is-menu-open :is(.wp-block-navigation-item:has(> a:is(:not([href]), [href=""], [href="http://Pages"], [href="#"], [href="#0"]))) > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover,
+.wp-block-navigation__responsive-container.is-menu-open :is(.wp-block-navigation-item:has(> a:is(:not([href]), [href=""], [href="http://Pages"], [href="#"], [href="#0"]))) > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):active {
   cursor: default !important;
   font-weight: inherit !important;
 }
