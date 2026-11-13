@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GLOBAL: Base Image Aspect Ratios
+   Base Image Aspect Ratios
    ========================================================================== */
 
 /* Limit images to 100% so they don't break the layout */
@@ -8,14 +8,16 @@ img {
 	height: auto;
 }
 
+/* Don't shrink avatars in flex boxes */
 .avatar,
 .wp-block-avatar {
 	flex-shrink: 0; 
 }
 
-.wp-block-image {
-	overflow: hidden;
-}
+// Do NOT do this or it messes up the physics engine shadow on image hover
+// .wp-block-image {
+// 	overflow: hidden;
+// }
 
 /* Core Latest Posts Featured Image Reset */
 .wp-block-latest-posts__featured-image img {
@@ -85,7 +87,7 @@ img.size-cropped-slim,
 }
 
 /* ==========================================================================
-   GLOBAL FULL-WIDTH (ALIGNFULL) BREAKOUT & RADIUS RESET
+   FULL-WIDTH (ALIGNFULL) IMAGE BREAKOUT & RADIUS RESET
    ========================================================================== */
 
 :is(.wp-block-image, .wp-block-post-featured-image, .wp-block-cover).alignfull {

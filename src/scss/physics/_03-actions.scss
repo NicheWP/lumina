@@ -235,11 +235,11 @@
 		}
 	
 		// Apply Deep Shadow
-		@if config.$lumina-dev-mode {
-			@include __blueprint-shadow-deep;
-		} @else {
-			@extend %physics-shadow-deep;
-		}
+// 		@if config.$lumina-dev-mode {
+// 			@include __blueprint-shadow-deep;
+// 		} @else {
+// 			@extend %physics-shadow-deep;
+// 		}
 		
 		// Handle debug
 		@include lumina-debug('object');
@@ -263,11 +263,11 @@
     }
 
     // Apply Deep Shadow
-	@if config.$lumina-dev-mode {
-		@include __blueprint-shadow-deep;
-	} @else {
-		@extend %physics-shadow-deep;
-	}
+// 	@if config.$lumina-dev-mode {
+// 		@include __blueprint-shadow-deep;
+// 	} @else {
+// 		@extend %physics-shadow-deep;
+// 	}
 
 	// Handle debug
 	@include lumina-debug('object');
@@ -474,10 +474,8 @@
 /// @group Physics Interactions
 @mixin apply-object-zoom-asset {
 	@if config.$lumina-dev-mode {
-// 		@include __blueprint-grow-standard;
 		@include __blueprint-grow-large;
 	} @else {
-// 		@extend %physics-grow-standard;
 		@extend %physics-grow-large;
 	}
 
@@ -495,8 +493,9 @@
 /// @outputs Injects scale `transform`, `box-shadow`, and `opacity`
 @mixin __blueprint-button {
 
-	// Grow Large (e.g. x1.1)
-    transform: translateY(0) #{config.$grow-large}; 
+	// Grow Standard (e.g. x1.05)
+    transform: translateY(0) #{config.$grow-standard};
+//     transform: translateY(0) #{config.$grow-large}; 
 
     // Hover shadow (e.g. Deep)
 	box-shadow: config.$shadow-hover;

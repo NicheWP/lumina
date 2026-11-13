@@ -65,11 +65,13 @@ $lumina-block-registry: (
 
 	// Core Image: Requires link
 	(
-		block:   '.wp-block-image',
+// 		block:   '.wp-block-image',
+		block:   '.wp-block-image:not(.wp-block-column *)', 
 // 		block:   '.wp-block-image:not(.wp-block-gallery *, .wp-block-column *)', 
 		is:      'none', 		
 		has:     'a:not(figcaption a)', 	
-		trigger: 'self',                
+// 		trigger: 'self',                
+		trigger: 'a:not(figcaption a)',  
 		target:  'img',
 		role:    'object'
 	),
@@ -79,7 +81,8 @@ $lumina-block-registry: (
 		block:   '.wp-block-column .wp-block-image', 
 		is:      'none', 		
 		has:     'a:not(figcaption a)', 	
-		trigger: 'self',
+// 		trigger: 'self',
+		trigger: 'a',
 		target:  'img',
 		role:    'object-zoom'
 	),
@@ -100,7 +103,8 @@ $lumina-block-registry: (
 		block:   '.wp-block-post-featured-image',        
 		is:      'none',         
 		has:     'a',    
-		trigger: 'self',                 
+// 		trigger: 'self',                 
+		trigger: 'a',
 		target:  'img',
 		role:    'object'
 	),
@@ -110,7 +114,8 @@ $lumina-block-registry: (
 		block:   '.wp-block-latest-posts__featured-image',        
 		is:      'none',         
 		has:     'a',    
-		trigger: 'self',                 
+// 		trigger: 'self',                 
+		trigger: 'a',
 		target:  'img',
 		role:    'object'
 	),
@@ -120,7 +125,8 @@ $lumina-block-registry: (
 		block:   '.wp-block-media-text__media',   
 		is:      'none', 
 		has:     'a:not(figcaption a)', 
-		trigger: 'self',
+// 		trigger: 'self',
+		trigger: 'a:not(figcaption a)',
 		target:  'img',
 		role:    'object-zoom'
 	),
@@ -201,9 +207,6 @@ $lumina-block-registry: (
 	( trigger: 'input[type=file]', target: '::file-selector-button', has: 'none', 
 			spacing: true, role: 'button' 
 	),
-// 	( trigger: 'input[type=file]::file-selector-button', has: 'none', 
-// 		spacing: true, role: 'button' 
-// 	),
 );
 
 // --------------------------------------------------------------------------
@@ -302,38 +305,37 @@ $lumina-timing-medium: 	 var(--wp--custom--animation--duration--medium, 500ms) v
 ///
 /// @group Physics Configuration
 /// @type Transform
-$shift-subtle:  		 var(--wp--custom--animation--card--hover-transform, 
-						 translateY(-3px));
+$shift-subtle:  		var(--wp--custom--animation--card--hover-transform, 
+						translateY(-3px));
 
 /// 2. Role: Standard Images (Engine applies $shift-standard to core image blocks).
 ///
 /// @group Physics Configuration
 /// @type Transform
-$shift-standard: 		 var(--wp--custom--animation--image--hover-transform, 
-						 translateY(-3px));
+$shift-standard: 		var(--wp--custom--animation--image--hover-transform, 
+						translateY(-3px));
 
-/// 3. Role: Buttons (Engine applies $grow-large to button elements).
-///
-/// @group Physics Configuration
-/// @type Transform
-$grow-large:    		 var(--wp--custom--animation--button--hover-transform, 
-						 var(--wp--custom--animation--default--hover-transform, 
-						 scale(1.05)));
-
-/// 4. Role: Media & Text (Engine applies $grow-standard to constrained image zooms).
-///
-/// @group Physics Configuration
-/// @type Transform
-$grow-standard: 		 var(--wp--custom--animation--media-text--hover-transform, 
-						 scale(1.08));
-
-/// Reserved Growth Legacy Token.
+/// 3. Role: Objects (Reserved for potential future use)
 ///
 /// @group Physics Configuration
 /// @type Transform
 $grow-small: 			 var(--wp--custom--animation--object--hover-transform, 
 						 scale(1.03));
-						 
+/// 4. Role: Buttons (Engine applies $grow-standard to button elements).
+///
+/// @group Physics Configuration
+/// @type Transform
+$grow-standard:    		var(--wp--custom--animation--button--hover-transform, 
+						var(--wp--custom--animation--default--hover-transform, 
+						scale(1.05)));
+
+/// 5. Role: Media & Text (Engine applies $grow-large to constrained image zooms).
+///
+/// @group Physics Configuration
+/// @type Transform
+$grow-large: 		 	var(--wp--custom--animation--media-text--hover-transform, 
+						scale(1.08));
+					 
 // ==========================================================================
 // 00.3.4 RADII & PADDING
 // ==========================================================================
@@ -494,6 +496,12 @@ $debug-button:  		1px solid  #00ffff; // Cyan
 /// @group Physics Debugging
 /// @type Outline
 $debug-silence:    		1px dashed #ff3b30; // Red
+
+/// Debug outline for resting image silenced shadow.
+///
+/// @group Physics Debugging
+/// @type Outline
+$debug-silence-shadow:   1px dashed #e11d48; // Crimson
 
 /// Debug outline for active silenced elements.
 ///

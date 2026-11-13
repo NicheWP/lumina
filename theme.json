@@ -88,6 +88,7 @@
 							"fontFamily": "Lato",
 							"fontWeight": "200",
 							"fontStyle": "normal",
+							"fontDisplay": "swap",
 							"src": [ 
 								"file:./assets/fonts/Lato/Lato-Hairline.woff2"
 							]							
@@ -96,6 +97,7 @@
 							"fontFamily": "Lato",
 							"fontWeight": "200",
 							"fontStyle": "italic",
+							"fontDisplay": "swap",
 							"src": [ 
 								"file:./assets/fonts/Lato/Lato-HairlineItalic.woff2"				 				
 							]
@@ -104,6 +106,7 @@
 							"fontFamily": "Lato",
 							"fontWeight": "300",
 							"fontStyle": "normal",
+							"fontDisplay": "swap",
 							"src": [ 
 								"file:./assets/fonts/Lato/Lato-Light.woff2"
 							]
@@ -112,6 +115,7 @@
 							"fontFamily": "Lato",
 							"fontWeight": "300",
 							"fontStyle": "italic",
+							"fontDisplay": "swap",
 							"src": [ 
 								"file:./assets/fonts/Lato/Lato-LightItalic.woff2"
 							]
@@ -120,6 +124,7 @@
 							"fontFamily": "Lato",
 							"fontWeight": "400",
 							"fontStyle": "normal",
+							"fontDisplay": "swap",
 							"src": [ 
 								"file:./assets/fonts/Lato/Lato-Regular.woff2"
 							]
@@ -128,6 +133,7 @@
 							"fontFamily": "Lato",
 							"fontWeight": "400",
 							"fontStyle": "italic",
+							"fontDisplay": "swap",
 							"src": [ 
 								"file:./assets/fonts/Lato/Lato-Italic.woff2"
 							]
@@ -136,6 +142,7 @@
 							"fontFamily": "Lato",
 							"fontWeight": "500",
 							"fontStyle": "normal",
+							"fontDisplay": "swap",
 							"src": [ 
 								"file:./assets/fonts/Lato/Lato-Medium.woff2"
 							]
@@ -144,6 +151,7 @@
 							"fontFamily": "Lato",
 							"fontWeight": "500",
 							"fontStyle": "italic",
+							"fontDisplay": "swap",
 							"src": [ 
 								"file:./assets/fonts/Lato/Lato-MediumItalic.woff2"
 							]
@@ -159,14 +167,14 @@
 							"fontFamily": "Raleway",
 							"fontWeight": "200 500",
 							"fontStyle": "normal",
-							"fontStretch": "normal",
+							"fontDisplay": "swap",
 							"src": [ "file:./assets/fonts/Raleway/Raleway-VariableFont_wght.woff2" ]
 						},
 						{
 							"fontFamily": "Raleway",
 							"fontWeight": "200 500",
 							"fontStyle": "italic",
-							"fontStretch": "normal",
+							"fontDisplay": "swap",
 							"src": [ "file:./assets/fonts/Raleway/Raleway-Italic-VariableFont_wght.woff2" ]
 						}
 					]
@@ -180,14 +188,14 @@
 							"fontFamily": "Lora",
 							"fontWeight": "200 500",
 							"fontStyle": "normal",
-							"fontStretch": "normal",
+							"fontDisplay": "swap",
 							"src": [ "file:./assets/fonts/Lora/Lora-VariableFont_wght.woff2" ]
 						},
 						{
 							"fontFamily": "Lora",
 							"fontWeight": "200 500",
 							"fontStyle": "italic",
-							"fontStretch": "normal",
+							"fontDisplay": "swap",
 							"src": [ "file:./assets/fonts/Lora/Lora-Italic-VariableFont_wght.woff2" ]
 						}
 					]
@@ -226,7 +234,7 @@
 							"fontFamily": "Style Script",
 							"fontWeight": "300 400",
 							"fontStyle": "normal",
-							"fontStretch": "normal",
+							"fontDisplay": "swap",
 							"src": [ "file:./assets/fonts/Style_Script/StyleScript-Regular.woff2" ]
 						}
 					]
@@ -240,7 +248,7 @@
 							"fontFamily": "Roboto Mono",
 							"fontWeight": "300 400",
 							"fontStyle": "normal",
-							"fontStretch": "normal",
+							"fontDisplay": "swap",
 							"src": [ "file:./assets/fonts/Roboto_Mono/RobotoMono-VariableFont_wght.woff2" ]
 						}
 					]

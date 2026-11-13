@@ -13,8 +13,7 @@
 /// Registers compiled object and image selectors into global veto arrays.
 ///
 /// @group Physics Modules
-/// @param {Boolean} $interactive [false] - Phase switch (false = resting engine | 
-///		true = hover/focus interactions)
+/// @param {Boolean} $interactive [false] - Phase switch (false = resting engine | true = hover/focus interactions)
 /// @outputs Emits CSS selectors and rules for graphics and content objects
 @mixin apply-object-logic($interactive: false) {
 
@@ -33,7 +32,7 @@
 	
 		@if string.index($role, 'object') != null {
 
-			// EXTRACT INDIVIDIAL FIELDS
+			// EXTRACT INDIVIDUAL FIELDS
 			$block:   map.get($config, block);
 			$is:      map.get($config, is);
 			$has:     map.get($config, has);
@@ -58,19 +57,19 @@
 			);
 
 			// ADD OBJECTS AND IMAGES TO THE VETO LISTS
-			$sel-to-register: $target-sel;
-			@if $target != 'self' {
-				$sel-to-register: $wrapper-sel;
-			}
-//			$sel-to-register: if($target != 'self', $wrapper-sel, $target-sel);
-
-			@if $role == 'object' {
-				@if not list.index(phys.get-objects(), $sel-to-register) {
-					@include phys.register-object($sel-to-register);
+			// Register the actual shadow-bearing DOM node so 40-vetos silences the right element
+			@if $role == 'object' and $target == 'self' {
+				@if not list.index(phys.get-objects(), $target-sel) {
+					@include phys.register-object($target-sel);
 				}
-			} @else if $role == 'object-zoom' or $role == 'object-grow' {
-				@if not list.index(phys.get-images(), $sel-to-register) {
-					@include phys.register-image($sel-to-register);
+			} @else if $role == 'object-zoom' {
+				@if not list.index(phys.get-images(), $wrapper-sel) {
+					@include phys.register-image($wrapper-sel);
+				}
+			} @else {
+				// Standard linked images ('object' with target: 'img') and 'object-grow' own their shadow on $target-sel
+				@if not list.index(phys.get-images(), $target-sel) {
+					@include phys.register-image($target-sel);
 				}
 			}
 			
@@ -91,8 +90,6 @@
 				}
 		
 				// CONDITION 2: Main Target Behavior (Applies to everything)
-				// For Columns, this naturally grabs the wrapper level string. 
-				// For Images, the child path.
 				#{$target-sel} {
 					@include phys.apply-resting-state(
 						$role: $role,
@@ -107,25 +104,31 @@
 			// ----------------------------------------------------------------------
 			@else {
 				
-				// CONDITION 1: Separate Wrapper Interaction (Depth Lifts / Structural
-				// 		Shadows)
+				// CONDITION 1: Separate Wrapper Interaction (Depth Lifts / Structural Shadows)
 				@if $target != 'self' {
-					$wrapper-hover: phys.compile-selector(
-						$block, $is, $has, $exclude,
-						$trigger, $target, 
-						'wrapper-hover',
-						$role
-					);
-					
-					// GET WRAPPER FOCUS SELECTOR
-					$wrapper-focus: phys.compile-selector(
-						$block, $is, $has, $exclude,
-						$trigger, $target, 
-						'wrapper-focus',
-						$role
-					);
+					$wrapper-hover: null;
+					$wrapper-focus: null;
+
+					@if $trigger == 'self' {
+						$wrapper-hover: phys.compile-selector(
+							$block, $is, $has, $exclude,
+							$trigger, $target, 
+							'wrapper-hover',
+							$role
+						);
+						$wrapper-focus: phys.compile-selector(
+							$block, $is, $has, $exclude,
+							$trigger, $target, 
+							'wrapper-focus',
+							$role
+						);
+					} @else {
+						// Keep wrapper hover/focus locked to $trigger so hovering <figcaption> doesn't trigger wrapper effects
+						$wrapper-hover: '#{$wrapper-sel}:has(#{$trigger}:hover)';
+						$wrapper-focus: '#{$wrapper-sel}:has(#{$trigger}:is(:focus-visible, :has(:focus-visible)))';
+					}
 	
-					// WRITE WRAPPER FOCUS
+					// WRITE WRAPPER HOVER AND FOCUS
 					#{$wrapper-hover}, 
 					#{$wrapper-focus} {
 						@include phys.apply-active-state(
@@ -152,7 +155,7 @@
 					$role
 				);
 	
-				// WRITE TARGET FOCUS
+				// WRITE TARGET HOVER AND FOCUS
 				#{$target-hover}, 
 				#{$target-focus} {
 					@include phys.apply-active-state(

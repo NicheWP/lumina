@@ -81,7 +81,8 @@
         $state-suffix: ':hover';
     
     } @else if string.index($scope, 'focus') != null {
-        $state-suffix: ':has(:focus-visible)';
+//         $state-suffix: ':has(:focus-visible)';
+		$state-suffix: ':is(:focus-visible, :has(:focus-visible))';
     }
         
 	// 7. RETURN LITERAL SCOPE PATHS (Wrapper vs Target)
@@ -164,6 +165,7 @@
             'object':     		config.$debug-object,
             'button':     		config.$debug-button,
             'silence':       	config.$debug-silence,
+            'silence-shadow':   config.$debug-silence-shadow,
             'silence-active':	config.$debug-silence-active
         ), $role);
 
@@ -176,6 +178,7 @@
             'object':    		-2px,
             'button':    		-2px,
             'silence':      	-2px,
+            'silence-shadow':   -2px,
             'silence-active':   -4px
         ), $role);
 

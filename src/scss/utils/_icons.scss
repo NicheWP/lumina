@@ -1,7 +1,5 @@
 /*------------------------------------------------------------------------------
 # Icons
-#
-# Note: Needed for multiple blocks so always load
 ------------------------------------------------------------------------------*/
 
 /* 1. Standard Icon Links: Keeps theme link color & underline intact */
@@ -23,15 +21,12 @@
     opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
 }
 
-/* ========================================================================== */
 /* 4. Standalone Icon Buttons (-no-text variants ONLY) */
-/* ========================================================================== */
 [class*="-no-text"] a {
     color: inherit;
     text-decoration: none !important;
     /* Keeps standalone UI controls (like scroll-down buttons) unstyled */
 }
-
 
 /* 5. No icons for post meta */
 .is-style-no-icon::before { //,

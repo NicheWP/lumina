@@ -95,7 +95,7 @@
 | `--wp--custom--color--veil--color` | `*Not in theme.json*` | `var(--wp--preset--color--base)` | `[SCSS] src/scss/physics/_00-config.scss` |
 | `--wp--custom--color--veil--hover-opacity` | `*Not in theme.json*` | `0.85` | `[SCSS] src/scss/physics/_00-config.scss` |
 | `--wp--custom--color--veil--opacity` | `*Not in theme.json*` | `0` | `[SCSS] src/scss/physics/_00-config.scss` |
-| `--wp--custom--header--height` | `*Not in theme.json*` | `77px` | `[SCSS] src/scss/blocks/group_headers.scss`<br>`[JS] assets/js/smoothscroll.js` |
+| `--wp--custom--header--height` | `*Not in theme.json*` | `87px` | `[SCSS] src/scss/blocks/group_headers.scss`<br>`[JS] assets/js/smoothscroll.js` |
 | `--wp--custom--header--offset` | `*Not in theme.json*` | `0px` | `[SCSS] src/scss/blocks/cover.scss`<br>`[SCSS] src/scss/blocks/group_headers.scss`<br>`[JS] assets/js/smoothscroll.js` |
 | `--wp--custom--image--filter` | `*Not in theme.json*` | `brightness(1)` | `[SCSS] src/scss/physics/_00-config.scss` |
 | `--wp--custom--image--hover-filter` | `*Not in theme.json*` | `brightness(1.15)` | `[SCSS] src/scss/physics/_00-config.scss` |

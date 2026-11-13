@@ -4,6 +4,13 @@
 /* ==========================================================================
    LUMINA ENGINE: Sticky & Floating Header Engine
    ========================================================================== */
+/* ==========================================================================
+   GLOBAL SCROLL PADDING (Fixed/Floating Header & Admin Bar Offset)
+   ========================================================================== */
+body:has(.is-style-fixed-header, .is-position-sticky) {
+  scroll-padding-top: calc(var(--wp--custom--header--height, 87px) + var(--wp-admin--admin-bar--height, 0px));
+}
+
 .wp-site-blocks > :is(:has(.is-position-sticky), :has(.is-style-fixed-header), .is-position-sticky, .is-style-fixed-header) {
   position: sticky;
   z-index: 101;

@@ -79,12 +79,12 @@
 	} @else if $role == 'object' {
 // 		@include resting.apply-resting-state;
 // 		@include resting.apply-wrapper-visuals($block);
-		@if $trigger != 'self' {
+// 		@if $trigger != 'self' {
 			@include resting.apply-asset-resting-state;
-		} @else {
-			@include resting.apply-asset-resting-state;
-			@include resting.apply-image-wrapper-visuals($block);
-		}
+// 		} @else {
+// 			@include resting.apply-asset-resting-state;
+// 			@include resting.apply-image-wrapper-visuals($block);
+// 		}
 
 	// TRACK C: CARDS (Layout Containers & Groups)
 	} @else if $role == 'card' {

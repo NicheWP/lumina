@@ -18,10 +18,13 @@
 /* ==========================================================================
    LUMINA THEME: CSS styles
    v1.0.0 Alpha
-   ========================================================================== */
-/*-----------------------------------------------------------------------------
-# Normalize
------------------------------------------------------------------------------*/
+========================================================================== */
+/* ==========================================================================
+   LUMINA BASE STYLES
+========================================================================== */
+/* -----------------------------------------------------------------------------
+   Normalize (Browser resets)
+----------------------------------------------------------------------------- */
 /* 
  * Default to contain borders and padding within blocks and prevent iOS from 
  * adjusting text sizes after orientation change. 
@@ -47,9 +50,9 @@ html {
     -moz-osx-font-smoothing: grayscale;
   }
 }
-/*-----------------------------------------------------------------------------
-# Elements
------------------------------------------------------------------------------*/
+/* -----------------------------------------------------------------------------
+   Basic HTML Elements
+----------------------------------------------------------------------------- */
 /* Base Typography Reset */
 :where(ul, ol, dl,
 blockquote,
@@ -108,9 +111,9 @@ ul.has-background:not(.wp-block-navigation__container):not(.wp-block-navigation-
   padding-left: var(--wp--preset--spacing--40);
 }
 
-/*-----------------------------------------------------------------------------
-# Forms
------------------------------------------------------------------------------*/
+/* -----------------------------------------------------------------------------
+   HTML Forms
+----------------------------------------------------------------------------- */
 form {
   margin-block-end: 0;
 }
@@ -164,9 +167,9 @@ select:focus {
   box-shadow: 0 0 0 3px var(--wp--custom--color--field--outline, color-mix(in srgb, currentColor 20%, transparent));
 }
 
-/*-----------------------------------------------------------------------------
-# Links, Images & Basic HTML Form Elements
------------------------------------------------------------------------------*/
+/* -----------------------------------------------------------------------------
+   Links, Images & Basic HTML Form Elements
+----------------------------------------------------------------------------- */
 /* 1. Base Link Underline Styles */
 a:not(.wp-element-button, .wp-block-button__link, .wp-block-social-link-anchor),
 .wp-block-accordion-heading__toggle {
@@ -273,9 +276,9 @@ input[type=file] {
   opacity: 1;
 }
 
-/*-----------------------------------------------------------------------------
-# Alignments
------------------------------------------------------------------------------*/
+/* -----------------------------------------------------------------------------
+   Alignments
+----------------------------------------------------------------------------- */
 /*
  * Don't let anything be wider than our max width. This is so fullwidth images
  * don't get so wide they lose resolution.
@@ -317,9 +320,9 @@ body .is-layout-constrained > .alignright {
   display: table;
 }
 
-/*------------------------------------------------------------------------------
-# Margins (Vertical spacing)
-------------------------------------------------------------------------------*/
+/* -----------------------------------------------------------------------------
+   Margins (Vertical spacing)
+----------------------------------------------------------------------------- */
 /* Don't allow top-margin on main or footers */
 :where(.wp-site-blocks) > *,
 .wp-block-post-content {
@@ -436,11 +439,11 @@ ul, ol, .wp-block-list) {
 }
 
 /* ==========================================================================
+   LUMINA THEME STYLES
+========================================================================== */
+/* ==========================================================================
    LUMINA GLASS ENGINE: Glass & Specular Overlay Engine
    ========================================================================== */
-/* --------------------------------------------------------------------------
-   00. CONFIG & TOKENS (SCSS and theme.json Driven)
-   -------------------------------------------------------------------------- */
 /* --------------------------------------------------------------------------
    01. GLASS CONTAINERS (Groups, Columns, Covers, Headers)
    -------------------------------------------------------------------------- */
@@ -518,7 +521,7 @@ ul, ol, .wp-block-list) {
 }
 
 /* --------------------------------------------------------------------------
-   03. CONTEXTUAL BUTTON OVERRIDES
+   03. GLASS BUTTON OVERRIDES
    -------------------------------------------------------------------------- */
 :is(.has-background, .wp-block-cover, [class*=is-style-glass]) .wp-block-button.is-style-glass > :is(.wp-element-button, .wp-block-button__link):not(.has-background) {
   background-color: color-mix(in srgb, var(--wp--custom--color--opacity--tint, var(--wp--preset--color--base)) var(--wp--custom--color--opacity--subtle, 12%), transparent);
@@ -533,7 +536,7 @@ ul, ol, .wp-block-list) {
 }
 
 /* ==========================================================================
-   GLOBAL: Base Image Aspect Ratios
+   Base Image Aspect Ratios
    ========================================================================== */
 /* Limit images to 100% so they don't break the layout */
 img {
@@ -541,13 +544,10 @@ img {
   height: auto;
 }
 
+/* Don't shrink avatars in flex boxes */
 .avatar,
 .wp-block-avatar {
   flex-shrink: 0;
-}
-
-.wp-block-image {
-  overflow: hidden;
 }
 
 /* Core Latest Posts Featured Image Reset */
@@ -625,7 +625,7 @@ img.size-cropped-slim,
 }
 
 /* ==========================================================================
-   GLOBAL FULL-WIDTH (ALIGNFULL) BREAKOUT & RADIUS RESET
+   FULL-WIDTH (ALIGNFULL) IMAGE BREAKOUT & RADIUS RESET
    ========================================================================== */
 :is(.wp-block-image, .wp-block-post-featured-image, .wp-block-cover).alignfull {
   max-width: calc(100% + var(--wp--style--root--padding-left, 0px) + var(--wp--style--root--padding-right, 0px));
@@ -637,7 +637,7 @@ img.size-cropped-slim,
 }
 
 /* ==========================================================================
-   LUMINA ENGINE: Image Hover Opacity
+   Image Hover Opacity
    ========================================================================== */
 /* Overrides flat-blocks default opacity to prevent linked images 
    from dimming mid-flight during kinetic scale/zoom transforms */
@@ -654,19 +654,7 @@ figure > a:active,
 }
 
 /* ==========================================================================
-   FEATURED HERO PAN & ZOOM (CINEMATIC CAMERA SLIDER ENGINE)
-   ========================================================================== */
-/* --------------------------------------------------------------------------
-   00. DESKTOP & GLOBAL MOTION TOKENS
-   -------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------
-   01. RESPONSIVE & SHALLOW VIEWPORT TOKENS
-   -------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------
-   02. THEME JSON MULTIPLIER BINDINGS
-   -------------------------------------------------------------------------- */
-/* ==========================================================================
-   KEYFRAME ANIMATION ENGINES
+   PAN-ZOOM IMAGE ANIMATIONS
    ========================================================================== */
 @keyframes luminaPanZoomVideoLoop {
   0% {
@@ -983,9 +971,7 @@ ol.is-style-list-dividers,
 }
 
 /*-----------------------------------------------------------------------------
-# List: Custom
-#
-# Note: Needed for multiple blocks so load in base stylesheet
+# Custom: List Styles
 -----------------------------------------------------------------------------*/
 /* Checkmarks */
 .is-style-list-checkmarks {
@@ -1035,10 +1021,7 @@ ol.is-style-list-dividers,
    LUMINA HEADING & TEXT BLOCK STYLES
    ========================================================================== */
 /* --------------------------------------------------------------------------
-   01. HEADING SEPARATOR CONFIGURATION
-   -------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------
-   02. HEADING SEPARATOR RULES
+   HEADING SEPARATOR RULES
    -------------------------------------------------------------------------- */
 .is-style-separator::after {
   content: "";
@@ -1173,10 +1156,7 @@ ol.is-style-list-dividers,
 }
 
 /* --------------------------------------------------------------------------
-   03. HEADING LINK ANIMATION CONFIGURATION
-   -------------------------------------------------------------------------- */
-/* --------------------------------------------------------------------------
-   04. HEADING LINK ANIMATION RULES
+   HEADING LINK ANIMATIONS
    -------------------------------------------------------------------------- */
 .wp-block-heading a {
   display: inline;
@@ -1322,10 +1302,29 @@ body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:no
   }
 }
 
+/* ==========================================================================
+   LUMINA PLUGIN STYLES
+========================================================================== */
+/*-----------------------------------------------------------------------------
+# Style Jetpack Contact Form buttons to match ours
+-----------------------------------------------------------------------------*/
+.wp-block-jetpack-contact-form :is(.wp-block-button, .wp-block-jetpack-button) .wp-block-button__link {
+  padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
+}
+
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::-moz-placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::-moz-placeholder {
+  opacity: 0.75;
+}
+
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]:disabled, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]:disabled {
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   LUMINA UTILITY STYLES
+========================================================================== */
 /*------------------------------------------------------------------------------
 # Icons
-#
-# Note: Needed for multiple blocks so always load
 ------------------------------------------------------------------------------*/
 /* 1. Standard Icon Links: Keeps theme link color & underline intact */
 [class*=is-style-icon-] a {
@@ -1346,9 +1345,7 @@ body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:no
   opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
 }
 
-/* ========================================================================== */
 /* 4. Standalone Icon Buttons (-no-text variants ONLY) */
-/* ========================================================================== */
 [class*=-no-text] a {
   color: inherit;
   text-decoration: none !important;
@@ -1483,21 +1480,9 @@ h1, h2, h3, h4, h5, h6) {
   margin-right: var(--wp--preset--spacing--20, 0.5em);
 }
 
-/*-----------------------------------------------------------------------------
-# Style Jetpack Contact Form buttons to match ours
------------------------------------------------------------------------------*/
-.wp-block-jetpack-contact-form :is(.wp-block-button, .wp-block-jetpack-button) .wp-block-button__link {
-  padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
-}
-
-.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::-moz-placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::-moz-placeholder {
-  opacity: 0.75;
-}
-
-.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]:disabled, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]:disabled {
-  opacity: 0.75;
-}
-
+/* ==========================================================================
+   LUMINA COLOR STYLES
+========================================================================== */
 :where(:root) .has-primary-background-color :is(.wp-block-heading,
 .wp-block-post-title,
 .wp-block-query-title,
@@ -1603,21 +1588,6 @@ h1, h2, h3, h4, h5, h6), :where(:root) .has-secondary-subtle-background-color :i
 .wp-block-site-title,
 .wp-block-site-tagline,
 h1, h2, h3, h4, h5, h6), :where(:root) .has-tertiary-subtle-background-color :is(.wp-block-heading,
-.wp-block-post-title,
-.wp-block-query-title,
-.wp-block-site-title,
-.wp-block-site-tagline,
-h1, h2, h3, h4, h5, h6), :where(:root) .has-primary-subtle-alt-background-color :is(.wp-block-heading,
-.wp-block-post-title,
-.wp-block-query-title,
-.wp-block-site-title,
-.wp-block-site-tagline,
-h1, h2, h3, h4, h5, h6), :where(:root) .has-secondary-subtle-alt-background-color :is(.wp-block-heading,
-.wp-block-post-title,
-.wp-block-query-title,
-.wp-block-site-title,
-.wp-block-site-tagline,
-h1, h2, h3, h4, h5, h6), :where(:root) .has-tertiary-subtle-alt-background-color :is(.wp-block-heading,
 .wp-block-post-title,
 .wp-block-query-title,
 .wp-block-site-title,

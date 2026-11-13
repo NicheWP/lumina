@@ -6,9 +6,9 @@
 /// @group Heading Styles
 ////
 
-/* --------------------------------------------------------------------------
-   01. HEADING SEPARATOR CONFIGURATION
-   -------------------------------------------------------------------------- */
+// --------------------------------------------------------------------------
+// HEADING SEPARATOR CONFIGURATION
+// --------------------------------------------------------------------------
 
 /// Primary separator line color
 ///
@@ -69,7 +69,7 @@ $sep-top-flex: var(--wp--preset--spacing--30);
 $sep-bottom: var(--wp--preset--spacing--30);
 
 /* --------------------------------------------------------------------------
-   02. HEADING SEPARATOR RULES
+   HEADING SEPARATOR RULES
    -------------------------------------------------------------------------- */
 
 @each $separator, $color in $separators {
@@ -135,9 +135,9 @@ $sep-bottom: var(--wp--preset--spacing--30);
     }
 }
 
-/* --------------------------------------------------------------------------
-   03. HEADING LINK ANIMATION CONFIGURATION
-   -------------------------------------------------------------------------- */
+// --------------------------------------------------------------------------
+// HEADING LINK ANIMATION CONFIGURATION
+// --------------------------------------------------------------------------
 
 /// List of selector strings targeted for animated underline heading links
 ///
@@ -169,9 +169,8 @@ $link-offset: var(--wp--custom--link--offset, 0.1em);
 $link-color: var(--wp--custom--color--heading--separator, var(--wp--preset--color--primary));
 
 /* --------------------------------------------------------------------------
-   04. HEADING LINK ANIMATION RULES
+   HEADING LINK ANIMATIONS
    -------------------------------------------------------------------------- */
-
 @each $link in $heading-links {
     #{$link} {
         display: inline;

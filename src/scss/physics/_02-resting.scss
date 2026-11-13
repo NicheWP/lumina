@@ -469,7 +469,7 @@
 			@include __blueprint-veil-external;
 		}		
 	} @else if config.$veil-type == 'x' {
-		@include __blueprint-veil-vector-x;
+		@include __blueprint-veil-x;
 
 	} @else if config.$veil-type == 'brackets' {
 		@include __blueprint-veil-brackets;
@@ -597,9 +597,17 @@
 		
 			// Apply border and radius
 			@if config.$lumina-dev-mode {	
-				@include __blueprint-image-wrapper-visuals;		
+				@include __blueprint-image-wrapper-visuals;	
+				
+				@if has-custom-borders($block) {
+					@include __blueprint-zoom-wrapper-border;
+				}	
 			} @else {
 				@extend %physics-image-wrapper-visuals;
+				
+				@if has-custom-borders($block) {
+					@extend %physics-zoom-wrapper-border;
+				}
 			}
 		}
 	}
@@ -634,7 +642,7 @@
 	// Setup transition timing (Medium)
     transition: 
         transform config.$lumina-timing-medium, // for grow/lift
-//         box-shadow config.$lumina-timing, 
+        box-shadow config.$lumina-timing, 
         filter config.$lumina-timing-medium, // for brighten
         outline config.$lumina-timing-medium; // for debug
 
@@ -694,9 +702,10 @@
 
 		// Set border radius on the <a> tag adjusted for border and padding
 		> a {
+			display: block; //ADD 2026-11-12
 			border-radius: clamp(
 				calc(var(--wp--custom--border--radius, var(--wp--preset--border-radius--lg)) * 0.5),
-				calc(var(--wp--custom--border--radius, var(--wp--preset--border-radius--lg)) - var(--wp--preset--spacing--20)),
+				calc(var(--wp--custom--border--radius, var(--wp--preset--border-radius--lg)) - #{config.$img-frame-padding}),
 				var(--wp--custom--border--radius, var(--wp--preset--border-radius--lg))
 			);
 	
@@ -781,21 +790,37 @@
 /// @group Physics Resting States
 /// @outputs Modifies `position`, `display`, `overflow`, and `cursor` properties
 @mixin __blueprint-zoom-wrapper-clipped {
-
-	// CRITICAL: Binds the absolute veil coordinate system to this element!
 	position: relative;      
-
-	// Ensures the click target is the whole image
-	display: inline-block;
+	display: block; // <-- CRITICAL: Required for overflow: hidden and border-radius to take effect on <a>
 	max-width: 100%;
 	cursor: pointer;    
-	
-	// CRITICAL: Pulls the anchor up off the text baseline,
 	vertical-align: middle;
-	
-	// Slices the zooming graphic cleanly
 	overflow: hidden;
+	border-radius: inherit; // Inherits the concentric/parent radius so clipping matches the frame
 }
+
+// @mixin __blueprint-zoom-wrapper-clipped {
+// 
+// 	// Slices the zooming graphic cleanly
+// 	overflow: hidden;
+// 
+// // 	> a {
+// 
+// 		// Slices the zooming graphic cleanly
+// // 		overflow: hidden;
+// 
+// 		// CRITICAL: Binds the absolute veil coordinate system to this element!
+// 		position: relative;      
+// 	
+// 		// Ensures the click target is the whole image
+// 		display: inline-block;
+// 		max-width: 100%;
+// 		cursor: pointer;    
+// 		
+// 		// CRITICAL: Pulls the anchor up off the text baseline,
+// 		vertical-align: middle;
+// // 	}
+// }
 
 /// Placeholder selector for clipped zoom wrappers.
 ///
@@ -812,6 +837,8 @@
 /// @group Physics Resting States
 @mixin apply-zoom-wrapper-clipped {
 
+	overflow: hidden; // Apply to figure wrapper
+	
 	> a {
 		@if config.$lumina-dev-mode {
 			@include __blueprint-zoom-wrapper-clipped;
@@ -830,6 +857,24 @@
 /// @group Physics Resting States
 /// @outputs Applies contextual border, padding, and radius structures across custom Gutenberg style classes
 @mixin __blueprint-zoom-wrapper-border {
+
+	// --------------------------------------------------------------------------
+	// STRIP ATTRIBUTES FROM IMG WHEN ADDING TO FIGURE
+	// --------------------------------------------------------------------------
+	&.is-style-image-border,
+	&.is-style-rounded,
+	&.is-style-image-round-border,
+	&.is-style-image-rounded-corners,
+	&.is-style-image-computer-screen,
+	&.is-style-image-tablet-phone-screen,
+	&.is-style-image-no-border {
+		img {
+			border: none;
+			padding: 0;
+			border-radius: inherit;
+			box-shadow: none;
+		}
+	}
 
 	// --------------------------------------------------------------------------
 	// ROUND IMAGES: NATIVE WORDPRESS ROUNDED (is-style-rounded)
@@ -906,9 +951,31 @@
 			}
 		}
 	}
+	
+	// --------------------------------------------------------------------------
+	// VARIANT C: ROUNDED CORNERS WITHOUT BORDER (.is-style-image-rounded-corners)
+	// --------------------------------------------------------------------------
+	&.is-style-image-rounded-corners {
+		&:not(#{config.$blocks-layout-brakes}) {
+			border: none;
+			padding: 0;
+			border-radius: var(--wp--preset--border-radius--lg, 16px);
+
+			/* Respect shallow aspect ratio clamp (16:4.5 & 21:9) */
+			&:is(#{config.$shallow-aspect-selector}),
+			&:has(#{config.$shallow-aspect-selector}) {
+				border-radius: var(--wp--preset--border-radius--sm, 8px) !important;
+			}
+
+			> a {
+				overflow: hidden;
+				border-radius: inherit;
+			}
+		}
+	}
 
 	// --------------------------------------------------------------------------
-	// VARIANT C: COMPUTER MONITOR MOCKUP (Fixed Hardware Physics)
+	// VARIANT D: COMPUTER MONITOR MOCKUP (Fixed Hardware Physics)
 	// --------------------------------------------------------------------------
 	&.is-style-image-computer-screen {
 
@@ -934,7 +1001,7 @@
 	}
 
 	// --------------------------------------------------------------------------
-	// VARIANT D: HARD BEZEL DEVICE (Fixed Hardware Physics)
+	// VARIANT E: HARD BEZEL DEVICE (Fixed Hardware Physics)
 	// --------------------------------------------------------------------------
 	&.is-style-image-tablet-phone-screen {
 
@@ -951,7 +1018,7 @@
 	}
 
 	// --------------------------------------------------------------------------
-	// VARIANT E: CLEAN CUT (is-style-image-no-border / Fallback Baseline)
+	// VARIANT F: CLEAN CUT (is-style-image-no-border / Fallback Baseline)
 	// --------------------------------------------------------------------------
 	&.is-style-image-no-border {
 
@@ -959,11 +1026,15 @@
 			border: none;
 			padding: 0;
 			border-radius: 0;
-	
+			
 			> a {
 				overflow: hidden;
 				border-radius: 0;
 			}
+
+			> img {
+				border-radius: 0
+			}	
 		}
 	}
 }

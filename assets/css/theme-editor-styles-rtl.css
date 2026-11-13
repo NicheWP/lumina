@@ -26,8 +26,23 @@
 }
 
 /* Set our aspect ratios in the Editor */
+/* Apply overflow clipping ONLY while the block displays an empty Gutenberg placeholder */
 .wp-block-post-featured-image:has(.components-placeholder) {
   overflow: hidden;
+}
+
+.wp-block-image.is-selected {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+.wp-block-image.is-selected .components-resizable-box__container {
+  border-radius: var(--wp--preset--border-radius--lg, 16px);
+  box-shadow: var(--wp--preset--shadow--natural);
+  overflow: hidden;
+}
+.wp-block-image.is-selected .components-resizable-box__container img {
+  border-radius: inherit;
 }
 
 /* Ensure the placeholder wrapper respects the 16:4.5 / 16:9 container aspect ratio */

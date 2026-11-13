@@ -1,6 +1,6 @@
-/* ==========================================================================
-   FEATURED HERO PAN & ZOOM (CINEMATIC CAMERA SLIDER ENGINE)
-   ========================================================================== */
+// ==========================================================================
+// FEATURED HERO PAN & ZOOM (CINEMATIC CAMERA SLIDER ENGINE)
+// ==========================================================================
 
 @use '../physics/00-config' as config;
 
@@ -8,9 +8,9 @@
 /// @group Motion Engine
 ////
 
-/* --------------------------------------------------------------------------
-   00. DESKTOP & GLOBAL MOTION TOKENS
-   -------------------------------------------------------------------------- */
+// --------------------------------------------------------------------------
+// 00. DESKTOP & GLOBAL MOTION TOKENS
+// --------------------------------------------------------------------------
 
 /// Standard desktop animation loop duration
 ///
@@ -66,9 +66,9 @@ $pan-light-start:           1.00 !default;
 /// @type Number
 $pan-light-end:             1.10 !default;
 
-/* --------------------------------------------------------------------------
-   01. RESPONSIVE & SHALLOW VIEWPORT TOKENS
-   -------------------------------------------------------------------------- */
+// --------------------------------------------------------------------------
+// 01. RESPONSIVE & SHALLOW VIEWPORT TOKENS
+// --------------------------------------------------------------------------
 
 /// Mobile viewport animation loop duration (<= 781px)
 ///
@@ -130,9 +130,9 @@ $pan-slim-shift-y:          7.2% !default;
 /// @type String
 $pan-motion-icon:           '../icons/theme/motion.svg' !default;
 
-/* --------------------------------------------------------------------------
-   02. THEME JSON MULTIPLIER BINDINGS
-   -------------------------------------------------------------------------- */
+// --------------------------------------------------------------------------
+// 02. THEME JSON MULTIPLIER BINDINGS
+// --------------------------------------------------------------------------
 
 /// CSS custom property multiplier for pan translation intensity
 ///
@@ -153,7 +153,7 @@ $var-zoom:     var(--wp--custom--animation--motion--zoom-intensity, 1);
 $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 
 /* ==========================================================================
-   KEYFRAME ANIMATION ENGINES
+   PAN-ZOOM IMAGE ANIMATIONS
    ========================================================================== */
 
 @keyframes luminaPanZoomVideoLoop {

@@ -6,9 +6,9 @@
 /// @group Glass Engine
 ////
 
-/* --------------------------------------------------------------------------
-   00. CONFIG & TOKENS (SCSS and theme.json Driven)
-   -------------------------------------------------------------------------- */
+// --------------------------------------------------------------------------
+// 00. CONFIG & TOKENS (SCSS and theme.json Driven)
+// --------------------------------------------------------------------------
 
 /// Default accent tint for uncolored glass blocks
 ///
@@ -213,7 +213,7 @@ $glass-rim-overlay:         inset 1px 1px 1px 0 #{$glass-wash-overlay}, inset -1
 }
 
 /* --------------------------------------------------------------------------
-   03. CONTEXTUAL BUTTON OVERRIDES
+   03. GLASS BUTTON OVERRIDES
    -------------------------------------------------------------------------- */
 
 $glass-context-parents: ":is(.has-background, .wp-block-cover, [class*='is-style-glass'])";

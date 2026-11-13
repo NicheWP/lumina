@@ -79,13 +79,54 @@
 		updateHeaderHeight();
 		$(window).on('resize orientationchange', updateHeaderHeight);
 		
+		// 4. Core Scroll Engine
+		function scrollToTarget(target, animate) {
+			if (!target || !target.length) return;
+
+			var destination = Math.max(0, target.offset().top - topOffset);
+
+			// Respect OS-level reduced motion preference (instant jump)
+			if (!animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				window.scrollTo(0, destination);
+				return;
+			}
+
+			// Floor starts at duration--medium (~500ms), ceiling allowed up to 1800ms
+			var minDuration = getCssDuration('--wp--custom--animation--duration--medium', 500);
+			var maxDuration = 1800;
+
+			var distance = Math.abs($(window).scrollTop() - destination);
+			var calculated = minDuration + (distance * 0.45);
+			var duration = Math.min(maxDuration, Math.max(minDuration, calculated));
+
+			$('html, body').animate({
+				scrollTop: destination
+			}, duration, 'luminaSmooth');
+		}
+
+		// 5. Direct URL Hash Navigation (e.g., https://nichewp.com/about/#contact-form)
+		if (window.location.hash && window.location.hash.length > 1) {
+			var hashTarget = $(window.location.hash);
+			if (hashTarget.length) {
+				// Immediate re-align once header heights are calculated
+				setTimeout(function() {
+					scrollToTarget(hashTarget, false);
+				}, 10);
+
+				// Secondary adjustment after full asset load (catches image/font reflow shifts)
+				$(window).on('load', function() {
+					scrollToTarget(hashTarget, false);
+				});
+			}
+		}
+
+		// 6. In-Page Clicked Anchor Links
 		const links = $('a[href*="#"]')
 			.not('[href="#"]')
 			.not('[href="#0"]')
 			.not('[data-toggle="tab"]')
 			.not('[data-toggle="collapse"]');
 
-		// When clicked, smoothly scroll to the element
 		links.click(function(event) {
 			if (
 				location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
@@ -96,26 +137,7 @@
 				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
 				if (target.length) {
 					event.preventDefault();
-
-					var destination = Math.max(0, target.offset().top - topOffset);
-
-					// Respect OS-level reduced motion preference (instant jump)
-					if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-						window.scrollTo(0, destination);
-						return;
-					}
-
-					// Floor starts at duration--medium (~500ms), ceiling allowed up to 1800ms
-					var minDuration = getCssDuration('--wp--custom--animation--duration--medium', 500);
-					var maxDuration = 1800;
-
-					var distance = Math.abs($(window).scrollTop() - destination);
-					var calculated = minDuration + (distance * 0.45);
-					var duration = Math.min(maxDuration, Math.max(minDuration, calculated));
-
-					$('html, body').animate({
-						scrollTop: destination
-					}, duration, 'luminaSmooth');
+					scrollToTarget(target, true);
 				}
 			}
 		});

@@ -5,10 +5,73 @@
 
 /* Set our aspect ratios in the Editor */ 
 
-// Apply overflow clipping ONLY while the block displays an empty Gutenberg placeholder
+/* Apply overflow clipping ONLY while the block displays an empty Gutenberg placeholder */
 .wp-block-post-featured-image:has(.components-placeholder) {
 	overflow: hidden;
 }
+
+// * ==========================================================================
+//    BLOCK EDITOR STYLES: Selected Image Frame Fix
+//    ========================================================================== */
+
+.wp-block-image.is-selected {
+	border: none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+
+	.components-resizable-box__container {
+		border-radius: var(--wp--preset--border-radius--lg, 16px);
+		box-shadow: var(--wp--preset--shadow--natural);
+		overflow: hidden;
+
+		img {
+			border-radius: inherit;
+		}
+	}
+}
+
+// * ==========================================================================
+//    BLOCK EDITOR STYLES: Selected Image Frame Fix
+//    Prevents double-rounded corners & caption framing when selected in Editor
+//    ========================================================================== */
+
+// .wp-block-image.is-selected {
+// 	// Strip the outer <figure> frame/shadow while selected so it doesn't wrap
+// 	// around <figcaption> or clash with Gutenberg's selection outline
+// 	border: none !important;
+// 	border-radius: 0 !important;
+// 	box-shadow: none !important;
+// 
+// 	// Move the rounded corners & shadow onto Gutenberg's resize container
+// 	// so the image + resize handles stay cleanly aligned
+// 	.components-resizable-box__container {
+// 		border-radius: var(--wp--preset--border-radius--lg, 16px);
+// 		box-shadow: var(--wp--preset--shadow--natural);
+// 		overflow: hidden;
+// 
+// 		img {
+// 			border-radius: inherit;
+// 		}
+// 	}
+// 
+// 	// Keep pill / round-border styles circular while selected
+// 	&:is(.is-style-rounded, .is-style-image-round-border) .components-resizable-box__container {
+// 		border-radius: 9999px;
+// 	}
+// 
+// 	// Keep no-border / hardware styles sharp on the inner image while selected
+// 	&:is(.is-style-image-no-border, .is-style-image-computer-screen, .is-style-image-tablet-phone-screen) .components-resizable-box__container {
+// 		border-radius: 0;
+// 		box-shadow: none;
+// 	}
+// }
+
+// /* Prevent double-rounded corners & caption framing when selected in Editor */
+// .wp-block-image.is-selected {
+// 	border: none !important;
+// 	border-radius: 0 !important;
+// 	box-shadow: none !important;
+// }
 
 /* Ensure the placeholder wrapper respects the 16:4.5 / 16:9 container aspect ratio */
 .wp-block-post-featured-image .components-placeholder {

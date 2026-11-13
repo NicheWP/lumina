@@ -107,15 +107,6 @@ h1, h2, h3, h4, h5, h6) {
 :where(:root) :where(.is-dark-theme) .has-tertiary-subtle-background-color {
   color: var(--wp--custom--color--contrast--tertiary-subtle, var(--wp--preset--color--off-white));
 }
-:where(:root) :where(.is-dark-theme) .has-primary-subtle-alt-background-color {
-  color: var(--wp--custom--color--contrast--primary-subtle-alt, var(--wp--preset--color--off-white));
-}
-:where(:root) :where(.is-dark-theme) .has-secondary-subtle-alt-background-color {
-  color: var(--wp--custom--color--contrast--secondary-subtle-alt, var(--wp--preset--color--off-white));
-}
-:where(:root) :where(.is-dark-theme) .has-tertiary-subtle-alt-background-color {
-  color: var(--wp--custom--color--contrast--tertiary-subtle-alt, var(--wp--preset--color--off-white));
-}
 :where(:root) :where(.is-dark-theme) .has-contrast-background-color {
   color: var(--wp--custom--color--contrast--contrast, var(--wp--preset--color--almost-black));
 }

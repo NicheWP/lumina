@@ -36,10 +36,6 @@ h1, h2, h3, h4, h5, h6) {
   color: var(--wp--preset--color--off-white);
 }
 
-:where(:root) :where(body:not(.is-dark-theme)) .has-primary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-secondary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
-  color: var(--wp--preset--color--almost-black);
-}
-
 :where(:root) :where(body:not(.is-dark-theme)) .has-contrast-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-dark-gray-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-very-dark-gray-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-dark-alt-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-dark-alt-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-primary-dark-alt-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-primary-dark-alt-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-dark-alt-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
@@ -47,10 +43,7 @@ h1, h2, h3, h4, h5, h6) {
   color: var(--wp--preset--color--highlight);
 }
 
-:where(:root) :where(body:not(.is-dark-theme)) .has-primary-subtle-alt-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
-:where(:root) :where(body:not(.is-dark-theme)) .has-primary-subtle-alt-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-secondary-subtle-alt-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
-:where(:root) :where(body:not(.is-dark-theme)) .has-secondary-subtle-alt-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-subtle-alt-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
-:where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-subtle-alt-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-white-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
+:where(:root) :where(body:not(.is-dark-theme)) .has-white-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-white-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-off-white-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-off-white-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-very-light-gray-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-very-light-gray-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-light-gray-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
@@ -59,15 +52,6 @@ h1, h2, h3, h4, h5, h6) {
 :where(:root) :where(body:not(.is-dark-theme)) .has-dark-gray-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover, :where(:root) :where(body:not(.is-dark-theme)) .has-very-dark-gray-background-color:is(.site-footer, .footer-info) a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 :where(:root) :where(body:not(.is-dark-theme)) .has-very-dark-gray-background-color:is(.site-footer, .footer-info) .wp-block-navigation-item__content:hover {
   color: var(--wp--preset--color--highlight-alt);
-}
-
-:where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-primary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-secondary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-tertiary-subtle-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
-  text-decoration-line: underline;
-}
-
-:where(:root) :where(body:not(.is-dark-theme)) .has-primary-subtle-alt-background-color:is(.site-footer, .footer-info) p :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-secondary-subtle-alt-background-color:is(.site-footer, .footer-info) p :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-subtle-alt-background-color:is(.site-footer, .footer-info) p :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
-  text-decoration-style: var(--wp--custom--link--special-style, dotted);
-  text-decoration-line: underline;
 }
 
 :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-contrast-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-gray-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-dark-gray-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) :where(body:not(.is-dark-theme)) .wp-block-post-content .has-very-dark-gray-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
@@ -86,15 +70,6 @@ h1, h2, h3, h4, h5, h6) {
 }
 :where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-subtle-background-color {
   color: var(--wp--custom--color--contrast--tertiary-subtle, var(--wp--preset--color--almost-black));
-}
-:where(:root) :where(body:not(.is-dark-theme)) .has-primary-subtle-alt-background-color {
-  color: var(--wp--custom--color--contrast--primary-subtle-alt, var(--wp--preset--color--almost-black));
-}
-:where(:root) :where(body:not(.is-dark-theme)) .has-secondary-subtle-alt-background-color {
-  color: var(--wp--custom--color--contrast--secondary-subtle-alt, var(--wp--preset--color--almost-black));
-}
-:where(:root) :where(body:not(.is-dark-theme)) .has-tertiary-subtle-alt-background-color {
-  color: var(--wp--custom--color--contrast--tertiary-subtle-alt, var(--wp--preset--color--almost-black));
 }
 :where(:root) :where(body:not(.is-dark-theme)) .has-contrast-background-color {
   color: var(--wp--custom--color--contrast--contrast, var(--wp--preset--color--off-white));
