@@ -1,40 +1,54 @@
-# Lumina Theme Project Charter v0.9.9 MVP  
-  
-# Section 1: Project Vision & Features  
-  
-## 1.1 Project Vision: Modern Full-Site Editing  
-Lumina represents a modern evolution of WordPress Full-Site Editing (FSE). Inspired by the colors, ambient light, and natural depth of the physical environment around us, Lumina bridges organic aesthetics with high-performance digital web architecture. We believe website layouts should feel balanced, tactile, and natural—bringing the structural rhythms and light behavior of the physical world directly onto the digital canvas. Anchored around an MVP showcase for high-end **Photography Studios**, Lumina demonstrates how responsive grid reflows, dark monochromatic glass aesthetics, and kinetic physics elevate visual storytelling.  
-##   
-## 1.2 Dynamic Moods & Global Style Flexibility  
-Global Style variations in Lumina go far beyond superficial color swaps or font changes. Powered by modular theme.jsonstyle variations, Lumina enables site creators to instantly transform the entire physical personality, spatial geometry, and kinetic energy of a site with a single click in the Site Editor. Rather than applying static rules, each **Lumina Mood** re-engineers the site's structural physics, corner radii, spatial gaps, and motion easing curves:  
-* **Architectural & Weighted (*Lumina Gallery*):** Designed for high-end exhibition spaces and editorial layouts. Features sharp, architectural 6px corners, structured 30px layout gaps, and luxurious, deliberate animation curves (cubic-bezier(0.2, 0, 0, 1) with up to 800ms transitions) that give interactive elements a weighted, physical presence.  
-* **High-Performance & Precision (*Lumina Tactical*):** Tailored for utility, speed, and dense information architecture. Employs rugged 9px corner radii, compact 20px layout gaps, and crisp, rapid animation response times (180ms–300ms) for near-instantaneous user feedback.  
-* **Fluid & Organic (*Lumina Spacious*):** An ultra-modern, fluid mood. Introduces soft 30px "pebble" corner radii, pill buttons (999px), expansive 34px layout gaps, and playful spring physics (cubic-bezier(0.34, 1.56, 0.64, 1)) where cards and buttons expand dynamically on interaction.  
-* **Static & Motion-Free (*Lumina Static* / 500-static.json):** A zero-kinetic style variation designed for accessibility and pure typographic focus. Disables all physical hover transforms (hoverTransform: "none") site-wide while safely falling back to elegant, static hover opacity shifts.  
-##   
-## 1.3 Ambient Light & Organic Depth  
-Lumina captures the natural depth of physical surroundings to make content layouts completely intuitive. By structuring blocks to mimic how ambient light and shadow cast subtle gradients across architectural spaces, text, images, and container blocks interact within a visual ecosystem that feels native to the eye.  
-##   
-## 1.4 Beautiful Colors & Smart Color Logic  
-Colors in Lumina operate on a sophisticated semantic engine—utilizing calibrated mid-tones, deep dark anchors, and subtle backdrops that give site creators the flexibility to direct user attention exactly where it belongs.  
-* **Automated Color Contrast Engine:** Lumina eliminates the need to manually tweak layout styling panel parameters in the block editor.  
-* **Gutenberg Palette Purge:** To keep the Site Editor UI ultra-clean, raw non-semantic palette swatches (black, white, foreground-alt, and unmapped color names) are purged from selectable color pickers, exposing strictly functional semantic swatches (primary, secondary, tertiary, base, contrast, etc.).  
-* **48% / 38% HSL Lightness Calibration:** Core palette tracks strictly enforce a mathematically unified lightness architecture—maintaining ~48% lightness on primary action anchors for high-impact CTAs and ~38% lightness on dark alt anchors for rich, non-muddy container depth.  
-* **Dynamic Background Perception:** The theme engine automatically tracks background color selections and calculates WCAG AA-compliant default colors for body copy, major headlines, and navigation links.  
-* **Zero-Touch Readability:** Site builders can simply drop element blocks into any section and select a tint layout; the theme manages legibility and contrast automatically.  
-##   
-## 1.5 Interactive Depth & Kinetic Physics  
-Lumina establishes an active layout track that users can actually feel:  
-* **Automated Card Detection:** Container blocks carrying interactive elements—such as action buttons or links—are automatically detected by the theme logic.  
-* **Kinetic Lift-Off:** Detected interactive cards gently lift off the page with soft, realistic ambient shadows.  
-* **Mood-Engineered Motion:** Hover scales (ranging from conservative 1.02× scale up to elastic 1.08× expansion) and y-axis displacement tokens (translateY(-3px) to translateY(-5px)) adapt dynamically to the active Global Style Mood.  
-* **Decoupled Opacity Tokens:** Interaction feedback is cleanly decoupled across element roles—inline links pull custom.color.link.hoverOpacity (0.7), linked images pull custom.color.image.hoverOpacity (1.0 in motion, 0.85 static), and buttons retain solid fill integrity (1.0) while scaling.  
-* **Omni-Input Responsiveness:** Cards respond instantly to mouse hovers and mobile touch gestures alike, drawing closer to the user to signify action readiness.  
-##   
-## 1.6 Full Editor Freedom (WordPress FSE Philosophy)  
-Lumina delivers complete layout control without technical hurdles or cascade pollution:  
-* **Modular Assembly:** Easily switch custom site headers, personalized footers, visual article grids, and global style variations directly within a unified Site Editor setup.  
-* **Adaptable & Showcase Ready:** Layout components and template parts can be swapped periodically to keep the site modern and fresh, optimized out-of-the-box for photography portfolios, editorial magazines, and studio showcases.  
+# Lumina Theme Project Charter v1.0.0 Alpha 
+# Section 1: Project Vision & Features
+
+## 1.1 Project Vision: Modern Full-Site Editing
+
+Lumina represents a modern evolution of WordPress Full-Site Editing (FSE). Inspired by the colors, ambient light, and natural depth of the physical environment around us, Lumina bridges organic aesthetics with high-performance digital web architecture. 
+
+We believe website layouts should feel balanced, tactile, and natural—bringing the structural rhythms and light behavior of the physical world directly onto the digital canvas. 
+
+The Lumina theme demo is a showcase for a high-end photography or web design studio. It shows how the default theme color palette is intended to be used with mostly neutral or subtle colors with bold page heroes and call-to-action sections. It demonstrates restrained use of glass over cover images. It features interactive cards and pan-zoom motion images which are flagship features of the theme.  
+
+See the [technical documentation overview](https://nichewp.github.io/lumina/) for implementation details.
+
+## 1.2 Dynamic Moods via Global Styles
+
+While Lumina provides numerous color palettes and curated fonts, it's Global Style variations let site creators choose a cohesive visual mood and adapt it in the Site Editor. Each **Lumina Mood** expresses a distinct approach to form, spacing, and interaction:
+
+* **Lumina Gallery:** Designed for high-end exhibition spaces and editorial layouts. Features slightly rounded architectural corners, generous spacing, and luxurious, deliberate motion that gives interactive elements a weighted, physical presence.
+* **Lumina Tactical:** Tailored for utility, speed, and dense information architecture. Uses compact spacing and crisp, quick-response motion for a focused, efficient feel.
+* **Lumina Spacious:** An ultra-modern, fluid mood. Pairs soft, pebble-like forms and expansive spacing with playful, elastic motion.
+* **Lumina Minimal:** A refined, reduced-motion mood for a quieter, typographic focus. Interactive elements avoid pronounced scaling or shifting while retaining subtle feedback.
+
+See the [theme variables and style reference](https://nichewp.github.io/lumina/variables.html) for current implementation details.
+
+## 1.3 Color Schemes & the Lumina Colors Engine
+
+Lumina offers a range of color schemes, from nature- and coastal-inspired palettes to heritage, jewel-toned, industrial, and high-key light treatments. Current schemes include Elements, Horizon, Heritage, Ember, Velvet, Dusk, Low Tide, Zinc, and Light. 
+
+The Lumina Colors Engine and its semantic color registry connect each color role to theme-authored treatments for body text, headings, and links. This gives the theme author control over the intended contrast relationships and supports accessible, coherent defaults. Creators should still check contrast when they customize colors and content; the engine does not guarantee WCAG compliance for every possible combination. 
+
+See the [theme variables and color documentation](https://nichewp.github.io/lumina/variables.html).
+
+## 1.4 Typography & Curated Fonts
+
+Lumina's default pairing uses Lato for body text and Raleway for headings. Lato provides a clear, approachable reading voice, while Raleway gives headings a more distinctive, architectural character and establishes visual hierarchy. 
+
+The theme also includes Lora for a more traditional serif voice, Open Sans as an alternate sans-serif, Style Script for decorative accents, and Roboto Mono for technical or code-like text. These additional families give creators more ways to shape a site's personality; they are options rather than required roles. 
+
+See the [theme variables and typography documentation](https://nichewp.github.io/lumina/variables.html).
+
+## 1.5 Ambient Light & Organic Depth
+
+Lumina's visual language follows a consistent direction of light from the upper left. Color-mixed borders, translucent glass surfaces, and gradients suggest softly lit edges and reflections. The Lumina Physics Engine carries this sense of light into depth: objects rest on subtle, natural shadows, then interactive elements designed to move lift from the surface and cast deeper shadows. Together, the highlights, shadows, and motion make surfaces feel tactile and connected to the same organic environment. 
+
+See the [SCSS technical documentation](https://nichewp.github.io/lumina/scss/index.html).
+
+## 1.6 Templates, Template Parts & Block Patterns
+
+Lumina includes a broad collection of templates, template parts, and block patterns so creators can shape the whole site, not just its colors and typography. Templates provide page-level starting points; template parts make shared areas such as headers and footers reusable; and patterns offer ready-to-insert sections and page compositions. Creators can adapt these building blocks in the Site Editor to suit their content and brand.
+
+ Explore the documentation for [templates](https://nichewp.github.io/lumina/templates.html), [template parts](https://nichewp.github.io/lumina/parts.html), and [block patterns](https://nichewp.github.io/lumina/patterns.html).
   
 # Section 2: Lumina Color Engine & Master Palette Architecture  
 ##   
