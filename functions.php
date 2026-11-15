@@ -3,7 +3,7 @@
  * File:	functions.php
  * Theme:	Lumina 
  * 
- * Lumina functions and definitions
+ * Description: Lumina functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *

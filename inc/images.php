@@ -3,7 +3,7 @@
  * File:        inc/images.php
  * Theme:       Shared Media Functions
  *
- * Unified Media Architecture. Handles native image blocks,
+ * Description: Unified Media Architecture. Handles native image blocks,
  * cover toggles, media-text toggles, site logo fallbacks, lightboxes, and legacy 
  * post loops.
  *

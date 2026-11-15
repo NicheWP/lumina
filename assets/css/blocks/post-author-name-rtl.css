@@ -15,7 +15,7 @@
   display: inline-block;
   width: 1em;
   height: 1em;
-  background-color: currentColor;
+  background-color: currentcolor;
   vertical-align: -0.15em;
   flex-shrink: 0;
   text-decoration: none;

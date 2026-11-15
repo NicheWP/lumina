@@ -24,7 +24,7 @@
 
 	/* 2. DYNAMIC COLOR FALLBACKS & INHERITANCE */
 	:where(&) {
-		background-color: currentColor;
+		background-color: currentcolor;
 	}
 
 	.has-background &:not(.has-background) {
@@ -32,6 +32,7 @@
 	}
 
 	/* 3. INHERENT WIDTH TRACKS */
+
 	/* Short accent line (Default, Thick) */
 	&:not(.is-style-wide):not(.is-style-dots):not(.is-style-thick-wide) {
 		width: calc(10 * var(--wp--style--block-gap));

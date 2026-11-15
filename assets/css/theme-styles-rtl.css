@@ -476,13 +476,13 @@ ul, ol, .wp-block-list) {
   z-index: 1;
   border-radius: inherit;
   pointer-events: none;
-  box-shadow: inset -1px 1px 1px 0 color-mix(in srgb, white var(--wp--custom--color--opacity--subtle, 12%), transparent), inset 1px -1px 1px 0 color-mix(in srgb, white var(--wp--custom--color--opacity--faint, 6%), transparent);
+  box-shadow: inset -1px 1px 1px 0 color-mix(in srgb, #fff var(--wp--custom--color--opacity--subtle, 12%), transparent), inset 1px -1px 1px 0 color-mix(in srgb, #fff var(--wp--custom--color--opacity--faint, 6%), transparent);
 }
 :is(.has-background, .wp-block-cover) [class*=is-style-glass]:not(.wp-block-button).is-style-glass::before, [class*=is-style-glass]:not(.wp-block-button).is-style-glass:is(.has-background, .wp-block-cover)::before {
   background-color: color-mix(in srgb, var(--wp--custom--color--opacity--tint, var(--wp--preset--color--base)) var(--wp--custom--color--opacity--faint, 6%), transparent);
 }
 :is(.has-background, .wp-block-cover) [class*=is-style-glass]:not(.wp-block-button).is-style-glass-frosted::before, [class*=is-style-glass]:not(.wp-block-button).is-style-glass-frosted:is(.has-background, .wp-block-cover)::before {
-  background: color-mix(in srgb, var(--wp--custom--color--opacity--tint-frosted, white) var(--wp--custom--color--opacity--subtle, 12%), transparent);
+  background: color-mix(in srgb, var(--wp--custom--color--opacity--tint-frosted, #fff) var(--wp--custom--color--opacity--subtle, 12%), transparent);
   backdrop-filter: var(--wp--custom--color--opacity--blur-dense, blur(10px));
 }
 :is(.has-background, .wp-block-cover) [class*=is-style-glass]:not(.wp-block-button).is-style-glass-dark::before, [class*=is-style-glass]:not(.wp-block-button).is-style-glass-dark:is(.has-background, .wp-block-cover)::before {
@@ -504,7 +504,7 @@ ul, ol, .wp-block-list) {
   color: inherit;
 }
 [class*=is-style-glass].wp-block-button > :is(.wp-element-button, .wp-block-button__link).has-background {
-  background-image: linear-gradient(color-mix(in srgb, white var(--wp--custom--color--opacity--subtle, 12%), transparent), color-mix(in srgb, white var(--wp--custom--color--opacity--subtle, 12%), transparent));
+  background-image: linear-gradient(color-mix(in srgb, #fff var(--wp--custom--color--opacity--subtle, 12%), transparent), color-mix(in srgb, #fff var(--wp--custom--color--opacity--subtle, 12%), transparent));
 }
 [class*=is-style-glass].wp-block-button > :is(.wp-element-button, .wp-block-button__link).has-background:not(.has-text-color) {
   color: var(--wp--preset--color--off-white);
@@ -516,8 +516,8 @@ ul, ol, .wp-block-list) {
   z-index: -1;
   border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(-180deg, color-mix(in srgb, white var(--wp--custom--color--opacity--subtle, 12%), transparent) 0%, transparent 100%);
-  box-shadow: inset -1px 1px 1px 0 color-mix(in srgb, white var(--wp--custom--color--opacity--subtle, 12%), transparent), inset 1px -1px 1px 0 color-mix(in srgb, white var(--wp--custom--color--opacity--faint, 6%), transparent);
+  background: linear-gradient(-180deg, color-mix(in srgb, #fff var(--wp--custom--color--opacity--subtle, 12%), transparent) 0%, transparent 100%);
+  box-shadow: inset -1px 1px 1px 0 color-mix(in srgb, #fff var(--wp--custom--color--opacity--subtle, 12%), transparent), inset 1px -1px 1px 0 color-mix(in srgb, #fff var(--wp--custom--color--opacity--faint, 6%), transparent);
 }
 
 /* --------------------------------------------------------------------------
@@ -528,7 +528,7 @@ ul, ol, .wp-block-list) {
 }
 
 :is(.has-background, .wp-block-cover, [class*=is-style-glass]) .wp-block-button.is-style-glass-frosted > :is(.wp-element-button, .wp-block-button__link):not(.has-background) {
-  background-color: color-mix(in srgb, var(--wp--custom--color--opacity--tint-frosted, white) var(--wp--custom--color--opacity--emphasis, 20%), transparent);
+  background-color: color-mix(in srgb, var(--wp--custom--color--opacity--tint-frosted, #fff) var(--wp--custom--color--opacity--emphasis, 20%), transparent);
 }
 
 :is(.has-background, .wp-block-cover, [class*=is-style-glass]) .wp-block-button.is-style-glass-dark > :is(.wp-element-button, .wp-block-button__link):not(.has-background) {
@@ -785,7 +785,7 @@ figure > a:active,
   transition: opacity var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1), transform var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1), background-color 200ms ease;
   pointer-events: none;
   z-index: 2;
-  background-color: color-mix(in srgb, var(--wp--preset--color--contrast, #000000) 80%, transparent);
+  background-color: color-mix(in srgb, var(--wp--preset--color--contrast, #000) 80%, transparent);
 }
 .is-style-pan-zoom-hover {
   /* 2B. Chevron Expand Mask Icon Layer (::after) */
@@ -802,8 +802,8 @@ figure > a:active,
   transition: opacity var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1), transform var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease;
   pointer-events: none;
   z-index: 3;
-  color: var(--wp--preset--color--base, #ffffff);
-  background-color: currentColor;
+  color: var(--wp--preset--color--base, #fff);
+  background-color: currentcolor;
   -webkit-mask-image: url("../icons/theme/motion.svg");
           mask-image: url("../icons/theme/motion.svg");
   -webkit-mask-size: calc(28px * 0.6);
@@ -817,10 +817,10 @@ figure > a:active,
   /* Inverted Badge for High-Key / Bright Media */
 }
 .is-style-pan-zoom-hover.is-light::before {
-  background-color: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 75%, transparent);
+  background-color: color-mix(in srgb, var(--wp--preset--color--base, #fff) 75%, transparent);
 }
 .is-style-pan-zoom-hover.is-light::after {
-  color: var(--wp--preset--color--contrast, #000000);
+  color: var(--wp--preset--color--contrast, #000);
 }
 .is-style-pan-zoom-hover:hover img,
 .is-style-pan-zoom-hover:hover .wp-block-cover__image-background, .is-style-pan-zoom-hover:focus-within img,
@@ -860,7 +860,8 @@ figure > a:active,
 :has([style*="21/9"]),
 :has([style*="21 / 9"]),
 :has(.size-cropped-slim),
-:has(.size-cropped-ultrawide)) img, :is(.is-style-pan-zoom, .is-style-pan-zoom-hover):is([style*="16/4.5"],
+:has(.size-cropped-ultrawide)) img,
+:is(.is-style-pan-zoom, .is-style-pan-zoom-hover):is([style*="16/4.5"],
 [style*="16 / 4.5"],
 :has([style*="16/4.5"]),
 :has([style*="16 / 4.5"]),
@@ -934,7 +935,7 @@ figure > a:active,
   transition: box-shadow var(--wp--custom--animation--duration--short, 250ms) ease-in-out;
 }
 .is-style-inset-border:hover {
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 30%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentcolor 30%, transparent);
 }
 
 /* 2. Parent Container Target (Applied to a parent Columns or Group Grid to style all direct children) */
@@ -943,7 +944,7 @@ figure > a:active,
   transition: box-shadow var(--wp--custom--animation--duration--short, 250ms) ease-in-out;
 }
 :is(.wp-block-columns, .wp-block-group).is-style-inset-border > :is(.wp-block-column, .wp-block-group):hover {
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 30%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, currentcolor 30%, transparent);
 }
 
 /*--------------------------------------------------------------
@@ -958,16 +959,16 @@ ol.is-style-list-dividers,
   padding-right: 0;
 }
 
+.is-style-list-dividers:not(.has-background) li ul li {
+  padding-right: var(--wp--preset--spacing--40);
+}
+
 .is-style-list-dividers:not(.wp-block-latest-posts__list.is-grid) li:not(:first-child),
 .is-style-list-dividers:not(.wp-block-latest-posts__list.is-grid) li > ul {
   list-style: none;
   border-top: solid 1px var(--wp--custom--color--divider, color-mix(in srgb, currentColor 20%, transparent));
   padding-top: var(--wp--preset--spacing--30);
   margin-top: var(--wp--preset--spacing--30);
-}
-
-.is-style-list-dividers:not(.has-background) li ul li {
-  padding-right: var(--wp--preset--spacing--40);
 }
 
 /*-----------------------------------------------------------------------------
@@ -1273,13 +1274,10 @@ ol.is-style-list-dividers,
 	Content Layout Structural Stabilization
    ========================================================================= */
 .is-style-sidebar-right .wp-block-columns.main-content > .wp-block-column.content-column,
-body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column.content-column,
 body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column.content-column {
   order: 1;
 }
 .is-style-sidebar-right .wp-block-columns.main-content > .wp-block-column.sidebar-column, .is-style-sidebar-right .wp-block-columns.main-content > .wp-block-column:not(.content-column),
-body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column.sidebar-column,
-body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:not(.content-column),
 body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column.sidebar-column,
 body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:not(.content-column) {
   order: 2;
@@ -1312,11 +1310,14 @@ body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:no
   padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40);
 }
 
-.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::-moz-placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::-moz-placeholder {
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::-moz-placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::-moz-placeholder {
   opacity: 0.75;
 }
 
-.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]:disabled, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::placeholder, .wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]:disabled {
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::placeholder,
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]:disabled,
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::placeholder,
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]:disabled {
   opacity: 0.75;
 }
 
@@ -1329,7 +1330,6 @@ body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:no
 /* 1. Standard Icon Links: Keeps theme link color & underline intact */
 [class*=is-style-icon-] a {
   outline: none;
-  /* Do NOT set color or text-decoration here so normal text links stay styled */
 }
 
 /* 2. Pseudo-Elements (The Icons): Prevents underline bleed into the icon box */
@@ -1349,7 +1349,6 @@ body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:no
 [class*=-no-text] a {
   color: inherit;
   text-decoration: none !important;
-  /* Keeps standalone UI controls (like scroll-down buttons) unstyled */
 }
 
 /* 5. No icons for post meta */

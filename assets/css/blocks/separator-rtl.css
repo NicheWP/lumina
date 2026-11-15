@@ -27,7 +27,7 @@
   /* 2. DYNAMIC COLOR FALLBACKS & INHERITANCE */
 }
 :where(.wp-block-separator) {
-  background-color: currentColor;
+  background-color: currentcolor;
 }
 .has-background .wp-block-separator:not(.has-background) {
   color: inherit;

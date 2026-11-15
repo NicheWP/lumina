@@ -7,7 +7,6 @@
 @use 'sass:string';
 @use 'sass:list';
 @use 'sass:map';
-
 @use '00-config' as config;
 
 // ==========================================================================
@@ -77,32 +76,40 @@
     
 	// 6. PSEUDO-STATE INJECTION (Determines interactive modifier rules)
     $state-suffix: '';
-    @if string.index($scope, 'hover') != null {
+
+    @if string.index($scope, 'hover') {
         $state-suffix: ':hover';
     
-    } @else if string.index($scope, 'focus') != null {
+    } @else if string.index($scope, 'focus') {
 //         $state-suffix: ':has(:focus-visible)';
 		$state-suffix: ':is(:focus-visible, :has(:focus-visible))';
     }
         
 	// 7. RETURN LITERAL SCOPE PATHS (Wrapper vs Target)
-	@if string.index($scope, 'wrapper') != null {
+	@if string.index($scope, 'wrapper') {
+
 		@return '#{$selector}#{$state-suffix}';
 	
 	} @else {
 		// Build base path with state suffix attached directly to the active 
 		// action boundary element
 		$action-path: '#{$selector} #{$trigger}#{$state-suffix}';
+
 		@if $trigger == 'self' {
 			$action-path: '#{$selector}#{$state-suffix}';
 		}
 		
 		// Append the final graphic asset target layer if it isn't self-contained        
 		@if $target == 'self' {
+
 			@return $action-path;
+
 		} @else if string.slice($target, 1, 2) == '::' {
+
 			@return '#{$action-path}#{$target}';
+
 		} @else {
+
 			@return '#{$action-path} #{$target}';
 		}        
 	}
@@ -118,6 +125,7 @@
 /// @param {String} $block - Target block selector
 /// @return {Boolean} Returns true if the block resides in $blocks-no-rounding
 @function is-no-rounding($block) {
+
 	@return list.index(config.$blocks-no-rounding, $block) != null;
 }
 
@@ -132,13 +140,17 @@
 /// @return {Boolean} Returns true if any custom border class is present inside 
 ///		the block selector
 @function has-custom-borders($block) {
+
 	@each $custom-block in config.$blocks-custom-borders {
+		
 		// If the target block string (e.g. '.wp-block-image') is found anywhere 
 		// inside the active compiler selector string, return true immediately.
-		@if string.index($block, $custom-block) != null {
+		@if string.index($block, $custom-block) {
+
 			@return true;
 		}
 	}
+
 	@return false;
 }
 

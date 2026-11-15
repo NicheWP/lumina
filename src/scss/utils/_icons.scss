@@ -5,7 +5,7 @@
 /* 1. Standard Icon Links: Keeps theme link color & underline intact */
 [class*="is-style-icon-"] a {
     outline: none;
-    /* Do NOT set color or text-decoration here so normal text links stay styled */
+    // Do NOT set color or text-decoration here so normal text links stay styled
 }
 
 /* 2. Pseudo-Elements (The Icons): Prevents underline bleed into the icon box */
@@ -25,11 +25,10 @@
 [class*="-no-text"] a {
     color: inherit;
     text-decoration: none !important;
-    /* Keeps standalone UI controls (like scroll-down buttons) unstyled */
+    // Keeps standalone UI controls (like scroll-down buttons) unstyled
 }
 
 /* 5. No icons for post meta */
-.is-style-no-icon::before { //,
-// .is-style-no-icon::after {	
+.is-style-no-icon::before {
 	content: none !important;
 }

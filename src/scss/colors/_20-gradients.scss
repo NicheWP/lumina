@@ -4,7 +4,6 @@
 
 // @use 'sass:list';
 @use 'sass:map';
-
 @use "index" as logic;
 
 //*-----------------------------------------------------------------------------
@@ -23,6 +22,7 @@
 @mixin apply-colors-gradients {
 
 	@if logic.$gradient-tracks or logic.$gradient-preserve-colors {
+		
 		/* ==========================================================================
 		   20 GRADIENT COLORS: Set colors on gradient backgrounds
 		========================================================================== */

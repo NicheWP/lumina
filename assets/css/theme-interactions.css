@@ -111,7 +111,8 @@
 }
 
 /* Remove shadow from logo-only social icons */
-.wp-site-blocks .wp-block-social-links.is-style-logos-only .wp-block-social-link:hover, .wp-site-blocks .wp-block-social-links.is-style-logos-only .wp-block-social-link:has(:focus-visible) {
+.wp-site-blocks .wp-block-social-links.is-style-logos-only .wp-block-social-link:hover,
+.wp-site-blocks .wp-block-social-links.is-style-logos-only .wp-block-social-link:has(:focus-visible) {
   box-shadow: none;
 }
 

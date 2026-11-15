@@ -55,6 +55,7 @@ pre:not(.wp-block-code) {
 /* Background list container padding reset */
 ol.has-background,
 ul.has-background {
+	
 	&:not(.wp-block-navigation__container):not(.wp-block-navigation-submenu):not(.wp-block-page-list) {
 		padding: var(--wp--preset--spacing--40);
 		list-style-position: inside;

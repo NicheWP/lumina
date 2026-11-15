@@ -32,6 +32,7 @@
 
 /* Adjust padding on mobile and tablet (782px) */
 @media only screen and (max-width: #{ (breakpoints.$break-medium - 1) }) {
+	
 	.post-comments:not(.has-global-padding) {
 		padding-left: var(--wp--style--root--padding-left) !important;
 		padding-right: var(--wp--style--root--padding-right) !important;

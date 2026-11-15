@@ -75,7 +75,7 @@
 | `--wp--custom--color--opacity--tint` | `*(Style Variation)* var(--wp--preset--color--base) (910-lumina-default-all.json)` | `var(--wp--preset--color--base)` | `[JSON] styles/colors/910-lumina-default-all.json`<br>`[SCSS] src/scss/styles/_glass-effects.scss` |
 | `--wp--custom--color--opacity--tint-color` | `*(Style Variation)* var(--wp--preset--color--secondary) (210-heritage.json)` | `var(--wp--preset--color--secondary)` | `[JSON] styles/colors/210-heritage.json`<br>`[JSON] styles/colors/410-low-tide.json`<br>`[JSON] styles/colors/420-zinc.json`<br>`[JSON] styles/colors/910-lumina-default-all.json`<br>`[SCSS] src/scss/styles/_glass-effects.scss` |
 | `--wp--custom--color--opacity--tint-dark` | `*(Style Variation)* var(--wp--preset--color--contrast) (910-lumina-default-all.json)` | `var(--wp--preset--color--contrast)` | `[JSON] styles/colors/910-lumina-default-all.json`<br>`[SCSS] src/scss/styles/_glass-effects.scss` |
-| `--wp--custom--color--opacity--tint-frosted` | `*(Style Variation)* white (910-lumina-default-all.json)` | `white` | `[JSON] styles/colors/910-lumina-default-all.json`<br>`[SCSS] src/scss/styles/_glass-effects.scss` |
+| `--wp--custom--color--opacity--tint-frosted` | `*(Style Variation)* white (910-lumina-default-all.json)` | `#fff` | `[JSON] styles/colors/910-lumina-default-all.json`<br>`[SCSS] src/scss/styles/_glass-effects.scss` |
 | `--wp--custom--color--outline` | `*(Style Variation)* color-mix(in srgb, currentColor 20%, transparent) (910-lumina-default-all.json)` | N/A | `[JSON] styles/colors/910-lumina-default-all.json` |
 | `--wp--custom--color--overlay--background` | `*Not in theme.json*` | `var(--wp--preset--color--primary)` | `[SCSS] src/scss/physics/_00-config.scss` |
 | `--wp--custom--color--overlay--hover-opacity` | `*Not in theme.json*` | `0` | `[SCSS] src/scss/physics/_00-config.scss` |
@@ -106,7 +106,7 @@
 | `--wp--custom--link--style` | `*(Style Variation)* solid (100-gallery.json)` | `solid` | `[JSON] styles/global/100-gallery.json`<br>`[SCSS] src/scss/base/_buttons-links.scss` |
 | `--wp--custom--link--thickness` | `*(Style Variation)* 1px (100-gallery.json)` | `1px` | `[JSON] styles/global/100-gallery.json`<br>`[SCSS] src/scss/base/_buttons-links.scss` |
 | `--wp--custom--navigation--width` | `*Not in theme.json*` | `260px` | `[SCSS] src/scss/blocks/navigation.scss` |
-| `--wp--custom--shadow--default` | `*Not in theme.json*` | `none` | `[SCSS] src/scss/blocks/latest-posts.scss`<br>`[SCSS] src/scss/blocks/navigation.scss`<br>`[SCSS] src/scss/blocks/post-comments-form.scss`<br>`[SCSS] src/scss/blocks/post-featured-image.scss` |
+| `--wp--custom--shadow--default` | `*Not in theme.json*` | `none` | `[SCSS] src/scss/blocks/latest-posts.scss`<br>`[SCSS] src/scss/blocks/navigation.scss`<br>`[SCSS] src/scss/blocks/post-comments-form.scss` |
 | `--wp--custom--shadow--dropdown` | `*Not in theme.json*` | `0 12px 32px rgba(0, 0, 0, 0.12)` | `[SCSS] src/scss/blocks/navigation.scss` |
 | `--wp--custom--sidebar--width` | `*Not in theme.json*` | `350px` | `[SCSS] src/scss/blocks/columns.scss` |
 | `--wp--custom--spacing--gap` | `24px` | N/A | `[JSON] theme.json`<br>`[JSON] styles/global/100-gallery.json`<br>`[JSON] styles/global/200-tactical.json`<br>`[JSON] styles/global/300-spacious.json` |

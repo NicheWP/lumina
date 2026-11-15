@@ -3,7 +3,7 @@
  * File:        inc/comments.php
  * Theme:       Shared Comments Engine
  *
- * Purge empty Comments Template Part from DOM when comments are closed and empty.
+ * Description: Purge empty Comments Template Part from DOM when comments are closed and empty.
  *
  * @package     NicheWP
  */

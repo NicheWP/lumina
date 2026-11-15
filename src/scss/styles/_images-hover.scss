@@ -9,6 +9,7 @@ figure > a,
 .wp-block-post-featured-image a,
 .wp-block-latest-posts__featured-image a,
 .wp-block-media-text__media a {
+    
     &:hover,
     &:active {
         opacity: var(--wp--custom--color--image--hover-opacity, 1);

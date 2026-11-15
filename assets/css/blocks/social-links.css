@@ -9,6 +9,9 @@
   margin-block-end: 0;
 }
 
+.wp-block-social-links .wp-block-social-link {
+  transition: transform var(--wp--custom--animation--duration--medium, 500ms) ease-in-out;
+}
 .wp-block-social-links.has-small-icon-size {
   font-size: var(--wp--preset--font-size--medium);
 }
@@ -26,8 +29,4 @@
 }
 .has-background .wp-block-social-links.is-style-logos-only .wp-block-social-link {
   color: inherit;
-}
-
-.wp-block-social-link {
-  transition: transform var(--wp--custom--animation--duration--medium, 500ms) ease-in-out;
 }

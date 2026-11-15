@@ -2,7 +2,6 @@
 # Post Comments Count (Only w/WordPress v6.9+ or Gutenberg Plugin)
 -----------------------------------------------------------------------------*/
 @use "../icons/icons" as icons;;
-
 @include icons.svg-icon(
 	$class: 'wp-block-post-comments-count',
 // 	$icon: 'admin-comments',

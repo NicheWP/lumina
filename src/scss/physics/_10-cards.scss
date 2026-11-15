@@ -4,7 +4,6 @@
 
 @use 'sass:list';
 @use 'sass:map';
-
 @use '00-config' as config;
 @use '04-registry' as phys;
 
@@ -19,6 +18,7 @@
 @mixin apply-card-logic($interactive: false) {
 
 // 	@if config.$lumina-dev-mode {
+
 	/* ==========================================================================
 	   10 CARDS: Containers (e.g. Groups, Columns)
 	   ========================================================================== */
@@ -51,6 +51,7 @@
 
 			// ADD THE CARD TO THE CARD VETO LIST
 			@if not list.index(phys.get-cards(), $target-sel) {
+
 				@include phys.register-card($target-sel);
 			}			
 
@@ -72,6 +73,7 @@
 											
 					// WRITE WRAPPER
 					#{$wrapper-sel} {
+
 						@include phys.apply-wrapper-resting-state(
 							$role: $role,
 							$block: $block,
@@ -80,6 +82,7 @@
 
 					// WRITE TARGET
 					#{$target-sel} {
+
 						@include phys.apply-resting-state(
 							$role: $role,
 							$block: $block,
@@ -92,6 +95,7 @@
 				
 					// WRITE TARGET
 					#{$target-sel} {
+
 						@include phys.apply-resting-state(
 							$role: $role,
 							$block: $block,
@@ -124,6 +128,7 @@
 				// WRITE TARGET HOVER AND FOCUS
 				#{$target-hover}, 
 				#{$target-focus} {
+
 					@include phys.apply-active-state(
 						$role: $role,
 						$block: $block, 

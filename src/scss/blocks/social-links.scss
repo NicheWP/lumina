@@ -10,6 +10,11 @@
 
 .wp-block-social-links {
 
+	// Hover Animation
+	.wp-block-social-link {
+		transition: transform var(--wp--custom--animation--duration--medium, 500ms) ease-in-out;
+	}
+
 	// Explicit icon size overrides mapped to theme font sizes
 	&.has-small-icon-size {
 		font-size: var(--wp--preset--font-size--medium);
@@ -40,9 +45,4 @@
 	.has-background &.is-style-logos-only .wp-block-social-link {
 		color: inherit;
 	}
-}
-	
-// Hover Animation
-.wp-block-social-link {
-	transition: transform var(--wp--custom--animation--duration--medium, 500ms) ease-in-out;
 }

@@ -9,9 +9,11 @@
 /*-----------------------------------------------------------------------------
 # Post Excerpt: Custom
 -----------------------------------------------------------------------------*/
+
 /* No Read More link */
 .wp-block-post-excerpt.is-style-no-readmore {
-	& > .wp-block-post-excerpt__more-text {
+
+	> .wp-block-post-excerpt__more-text {
 		display: none;
 	}
 }

@@ -36,6 +36,7 @@ a:where(
 		.wp-block-media-text__media a
 	)
 ) {
+	
 	&:hover,
 	&:active {
 		opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
@@ -48,6 +49,7 @@ figure > a,
 .wp-block-post-featured-image a,
 .wp-block-latest-posts__featured-image a,
 .wp-block-media-text__media a {
+
 	&:hover,
 	&:active {
 		opacity: var(--wp--custom--color--image--hover-opacity, 1);
@@ -55,11 +57,11 @@ figure > a,
 }
 
 /* 5. Basic HTML Form Buttons (Style-matched to block buttons) */
-input[type=button]:not(.wp-element-button),
-input[type=submit][class*="button"]:not(.wp-element-button),
-input[type=submit][class*="submit"]:not(.wp-element-button),
-input[type=reset][class*="button"]:not(.wp-element-button),
-input[type=file]::file-selector-button {
+input[type="button"]:not(.wp-element-button),
+input[type="submit"][class*="button"]:not(.wp-element-button),
+input[type="submit"][class*="submit"]:not(.wp-element-button),
+input[type="reset"][class*="button"]:not(.wp-element-button),
+input[type="file"]::file-selector-button {
 	background-color: var(--wp--custom--color--button--background, var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--primary)));
 	color: var(--wp--custom--color--button--text, var(--wp--preset--color--off-white));
 	border: none;
@@ -72,13 +74,14 @@ input[type=file]::file-selector-button {
 	text-shadow: none;
 }
 
-input[type=file] {
+input[type="file"] {
 	font-size: var(--wp--preset--font-size--small, 16px);
 	width: 100%;
 }
 
 /* 6. Outline Inheritance Rules */
 .is-style-outline, [class*="is-style-button-outline-"] {
+
 	> .wp-element-button, > .wp-block-button__link {
 		color: inherit;
 	}

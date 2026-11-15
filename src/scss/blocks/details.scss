@@ -7,11 +7,6 @@
 	margin-top: var(--wp--preset--spacing--30);
 }
 
-.wp-block-details:not(.is-style-plain) > summary {
-	border-bottom: 1px solid var(--wp--custom--color--border);
-	padding-bottom: var(--wp--preset--spacing--20, 6px);
-}
-
 // 1. Force flex layout to instantly break 'list-item' status & kill native arrow
 .wp-block-details > summary {
 	display: flex;
@@ -21,10 +16,16 @@
 	cursor: pointer;
 }
 
+.wp-block-details:not(.is-style-plain) > summary {
+	border-bottom: 1px solid var(--wp--custom--color--border);
+	padding-bottom: var(--wp--preset--spacing--20, 6px);
+}
+
 // 2. Overkill fallback to ensure Safari behaves
 .wp-block-details > summary::-webkit-details-marker {
 	display: none !important;
 }
+
 .wp-block-details > summary::marker {
 	content: "";
 	display: none;

@@ -15,7 +15,7 @@
   display: inline-block;
   width: 1em;
   height: 1em;
-  background-color: currentColor;
+  background-color: currentcolor;
   vertical-align: -0.15em;
   flex-shrink: 0;
   text-decoration: none;
@@ -307,7 +307,8 @@
 }
 
 /* Mobile nav open & close buttons */
-.wp-block-navigation .wp-block-navigation__responsive-container-open, .wp-block-navigation .wp-block-navigation__responsive-container-close {
+.wp-block-navigation .wp-block-navigation__responsive-container-open,
+.wp-block-navigation .wp-block-navigation__responsive-container-close {
   background-color: rgba(0, 0, 0, 0.04);
   border: 1px solid var(--wp--custom--color--border, var(--wp--preset--color--neutral-alt));
   border-radius: var(--wp--custom--button--radius, var(--wp--preset--border-radius--sm, 8px));
@@ -315,7 +316,9 @@
   box-shadow: var(--wp--custom--shadow--default, none);
   transition: background-color var(--wp--custom--animation--duration--short, 0.2s) ease;
 }
-.wp-block-navigation .wp-block-navigation__responsive-container-open:hover, .wp-block-navigation .wp-block-navigation__responsive-container-open:focus-visible, .wp-block-navigation .wp-block-navigation__responsive-container-close:hover, .wp-block-navigation .wp-block-navigation__responsive-container-close:focus-visible {
+.wp-block-navigation .wp-block-navigation__responsive-container-open:hover, .wp-block-navigation .wp-block-navigation__responsive-container-open:focus-visible,
+.wp-block-navigation .wp-block-navigation__responsive-container-close:hover,
+.wp-block-navigation .wp-block-navigation__responsive-container-close:focus-visible {
   background-color: color-mix(in srgb, var(--wp--preset--color--contrast) var(--wp--custom--color--opacity--faint, 6%), transparent);
 }
 

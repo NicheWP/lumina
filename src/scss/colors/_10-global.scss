@@ -4,7 +4,6 @@
 
 // @use 'sass:list';
 @use 'sass:map';
-
 @use "index" as logic;
 
 //*-----------------------------------------------------------------------------
@@ -49,18 +48,22 @@
 		// Only apply static global contrast settings here. Dynamic adaptive 
 		// colors ('dark-light', 'light-dark') are handled by Pass 2 & Pass 3.
 		@if $text == 'light' {
+
 			@include logic.apply-contrast-color($color, 'light', $root);
 // 			@include logic.apply-heading-action($color, 'light', $root);
             
 		} @else if $text == 'dark' {
+
 			@include logic.apply-contrast-color($color, 'dark', $root);
 
 		} @else if $text == 'no-fallback' or $text == 'base' or $text == 'contrast' {
+
 			@include logic.apply-contrast-color($color, $text, $root);
 		}
 
 		// Handle heading override in the global space
 		@if $heading {
+
 			@include logic.apply-heading-action(
 				$color: $color, 
 				$heading: $heading, 
@@ -70,6 +73,7 @@
 		
 		// If link color, then apply it in the global space
 		@if $link {
+
 			@include logic.apply-link-action(
 				$color: $color, 
 				$link: $link, 

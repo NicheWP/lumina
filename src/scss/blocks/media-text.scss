@@ -41,7 +41,9 @@
 
 /* 4. Internal Content Spacing (Desktop Side-by-Side Layouts ONLY) */
 @media only screen and (min-width: #{breakpoints.$break-medium}) {
+
 	.wp-block-media-text:not(.is-style-no-padding):not(.is-style-no-gap):not(.is-image-fill-element) {
+		
 		/* Transparent Canvas Background: Default spacing-40 gap */
 		> .wp-block-media-text__content {
 			padding-left: var(--wp--preset--spacing--40);
@@ -55,6 +57,7 @@
 
 		/* Colored Container Background (.has-background): Bump internal gap to spacing-60 */
 		&.has-background {
+
 			> .wp-block-media-text__content {
 				padding-left: var(--wp--preset--spacing--60);
 				padding-right: 0;
@@ -70,9 +73,11 @@
 
 /* Content child margin resets */
 .wp-block-media-text__content {
+
 	> :first-child {
 		margin-block-start: 0;
 	}
+
 	> :last-child {
 		margin-block-end: 0;
 	}

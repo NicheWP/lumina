@@ -34,6 +34,7 @@
 
 /* Full-width groups, override horizontal padding on mobile and tablet (<782px) */
 @media only screen and (max-width: #{ (breakpoints.$break-medium - 1) }) {
+
 	.wp-block-group.alignfull {
 		padding-left: var(--wp--style--root--padding-left) !important;
 		padding-right: var(--wp--style--root--padding-right) !important;
@@ -43,8 +44,10 @@
 /*-----------------------------------------------------------------------------
 # Group: Custom
 -----------------------------------------------------------------------------*/
+
 /* Group borders & padding utility styles */
 .wp-block-group.is-layout-flex {
+
 	&.is-style-rounded-border,
 	&.is-style-thick-rounded-border,
 	&[class*='is-style-glass'] {
@@ -53,6 +56,7 @@
 }
 
 .wp-block-group.is-style-no-padding {
+
 	&,
 	&:not(.has-global-padding) {
 		padding-left: 0;

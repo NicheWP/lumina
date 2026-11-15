@@ -14,11 +14,6 @@ img {
 	flex-shrink: 0; 
 }
 
-// Do NOT do this or it messes up the physics engine shadow on image hover
-// .wp-block-image {
-// 	overflow: hidden;
-// }
-
 /* Core Latest Posts Featured Image Reset */
 .wp-block-latest-posts__featured-image img {
 	width: 100% !important;

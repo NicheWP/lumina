@@ -23,7 +23,9 @@
 	
 		/* Slow down and reduce motion when requested by the user*/
 		@media (prefers-reduced-motion: reduce) {
+
 			:root {
+
 				--wp--custom--animation--duration--short: 400ms;
 				--wp--custom--animation--duration--medium: 800ms;
 
@@ -39,7 +41,7 @@
 		:is(.wp-site-blocks, .editor-styles-wrapper) .wp-block-social-links.is-style-logos-only {
 			box-shadow: none;
 
-			& .wp-block-social-link {
+			.wp-block-social-link {
 				box-shadow: none;
 			}
 		}
@@ -80,8 +82,8 @@
 			padding: 0 !important;
 			border-radius: 50%;
 			
-			background: color-mix(in srgb, var(--wp--preset--color--contrast, #000000) 88%, transparent);
-			color: var(--wp--preset--color--base, #ffffff);
+			background: color-mix(in srgb, var(--wp--preset--color--contrast, #000) 88%, transparent);
+			color: var(--wp--preset--color--base, #fff);
 			
 			opacity: 0;
 			visibility: hidden;
@@ -102,8 +104,8 @@
 				transform: translateY(-50%) translateX(6px);
 				
 				padding: 4px 8px;
-				background: color-mix(in srgb, var(--wp--preset--color--contrast, #000000) 90%, transparent);
-				color: var(--wp--preset--color--base, #ffffff);
+				background: color-mix(in srgb, var(--wp--preset--color--contrast, #000) 90%, transparent);
+				color: var(--wp--preset--color--base, #fff);
 				font-size: 11px;
 				font-weight: 500;
 				line-height: 1.2;
@@ -121,8 +123,11 @@
 		
 			// Dynamic Action Labels 
 			&.lumina-action-internal::before { content: "View Page"; }
+
 			&.lumina-action-external::before { content: "External Link"; }
+
 			&.lumina-action-scroll-up::before { content: "Scroll Up"; }
+
 			&.lumina-action-scroll-down::before { content: "Scroll Down"; }
 		
 			// --- SVG ICON MASK ENGINE (::after) ---
@@ -131,7 +136,7 @@
 				display: block;
 				width: calc(#{config.$overlay-badge-size} * 0.6);
 				height: calc(#{config.$overlay-badge-size} * 0.6);
-				background-color: currentColor;
+				background-color: currentcolor;
 				mask-size: contain;
 				mask-repeat: no-repeat;
 				mask-position: center;
@@ -140,41 +145,44 @@
 		
 			// SVG Mask Assignments
 			&.lumina-action-internal::after {
-				mask-image: url('../icons/theme/internal-link.svg');
+				mask-image: url(../icons/theme/internal-link.svg);
 				transform: translateX(-1px);
 			}
+
 			&.lumina-action-external::after {
-				mask-image: url('../icons/theme/external-link.svg');
+				mask-image: url(../icons/theme/external-link.svg);
 			}
+
 			&.lumina-action-scroll-up::after {
-				mask-image: url('../icons/theme/curve-up.svg');
+				mask-image: url(../icons/theme/curve-up.svg);
 				transform: translate(-1px, 1px);
 			}
+
 			&.lumina-action-scroll-down::after {
-				mask-image: url('../icons/theme/curve-down.svg');
+				mask-image: url(../icons/theme/curve-down.svg);
 				transform: translate(-1px, -3px);
 			}
 		}
 		
 		// Inverted Badge for Contrast Cards
 		.is-interactive-card.has-contrast-background-color > .lumina-card-arrow-overlay {
-			background: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 88%, transparent);
-			color: var(--wp--preset--color--contrast, #000000);
+			background: color-mix(in srgb, var(--wp--preset--color--base, #fff) 88%, transparent);
+			color: var(--wp--preset--color--contrast, #000);
 		
 			&::before {
-				background: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 90%, transparent);
-				color: var(--wp--preset--color--contrast, #000000);
+				background: color-mix(in srgb, var(--wp--preset--color--base, #fff) 90%, transparent);
+				color: var(--wp--preset--color--contrast, #000);
 			}
 		}
 
 		// Inverted Badge for Bright Images (.is-light Modifier)
 		:is(.is-interactive-card, .is-interactive-image).is-light .lumina-card-arrow-overlay {
-			background: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 80%, transparent) !important;
-			color: var(--wp--preset--color--contrast, #000000) !important;
+			background: color-mix(in srgb, var(--wp--preset--color--base, #fff) 80%, transparent) !important;
+			color: var(--wp--preset--color--contrast, #000) !important;
 
 			&::before {
-				background: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 90%, transparent) !important;
-				color: var(--wp--preset--color--contrast, #000000) !important;
+				background: color-mix(in srgb, var(--wp--preset--color--base, #fff) 90%, transparent) !important;
+				color: var(--wp--preset--color--contrast, #000) !important;
 			}
 		}
 
@@ -184,7 +192,8 @@
 	} @else {
 	
 		/* Remove shadow on hover for static custom block style */
-		[class*=wp-block-].is-style-object-static {
+		[class*="wp-block-"].is-style-object-static {
+
 			&:hover,
 			&:has(:focus-visible) {
 				box-shadow: none !important;
@@ -194,8 +203,9 @@
 		
 		/* Remove shadow from logo-only social icons */
 		.wp-site-blocks .wp-block-social-links.is-style-logos-only {
-			& .wp-block-social-link:hover,
-			& .wp-block-social-link:has(:focus-visible) {
+
+			.wp-block-social-link:hover,
+			.wp-block-social-link:has(:focus-visible) {
 				box-shadow: none;
 			}
 		}
@@ -214,8 +224,11 @@
 			pointer-events: auto !important;
 		
 			&.lumina-action-internal::after { transform: translateX(1px); }
+
 			&.lumina-action-external::after { transform: translate(1px, -1px); }
+
 			&.lumina-action-scroll-up::after { transform: translate(-1px, -1px); }
+
 			&.lumina-action-scroll-down::after { transform: translate(-1px, -1px); }
 		}
 		

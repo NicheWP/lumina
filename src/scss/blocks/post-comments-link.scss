@@ -2,7 +2,6 @@
 # Post Comments Link (Only w/WordPress v6.9+ or Gutenberg Plugin)
 -----------------------------------------------------------------------------*/
 @use "../icons/icons" as icons;;
-
 @include icons.svg-icon(
 	$class: 'wp-block-post-comments-link',
 // 	$icon: 'admin-comments',

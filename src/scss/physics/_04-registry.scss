@@ -7,10 +7,8 @@
 @use 'sass:string';
 @use 'sass:list';
 @use 'sass:map';
-
 @forward '01-compiler';
 @forward '02-resting';
-
 @use '00-config' as config;
 @use '01-compiler' as *;
 @use '02-resting' as resting; // Needed for resting state mixins
@@ -32,15 +30,18 @@
 
 	// TRACK A: IMAGE ZOOM (Wrapper Shadow + Sharp Clipping Viewport)
 	@if $role == 'object-zoom' {
+
 		@include resting.apply-zoom-wrapper-visuals($block);
 		@include resting.apply-zoom-wrapper-clipped;
 
 	// TRACK B: IMAGE STANDARD OR GROW (Border & radius)
 	} @else if $role == 'object' or $role == 'object-grow' {
+
 		@include resting.apply-image-wrapper-visuals($block);
 
 	// TRACK C: CARDS (Pure Layout Container Rounding vs. Flat Boundary Gates)
 	} @else if $role == 'card' {
+		
 		@include resting.apply-wrapper-visuals($block);
 		@include resting.apply-wrapper-clipped;
 	}
@@ -64,33 +65,33 @@
 	
 	// TRACK A: BUTTONS (Buttons & Form Triggers)
 	@if $role == 'button' {
+
 		@include resting.apply-button-resting-state;
 	
 	// TRACK B.1: ZOOM-IN-PLACE PORTALS (Media & Text, Custom Frames)
 	} @else if $role == 'object-zoom' {
+
 		@include resting.apply-asset-resting-state;
 	
 	// TRACK B.2: STANDARD GRAPHICS (Galleries, Core Images, Latest Posts Featured)
 	} @else if $role == 'object-grow' {
-// 		@include resting.apply-resting-state;
+
 		@include resting.apply-asset-resting-state;
 
 	// TRACK B.3: REGULAR OBJECTS (Column block)
 	} @else if $role == 'object' {
-// 		@include resting.apply-resting-state;
-// 		@include resting.apply-wrapper-visuals($block);
-// 		@if $trigger != 'self' {
-			@include resting.apply-asset-resting-state;
-// 		} @else {
-// 			@include resting.apply-asset-resting-state;
-// 			@include resting.apply-image-wrapper-visuals($block);
-// 		}
+
+		@include resting.apply-asset-resting-state;
 
 	// TRACK C: CARDS (Layout Containers & Groups)
 	} @else if $role == 'card' {
+
 		@if $trigger != 'self' {
+
 			@include resting.apply-resting-state;
+
 		} @else {
+
 			@include resting.apply-resting-state;
 			@include resting.apply-wrapper-visuals($block);
 		}
@@ -115,33 +116,41 @@
 	
 	// TRACK A: BUTTONS (Buttons & Form Triggers)
 	@if $role == 'button' {
+
 		@include actions.apply-button;
 
 	// TRACK B.1: ZOOM-IN-PLACE IMAGES (e.g. Media & Text)
 	} @else if $role == 'object-zoom' {
+
 		@if $context == 'wrapper' {
+
 			@include actions.apply-object-zoom-wrapper;
-		} 
-		@else if $context == 'target' {
+		} @else if $context == 'target' {
+
 			@include actions.apply-object-zoom-asset;
 		}
 
 	// TRACK B.2: IMAGES THAT GROW (e.g. Gallery Images)
 	} @else if $role == 'object-grow' {
+
 		@if $context == 'wrapper' {
+
 			@include actions.apply-object-image-wrapper;
+
 		} @else if $context == 'target' {
+
 			@include actions.apply-object-grow;
 		}
 
 	// TRACK B.3: STANDARD IMAGES (e.g. Standard Image)
 	} @else if $role == 'object' {
+
 		@if $context == 'wrapper' {
-// 			> a {
-// 				@include actions.apply-object;
-// 			}
+
  			@include actions.apply-object-image-wrapper;
+
 		} @else if $context == 'target' {
+
 			@include actions.apply-object;
 		}
 
@@ -150,6 +159,7 @@
 
 		// Plain cards elevate without adding borders
 		&:is(#{config.$blocks-plain}) {
+
 			@include actions.apply-card;
 			border: none !important;
 		}
@@ -159,28 +169,16 @@
 
 			// Braked cards get inset border
 			&:is(#{config.$blocks-layout-brakes}) {
+
 				@include actions.apply-card-inset;
 			}
 			
 			// Non-braked cards get border
 			&:not(#{config.$blocks-layout-brakes}) {
+
 				@include actions.apply-card;
 			}
 		}
-		
-// 		&:not(#{config.$blocks-layout-brakes}) {
-// 			@include actions.apply-card;
-// 		}
-// 		
-// 		&:is(#{config.$blocks-layout-brakes}) {
-// 			@include actions.apply-card-inset;
-// 		}
-				
-// 		@if $block != null and (is-no-rounding($block) or has-layout-brakes($block)) {
-// 			@include actions.apply-card-inset;
-// 		} @else {		
-// 			@include actions.apply-card;
-// 		}
 	}
 }
 
@@ -196,10 +194,12 @@
 
 	// Handle resting silence
 	@if not $interactive {
+
 	    @include resting.apply-resting-silence;
 
 	// Handle active silence
 	} @else {
+
 	    @include actions.apply-silence;
 	}	
 }
@@ -216,10 +216,12 @@
 
 	// Handle resting silence
 	@if not $interactive {
+
 	    @include resting.apply-resting-silence-shadow;
 
 	// Handle active silence
 	} @else {
+
 	    @include actions.apply-silence-shadow;
 	}	
 }
@@ -275,6 +277,7 @@ $all-images: ();
 /// @group Physics Registry
 /// @return {List} Array of registered card selector strings
 @function get-cards() {
+
 	@return $all-cards;
 }
 
@@ -283,6 +286,7 @@ $all-images: ();
 /// @group Physics Registry
 /// @return {List} Array of registered object selector strings
 @function get-objects() {
+
 	@return $all-objects;
 }
 
@@ -291,5 +295,6 @@ $all-images: ();
 /// @group Physics Registry
 /// @return {List} Array of registered image selector strings
 @function get-images() {
+
 	@return $all-images;
 }

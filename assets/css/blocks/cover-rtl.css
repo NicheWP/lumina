@@ -12,7 +12,8 @@
 .wp-block-cover .wp-block-cover__inner-container > *:not(.alignfull):not(.alignwide) {
   max-width: var(--wp--style--global--content-size);
 }
-.wp-block-cover .wp-block-cover__inner-container > *.alignwide, .wp-block-cover .wp-block-cover__inner-container > *.alignfull {
+.wp-block-cover .wp-block-cover__inner-container > *.alignwide,
+.wp-block-cover .wp-block-cover__inner-container > *.alignfull {
   max-width: var(--wp--style--global--wide-size);
 }
 

@@ -35,6 +35,7 @@
 
 /* Override horizontal padding on mobile (600px) */
 @media only screen and (max-width: #{ (breakpoints.$break-small) }) {
+	
 	.wp-block-latest-posts.is-grid li {
         margin-right: 0;
     }

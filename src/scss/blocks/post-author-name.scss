@@ -1,8 +1,7 @@
 /*-----------------------------------------------------------------------------
 # Post Author Name
 -----------------------------------------------------------------------------*/
-@use "../icons/icons" as icons;;
-
+@use "../icons/icons" as icons;
 @include icons.svg-icon(
 	$class: 'wp-block-post-author-name',
 // 	$icon: 'admin-users',

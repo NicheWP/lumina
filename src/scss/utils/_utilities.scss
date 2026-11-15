@@ -6,6 +6,7 @@
 
 /* FIX WordPress Admin bar on phones not sticking to the top */
 @media only screen and (max-width: #{ (breakpoints.$break-small) }) {
+
     body > #wpadminbar {
         position: fixed;
     }
@@ -25,6 +26,7 @@
 }
 
 #wpadminbar {
+
 	* {
 		white-space: nowrap !important;
 	}

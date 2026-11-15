@@ -9,11 +9,11 @@
 		padding-left: 0 !important;
 	}
 	
-	& > .wp-block-latest-comments:not(.has-avatars) {
+	> .wp-block-latest-comments:not(.has-avatars) {
 		padding-left: 2em;
 	}
 	
-	& > .wp-block-latest-comments.has-avatars .wp-block-latest-comments__comment { 
+	> .wp-block-latest-comments.has-avatars .wp-block-latest-comments__comment { 
 		list-style-position: inside;
 	}
 }

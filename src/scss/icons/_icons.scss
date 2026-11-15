@@ -21,7 +21,7 @@
 	display: inline-block;
 	width: 1em;
 	height: 1em;
-	background-color: currentColor;
+	background-color: currentcolor;
 	vertical-align: -0.15em; // Locks icon center to the font cap-height
 	flex-shrink: 0;
 	text-decoration: none;
@@ -54,6 +54,7 @@
 
 	// Determine the CSS selector to use: The element or the link within the element
 	$selector: '#{$class}::#{$location}';
+
 	@if $link {
 		$selector: '#{$class} > a::#{$location}';
 	}		
@@ -63,11 +64,13 @@
 
 	// Add the ::before or ::after styles, the SVG Icon, and optionally margin
 	.#{$selector} {
+
 		@extend %icon-pseudo;
 		mask-image: url(#{$path}#{$icon}.svg);
 
 		@if $margin {
 			$defaultMargin: 0.15em;
+
 			@if $location == 'after' {
 				margin-left: #{$defaultMargin};
 			} @else {
@@ -107,10 +110,12 @@
 
 		// Loop through alias list, if provided
 		@if $aliases {
+
 			@each $alias in $aliases {
 				// If $alias starts with '-', treat it as a suffix (e.g. 'calendar-alt-no-text')
 				// Otherwise, treat it as a full standalone alias slug (e.g. 'custom-alias')
 				$slug: $alias;
+
 				@if string.slice($alias, 1, 1) == '-' {
 					$slug: '#{$icon}#{$alias}';
 				}

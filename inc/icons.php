@@ -3,7 +3,8 @@
  * File:        inc/icons.php
  * Theme:       Shared Icon Block Functions
  *
- * Auto-register theme SVG icons using the WP 7.1 Icon API.
+ * Description: Auto-registers theme SVG icons using the WP 7.1 Icon API.
+ * 
  * Auto-discovers sub-folders while enforcing a single permanent 'lumina' collection handle.
  *
  * @package     NicheWP

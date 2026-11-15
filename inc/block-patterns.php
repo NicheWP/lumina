@@ -3,7 +3,7 @@
  * File:        inc/block-patterns.php
  * Theme:       Shared Block Pattern Functions
  *
- * Handles pattern category registrations and core pattern overrides for block themes.
+ * Description: Handles pattern category registrations and core pattern overrides for block themes.
  *
  * @package     NicheWP
  */

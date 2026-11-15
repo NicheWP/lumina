@@ -157,22 +157,26 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
    ========================================================================== */
 
 @keyframes luminaPanZoomVideoLoop {
+
 	0% {
 		transform: translate3d(
 			calc(-1 * #{$pan-shift-x} * #{$var-pan}), 
 			calc(-1 * #{$pan-shift-y} * #{$var-pan}),
 			0
 		) scale(calc(1 + (#{$pan-scale-start} - 1) * #{$var-zoom}));
+
 		@if $pan-use-filter-brightness {
 			filter: brightness($pan-light-start);
 		}
 	}
+
 	100% {
 		transform: translate3d(
 			calc(#{$pan-shift-x} * #{$var-pan}), 
 			calc(#{$pan-shift-y} * #{$var-pan}),
 			0
 		) scale(calc(1 + (#{$pan-scale-end} - 1) * #{$var-zoom}));
+
 		@if $pan-use-filter-brightness {
 			filter: brightness($pan-light-end);
 		}
@@ -180,9 +184,11 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 }
 
 @keyframes luminaPanZoomMobileLoop {
+
 	0% {
 		transform: translate3d(0%, 0%, 0) scale(calc(1 + (#{$pan-mobile-scale-0} - 1) * #{$var-zoom}));
 	}
+
 	50% {
 		transform: translate3d(
 			calc(-2.5% * #{$var-pan}), 
@@ -190,6 +196,8 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 			0
 		) scale(calc(1 + (#{$pan-mobile-scale-50} - 1) * #{$var-zoom}));
 	}
+
+
 	100% {
 		transform: translate3d(
 			calc(1.5% * #{$var-pan}), 
@@ -200,22 +208,26 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 }
 
 @keyframes luminaPanZoomSlimLoop {
+
 	0% {
 		transform: translate3d(
 			calc(-1 * #{$pan-slim-shift-x} * #{$var-pan}), 
 			calc(-1 * #{$pan-slim-shift-y} * #{$var-pan}), 
 			0
 		) scale(calc(1 + (#{$pan-slim-scale-start} - 1) * #{$var-zoom}));
+
 		@if $pan-use-filter-brightness {
 			filter: brightness($pan-light-start);
 		}
 	}
+
 	100% {
 		transform: translate3d(
 			calc(#{$pan-slim-shift-x} * #{$var-pan}), 
 			calc(#{$pan-slim-shift-y} * #{$var-pan}), 
 			0
 		) scale(calc(1 + (#{$pan-slim-scale-end} - 1) * #{$var-zoom}));
+
 		@if $pan-use-filter-brightness {
 			filter: brightness($pan-light-end);
 		}
@@ -224,9 +236,11 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 
 /* Zero-Repaint GPU Overlay Light Flare */
 @keyframes luminaLightFlareLoop {
+
 	0% {
 		opacity: 0;
 	}
+
 	100% {
 		opacity: 0.15;
 	}
@@ -259,6 +273,7 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 
 /* 2. Media & Text Motion Mask */
 .wp-block-media-text:is(.is-style-pan-zoom, .is-style-pan-zoom-hover) {
+
 	> .wp-block-media-text__media {
 		position: relative;
 		overflow: hidden;
@@ -275,6 +290,7 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 .wp-block-post-featured-image:is(.is-style-pan-zoom, .is-style-pan-zoom-hover),
 .wp-block-cover:is(.is-style-pan-zoom, .is-style-pan-zoom-hover),
 .wp-block-media-text:is(.is-style-pan-zoom, .is-style-pan-zoom-hover) .wp-block-media-text__media {
+
 	img,
 	.wp-block-cover__image-background {
 		display: block;
@@ -312,12 +328,6 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
    HOVER / TAP MOTION MODIFIER (.is-style-pan-zoom-hover)
    ========================================================================== */
 
-// Badge icon size diameter token
-//
-// @group Motion Engine
-// @type Number
-// $overlay-badge-size: 28px !default;
-
 .is-style-pan-zoom-hover {
 	position: relative;
 
@@ -347,7 +357,7 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 		pointer-events: none;
 		z-index: 2;
 
-		background-color: color-mix(in srgb, var(--wp--preset--color--contrast, #000000) 80%, transparent);
+		background-color: color-mix(in srgb, var(--wp--preset--color--contrast, #000) 80%, transparent);
 	}
 
 	/* 2B. Chevron Expand Mask Icon Layer (::after) */
@@ -366,8 +376,8 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 		pointer-events: none;
 		z-index: 3;
 
-		color: var(--wp--preset--color--base, #ffffff);
-		background-color: currentColor;
+		color: var(--wp--preset--color--base, #fff);
+		background-color: currentcolor;
 
 		mask-image: url($pan-motion-icon);
 		mask-size: calc(#{config.$overlay-badge-size} * 0.6);
@@ -377,16 +387,19 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 
 	/* Inverted Badge for High-Key / Bright Media */
 	&.is-light {
+
 		&::before {
-			background-color: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 75%, transparent);
+			background-color: color-mix(in srgb, var(--wp--preset--color--base, #fff) 75%, transparent);
 		}
+
 		&::after {
-			color: var(--wp--preset--color--contrast, #000000);
+			color: var(--wp--preset--color--contrast, #000);
 		}
 	}
 
 	&:hover,
 	&:focus-within {
+
 		img,
 		.wp-block-cover__image-background {
 			animation-play-state: running !important;
@@ -426,12 +439,13 @@ $slim-scale-floor: calc(1 + max(2 * #{$pan-slim-shift-y} * #{$var-pan} + 0.02, (
 	:has(.size-cropped-slim),
 	:has(.size-cropped-ultrawide)
 ) {
+
 	&:not(.alignfull):not(.alignfull > *) {
 		border-radius: var(--wp--preset--border-radius--sm, 8px);
 	}
 
-	& img,
-	& .wp-block-cover__image-background {
+	img,
+	.wp-block-cover__image-background {
 		animation-name: luminaPanZoomSlimLoop;
 		animation-duration: calc(#{$pan-slim-duration} * #{$var-duration});
 		
@@ -448,6 +462,7 @@ $slim-scale-floor: calc(1 + max(2 * #{$pan-slim-shift-y} * #{$var-pan} + 0.02, (
    ========================================================================== */
 
 .wp-lightbox-overlay {
+
 	img {
 		animation: none !important;
 	}
@@ -460,6 +475,7 @@ $slim-scale-floor: calc(1 + max(2 * #{$pan-slim-shift-y} * #{$var-pan} + 0.02, (
 }
 
 @media (max-width: 781px) {
+
 	:is(.is-style-pan-zoom, .is-style-pan-zoom-hover):not(
 		:is(
 			[style*="16/4.5"],
@@ -474,6 +490,7 @@ $slim-scale-floor: calc(1 + max(2 * #{$pan-slim-shift-y} * #{$var-pan} + 0.02, (
 			:has(.size-cropped-ultrawide)
 		)
 	) {
+
 		img,
 		.wp-block-cover__image-background {
 			animation-name: luminaPanZoomMobileLoop;
@@ -484,7 +501,9 @@ $slim-scale-floor: calc(1 + max(2 * #{$pan-slim-shift-y} * #{$var-pan} + 0.02, (
 }
 
 @media (prefers-reduced-motion: reduce) {
+
 	:is(.is-style-pan-zoom, .is-style-pan-zoom-hover) {
+
 		&::after {
 			display: none !important;
 		}

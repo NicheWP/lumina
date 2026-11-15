@@ -34,7 +34,9 @@ $macro-spacing: var(--wp--preset--spacing--50);
 :root main > :first-child.wp-block-template-part,
 .wp-block-post-content,
 .content-home-top {
-	& > :first-child:not(
+	
+	> :first-child:not(
+
 		.alignfull.wp-block-cover,
 		.alignfull.wp-block-image,
 		.alignfull.wp-block-post-featured-image,
@@ -64,7 +66,8 @@ $macro-spacing: var(--wp--preset--spacing--50);
 :root main > :last-child.wp-block-template-part,
 // :root main > .wp-block-template-part,
 .wp-block-post-content {
-	& > :last-child:not(
+
+	> :last-child:not(
 		.alignfull.wp-block-cover,
 		.alignfull.wp-block-image,
 		.alignfull.wp-block-post-featured-image,
@@ -88,7 +91,7 @@ $macro-spacing: var(--wp--preset--spacing--50);
 .wp-block-post-content,
 .content-home-top { 
 
-	& > *:not(
+	> *:not(
 		h1, h2, h3, h4, h5, h6,
 		.wp-block-heading,
 		p, .wp-block-paragraph,

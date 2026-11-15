@@ -13,6 +13,7 @@
 // 2. Standard Floating Icons (.alignleft / .alignright)
 // Overrides WP Core's aggressive 2em float margin down to spacing-30 (16px)
 .wp-block-icon {
+	
 	&.alignleft {
 		margin-right: var(--wp--preset--spacing--30) !important;
 	}

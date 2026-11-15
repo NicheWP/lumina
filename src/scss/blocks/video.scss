@@ -15,6 +15,6 @@
 		border-radius: inherit;
 
 		/* WebKit Hardware Mask: Hard-clips native Shadow DOM controls inside rounded corners */
-		-webkit-mask-image: -webkit-radial-gradient(white, black);
+		-webkit-mask-image: -webkit-radial-gradient(#fff, #000);
 	}
 }

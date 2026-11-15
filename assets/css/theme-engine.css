@@ -136,15 +136,15 @@
   padding: 0;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .is-style-image-computer-screen.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.wp-block-column *):not(.alignfull):has(a:not(figcaption a)) > a, .wp-block-column .is-style-image-computer-screen.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a:not(figcaption a)) > a, .is-style-image-computer-screen.wp-block-post-featured-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a) > a {
   overflow: hidden;
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .is-style-image-tablet-phone-screen.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.wp-block-column *):not(.alignfull):has(a:not(figcaption a)), .wp-block-column .is-style-image-tablet-phone-screen.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a:not(figcaption a)), .is-style-image-tablet-phone-screen.wp-block-post-featured-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a) {
   border: var(--wp--preset--spacing--30, 12px) solid var(--wp--preset--color--almost-black, #111);
@@ -153,7 +153,7 @@
 }
 .is-style-image-tablet-phone-screen.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.wp-block-column *):not(.alignfull):has(a:not(figcaption a)) > a, .wp-block-column .is-style-image-tablet-phone-screen.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a:not(figcaption a)) > a, .is-style-image-tablet-phone-screen.wp-block-post-featured-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a) > a {
   overflow: hidden;
-  border-radius: 0px;
+  border-radius: 0;
 }
 .is-style-image-no-border.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.wp-block-column *):not(.alignfull):has(a:not(figcaption a)), .wp-block-column .is-style-image-no-border.wp-block-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a:not(figcaption a)), .is-style-image-no-border.wp-block-post-featured-image:not(.wp-block-media-text *, .is-style-no-gap *):not(.alignfull):has(a) {
   border: none;
@@ -250,8 +250,8 @@ a > .avatar {
   height: 28px;
   padding: 0 !important;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--wp--preset--color--contrast, #000000) 88%, transparent);
-  color: var(--wp--preset--color--base, #ffffff);
+  background: color-mix(in srgb, var(--wp--preset--color--contrast, #000) 88%, transparent);
+  color: var(--wp--preset--color--base, #fff);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -265,8 +265,8 @@ a > .avatar {
   top: 50%;
   transform: translateY(-50%) translateX(6px);
   padding: 4px 8px;
-  background: color-mix(in srgb, var(--wp--preset--color--contrast, #000000) 90%, transparent);
-  color: var(--wp--preset--color--base, #ffffff);
+  background: color-mix(in srgb, var(--wp--preset--color--contrast, #000) 90%, transparent);
+  color: var(--wp--preset--color--base, #fff);
   font-size: 11px;
   font-weight: 500;
   line-height: 1.2;
@@ -297,7 +297,7 @@ a > .avatar {
   display: block;
   width: calc(28px * 0.6);
   height: calc(28px * 0.6);
-  background-color: currentColor;
+  background-color: currentcolor;
   -webkit-mask-size: contain;
           mask-size: contain;
   -webkit-mask-repeat: no-repeat;
@@ -307,41 +307,41 @@ a > .avatar {
   transition: transform var(--wp--custom--animation--duration--short, 250ms) cubic-bezier(0.16, 1, 0.3, 1);
 }
 .lumina-card-arrow-overlay.lumina-action-internal::after {
-  -webkit-mask-image: url("../icons/theme/internal-link.svg");
-          mask-image: url("../icons/theme/internal-link.svg");
+  -webkit-mask-image: url(../icons/theme/internal-link.svg);
+          mask-image: url(../icons/theme/internal-link.svg);
   transform: translateX(-1px);
 }
 .lumina-card-arrow-overlay.lumina-action-external::after {
-  -webkit-mask-image: url("../icons/theme/external-link.svg");
-          mask-image: url("../icons/theme/external-link.svg");
+  -webkit-mask-image: url(../icons/theme/external-link.svg);
+          mask-image: url(../icons/theme/external-link.svg);
 }
 .lumina-card-arrow-overlay.lumina-action-scroll-up::after {
-  -webkit-mask-image: url("../icons/theme/curve-up.svg");
-          mask-image: url("../icons/theme/curve-up.svg");
+  -webkit-mask-image: url(../icons/theme/curve-up.svg);
+          mask-image: url(../icons/theme/curve-up.svg);
   transform: translate(-1px, 1px);
 }
 .lumina-card-arrow-overlay.lumina-action-scroll-down::after {
-  -webkit-mask-image: url("../icons/theme/curve-down.svg");
-          mask-image: url("../icons/theme/curve-down.svg");
+  -webkit-mask-image: url(../icons/theme/curve-down.svg);
+          mask-image: url(../icons/theme/curve-down.svg);
   transform: translate(-1px, -3px);
 }
 
 .is-interactive-card.has-contrast-background-color > .lumina-card-arrow-overlay {
-  background: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 88%, transparent);
-  color: var(--wp--preset--color--contrast, #000000);
+  background: color-mix(in srgb, var(--wp--preset--color--base, #fff) 88%, transparent);
+  color: var(--wp--preset--color--contrast, #000);
 }
 .is-interactive-card.has-contrast-background-color > .lumina-card-arrow-overlay::before {
-  background: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 90%, transparent);
-  color: var(--wp--preset--color--contrast, #000000);
+  background: color-mix(in srgb, var(--wp--preset--color--base, #fff) 90%, transparent);
+  color: var(--wp--preset--color--contrast, #000);
 }
 
 :is(.is-interactive-card, .is-interactive-image).is-light .lumina-card-arrow-overlay {
-  background: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 80%, transparent) !important;
-  color: var(--wp--preset--color--contrast, #000000) !important;
+  background: color-mix(in srgb, var(--wp--preset--color--base, #fff) 80%, transparent) !important;
+  color: var(--wp--preset--color--contrast, #000) !important;
 }
 :is(.is-interactive-card, .is-interactive-image).is-light .lumina-card-arrow-overlay::before {
-  background: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 90%, transparent) !important;
-  color: var(--wp--preset--color--contrast, #000000) !important;
+  background: color-mix(in srgb, var(--wp--preset--color--base, #fff) 90%, transparent) !important;
+  color: var(--wp--preset--color--contrast, #000) !important;
 }
 
 /* ==========================================================================

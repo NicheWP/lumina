@@ -7,13 +7,12 @@
 // 1. RIGHT SIDEBAR TEMPLATES
 // Works globally: Content stays left on desktop / stacks on top on mobile
 .is-style-sidebar-right,
-body[class*="-sidebar-right"],
 body[class*="-sidebar-right"] {
 
-	& .wp-block-columns.main-content {
+	.wp-block-columns.main-content {
 
 		// Target the direct child column blocks natively
-		& > .wp-block-column {
+		> .wp-block-column {
 			
 			// The Content Column (2nd in the DOM) gets pulled to the left
 			&.content-column {
@@ -33,14 +32,15 @@ body[class*="-sidebar-right"] {
 // Desktop uses natural DOM flow (Sidebar first), Mobile forces Sidebar to the bottom
 .is-style-sidebar-left,
 body[class*="-sidebar-left"] {
+
 	@media only screen and (max-width: #{ (breakpoints.$break-medium) }) {
 		
-		& .wp-block-columns.main-content {
+		.wp-block-columns.main-content {
 			// Ensure flex layout is active for order rendering
 			display: flex;
 			flex-direction: column; 
 
-			& > .wp-block-column {
+			> .wp-block-column {
 
 				// Push content to the top slot of the column stack
 				&.content-column {

@@ -6,6 +6,7 @@
 
 /* Post grid with dividers gets border on the right */
 @media (min-width: breakpoints.$break-small) {	
+	
 	.wp-block-latest-posts.is-grid.is-style-list-dividers {
 		margin-block-end: var(--wp--style--block-gap, 1.5rem);
 

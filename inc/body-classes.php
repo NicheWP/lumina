@@ -3,12 +3,13 @@
  * File:        body-classes.php
  * Theme:       Shared Body Class Functions
  *
- * Centralized Document Layout Engine.
+ * Description: Provides centralized body class management for the Lumina theme.
+ * 
  * Directly queries global styles background color and custom theme settings to apply:
  *   1. Canvas Luminance:   is-dark-background | is-light-background
  *   2. Theme Engine Mode:  is-dark-theme | is-light-theme
  *   3. Color Scheme Variant: color-scheme-{$slug}
- *
+ * 
  * Transient keys are dynamically scoped per active theme/child-theme slug.
  *
  * @package    NicheWP
@@ -172,7 +173,7 @@ if ( ! function_exists( __NAMESPACE__ . '\add_body_classes' ) ) :
 			);
 
 			if ( ! $bypass_cache ) {
-				set_transient( $transient_key, $theme_meta, 12 * HOUR_IN_SECONDS );
+				set_transient( $transient_key, $theme_meta, 12 * \HOUR_IN_SECONDS );
 			}
 		}
 

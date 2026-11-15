@@ -1,10 +1,12 @@
 /* -----------------------------------------------------------------------------
    Normalize (Browser resets)
 ----------------------------------------------------------------------------- */
+
 /* 
  * Default to contain borders and padding within blocks and prevent iOS from 
  * adjusting text sizes after orientation change. 
  */
+ 
 html {
 	box-sizing: border-box;
 	-webkit-text-size-adjust: 100%;
@@ -21,6 +23,7 @@ html {
  * https://github.com/WordPress/gutenberg/issues/35934
  */
 @supports (-webkit-hyphens: none) {
+
 	body {
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;

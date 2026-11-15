@@ -3,7 +3,6 @@
 //  ========================================================================== */
 
 @use 'sass:map';
-
 @use "index" as logic;
 
 //*-----------------------------------------------------------------------------
@@ -28,6 +27,7 @@
 	========================================================================== */
 
 	:where(:root) :where(body:not(.is-dark-theme)) {
+
 		@each $entry in logic.$color-registry {
 			$config: 		map.merge(logic.$color-defaults, $entry);
 			$color:  		map.get($config, color);
@@ -39,18 +39,22 @@
 			$selectors: logic.build-selector-list($color);
 	
 			@if $text == 'dark-light' {
+
 				@include logic.apply-contrast-color($color, 'dark');
 	
 			} @else if $text == 'light-dark' {
+
 				@include logic.apply-contrast-color($color, 'light');
 				@include logic.apply-heading-action($color, 'light');
 			}
 			
 			@if $heading-light {
+
 				@include logic.apply-heading-action($color, $heading-light);
 			}
 			
 			@if $link-light {
+
 				@include logic.apply-link-action(
 					$color: $color, 
 					$link: $link-light, 
@@ -60,6 +64,7 @@
 			}
 	
 			@if $footer {
+
 				@include logic.apply-footer-action($selectors, $footer);
 			}
 		}

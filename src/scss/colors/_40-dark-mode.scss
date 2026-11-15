@@ -3,7 +3,6 @@
 //   ========================================================================== */
 
 @use 'sass:map';
-
 @use "index" as logic;
 
 //*-----------------------------------------------------------------------------
@@ -41,18 +40,22 @@
 			$selectors: logic.build-selector-list($color);
 
 			@if $text == 'dark-light' {
+
 				@include logic.apply-contrast-color($color, 'light');
 								
 			} @else if $text == 'light-dark' {
+
 				@include logic.apply-contrast-color($color, 'dark');
 				@include logic.apply-heading-action($color, 'dark');							
 			}        
 
 			@if $heading-dark {
+
 				@include logic.apply-heading-action($color, $heading-dark);
 			}
 	
 			@if $link-dark {
+
 				@include logic.apply-link-action(
 					$color: $color, 
 					$link: $link-dark, 
@@ -62,6 +65,7 @@
 			}
 			
 			@if $footer-dark {
+				
 				@include logic.apply-footer-action($selectors, $footer-dark);
 			}
 		}

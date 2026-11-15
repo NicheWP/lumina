@@ -2,67 +2,67 @@
 
 | Title | Part Name | Area | Description |
 | :--- | :--- | :--- | :--- |
-| **Error (404) Title** | `404-title` | `title` | Title for the error page (404) |
-| **About** | `about-us` | `content` | About for Footer (tagline, site description) |
-| **Archive Title** | `archive-title` | `title` | Title for archives (categories, tags, etc.) |
-| **Author Bio** | `author-bio` | `content` | Author avatar, name, and bio |
-| **Page Hero Banner Media & Text** | `banner-page-hero-mt` | `content` | Page hero as media & text with page title and excerpt |
-| **Comments** | `comments` | `content` | Comments list and comment form |
-| **Contact Info** | `contact-info` | `content` | Contact Info (e.g. address, phone, email) |
-| **Article Content w/Image Left** | `content-article-img-left` | `content` | Blog list article (featured image on left, title, date, and excerpt) |
-| **Article Content w/16:9 Image** | `content-article-wide` | `content` | Article content with 16:9 featured image |
-| **Article Content** | `content-article` | `content` | Article content with image |
-| **Content Home Top (when blog is front page)** | `content-home-top` | `content` | Lumina theme content for top of the home page (when blog is front page) |
-| **Content Sitemap** | `content-sitemap` | `content` | Sitemap content (pages, categories, recent posts) |
-| **Page Cover Image** | `cover-scroll-page-header` | `content` | Page cover image with overlay page title and excerpt |
-| **Featured Image (linked)** | `featured-image-linked` | `image` | Linked featured image |
-| **Slim Featured Image (linked)** | `featured-image-slim-linked` | `image` | Linked slim (16:4.5) featured image |
-| **Slim Featured Image** | `featured-image-slim` | `image` | Slim (16:4.5) featured image |
-| **Ultrawide Featured Image (linked)** | `featured-image-ultrawide-linked` | `image` | Linked ultrawide (21:9) featured image |
-| **Ultrawide Featured Image** | `featured-image-ultrawide` | `image` | Ultrawide (21:9) featured image |
-| **Wide Featured Image (linked)** | `featured-image-wide-linked` | `image` | Linked wide (16:9) featured image |
-| **Wide Featured Image** | `featured-image-wide` | `image` | Wide (16:9) featured image |
-| **Featured Image** | `featured-image` | `image` | Lumina featured image |
-| **Footer 3 Blocks + 3 Blocks** | `footer-3-blocks-nav-site-social` | `footer` | Footer w/3 blocks in main footer plus 3 blocks in sub-footer |
-| **Footer 3 Blocks** | `footer-3-blocks` | `footer` | Footer 3 blocks (e.g. recent posts, recent comments, about) |
-| **Colored Footer 4 Blocks** | `footer-4-blocks-colored` | `footer` | Colored Footer w/4 blocks (e.g. about, 2 nav menus, and contact info) |
-| **Dark Footer 4 Blocks** | `footer-4-blocks-dark` | `footer` | Dark Footer w/4 blocks (e.g. about, 2 nav menus, and contact info) |
-| **Footer 4 Blocks** | `footer-4-blocks` | `footer` | Footer w/4 blocks (e.g. about, 2 nav menus, and contact info) |
-| **Colored Footer 4 Blocks + Site Copyright** | `footer-colored` | `footer` | Colored Footer w/4 blocks in main footer plus site copyright in sub-footer |
-| **Footer Compact Nav Menu & Site Info** | `footer-compact-nav-site-info` | `footer` | Compact footer w/nav menu, site copyright and theme info |
-| **Colored Footer Compact 3 Blocks** | `footer-compact-nav-site-social-colored` | `footer` | Compact Colored footer w/3 blocks (e.g. nav menu, social icons, and site info) |
-| **Footer Compact 3 Blocks** | `footer-compact-nav-site-social` | `footer` | Compact footer w/3 blocks (e.g. nav menu, social icons, and site info) |
-| **Colored Footer Compact Site Info** | `footer-compact-site-info-colored` | `footer` | Colored Compact footer w/site info |
-| **Dark Footer Compact Site Info** | `footer-compact-site-info-dark` | `footer` | Dark Compact footer w/site info |
-| **Footer Compact Site Info** | `footer-compact-site-info` | `footer` | Compact footer w/site info |
-| **Dark Footer 4 Blocks + Site Copyright** | `footer-dark` | `footer` | Dark Footer w/4 blocks in main footer plus site copyright in sub-footer |
-| **Default Footer 4 Blocks + Site Copyright** | `footer-default` | `footer` | Default Footer w/4 blocks in main footer plus site copyright in sub-footer |
-| **Footer w/Map & Contact Info** | `footer-map-static` | `footer` | Footer w/map and contact info |
-| **Footer w/Site Motto + Social Icons** | `footer-motto-social-icons` | `footer` | Footer w/site motto and huge social icons |
-| **Footer w/Site Motto + Social Icons + Site Info** | `footer-motto-social-site` | `footer` | Footer w/site motto, social icons, and site info |
-| **Footer w/Colored Social Icons + Map & Contact Info** | `footer-social-map-static` | `footer` | Footer w/colored social icons plus map and contact info |
-| **Footer Wrapper** | `footer` | `uncategorized` | Footer Wrapper |
-| **Header Centered Nav Fixed** | `header-centered-nav-fixed` | `header` | Fixed header with centered navigation |
-| **Colored Header Fixed** | `header-colored-fixed` | `header` | Colored header fixed to top (very light gray) |
-| **Header Dark Fixed** | `header-dark-fixed` | `header` | Fixed dark header |
-| **Header Fixed** | `header-fixed` | `header` | Fixed header |
-| **Fluid Header** | `header-fluid` | `header` | Standard header that scrolls away |
-| **Header Logo Fixed** | `header-logo-fixed` | `header` | Logo only fixed header |
-| **Header Wrapper** | `header` | `uncategorized` | Site Header Wrapper |
-| **Home Title** | `home-title` | `title` | Title for the home page |
-| **Jetpack Sharing Buttons** | `jetpack-sharing` | `content` | Jetpack social sharing integration |
-| **Page Title No Excerpt** | `page-title-noexcerpt` | `title` | Title for pages without excerpt |
-| **Page Title** | `page-title` | `title` | Title for pages |
-| **Post Meta** | `post-meta` | `content` | Post meta (author, categories, and tags) |
-| **Post Navigation** | `post-navigation` | `content` | Next and previous post links |
-| **Post Title No Meta** | `post-title-nometa` | `title` | Title for posts without post meta |
-| **Post Title** | `post-title` | `title` | Title for posts |
-| **Query Template** | `query` | `content` | Query Template Part |
-| **Search Title** | `search-title` | `title` | Title for the search page |
-| **Sidebar** | `sidebar` | `content` | Sidebar (e.g. search, account, categories, social links) |
-| **Site Copyright** | `site-copyright` | `content` | Site copyright (© site-name) |
-| **Sitemap Title** | `sitemap-title` | `title` | Title for the sitemap page |
-| **Huge Social Icons** | `social-icons-huge` | `content` | Huge social media icons (centered) |
-| **Social Icons Monochrome** | `social-icons-neutral` | `content` | Huge social media icons in neutral color |
-| **Social Icons** | `social-icons` | `content` | Social media icons with links |
-| **Theme Tagline** | `theme-tagline` | `content` | Theme tagline (e.g. theme by xtremelysocial) |
+| **404 error page title** | `404-title` | `title` | Structural template part component. |
+| **Footer about section (tagline and site description)** | `about-us` | `content` | Structural template part component. |
+| **Archive title (categories and tags)** | `archive-title` | `title` | Structural template part component. |
+| **Author bio** | `author-bio` | `content` | Structural template part component. |
+| **Page hero banner (media and text)** | `banner-page-hero-mt` | `content` | Structural template part component. |
+| **Comments** | `comments` | `content` | Structural template part component. |
+| **Contact info** | `contact-info` | `content` | Structural template part component. |
+| **Article list item (image left)** | `content-article-img-left` | `content` | Structural template part component. |
+| **Article content with 16:9 image** | `content-article-wide` | `content` | Structural template part component. |
+| **Article content with image** | `content-article` | `content` | Structural template part component. |
+| **Home page content (when the blog is the front page)** | `content-home-top` | `content` | Structural template part component. |
+| **Sitemap content (pages, categories, recent posts)** | `content-sitemap` | `content` | Structural template part component. |
+| **Page cover image with title and excerpt** | `cover-scroll-page-header` | `content` | Structural template part component. |
+| **Featured image (linked)** | `featured-image-linked` | `image` | Structural template part component. |
+| **Linked slim featured image (16:4.5)** | `featured-image-slim-linked` | `image` | Structural template part component. |
+| **Slim featured image (16:4.5)** | `featured-image-slim` | `image` | Structural template part component. |
+| **Linked ultrawide featured image (21:9)** | `featured-image-ultrawide-linked` | `image` | Structural template part component. |
+| **Ultrawide featured image (21:9)** | `featured-image-ultrawide` | `image` | Structural template part component. |
+| **Linked wide featured image (16:9)** | `featured-image-wide-linked` | `image` | Structural template part component. |
+| **Wide featured image (16:9)** | `featured-image-wide` | `image` | Structural template part component. |
+| **Featured image** | `featured-image` | `image` | Structural template part component. |
+| **Footer with 3 main and 3 sub-footer blocks** | `footer-3-blocks-nav-site-social` | `footer` | Structural template part component. |
+| **Footer with 3 blocks** | `footer-3-blocks` | `footer` | Structural template part component. |
+| **Colored footer with 4 blocks** | `footer-4-blocks-colored` | `footer` | Structural template part component. |
+| **Dark footer with 4 blocks** | `footer-4-blocks-dark` | `footer` | Structural template part component. |
+| **Footer with 4 blocks** | `footer-4-blocks` | `footer` | Structural template part component. |
+| **Colored footer with 4 blocks and site copyright** | `footer-colored` | `footer` | Structural template part component. |
+| **Compact footer with navigation and site info** | `footer-compact-nav-site-info` | `footer` | Structural template part component. |
+| **Compact colored footer with 3 blocks** | `footer-compact-nav-site-social-colored` | `footer` | Structural template part component. |
+| **Compact footer with 3 blocks** | `footer-compact-nav-site-social` | `footer` | Structural template part component. |
+| **Compact colored footer with site info** | `footer-compact-site-info-colored` | `footer` | Structural template part component. |
+| **Compact dark footer with site info** | `footer-compact-site-info-dark` | `footer` | Structural template part component. |
+| **Compact footer with site info** | `footer-compact-site-info` | `footer` | Structural template part component. |
+| **Dark footer with 4 blocks and site copyright** | `footer-dark` | `footer` | Structural template part component. |
+| **Default footer with 4 blocks and site copyright** | `footer-default` | `footer` | Structural template part component. |
+| **Footer with map and contact info** | `footer-map-static` | `footer` | Structural template part component. |
+| **Footer with site motto and social icons** | `footer-motto-social-icons` | `footer` | Structural template part component. |
+| **Footer with site motto, social icons, and site info** | `footer-motto-social-site` | `footer` | Structural template part component. |
+| **Footer with colored social icons, map, and contact info** | `footer-social-map-static` | `footer` | Structural template part component. |
+| **Footer wrapper** | `footer` | `uncategorized` | Structural template part component. |
+| **Fixed header with centered navigation** | `header-centered-nav-fixed` | `header` | Structural template part component. |
+| **Colored fixed header** | `header-colored-fixed` | `header` | Structural template part component. |
+| **Dark fixed header** | `header-dark-fixed` | `header` | Structural template part component. |
+| **Fixed header** | `header-fixed` | `header` | Structural template part component. |
+| **Fluid header** | `header-fluid` | `header` | Structural template part component. |
+| **Fixed header with logo** | `header-logo-fixed` | `header` | Structural template part component. |
+| **Header wrapper** | `header` | `uncategorized` | Structural template part component. |
+| **Home title** | `home-title` | `title` | Structural template part component. |
+| **Jetpack sharing buttons** | `jetpack-sharing` | `content` | Structural template part component. |
+| **Page title without excerpt** | `page-title-noexcerpt` | `title` | Structural template part component. |
+| **Page title** | `page-title` | `title` | Structural template part component. |
+| **Post meta (author, categories, tags)** | `post-meta` | `content` | Structural template part component. |
+| **Post navigation (next and previous posts)** | `post-navigation` | `content` | Structural template part component. |
+| **Post title without metadata** | `post-title-nometa` | `title` | Structural template part component. |
+| **Post title** | `post-title` | `title` | Structural template part component. |
+| **Query template** | `query` | `content` | Structural template part component. |
+| **Search title** | `search-title` | `title` | Structural template part component. |
+| **Sidebar** | `sidebar` | `content` | Structural template part component. |
+| **Site copyright** | `site-copyright` | `content` | Structural template part component. |
+| **Sitemap title** | `sitemap-title` | `title` | Structural template part component. |
+| **Centered large social icons** | `social-icons-huge` | `content` | Structural template part component. |
+| **Large monochrome social icons** | `social-icons-neutral` | `content` | Structural template part component. |
+| **Social icons** | `social-icons` | `content` | Structural template part component. |
+| **Theme tagline** | `theme-tagline` | `content` | Structural template part component. |

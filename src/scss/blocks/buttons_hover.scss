@@ -25,6 +25,7 @@ $button-targets: ".wp-block-button__link, .wp-element-button, input[type='submit
 /* 2. Hover on Solid Buttons: Apply linear gradient to background */
 .wp-block-button:not(#{$non-solid-buttons}) {
 	:is(#{$button-targets}):not(#{$gradient-classes}) {
+
 		&:hover,
 		&:active {	
 			background-image: linear-gradient(
@@ -37,6 +38,7 @@ $button-targets: ".wp-block-button__link, .wp-element-button, input[type='submit
 
 /* 3. Hover on Gradient Buttons (Light-Sheen Brightness Bump) */
 .wp-block-button :is(#{$button-targets}):is(#{$gradient-classes}) {
+
 	&:hover,
 	&:active {
 		filter: brightness(1.12) saturate(1.05);
@@ -46,6 +48,7 @@ $button-targets: ".wp-block-button__link, .wp-element-button, input[type='submit
 /* 4. Hover on Outline Buttons: Simple opacity (EXCLUDES GLASS) */
 .wp-block-button:is(#{$outline-buttons}) {
 	:is(#{$button-targets}) {
+
 		&:hover,
 		&:active {
 			opacity: var(--wp--custom--color--button--hover-opacity, 1);

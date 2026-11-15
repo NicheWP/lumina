@@ -41,10 +41,10 @@ Lumina delivers complete layout control without technical hurdles or cascade pol
 ## 2.1 The Four-Tier Color Track & Lightness Architecture  
 Every chromatic family in Lumina (Sage, Ocean Slate, Antique Gold, Terracotta, Velvet, Zinc) is mathematically calibrated into a four-tier track structure that strictly enforces a 48%/38% HSL lightness standardization:  
   
-1. **Primary Tier (48% Lightness Anchor):** The core brand anchor used for high-impact callout fills, primary CTA buttons, and key focus indicators. Formulated for high-contrast white or off-white typography.   
-2. **Alt Tier / Primary Alt (38% Lightness Anchor):** A deeper dark anchor used for hover states, focused button outlines, and dark hero container backgrounds.   
-3. **Subtle Tier (91%–96% Lightness Wash):** A soft, chromatic backdrop designed for container wells, alert boxes, and highlighted group backgrounds.   
-4. **Subtle Alt Tier (83%–88% Lightness Seam):** An alternate tinted backdrop used for nested wells, alternating table rows, card borders, and structural dividers.   
+1. **Primary Tier (48% Lightness Anchor):** The core brand anchor used for high-impact callout fills, primary CTA buttons, and key focus indicators. Formulated for high-contrast white or off-white typography.  
+2. **Alt Tier / Primary Alt (38% Lightness Anchor):** A deeper dark anchor used for hover states, focused button outlines, and dark hero container backgrounds.  
+3. **Subtle Tier (91%–96% Lightness Wash):** A soft, chromatic backdrop designed for container wells, alert boxes, and highlighted group backgrounds.  
+4. **Subtle Alt Tier (83%–88% Lightness Seam):** An alternate tinted backdrop used for nested wells, alternating table rows, card borders, and structural dividers.  
 **High-Key Ethereal Mode (500-light.json)**  
 In high-key light variations, the primary, secondary, and tertiary slots shift into soft 91%–95% card fills that pair with dark contrast text, while their corresponding -alt anchors step up to 44%–48% flagship action controls to preserve brand vibrancy without plunging the layout into heavy dark navy or pine.  
   
@@ -54,35 +54,35 @@ Dark mode containers and abyssal background floors (primary-dark, dark, tertiary
 ## 2.2 Scheme-Specific Tinted Black Calibration  
 To prevent dark surfaces and deep typography from feeling cold or unintegrated, Lumina eliminates sterile achromatic grays. The almost-black (18% lightness floor) and not-quite-black (11% lightness typographic ink) tokens dynamically rotate their HSL hue angles to lock directly into the active color scheme's contrast identity:  
   
-* **Velvet Scheme:** Rotated to a 327° HSL Plum hue (hsl(327, 14%, 18%) for almost-black and hsl(330, 8%, 11%) for not-quite-black) to give dark cards and deep text a plum-infused charcoal depth.   
-* **Light / Obsidian Scheme:** Rotated to a 215° HSL Obsidian Slate hue (hsl(215, 16%, 18%) for almost-black and hsl(215, 15%, 11%) for not-quite-black) to match the contrast typographic ink token.   
-* **Heritage / Zinc Schemes:** Rotated to a 208° HSL Slate hue to align with cold charcoal and technical aqua backgrounds.    
+* **Velvet Scheme:** Rotated to a 327° HSL Plum hue (hsl(327, 14%, 18%) for almost-black and hsl(330, 8%, 11%) for not-quite-black) to give dark cards and deep text a plum-infused charcoal depth.  
+* **Light / Obsidian Scheme:** Rotated to a 215° HSL Obsidian Slate hue (hsl(215, 16%, 18%) for almost-black and hsl(215, 15%, 11%) for not-quite-black) to match the contrast typographic ink token.  
+* **Heritage / Zinc Schemes:** Rotated to a 208° HSL Slate hue to align with cold charcoal and technical aqua backgrounds.  
 ## 2.3 The Neutral & Warm Sand Track  
 To prevent layout wells, sidebars, and footers from drifting into cold digital gray, Lumina anchors all neutral utilities on a warm sand and linen track (32°–40° HSL baseline):  
-* **base / off-white (97.5%–99% Lightness):** Master viewport canvas background for light mode variations.   
-* **neutral (96% Lightness):** Warm linen component well—the lightest non-canvas structural surface for off-canvas drawers and sidebar panels.   
-* **very-light-gray (93% Lightness):** Warm sand background fill for primary footers, sub-footers, and secondary content wells.   
-* **neutral-alt (88% Lightness):** Default warm sand border seam and field outline stroke.   
-* **light-gray (85% Lightness):** Inner inset wells and subtle separator lines.   
-* **gray (71% Lightness):** Medium-contrast structural borders and hairline seams.   
-* **dark-gray (44% Lightness):** Muted secondary typography, post metadata, captions, and secondary labels.   
-* **very-dark-gray (25% Lightness):** Deep ambient shadow parameter tint and high-contrast neutral elements.   
-* **contrast (11%–13% Lightness):** Deep obsidian/indigo typographic ink for H1–H6 headings and body copy on light backdrops.    
+* **base / off-white (97.5%–99% Lightness):** Master viewport canvas background for light mode variations.  
+* **neutral (96% Lightness):** Warm linen component well—the lightest non-canvas structural surface for off-canvas drawers and sidebar panels.  
+* **very-light-gray (93% Lightness):** Warm sand background fill for primary footers, sub-footers, and secondary content wells.  
+* **neutral-alt (88% Lightness):** Default warm sand border seam and field outline stroke.  
+* **light-gray (85% Lightness):** Inner inset wells and subtle separator lines.  
+* **gray (71% Lightness):** Medium-contrast structural borders and hairline seams.  
+* **dark-gray (44% Lightness):** Muted secondary typography, post metadata, captions, and secondary labels.  
+* **very-dark-gray (25% Lightness):** Deep ambient shadow parameter tint and high-contrast neutral elements.  
+* **contrast (11%–13% Lightness):** Deep obsidian/indigo typographic ink for H1–H6 headings and body copy on light backdrops.  
 ## 2.4 Dynamic CSS Filter Link Engine & Interaction Mechanics  
 Lumina utilizes a dynamic, filter-driven link transformation engine that evaluates contrast and hue relationships relative to the underlying surface fill rather than relying on hardcoded static colors.  
   
 **Variable Abstraction & Purpose**  
-* **$filter-link-lighten:** Binds to var(--wp--custom--color--highlight-alt--lighten, brightness(1.75) saturate(0.80)). Provides dynamic, relative brightening and saturation adjustments for inline link text sitting over dark -alt background slots and dark containers. PNG+ 1    
-* **$filter-link-darken:** Binds to var(--wp--custom--color--highlight--darken, brightness(0.40) saturate(1.15)). Provides dynamic, relative darkening transforms for link text rendered over light background slots and light surface fills. PNG+ 1    
+* **$filter-link-lighten:** Binds to var(--wp--custom--color--highlight-alt--lighten, brightness(1.75) saturate(0.80)). Provides dynamic, relative brightening and saturation adjustments for inline link text sitting over dark -alt background slots and dark containers.PNG+ 1  
+* **$filter-link-darken:** Binds to var(--wp--custom--color--highlight--darken, brightness(0.40) saturate(1.15)). Provides dynamic, relative darkening transforms for link text rendered over light background slots and light surface fills.PNG+ 1  
 **Scheme-Specific Filter Customization**  
 Each theme.json style variation can supply scheme-specific filter overrides under settings.custom.color (e.g., fine-tuning highlight-alt.lighten in Ember or Light variants). This allows individual color schemes to achieve optimal WCAG AA legibility and eliminate chromatic glare without modifying SCSS engine logic or breaking global cascade rules.  
   
 **Decoupled Role Opacity Tokens**  
 Interaction feedback is strictly isolated across component roles to prevent layout reflow and visual interference:  
   
-* **Inline Text Links:** Controlled via custom.color.link.hoverOpacity (locked to 0.7 for sharp alpha feedback without obscuring text). MD    
-* **Linked Media Assets:** Controlled via custom.color.image.hoverOpacity (0.85 static / 1.0 in motion). MD    
-* **Buttons:** Retain solid fill opacity (1.0) and handle hover feedback via 15% dark overlay pseudo-elements (::before) or scale transformations. MD    
+* **Inline Text Links:** Controlled via custom.color.link.hoverOpacity (locked to 0.7 for sharp alpha feedback without obscuring text).MD  
+* **Linked Media Assets:** Controlled via custom.color.image.hoverOpacity (0.85 static / 1.0 in motion).MD  
+* **Buttons:** Retain solid fill opacity (1.0) and handle hover feedback via 15% dark overlay pseudo-elements (::before) or scale transformations.MD  
 ## 2.5 Gutenberg UI Safety Protocols & Palette Purge  
 **The Gutenberg Palette Purge**  
 To keep the Site Editor inspector clean and prevent content creators from applying un-tinted raw colors, non-semantic palette swatches (black, white, foreground-alt, and raw named colors) are purged from selectable color pickers in theme.json. The editor exposes strictly functional, semantic swatches (primary, secondary, tertiary, base, contrast, neutral, neutral-alt, highlight, highlight-alt, etc.).  
@@ -90,14 +90,14 @@ To keep the Site Editor inspector clean and prevent content creators from applyi
 **The currentColor Exclusion Protocol**  
 Dynamic or contextual properties like --wp--custom--color--muted-text must **NEVER** be registered as selectable color dots in theme.json:  
   
-1. **Inverted Dot Bug:** Gutenberg's sidebar applies its own text context, causing circular palette dots using currentColorto display incorrect admin preview colors. MD    
-2. **Background Feedback Loop:** Applying currentColor as a container background matches the fill to the text color, rendering all content instantly invisible. MD    
-3. **Implementation Standard:** Contextual properties are injected exclusively via developer-controlled CSS custom properties in :where(.wp-site-blocks). MD    
+1. **Inverted Dot Bug:** Gutenberg's sidebar applies its own text context, causing circular palette dots using currentColorto display incorrect admin preview colors.MD  
+2. **Background Feedback Loop:** Applying currentColor as a container background matches the fill to the text color, rendering all content instantly invisible.MD  
+3. **Implementation Standard:** Contextual properties are injected exclusively via developer-controlled CSS custom properties in :where(.wp-site-blocks).MD  
 ## 2.6 Theme Interoperability Bridge (_theme-bridge.scss)  
 To ensure seamless integration when importing external pattern layouts (such as TwentyTwentyFour, TwentyTwentyFive, or Flat Blocks), Lumina provides a universal mapping bridge:  
   
-* **Automated Translation Loop:** An @each Sass loop maps external class utilities (e.g., .has-tertiary-color, .has-heading-color, .has-accent-background-color) directly into Lumina's 5-tier semantic token architecture.    
-* **Zero-Specificity Safety Net:** Unrecognized or legacy block markup falls back to zero-specificity :where() selectors, guaranteeing that imported patterns inherit correct theme typography, link colors, and contrast rules without specificity wars or requiring !important flags.    
+* **Automated Translation Loop:** An @each Sass loop maps external class utilities (e.g., .has-tertiary-color, .has-heading-color, .has-accent-background-color) directly into Lumina's 5-tier semantic token architecture.  
+* **Zero-Specificity Safety Net:** Unrecognized or legacy block markup falls back to zero-specificity :where() selectors, guaranteeing that imported patterns inherit correct theme typography, link colors, and contrast rules without specificity wars or requiring !important flags.  
 ## 2.7 Master Semantic Color Matrix Table  
 
 | Semantic Token / Custom Property | HSL Target / Asset Mapping | Functional Purpose & Architectural Role | Contextual Contrast & Behavioral Rule |
@@ -370,8 +370,8 @@ SCSS
 ## 3.3 Two-Phase Build Architecture & Execution Tracks  
 The engine compiles into two separate stylesheets to isolate static structural styles from interactive kinetics:  
   
-1. **Phase 1: Resting Geometry (lumina-engine.css / $interactive: false):** Establishes layout bounds, radii, baseline transforms (translateY(0) scale(1)), and resting shadows.   
-2. **Phase 2: Active Kinetics (lumina-interactions.css / $interactive: true):** Handles hover (:hover) and keyboard focus (:has(:focus-visible)) transforms, shadow shifts, and veil reveals.   
+1. **Phase 1: Resting Geometry (lumina-engine.css / $interactive: false):** Establishes layout bounds, radii, baseline transforms (translateY(0) scale(1)), and resting shadows.  
+2. **Phase 2: Active Kinetics (lumina-interactions.css / $interactive: true):** Handles hover (:hover) and keyboard focus (:has(:focus-visible)) transforms, shadow shifts, and veil reveals.  
 **Execution Track Authority Matrix**  
 
 | Track | Authority Tier | Role Key | Active Kinetics & Transforms | Default Shadow Level | Scope & Element Types |
@@ -470,11 +470,11 @@ SCSS
 }
 
 ```
-* **Selective Image Veto Nuance:** Embedded image portals retain their internal zoom kinetic capabilities (scale(1.08)) while their outer box shadows are suppressed (apply-silence-shadow) to prevent double-shadow artifacts inside parent cards. MD    
+* **Selective Image Veto Nuance:** Embedded image portals retain their internal zoom kinetic capabilities (scale(1.08)) while their outer box shadows are suppressed (apply-silence-shadow) to prevent double-shadow artifacts inside parent cards.MD  
 ## 3.6 Layout Brakes, Column Stacking & Global Overrides  
 **Layout Brakes & Rounding Stops (_00-config.scss)**  
-* **Hard Stop ($blocks-no-rounding):** Hard-coded exclusion list (.wp-block-column, .wp-block-media-text__media, .wp-block-media-text__content) where the engine does not generate border-radius CSS.    
-* **Conditional Stop ($blocks-layout-brakes):** Specific style utility classes (.is-style-object-static, .is-style-image-no-border, .is-style-no-gap *) that suppress active transforms and default shadows.    
+* **Hard Stop ($blocks-no-rounding):** Hard-coded exclusion list (.wp-block-column, .wp-block-media-text__media, .wp-block-media-text__content) where the engine does not generate border-radius CSS.  
+* **Conditional Stop ($blocks-layout-brakes):** Specific style utility classes (.is-style-object-static, .is-style-image-no-border, .is-style-no-gap *) that suppress active transforms and default shadows.  
 **Motion Kill-Switch (500-static.json / Lumina Static)**  
 * **Zero-Kinetic Style Variation:** A dedicated global style variation designed for complete motion accessibility and pure typographic focus.  
 * **Transform Neutralization:** Sets hoverTransform: "none" site-wide, suppressing physical scale growth and vertical displacement while falling back smoothly to clean, static opacity shifts (0.7 link hover / 0.85 image hover).  
@@ -486,7 +486,7 @@ When reduced motion is requested by the OS or user settings, CSS variables adapt
   
 * Transition timing extends from 250ms/500ms up to 500ms/800ms.  
 * Scale growth transforms damp down from 1.05x / 1.08x to 1.01x / 1.04x.  
-* Vertical displacement dampens from -3px / -4px down to -1px / -2px.   
+* Vertical displacement dampens from -3px / -4px down to -1px / -2px.  
 **Interactive Card Arrow Overlay Badge (.lumina-card-arrow-overlay)**  
 Interactive cards (.is-interactive-card) support an absolute-positioned floating arrow overlay badge that neutralizes Gutenberg block-gap margins and expands smoothly on hover:  
   
@@ -551,17 +551,17 @@ SCSS development follows six non-negotiable architectural rules derived from the
 **Rule 1: Sass Module System Enforcement (@use / @forward)**  
 Traditional @import statements are strictly banned to avoid global namespace pollution, duplicate CSS output, and circular dependency loops.  
   
-* **Namespace Isolation:** All configuration settings and helper mixins must be imported explicitly via @use with local namespaces or aliases (e.g., @use '00-config' as config;).   
-* **Barrel Forwarding Pattern:** Subdirectory entry points (such as physics/_index.scss) act as single sources of truth, using @forward to expose module mixins and variables without circular import loops.    
+* **Namespace Isolation:** All configuration settings and helper mixins must be imported explicitly via @use with local namespaces or aliases (e.g., @use '00-config' as config;).  
+* **Barrel Forwarding Pattern:** Subdirectory entry points (such as physics/_index.scss) act as single sources of truth, using @forward to expose module mixins and variables without circular import loops.  
 **Rule 2: Specificity Governance via Declarative Compilation**  
 No SCSS module may contain raw specificity overrides or !important flags to force style priority.  
-* **Central Compiler Utility:** All dynamic selectors must pass through compile-selector() in _01-compiler.scss.   
-* **Tier Bounds:** CSS selectors must strictly conform to their assigned Authority Tier (Tier 10 Objects 0,1,0, Tier 20 Cards 0,2,0, Tier 30 Sovereigns 0,3,0).   
-* **Pseudo Wrappers:** Structural filters must be wrapped inside :is() and :not() pseudo-classes to keep compiled specificity scores flattened and mathematically predictable.    
+* **Central Compiler Utility:** All dynamic selectors must pass through compile-selector() in _01-compiler.scss.  
+* **Tier Bounds:** CSS selectors must strictly conform to their assigned Authority Tier (Tier 10 Objects 0,1,0, Tier 20 Cards 0,2,0, Tier 30 Sovereigns 0,3,0).  
+* **Pseudo Wrappers:** Structural filters must be wrapped inside :is() and :not() pseudo-classes to keep compiled specificity scores flattened and mathematically predictable.  
 **Rule 3: Defensive Schema Merging (map.merge)**  
 Block registry definitions inside SCSS maps must never require redundant key declarations.  
   
-* Every loop iterating over $lumina-block-registry must merge target maps with $registry-defaults (_00-config.scss) before extracting properties. This guarantees that unassigned parameters safely inherit default values (such as trigger: 'self' or role: 'object') without throwing Sass compilation errors.    
+* Every loop iterating over $lumina-block-registry must merge target maps with $registry-defaults (_00-config.scss) before extracting properties. This guarantees that unassigned parameters safely inherit default values (such as trigger: 'self' or role: 'object') without throwing Sass compilation errors.  
 **Rule 4: Theme Interoperability Bridge (_theme-bridge.scss)**  
 To ensure imported patterns from external themes (TwentyTwentyFour, TwentyTwentyFive, Flat Blocks) render seamlessly without custom PHP re-authoring:  
 * **Automated Utility Translation:** An @each loop maps external class utilities (.has-tertiary-color, .has-accent-background-color) directly to Lumina tokens.  
@@ -570,14 +570,14 @@ To ensure imported patterns from external themes (TwentyTwentyFour, TwentyTwenty
 **Rule 5: Gutenberg UI Safety & Variable Separation**  
 Theme styles must never break the WordPress Block Editor interface or create visual feedback loops.  
   
-* **Banned Palette Patterns:** Dynamic or context-dependent tokens such as currentColor must **never** be registered as selectable circular color dots in theme.json.   
-* **CSS Custom Property Abstraction:** Palette-agnostic dynamic tokens must be scoped strictly via developer-controlled CSS custom properties (--wp--custom--color--muted-text) or injected via class styles.   
+* **Banned Palette Patterns:** Dynamic or context-dependent tokens such as currentColor must **never** be registered as selectable circular color dots in theme.json.  
+* **CSS Custom Property Abstraction:** Palette-agnostic dynamic tokens must be scoped strictly via developer-controlled CSS custom properties (--wp--custom--color--muted-text) or injected via class styles.  
 **Rule 6: Single-Class Refactor Pattern for Visual Effects**  
 Complex visual effects (e.g., aspect-ratio toggles, liquid glass, ambient depth badges) must be authored as single-class refactor blocks using pseudo-elements (::before and ::after):  
   
-* **Parent Element (.is-style-*):** Sets relative positioning, layout mode, base border-radius: inherit, and z-index positioning.   
-* **::before (Mask & Label Layer):** Manages backdrop blurs, background fills, opacity tints, or tooltip label content.   
-* **::after (Refraction & Icon Layer):** Manages inset highlights, SVG icon masks, and kinetic rotation transforms.    
+* **Parent Element (.is-style-*):** Sets relative positioning, layout mode, base border-radius: inherit, and z-index positioning.  
+* **::before (Mask & Label Layer):** Manages backdrop blurs, background fills, opacity tints, or tooltip label content.  
+* **::after (Refraction & Icon Layer):** Manages inset highlights, SVG icon masks, and kinetic rotation transforms.  
 ## 4.3 JavaScript Engine Standards (lumina-physics.js)  
 JavaScript in Lumina turns static Gutenberg blocks into intuitive, interactive surface areas while maintaining strict event isolation and client-side stability. All theme scripts must conform to the following jQuery / Vanilla JS coding standards:  
   
@@ -598,12 +598,12 @@ JavaScript
 **Rule 2: Dynamic Target Validation (getValidTarget)**  
 Before altering DOM classes, applying dynamic cursor styles (cursor: pointer), or attaching event interceptors to container blocks, scripts must run target elements through validation logic:  
   
-* **Form Protection:** Containers carrying interactive HTML forms or text inputs (form, input:not([type="hidden"]), textarea, select) must **never** be converted into card click targets.    
-* **Single Interactive Target Guarantee:** Cards are validated only if they contain **exactly one** primary link or button ($buttons.length === 1 && $links.length === 0 or vice versa). Multi-link containers are ignored to prevent ambiguous navigation behavior.   
+* **Form Protection:** Containers carrying interactive HTML forms or text inputs (form, input:not([type="hidden"]), textarea, select) must **never** be converted into card click targets.  
+* **Single Interactive Target Guarantee:** Cards are validated only if they contain **exactly one** primary link or button ($buttons.length === 1 && $links.length === 0 or vice versa). Multi-link containers are ignored to prevent ambiguous navigation behavior.  
 **Rule 3: Event Delegation & Safety Valves**  
 To ensure compatibility with dynamic AJAX content loading, scripts must use delegated document listeners ($(document).on('click', selector, handler)):  
   
-* **Safety Valve Interception:** When a user clicks directly on an inner button, anchor link, or form control nested inside an interactive card, the handler must immediately exit (return) and allow native browser navigation to process naturally without infinite click loops:   
+* **Safety Valve Interception:** When a user clicks directly on an inner button, anchor link, or form control nested inside an interactive card, the handler must immediately exit (return) and allow native browser navigation to process naturally without infinite click loops:  
 JavaScript  
   
 ```
@@ -616,18 +616,18 @@ if ($(e.target).closest('button, a, .wp-element-button, input, select').length) 
 **Rule 4: Touch-First Two-Tap Gesture Handling**  
 To eliminate mobile touch bugs (where hover states flicker or accidental link jumps occur during page scrolling), all card interactions must implement two-tap touch handling:  
   
-* **Tap 1 (Activation):** Adds the .is-active state class, revealing visual badges (such as .lumina-card-arrow-overlay) and suppressing immediate link navigation.   
-* **Tap 2 (Execution):** Executes the actual navigation action.   
-* **Scroll/Swipe Cancellation:** Listening to touchmove events immediately cancels pending tap activation flags so swiping or scrolling through content never triggers unintended card clicks.    
+* **Tap 1 (Activation):** Adds the .is-active state class, revealing visual badges (such as .lumina-card-arrow-overlay) and suppressing immediate link navigation.  
+* **Tap 2 (Execution):** Executes the actual navigation action.  
+* **Scroll/Swipe Cancellation:** Listening to touchmove events immediately cancels pending tap activation flags so swiping or scrolling through content never triggers unintended card clicks.  
 **Rule 5: Scoped Client-Side Preference Persistence (localStorage)**  
 Interactive UI components that retain user display states (such as <details> accordions or aspect ratio toggles) must utilize localStorage with multi-tier key scoping:  
   
-* **Page-Path & Element Scoping:** Keys must combine the sanitized window pathname, element identifier, and DOM index ('lumina_aspect_state_' + pagePath + '_' + elementIdentifier + '_' + index) so user preferences do not bleed across different pages.    
+* **Page-Path & Element Scoping:** Keys must combine the sanitized window pathname, element identifier, and DOM index ('lumina_aspect_state_' + pagePath + '_' + elementIdentifier + '_' + index) so user preferences do not bleed across different pages.  
 ## 4.4 PHP & Full-Site Editing (FSE) Standards  
 PHP code in Lumina forms the foundation for block style registration, template hierarchy routing, pattern conversion, and WP 7.1 Icon API integration.  
 **Rule 1: Strict WPCS Syntax & Namespace Rules**  
-* **Code Style:** All PHP files must pass WordPress Coding Standards via PHP_CodeSniffer (WordPress-Core, WordPress-Docs, WordPress-Extra).   
-* **Strict Typing & Direct Access Protection:** All standalone PHP files must include direct-access prevention guards and declare strict types:   
+* **Code Style:** All PHP files must pass WordPress Coding Standards via PHP_CodeSniffer (WordPress-Core, WordPress-Docs, WordPress-Extra).  
+* **Strict Typing & Direct Access Protection:** All standalone PHP files must include direct-access prevention guards and declare strict types:  
 PHP  
   
 ```
@@ -645,9 +645,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ```
-* **Global Namespace Prefixing:** All functions, classes, constants, and global hooks must carry the strict lumina_ or LUMINA_ prefix (or namespace NicheWP\Lumina).    
+* **Global Namespace Prefixing:** All functions, classes, constants, and global hooks must carry the strict lumina_ or LUMINA_ prefix (or namespace NicheWP\Lumina).  
 **Rule 2: FSE-Native Philosophy & Block Style Performance**  
-* **No Custom Metaboxes:** Layout settings, color configurations, and spatial adjustments must rely exclusively on native Block Editor controls and theme.json capabilities.   
+* **No Custom Metaboxes:** Layout settings, color configurations, and spatial adjustments must rely exclusively on native Block Editor controls and theme.json capabilities.  
 * **Inline Block Style Enqueuing (lumina_load_block_styles):** Custom block styles residing in /assets/css/blocks/*.css are registered via wp_enqueue_block_style() passing the direct file path. This allows WordPress to inline CSS directly into the document <head> when the block is rendered rather than firing external HTTP stylesheet requests.  
 **Rule 3: WordPress 7.1 Icon API Integration (icons.php)**  
 Custom theme icons are auto-registered using native WP 7.1 Icon API hooks:  

@@ -21,9 +21,11 @@
 	$suffix: "-background-color"
 ) {
     $selectors: "";
+	
     @each $color in $colors {
         $selectors: $selectors + "#{$prefix}#{$color}#{$suffix},";
     }
+
     @return string.slice($selectors, 1, string.length($selectors) - 1);
 }
 
@@ -36,9 +38,11 @@
 	$gradients
 ) {
 	$selectors: "";
+
 	@each $gradient in $gradients {
 		$selectors: $selectors + '[style*="--wp--preset--gradient--#{$gradient})"],.has-#{$gradient}-gradient-background,';
 	}
+
 	@return string.slice($selectors, 1, string.length($selectors) - 1);
 }
 
@@ -170,6 +174,7 @@
 
 	$clean-selectors: build-selector-list($color);
 	$root-prefix: "";
+
 	@if $root {
 		$root-prefix: ":where(:root) ";
 	}
@@ -218,11 +223,13 @@
 
 	$clean-selectors: build-selector-list($color);
 	$root-prefix: "";
+
 	@if $root {
 		$root-prefix: ":where(:root)";
 	}
 
 	#{$root-prefix} #{$clean-selectors} {
+
 		:is(.wp-block-heading, 
 		.wp-block-post-title, 
 		.wp-block-query-title, 
@@ -232,21 +239,27 @@
 		) {
 		
 			@if $heading == 'inherit' {
+
 				@extend %engine-heading-inherit;
 
 			} @else if $heading == 'accent' {
+
 				@extend %engine-heading-accent;
 
 			} @else if $heading == 'dark' {
+
 				@extend %engine-heading-dark-text;
 
 			} @else if $heading == 'light' {
+
 				@extend %engine-heading-light-text;
 
 			} @else if $heading == 'darken' {
+
 				@extend %engine-heading-darken;
 
 			} @else if $heading == 'lighten' {
+
 				@extend %engine-heading-lighten;
 			}
 		}
@@ -275,11 +288,13 @@
 	$clean-selectors: build-selector-list($color);
 
 	$root-prefix: "";
+
 	@if $root and not $editor-styles {
 		$root-prefix: ":where(:root)";
 	}
 
 	$target-selector: null;
+
 	@if $editor-styles {
 		$target-selector: "#{$clean-selectors} :where(a:not(#{$excluded-links})):hover";
 	} @else if $root-prefix != "" {
@@ -290,32 +305,41 @@
 
 	@if $link == 'dark' or $link == 'light' or $link == 'inherit' {
 		#{$target-selector} {
+
 			@if $link == 'dark' { 
+
 				@extend %engine-link-dark-text; 
 
 			} @else if $link == 'light' { 
+
 				@extend %engine-link-light-text; 
 
 			} @else if $link == 'inherit'{
+
 				@extend %engine-link-inherit;
 			}
 		}
 		
 		@if not $editor-styles {
+
 			@if $root-prefix != "" {
 				#{$root-prefix} .wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
+
 					@extend %engine-link-underline;
 				}
 				
 				#{$root-prefix} #{$clean-selectors}:is(.site-footer, .footer-info) p :where(a:not(#{$excluded-links})) {
+
 					@extend %engine-link-underline-special;
 				}
 			} @else {
 				.wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
+
 					@extend %engine-link-underline;
 				}
 				
 				#{$clean-selectors}:is(.site-footer, .footer-info) p :where(a:not(#{$excluded-links})) {
+
 					@extend %engine-link-underline-special;
 				}
 			}
@@ -325,29 +349,37 @@
 			or $link == 'highlight-alt' or $link == 'darken' 
 	{
 		#{$target-selector} {
+
 			@if $link == 'highlight' { 
+
 				@extend %engine-link-highlight;
 
 			} @else if $link == 'lighten' { 
+
 				@extend %engine-link-highlight-alt;
 				@extend %engine-link-lighten;
 
 			} @else if $link == 'highlight-alt'{
+
 				@extend %engine-link-highlight-alt;
 
 			} @else if $link == 'darken'{
+
 				@extend %engine-link-highlight;
 				@extend %engine-link-darken;
 			}
 		}
 		
 		@if $remove-underline and not $editor-styles {
+
 			@if $root-prefix != "" {
 				#{$root-prefix} .wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
+
 					@extend %engine-link-remove-underline;
 				}
 			} @else {
 				.wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
+
 					@extend %engine-link-remove-underline;
 				}
 			}
@@ -365,16 +397,20 @@
 
 	@if $footer == 'hover-highlight' {
 		#{$selectors}:is(.site-footer, .footer-info) {
+
 			a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 			.wp-block-navigation-item__content:hover {
+
 				@extend %engine-link-highlight;
 			}				
 		}
 
 	} @else if $footer == 'hover-highlight-alt' {
 		#{$selectors}:is(.site-footer, .footer-info) {
+
 			a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
 			.wp-block-navigation-item__content:hover {
+
 				@extend %engine-link-highlight-alt;
 			}
 		}

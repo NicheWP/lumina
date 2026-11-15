@@ -85,6 +85,7 @@ $gutter-divider-color: var(--wp--custom--color--divider, color-mix(in srgb, curr
 
 /* Extend vertical lines DOWN on top row to meet horizontal line */
 .wp-block-columns.is-style-gutter-dividers:has(+ .wp-block-columns.is-style-gutter-dividers) {
+
 	> .wp-block-column:not(:first-child)::before {
 		bottom: calc(var(--gutter-divider-gap) / -2);
 	}
@@ -114,6 +115,7 @@ $gutter-divider-color: var(--wp--custom--color--divider, color-mix(in srgb, curr
 
 	/* Crosshair Dividers: 4-Up in 2x2 Grid (Seamless Center Intersection) */
 	.wp-block-columns.is-style-gutter-dividers:has(> .wp-block-column:first-child:nth-last-child(4)) {
+
 		> .wp-block-column:not(:first-child)::before {
 			content: none;
 		}
@@ -179,6 +181,7 @@ $gutter-divider-color: var(--wp--custom--color--divider, color-mix(in srgb, curr
 
 	/* Crosshair Dividers: 3-Up in Opt-In 1 + 2 Grid */
 	.wp-block-columns.is-style-gutter-dividers:has(> .wp-block-column:first-child:nth-last-child(3)):has(> .wp-block-column:is(.is-style-first-on-mobile, .is-first-on-mobile, .first-on-mobile)) {
+
 		> .wp-block-column:not(:first-child)::before {
 			content: none;
 		}
@@ -257,6 +260,7 @@ $gutter-divider-color: var(--wp--custom--color--divider, color-mix(in srgb, curr
 
 	/* Hairlines for standard 3-column containers stacked on portrait tablet */
 	.wp-block-columns.is-style-gutter-dividers:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):not(:has(> .wp-block-column.is-style-first-on-mobile)):not(:has(> .wp-block-column.is-first-on-mobile)):not(:has(> .wp-block-column.first-on-mobile)) {
+
 		> .wp-block-column:not(:first-child)::before {
 			content: "" !important;
 			position: absolute !important;
@@ -304,7 +308,9 @@ $gutter-divider-color: var(--wp--custom--color--divider, color-mix(in srgb, curr
 
 	/* Horizontal hairlines strictly for standard stacked GUTTER DIVIDERS on mobile */
 	.wp-block-columns.is-style-gutter-dividers:not(.is-not-stacked-on-mobile) {
+
 		> .wp-block-column {
+
 			&::after {
 				content: none !important;
 			}
@@ -333,7 +339,9 @@ $gutter-divider-color: var(--wp--custom--color--divider, color-mix(in srgb, curr
  * 5. MEDIA & UTILITY REORDERING (<= 781px)
  * ------------------------------------------------------------------------- */
 @media only screen and (max-width: #{ (breakpoints.$break-medium - 1) }) {
+
 	.wp-block-columns:not(.is-not-stacked-on-mobile) {
+
 		> .wp-block-column:has(.wp-block-video, .wp-block-image),
 		> .wp-block-column:is(.is-style-first-on-mobile, .is-first-on-mobile, .first-on-mobile) {
 			order: -1 !important;

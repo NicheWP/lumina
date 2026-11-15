@@ -2,13 +2,12 @@
 # Style Jetpack Contact Form buttons to match ours
 -----------------------------------------------------------------------------*/
 .wp-block-jetpack-contact-form :is(.wp-block-button, .wp-block-jetpack-button) .wp-block-button__link {
-//     min-height: var(--jetpack--contact-form--input-height, auto);
-//     padding-bottom: var(--jetpack--contact-form--input-padding-top);
-//     padding-top:var(--jetpack--contact-form--input-padding-top)
 	padding: var(--wp--preset--spacing--30) var(--wp--preset--spacing--40); 
 }
 
-.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]::placeholder,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type=email]:disabled,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]::placeholder,.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type=email]:disabled {
-//     color: currentColor;
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type="email"]::placeholder,
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline form input[type="email"]:disabled,
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type="email"]::placeholder,
+.wp-block-jetpack-subscriptions.wp-block-jetpack-subscriptions__supports-newline .wp-block-jetpack-subscriptions__form input[type="email"]:disabled {
     opacity: .75
 }

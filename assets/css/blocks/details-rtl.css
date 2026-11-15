@@ -9,17 +9,17 @@
   margin-top: var(--wp--preset--spacing--30);
 }
 
-.wp-block-details:not(.is-style-plain) > summary {
-  border-bottom: 1px solid var(--wp--custom--color--border);
-  padding-bottom: var(--wp--preset--spacing--20, 6px);
-}
-
 .wp-block-details > summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
   cursor: pointer;
+}
+
+.wp-block-details:not(.is-style-plain) > summary {
+  border-bottom: 1px solid var(--wp--custom--color--border);
+  padding-bottom: var(--wp--preset--spacing--20, 6px);
 }
 
 .wp-block-details > summary::-webkit-details-marker {

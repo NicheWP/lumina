@@ -7,7 +7,6 @@
 @use 'sass:string';
 @use 'sass:list';
 @use 'sass:map';
-
 @use '00-config' as config;
 @use '01-compiler' as *;
 
@@ -27,6 +26,7 @@
 ///
 /// @group Physics Interactions
 %physics-lift-subtle {
+
 	/* ==========================================================================
 	   03.01 SUBTLE LIFT: Apply shift up (e.g. -2px)
 	========================================================================== */
@@ -50,6 +50,7 @@
 ///
 /// @group Physics Interactions
 %physics-lift-standard {
+	
 	/* ==========================================================================
 	   03.02 DEFAULT LIFT: Apply shift up (e.g. -2px)
 	========================================================================== */
@@ -72,6 +73,7 @@
 ///
 /// @group Physics Interactions
 %physics-grow-small  {
+
 	/* ==========================================================================
 	   03.03 GROW SMALL: Apply small growth (e.g. 1.03x)
 	========================================================================== */
@@ -94,6 +96,7 @@
 ///
 /// @group Physics Interactions
 %physics-grow-standard  {
+
 	/* ==========================================================================
 	   03.04 STANDARD GROW: Apply standard growth (e.g. 1.05x)
 	========================================================================== */
@@ -116,6 +119,7 @@
 ///
 /// @group Physics Interactions
 %physics-grow-large  {
+
 	/* ==========================================================================
 	   03.05 LARGE GROW: Apply large growth (e.g. 1.1x)
 	========================================================================== */
@@ -138,6 +142,7 @@
 ///
 /// @group Physics Interactions
 %physics-shadow-deep {
+
 	/* ==========================================================================
 	   03.06 DEEP SHADOW: Apply deep shadow
 	========================================================================== */
@@ -155,15 +160,19 @@
 
     // Apply physics
     @if config.$lumina-dev-mode {
+
         @include __blueprint-lift-subtle;
     } @else {
+
         @extend %physics-lift-subtle;
     }
 
     // Apply Deep Shadow
 	@if config.$lumina-dev-mode {
+
 		@include __blueprint-shadow-deep;
 	} @else {
+
 		@extend %physics-shadow-deep;
 	}
 
@@ -199,15 +208,19 @@
 
     // Apply physics
     @if config.$lumina-dev-mode {
+
         @include __blueprint-lift-subtle;
     } @else {
+
         @extend %physics-lift-subtle;
     }
 
     // Apply Deep Inset Shadow
     @if config.$lumina-dev-mode {
+
         @include __blueprint-card-inset;
     } @else {
+
         @extend %physics-card-inset;
     }
 
@@ -229,8 +242,10 @@
 
 		// Apply Physics
 		@if config.$lumina-dev-mode {
+
 			@include __blueprint-lift-standard;
 		} @else {
+
 			@extend %physics-lift-standard;
 		}
 	
@@ -257,8 +272,10 @@
 
     // Apply Physics
     @if config.$lumina-dev-mode {
+
         @include __blueprint-grow-small;
     } @else {
+
         @extend %physics-grow-small;
     }
 
@@ -289,6 +306,7 @@
 ///
 /// @group Physics Interactions
 %physics-remove-overlay {
+
 	/* ==========================================================================
 	   03.22 REMOVE OVERLAY: Fade out the overlay color
 	========================================================================== */
@@ -304,11 +322,14 @@
 	@if config.$overlay-background != '' {
 
 		> a {
+
 			&::before {
 	
 				@if config.$lumina-dev-mode {
+
 					@include __blueprint-remove-overlay;
 				} @else {
+
 					@extend %physics-remove-overlay;
 				}
 			}
@@ -332,6 +353,7 @@
 ///
 /// @group Physics Interactions
 %physics-filter-image {
+
 	/* ==========================================================================
 	   03.23 FILTER IMAGE: Apply hover filter (e.g. brightness) on the image
 	========================================================================== */
@@ -347,9 +369,12 @@
 	@if config.$image-filter != '' {
 	
 		img {
+
 			@if config.$lumina-dev-mode {
+
 				@include __blueprint-filter-image;
 			} @else {
+
 				@extend %physics-filter-image;
 			}
 		}
@@ -372,6 +397,7 @@
 ///
 /// @group Physics Interactions
 %physics-veil-reveal {
+
 	/* ==========================================================================
 	   03.24 VEIL REVEAL: Reveals veil by setting opacity 
 	========================================================================== */
@@ -387,10 +413,14 @@
 	@if config.$veil-type != '' {
 
 		> a {
+
 			&::after {
+
 				@if config.$lumina-dev-mode {
+
 					@include __blueprint-veil-reveal;
 				} @else {
+
 					@extend %physics-veil-reveal;
 				}
 			}
@@ -411,8 +441,10 @@
 	&:not(#{config.$blocks-layout-brakes}) {	
 	
 		@if config.$lumina-dev-mode {
+
 			@include __blueprint-shadow-deep;
 		} @else {
+
 			@extend %physics-shadow-deep;
 		}
 	}
@@ -444,9 +476,12 @@
 	
 		// Apply shadow directly to the image
 		img {
+
 			@if config.$lumina-dev-mode {
+
 				@include __blueprint-shadow-deep;
 			} @else {
+
 				@extend %physics-shadow-deep;
 			}
 		}	
@@ -473,9 +508,12 @@
 ///
 /// @group Physics Interactions
 @mixin apply-object-zoom-asset {
+
 	@if config.$lumina-dev-mode {
+
 		@include __blueprint-grow-large;
 	} @else {
+
 		@extend %physics-grow-large;
 	}
 
@@ -512,6 +550,7 @@
 ///
 /// @group Physics Interactions
 %physics-button {
+
 	/* ==========================================================================
 	   03.30 BUTTON: Buttons and blocks that work like buttons
 	========================================================================== */
@@ -522,9 +561,12 @@
 ///
 /// @group Physics Interactions
 @mixin apply-button {
+
 	@if config.$lumina-dev-mode {
+
 		@include __blueprint-button;
 	} @else {
+
 		@extend %physics-button;
 	}
 }
@@ -551,6 +593,7 @@
 ///
 /// @group Physics Interactions
 %physics-silence {
+
 	/* ==========================================================================
 	   03.40 SILENCE ACTIVE: Silence Cards and Objects
 	========================================================================== */
@@ -561,9 +604,12 @@
 ///
 /// @group Physics Interactions
 @mixin apply-silence {
+
 	@if config.$lumina-dev-mode {	
+
 		@include __blueprint-silence;
 	} @else {
+
 		@extend %physics-silence;
 	}
 }
@@ -590,6 +636,7 @@
 ///
 /// @group Physics Interactions
 %physics-silence-shadow {
+
 	/* ==========================================================================
 	   03.41 SILENCE ACTIVE SHADOW: Silence shadows embedded in Cards
 	========================================================================== */
@@ -600,9 +647,12 @@
 ///
 /// @group Physics Interactions
 @mixin apply-silence-shadow {
+
 	@if config.$lumina-dev-mode {	
+
 		@include __blueprint-silence-shadow;
 	} @else {
+
 		@extend %physics-silence-shadow;
 	}
 }

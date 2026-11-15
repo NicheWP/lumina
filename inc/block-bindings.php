@@ -3,6 +3,8 @@
  * File:	block-bindings.php
  * Theme:	Shared Block Binding Functions
  * 
+ * Description: Provides custom block binding functions for the Lumina theme.
+ * 
  * @package NicheWP
  */
 

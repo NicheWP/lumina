@@ -14,7 +14,7 @@
   border-bottom: none;
 }
 .wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-  background-color: color-mix(in srgb, var(--wp--preset--color--base, #ffffff) 60%, transparent);
+  background-color: color-mix(in srgb, var(--wp--preset--color--base, #fff) 60%, transparent);
   color: var(--wp--preset--color--contrast, #1b1b1b);
 }
 .wp-block-table.is-style-stripes tbody tr:nth-child(even) {

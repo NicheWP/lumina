@@ -3,7 +3,6 @@
 //   ========================================================================== */
 
 @use 'sass:map';
-
 @use "index" as logic;
 
 //*-----------------------------------------------------------------------------
@@ -36,6 +35,7 @@
 		// the link color. This is only needed in the Editor due to WordPress 
 		// using very high specificity on this. 
 		@if $link {
+			
 			@include logic.apply-link-action(
 				$color: $color, 
 				$link: $link, 

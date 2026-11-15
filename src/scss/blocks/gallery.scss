@@ -24,7 +24,9 @@ $image-border-padding: 0px;
 .wp-block-gallery.is-style-image-border {
 
 	&.has-nested-images figure.wp-block-image {
+
 		&:not(.is-style-rounded):not(.is-style-image-round-border):not(.is-style-image-computer-screen):not(.is-style-image-tablet-phone-screen) {
+		
 			&:has(figcaption)::before,
 			& figcaption {
 				bottom: calc(1px + $image-border-padding); 
@@ -55,6 +57,7 @@ $image-border-padding: 0px;
 
 /* Image Computer Screen captions */
 .wp-block-gallery.has-nested-images figure.wp-block-image.is-style-image-computer-screen {
+
 	&:has(figcaption)::before,
 	& figcaption {
 		left: var(--wp--preset--spacing--60);	
@@ -64,6 +67,7 @@ $image-border-padding: 0px;
 
 /* Image Tablet/Phone Screen captions */
 .wp-block-gallery.has-nested-images figure.wp-block-image.is-style-image-tablet-phone-screen {
+
 	&:has(figcaption)::before,
 	& figcaption {
 		left: var(--wp--preset--spacing--50);	

@@ -11,6 +11,10 @@ ol.is-style-list-dividers,
 	padding-left: 0;
 }
 
+.is-style-list-dividers:not(.has-background) li ul li {
+	padding-left: var(--wp--preset--spacing--40);
+}
+
 .is-style-list-dividers:not(.wp-block-latest-posts__list.is-grid) li:not(:first-child),
 .is-style-list-dividers:not(.wp-block-latest-posts__list.is-grid) li > ul {
 	list-style: none;
@@ -20,8 +24,4 @@ ol.is-style-list-dividers,
 	
 	padding-top: var(--wp--preset--spacing--30);
 	margin-top: var(--wp--preset--spacing--30);
-}
-
-.is-style-list-dividers:not(.has-background) li ul li {
-	padding-left: var(--wp--preset--spacing--40);
 }

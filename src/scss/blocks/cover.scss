@@ -8,17 +8,17 @@
 	// Ensure content doesn't press up against browser edges
 // 	margin: var(--wp--preset--spacing--40);
 
-	& > * {
+	> * {
 		margin-left: auto;
 		margin-right: auto;	
 	}
 	
-	& > *:not(.alignfull):not(.alignwide) {
+	> *:not(.alignfull):not(.alignwide) {
 		max-width: var(--wp--style--global--content-size); 
 	}
 	
-	& > *.alignwide,
-	& > *.alignfull {
+	> *.alignwide,
+	> *.alignfull {
 		max-width: var(--wp--style--global--wide-size); 
 	}
 }
@@ -52,6 +52,7 @@ header > .wp-block-cover {
 
 	// DYNAMIC OPTICAL NUDGE: Only apply when vertically centered (or default unpositioned)
 	&:is(.is-position-center-center, :not([class*="is-position-"])) {
+
 		.wp-block-cover__inner-container {
 			transform: translateY(
 				calc(-0.5 * (100vh - 100svh))
