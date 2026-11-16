@@ -24,9 +24,20 @@ See the [theme variables and style reference](https://nichewp.github.io/lumina/v
 
 ## 1.3 Color Schemes & the Lumina Colors Engine
 
-Lumina offers a range of color schemes, from nature- and coastal-inspired palettes to heritage, jewel-toned, industrial, and high-key light treatments. Current schemes include Elements, Horizon, Heritage, Ember, Velvet, Dusk, Low Tide, Zinc, and Light. 
+Lumina's color schemes offer distinct expressions of the theme's visual identity while sharing semantic color roles:
 
-The Lumina Colors Engine and its semantic color registry connect each color role to theme-authored treatments for body text, headings, and links. This gives the theme author control over the intended contrast relationships and supports accessible, coherent defaults. Creators should still check contrast when they customize colors and content; the engine does not guarantee WCAG compliance for every possible combination. 
+* **Elements (standard):** Sage green, ocean blue, and golden sun create a nature-inspired balance of flora, water, and warmth.
+* **Horizon (standard):** Coastal terracotta, ocean blue, and golden sun bring an earthy, open feeling shaped by land and sea.
+* **Heritage (standard):** Patina crimson, burnished brass, and midnight blue evoke the thoughtful richness of a professor's library.
+* **Ember (standard):** Fiery terracotta, gold, and volcanic umber give the palette a warm, glowing energy.
+* **Velvet (standard):** Plum, sapphire, and crimson jewel tones create a rich and expressive atmosphere.
+* **Dusk (standard):** Evening slates and twilight terracotta capture the subdued, contemplative mood of the blue hour.
+* **Low Tide (dark):** Deep water, gray stone, and glistening sand suggest a dramatic shoreline after the tide recedes.
+* **Zinc (dark):** Machined metal and gunmetal tones give the palette a restrained, industrial character.
+* **Light (high-key):** Soft linen amber, ocean slate, and sage linen create an airy, luminous treatment.
+* **Lumina Full Palette:** A broad starting palette that exposes the theme's wider range of named colors and semantic roles.
+
+The Lumina Colors Engine and its semantic color registry connect each color role to theme-authored treatments for body text, headings, and links. This gives the theme author control over intended contrast relationships and supports accessible, coherent defaults. Creators should still check contrast when they customize colors and content; the engine does not guarantee WCAG compliance for every possible combination.
 
 See the [theme variables and color documentation](https://nichewp.github.io/lumina/variables.html).
 
@@ -50,246 +61,56 @@ Lumina includes a broad collection of templates, template parts, and block patte
 
  Explore the documentation for [templates](https://nichewp.github.io/lumina/templates.html), [template parts](https://nichewp.github.io/lumina/parts.html), and [block patterns](https://nichewp.github.io/lumina/patterns.html).
   
-# Section 2: Lumina Color Engine & Master Palette Architecture  
-##   
-## 2.1 The Four-Tier Color Track & Lightness Architecture  
-Every chromatic family in Lumina (Sage, Ocean Slate, Antique Gold, Terracotta, Velvet, Zinc) is mathematically calibrated into a four-tier track structure that strictly enforces a 48%/38% HSL lightness standardization:  
-  
-1. **Primary Tier (48% Lightness Anchor):** The core brand anchor used for high-impact callout fills, primary CTA buttons, and key focus indicators. Formulated for high-contrast white or off-white typography.  
-2. **Alt Tier / Primary Alt (38% Lightness Anchor):** A deeper dark anchor used for hover states, focused button outlines, and dark hero container backgrounds.  
-3. **Subtle Tier (91%–96% Lightness Wash):** A soft, chromatic backdrop designed for container wells, alert boxes, and highlighted group backgrounds.  
-4. **Subtle Alt Tier (83%–88% Lightness Seam):** An alternate tinted backdrop used for nested wells, alternating table rows, card borders, and structural dividers.  
-**High-Key Ethereal Mode (500-light.json)**  
-In high-key light variations, the primary, secondary, and tertiary slots shift into soft 91%–95% card fills that pair with dark contrast text, while their corresponding -alt anchors step up to 44%–48% flagship action controls to preserve brand vibrancy without plunging the layout into heavy dark navy or pine.  
-  
-**Brand-Grounded Dark Floors**  
-Dark mode containers and abyssal background floors (primary-dark, dark, tertiary-dark, dark-alt) strictly carry brand-tinted HSL hues (18%–22% lightness floors) rather than generic black or flat carbon wells.  
-  
-## 2.2 Scheme-Specific Tinted Black Calibration  
-To prevent dark surfaces and deep typography from feeling cold or unintegrated, Lumina eliminates sterile achromatic grays. The almost-black (18% lightness floor) and not-quite-black (11% lightness typographic ink) tokens dynamically rotate their HSL hue angles to lock directly into the active color scheme's contrast identity:  
-  
-* **Velvet Scheme:** Rotated to a 327° HSL Plum hue (hsl(327, 14%, 18%) for almost-black and hsl(330, 8%, 11%) for not-quite-black) to give dark cards and deep text a plum-infused charcoal depth.  
-* **Light / Obsidian Scheme:** Rotated to a 215° HSL Obsidian Slate hue (hsl(215, 16%, 18%) for almost-black and hsl(215, 15%, 11%) for not-quite-black) to match the contrast typographic ink token.  
-* **Heritage / Zinc Schemes:** Rotated to a 208° HSL Slate hue to align with cold charcoal and technical aqua backgrounds.  
-## 2.3 The Neutral & Warm Sand Track  
-To prevent layout wells, sidebars, and footers from drifting into cold digital gray, Lumina anchors all neutral utilities on a warm sand and linen track (32°–40° HSL baseline):  
-* **base / off-white (97.5%–99% Lightness):** Master viewport canvas background for light mode variations.  
-* **neutral (96% Lightness):** Warm linen component well—the lightest non-canvas structural surface for off-canvas drawers and sidebar panels.  
-* **very-light-gray (93% Lightness):** Warm sand background fill for primary footers, sub-footers, and secondary content wells.  
-* **neutral-alt (88% Lightness):** Default warm sand border seam and field outline stroke.  
-* **light-gray (85% Lightness):** Inner inset wells and subtle separator lines.  
-* **gray (71% Lightness):** Medium-contrast structural borders and hairline seams.  
-* **dark-gray (44% Lightness):** Muted secondary typography, post metadata, captions, and secondary labels.  
-* **very-dark-gray (25% Lightness):** Deep ambient shadow parameter tint and high-contrast neutral elements.  
-* **contrast (11%–13% Lightness):** Deep obsidian/indigo typographic ink for H1–H6 headings and body copy on light backdrops.  
-## 2.4 Dynamic CSS Filter Link Engine & Interaction Mechanics  
-Lumina utilizes a dynamic, filter-driven link transformation engine that evaluates contrast and hue relationships relative to the underlying surface fill rather than relying on hardcoded static colors.  
-  
-**Variable Abstraction & Purpose**  
-* **$filter-link-lighten:** Binds to var(--wp--custom--color--highlight-alt--lighten, brightness(1.75) saturate(0.80)). Provides dynamic, relative brightening and saturation adjustments for inline link text sitting over dark -alt background slots and dark containers.PNG+ 1  
-* **$filter-link-darken:** Binds to var(--wp--custom--color--highlight--darken, brightness(0.40) saturate(1.15)). Provides dynamic, relative darkening transforms for link text rendered over light background slots and light surface fills.PNG+ 1  
-**Scheme-Specific Filter Customization**  
-Each theme.json style variation can supply scheme-specific filter overrides under settings.custom.color (e.g., fine-tuning highlight-alt.lighten in Ember or Light variants). This allows individual color schemes to achieve optimal WCAG AA legibility and eliminate chromatic glare without modifying SCSS engine logic or breaking global cascade rules.  
-  
-**Decoupled Role Opacity Tokens**  
-Interaction feedback is strictly isolated across component roles to prevent layout reflow and visual interference:  
-  
-* **Inline Text Links:** Controlled via custom.color.link.hoverOpacity (locked to 0.7 for sharp alpha feedback without obscuring text).MD  
-* **Linked Media Assets:** Controlled via custom.color.image.hoverOpacity (0.85 static / 1.0 in motion).MD  
-* **Buttons:** Retain solid fill opacity (1.0) and handle hover feedback via 15% dark overlay pseudo-elements (::before) or scale transformations.MD  
-## 2.5 Gutenberg UI Safety Protocols & Palette Purge  
-**The Gutenberg Palette Purge**  
-To keep the Site Editor inspector clean and prevent content creators from applying un-tinted raw colors, non-semantic palette swatches (black, white, foreground-alt, and raw named colors) are purged from selectable color pickers in theme.json. The editor exposes strictly functional, semantic swatches (primary, secondary, tertiary, base, contrast, neutral, neutral-alt, highlight, highlight-alt, etc.).  
-  
-**The currentColor Exclusion Protocol**  
-Dynamic or contextual properties like --wp--custom--color--muted-text must **NEVER** be registered as selectable color dots in theme.json:  
-  
-1. **Inverted Dot Bug:** Gutenberg's sidebar applies its own text context, causing circular palette dots using currentColorto display incorrect admin preview colors.MD  
-2. **Background Feedback Loop:** Applying currentColor as a container background matches the fill to the text color, rendering all content instantly invisible.MD  
-3. **Implementation Standard:** Contextual properties are injected exclusively via developer-controlled CSS custom properties in :where(.wp-site-blocks).MD  
-## 2.6 Theme Interoperability Bridge (_theme-bridge.scss)  
-To ensure seamless integration when importing external pattern layouts (such as TwentyTwentyFour, TwentyTwentyFive, or Flat Blocks), Lumina provides a universal mapping bridge:  
-  
-* **Automated Translation Loop:** An @each Sass loop maps external class utilities (e.g., .has-tertiary-color, .has-heading-color, .has-accent-background-color) directly into Lumina's 5-tier semantic token architecture.  
-* **Zero-Specificity Safety Net:** Unrecognized or legacy block markup falls back to zero-specificity :where() selectors, guaranteeing that imported patterns inherit correct theme typography, link colors, and contrast rules without specificity wars or requiring !important flags.  
-## 2.7 Master Semantic Color Matrix Table  
+# Section 2: Lumina Color Engine & Palette Guide
 
-| Semantic Token / Custom Property | HSL Target / Asset Mapping | Functional Purpose & Architectural Role | Contextual Contrast & Behavioral Rule |
-| -------------------------------- | --------------------------------------------------- | --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| primary | hsl(154, 24%, 48%)(Main)
+## 2.1 Guidelines for Standard Schemes
 
-hsl(154, 22%, 92%)(Light) | Primary brand callout fill, main CTA buttons, and key visual focal points.
-MD | Pairs with white text on dark surfaces or contrast ink on high-key light fills.
-MD |
-| secondary | hsl(206, 24%, 44%)(Main)
+In the standard schemes, primary, secondary, and tertiary colors provide the stronger brand accents used in hero sections, calls to action, and feature areas. Their alternate colors offer a deeper or more emphatic companion. Subtle colors create quieter surfaces for grouped content, feature icons, galleries, and pricing cards. Neutral colors support the page canvas, supporting sections, dividers, and other structural details.
 
-hsl(206, 22%, 92%)(Light) | Secondary action buttons, info cards, active navigation markers, and hero section accents.
-MD | Formulated for solid container fills and secondary control hierarchy.
-MD |
-| tertiary | hsl(34, 32%, 48%)(Main)
+The following lightness ranges describe the current palettes as a guide, not fixed requirements. Individual schemes vary to preserve their character, and the role of a color matters more than matching a number:
 
-hsl(38, 24%, 92%)(Light) | Warm accent highlights, heading separators, featured tags, and quote borders.
-MD | Binds decorative accents to the warm brand track.
-MD |
-| primary-alt | hsl(154, 26%, 38%)(Main)
+* **Primary, secondary, and tertiary:** Usually around 30-50% lightness, with many values in the 40s; `*-alt` companions are often around 18-38%. Heritage and Dusk use some notably deeper main accents.
+* **Subtle surfaces:** Commonly around 91-92%; the less common `*-subtle-alt` colors are closer to 83-84%.
+* **Deep accents:** `primary-dark`, `dark`, and `tertiary-dark` roles are generally around 18-28%, with their `*-alt` companions often around 12-20%.
+* **Highlights:** `highlight` and `highlight-accent` colors are usually around 68-78%; their alternate colors are generally deeper, around 28-38%.
+* **Neutrals:** `base` and `off-white` are typically around 96-99%, with `neutral` surfaces around 88-95%. The gray roles span from light structural tones through mid-grays to dark text and surface anchors.
+* **Extended named hues:** In the Full Palette, saturated color anchors are commonly around the 40s, lighter companions around the 80s to low 90s, and darker companions from the 20s to upper 30s. Blue and midnight-blue anchors are some of the darker exceptions.
 
-hsl(154, 24%, 48%)(Light) | Hover/active states for primary CTAs, dark container headers, and elevated card bounds.
-MD | Grounded dark anchor; pairs strictly with white/off-white text.
-MD |
-| secondary-alt | hsl(206, 26%, 34%)(Main)
+Choose colors for their role in the composition, then check that text and links remain clear against the selected surface.
 
-hsl(206, 24%, 44%)(Light) | Hero section backgrounds, default card header wells, and dark container fills.
-MD | Darker than secondary across all schemes; default background for hero patterns.
-MD |
-| tertiary-alt | hsl(34, 34%, 38%)(Main)
+## 2.2 Dark and Light Scheme Guidelines
 
-hsl(34, 32%, 48%)(Light) | Hover/active states for warm accents, deep badges, and warm card headers.
-MD | Deep warm anchor for high-impact accent sections.
-MD |
-| primary-subtle | hsl(154, 20%, 91%) | Faint sage background wash for primary card wells and success callouts.
-MD | Always pairs with dark typographic ink (contrast).
-MD |
-| secondary-subtle | hsl(206, 24%, 91%) | Faint sky background wash for info boxes and secondary card containers.
-MD | Always pairs with dark typographic ink (contrast).
-MD |
-| tertiary-subtle | hsl(38, 22%, 91%) | Faint parchment wash for warning banners and editorial excerpts.
-MD | Always pairs with dark typographic ink (contrast).
-MD |
-| primary-subtle-alt | hsl(154, 18%, 88%) | Structural hairline borders and card seams surrounding primary subtle wells.
-MD | Subtle structural framing token.
-MD |
-| secondary-subtle-alt | hsl(206, 18%, 87%) | Structural hairline borders and card seams surrounding secondary subtle wells.
-MD | Subtle structural framing token.
-MD |
-| tertiary-subtle-alt | hsl(38, 20%, 88%) | Structural hairline borders and field outlines surrounding tertiary subtle wells.
-MD | Subtle structural framing token.
-MD |
-| highlight | hsl(154, 65%, 68%)(Main)
+The dark schemes shift the canvas and supporting surfaces into deeper tones, while light foreground colors and distinct accents maintain hierarchy. Their base and subtle surfaces are generally around 10-27% lightness, while contrast text and off-white roles remain near the high end of the range. Highlights stay luminous, and deeper accents provide separation between dark sections. Use changes in surface depth to distinguish content, and keep text and links legible against each chosen background.
 
-hsl(154, 65%, 40%)(Light) | High-chroma link ink, focus rings, and active indicators on dark backgrounds.
-MD | Electric link glow; assigned when container text is light.
-PNG+ 1 |
-| highlight-alt | hsl(154, 75%, 28%)(Main)
+The Light scheme takes the opposite approach: its primary, secondary, and tertiary colors become soft, high-key fills, generally around 85-91%, with alternate colors around 80-87% and subtle surfaces around 93-95%. Deeper colors, generally around 34-48%, remain available for prominent actions and contrast. These differences preserve the airy character of the scheme without losing visual anchors.
 
-hsl(154, 55%, 30%)(Light) | High-chroma link ink for light, text-heavy container layouts without forced underlines.
-MD | Deep link ink; assigned when container text is dark.
-PNG+ 1 |
-| base | hsl(0, 0%, 99%) | Primary canvas background color anchoring global layout wrappers.
-MD | Master light viewport canvas.
-MD |
-| contrast | hsl(215, 20%, 13%) | Primary typographic ink for body copy, H1–H6 headings, and core UI text.
-MD | High-contrast reading ink (WCAG AAA).
-MD |
-| neutral | hsl(40, 20%, 96%) | Warm linen background well for sidebars, off-canvas drawers, and unaccented cards.
-MD | Lightest non-canvas structural fill well.
-MD |
-| neutral-alt | hsl(40, 15%, 88%) | Default neutral border stroke for dividers, field outlines, and standard card borders.
-MD | Structural framing seam (~8%–12% contrast).
-MD |
-| very-light-gray | hsl(40, 18%, 93%) | Warm sand background fill for primary footers, sub-footers, and secondary wells.
-MD | Outer footer floor canvas.
-MD |
-| light-gray | hsl(40, 14%, 85%) | Inner wells, search input backgrounds, and subtle content separator lines.
-MD | Secondary footer well and inner field fill.
-MD |
-| gray | hsl(40, 8%, 71%) | Medium-contrast structural borders, disabled controls, and form outlines.
-MD | Structural hairline seam.
-MD |
-| dark-gray | hsl(40, 4%, 44%) | Muted secondary typography, post metadata, captions, and secondary labels.
-MD | Secondary typographic ink.
-MD |
-| very-dark-gray | hsl(40, 2%, 25%) | Deep shadow parameter tint and high-contrast neutral elements.
-MD | Ambient shadow tint parameter.
-MD |
-| almost-black | hsl(215, 16%, 18%)(Scheme-calibrated) | High-contrast dark surface fill, dark mode cards, and carbon footer grounds.
-MD | Hue-rotated to match scheme contrast identity (18% L).
-PNG+ 2 |
-| not-quite-black | hsl(215, 15%, 11%)(Scheme-calibrated) | Deep typographic ink for high-contrast reading surfaces and abyssal accents.
-MD | Hue-rotated to match scheme contrast identity (11% L).
-PNG+ 2 |
-  
-****2.8 Colors-Related theme.json Custom Variables****  
-All component-level color references in Lumina are abstracted into settings.custom.color tokens in theme.json to isolate core styling logic from editable palette presets.  
-MD  
-  
-**2.8.1 Structural Custom Property Map**  
-JSON  
-  
-```
-{
-  "settings": {
-    "custom": {
-      "color": {
-        "theme": {
-          "mode": "is-light-theme",
-          "scheme": "lumina"
-        },
-        "border": "color-mix(in srgb, currentColor 8%, transparent)",
-        "field": {
-          "outline": "color-mix(in srgb, currentColor 12%, transparent)"
-        },
-        "highlight": {
-          "darken": "brightness(0.40) saturate(1.15)"
-        },
-        "highlight-alt": {
-          "lighten": "brightness(1.75) saturate(0.80)"
-        },
-        "button": {
-          "background": "var(--wp--preset--color--primary)",
-          "text": "var(--wp--preset--color--off-white)",
-          "hover": "var(--wp--preset--color--primary-alt)",
-          "hoverOpacity": "1.0"
-        },
-        "link": {
-          "hoverOpacity": "0.7"
-        },
-        "image": {
-          "hoverOpacity": "0.85"
-        },
-        "heading": {
-          "text": "var(--wp--preset--color--contrast)",
-          "separator": "var(--wp--preset--color--tertiary)"
-        },
-        "navigation": {
-          "background": "var(--wp--preset--color--base)"
-        }
-      }
-    }
-  }
-}
+Treat these ranges as observations and design guidance rather than thresholds. Hue, neighboring colors, and the intended text treatment all affect the result; verify contrast in context.
 
-```
-  
-**2.8.2 Token Definition & Behavior Matrix**  
+## 2.3 Color Roles in Lumina Patterns
 
-| Variable Key | Target Preset / Value | Architectural Mechanics & Purpose |
-| ---------------------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------- |
-| custom.color.theme.mode | "is-light-theme" / "is-dark-theme" | Global state flag set on <body> to route theme physics and contrast cascades.
-MD |
-| custom.color.theme.scheme | "lumina", "ember", "velvet", "zinc", "light" | Identifies active Global Style scheme variation.
-MD |
-| custom.color.border | color-mix(in srgb, currentColor 8%, transparent) | Dynamic, context-aware stroke for cards, fields, and dividers. |
-| custom.color.field.outline | color-mix(in srgb, currentColor 12%, transparent) | Context-aware focus outline for form inputs.
-MD |
-| custom.color.highlight.darken | var(--wp--custom--color--highlight--darken) | SCSS $filter-link-darken variable hook for link darkening logic.
-PNG |
-| custom.color.highlight-alt.lighten | var(--wp--custom--color--highlight-alt--lighten) | SCSS $filter-link-lighten variable hook for link brightening logic.
-PNG |
-| custom.color.button.background | var(--wp--preset--color--primary) | Surface fill for core/button blocks.
-MD |
-| custom.color.button.hoverOpacity | 1.0 (with 15% dark overlay ::before) | Tactile hover feedback for buttons without color shifting.
-MD |
-| custom.color.link.hoverOpacity | 0.7 | Alpha transparency shift for text links on hover without layout reflow.
-MD |
-| custom.color.image.hoverOpacity | 0.85 | Hover opacity shift for linked image assets. |
-| custom.color.heading.text | var(--wp--preset--color--contrast) | Default typographic ink for H1–H6 headings.
-MD |
-| custom.color.heading.separator | var(--wp--preset--color--tertiary) | Decorative underline accent color for entry titles.
-MD |
-| custom.color.navigation.background | var(--wp--preset--color--base) | Backdrop fill for sticky header navigation wrappers.
-MD |
-  
-  
+Lumina's patterns demonstrate how the semantic palette can establish hierarchy across real layouts. The examples below describe common uses, not rules that every pattern must follow.
+
+| Color role | Related color slugs | How it appears in patterns | Design guidance |
+| --- | --- | --- | --- |
+| Primary (`primary`) | `primary-alt`, `primary-subtle`, `primary-subtle-alt`, `primary-dark`, `primary-dark-alt` | Brand-forward hero areas, featured sections, and calls to action. | Use to establish a clear focal point or support a primary action; use the related shades to vary emphasis and surface weight. |
+| Secondary (`secondary`) | `secondary-alt`, `secondary-subtle`, `secondary-subtle-alt` | Alternate call-to-action sections, media-and-text panels, and supporting content bands. | Use to distinguish a related section or secondary action from the primary focal point. |
+| Tertiary (`tertiary`) | `tertiary-alt`, `tertiary-subtle`, `tertiary-subtle-alt`, `tertiary-dark`, `tertiary-dark-alt` | Accent details, social and feature columns, and separator rules in pricing layouts. | Use selectively to add contrast and rhythm without making every section compete for attention. |
+| Dark anchors | `dark`, `dark-alt`, `primary-dark`, `primary-dark-alt`, `tertiary-dark`, `tertiary-dark-alt` | Dark call-to-action panels and other intentionally dramatic sections. | Pair deeper surfaces with suitable light foreground colors and verify contrast in context. |
+| Highlights and link accents | `highlight`, `highlight-alt`, `highlight-accent`, `highlight-accent-alt`, `highlight-accent-2`, `highlight-accent-2-alt` | Link treatments and emphasized statistics or values. | Reserve brighter accents for useful emphasis, and retain clear text contrast. |
+| Neutral foundation | `base`, `contrast`, `neutral`, `neutral-alt`, `off-white`, `white`, `black`, `very-light-gray`, `light-gray`, `gray`, `dark-gray`, `very-dark-gray`, `almost-black`, `not-quite-black` | Page backgrounds, body and heading text, supporting surfaces, and dividers. | Use these roles as the visual foundation that keeps content readable and color accents organized. |
+| Green family | `very-light-green`, `light-green`, `green`, `dark-green`, `bright-green`, `dark-bright-green` | Available for creator-selected accents and custom pattern compositions; the curated patterns primarily express color through the semantic roles above. | Choose a green by its role and contrast, rather than assuming a named hue is suitable for every text or surface use. |
+| Yellow family | `very-light-yellow`, `light-yellow`, `yellow`, `dark-yellow` | Available for creator-selected accents and custom pattern compositions. | Use lighter variants for restrained fills and stronger variants for intentional accents; check foreground contrast. |
+| Orange family | `very-light-orange`, `light-orange`, `orange`, `dark-orange` | Available for creator-selected accents and custom pattern compositions. | Use as a warm accent or supporting fill without letting it compete with primary actions. |
+| Blue family | `very-light-blue`, `light-blue`, `blue`, `dark-blue`, `midnight-blue`, `dark-midnight-blue` | Available for creator-selected accents and custom pattern compositions. | Use the lighter tones for soft surfaces and deeper tones for stronger anchors; check text and link contrast. |
+| Purple family | `very-light-purple`, `light-purple`, `purple`, `dark-purple` | Available for creator-selected accents and custom pattern compositions. | Use to add a distinct supporting accent while keeping the overall hierarchy clear. |
+| Red family | `very-light-red`, `light-red`, `red`, `dark-red` | Available for creator-selected accents and custom pattern compositions. | Use deliberately for emphasis and keep essential meaning available through text or other cues as well. |
+
+## 2.4 Using Color with Intent
+
+Start with the purpose of a section—such as a primary action, a supporting feature, or a quiet content well—and choose a semantic color role to match. Lumina's curated editor palette and patterns provide consistent starting points, while creators remain free to adapt them. When using custom colors or importing patterns from another theme, review text and link contrast in context; color alone should not carry essential meaning.
+
+For exact color values, palette definitions, and custom variables, see the [technical color documentation](https://nichewp.github.io/lumina/variables.html).
+
 # Section 3: Digital Physics & Kinetic Effects Engine  
 ## 3.1 Architecture Overview & Block Registry Schema (_00-config.scss)  
 The Lumina Physics Engine operates as a declarative, data-driven kinetic framework. Rather than applying loose, uncoordinated CSS hover rules, all interactive components are declared within a centralized Map Registry (_00-config.scss). This registry maps WordPress Gutenberg blocks to physical roles, structural gates, and interaction scopes.  
