@@ -113,6 +113,18 @@ npm run docs:templates"""
 npm run docs:variables"""
     },
 
+    "docs-theme.sh": {
+        "title": "Theme Design Tokens Reference Generator",
+        "description": "Reads configurable dotted JSON paths from <code>theme.json</code> and color style variations to generate <code>docs/theme.html</code> and <code>docs/theme.md</code>.",
+        "params": [
+            "Edit the JSON_SECTIONS list in the script to include additional JSON paths."
+        ],
+        "usage": """./utils/docs-theme.sh
+
+# Or via NPM:
+npm run docs:theme"""
+    },
+
     "generate-test-pattern-page.sh": {
         "title": "Master Test Pattern Generator",
         "description": "Combines active PHP block pattern calls into a single master test layout (<code>patterns/99-page-all-patterns-TEST.php</code>) for rapid visual auditing in the Site Editor.",

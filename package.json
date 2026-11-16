@@ -16,9 +16,10 @@
     "watch:docs-patterns": "onchange -k -d 500 \"patterns/**/*.php\" -- npm run docs:patterns",
     "watch:docs-parts": "onchange -k -d 500 \"parts/*.html\" -- npm run docs:parts",
     "watch:docs-templates": "onchange -k -d 500 \"templates/*.html\" -- npm run docs:templates",
-    "watch:docs-variables": "onchange -k -d 500 \"theme.json\" \"styles/**/*.json\" \"src/scss/**/*.scss\" \"inc/images.php\" -- npm run docs:variables",
+    "watch:docs-variables": "onchange -k -d 500 \"theme.json\" \"styles/**/*.json\" \"src/scss/**/*.scss\" \"inc/images.php\" \"utils/docs-variables.sh\" -- npm run docs:variables",
+    "watch:docs-theme": "onchange -k -d 500 \"theme.json\" \"styles/colors/**/*.json\" \"utils/docs-theme.sh\" -- npm run docs:theme",
     "watch:docs-scripts": "onchange -k -d 500 \"utils/*\" -- npm run docs:scripts",
-    "watch:docs": "concurrently --names \"PHP,SCSS,PTRN,PRTS,TMPL,VARS,UTIL\" -c \"yellow,cyan,green,magenta,blue,red,white\" \"npm run watch:docs-php\" \"npm run watch:docs-scss\" \"npm run watch:docs-patterns\" \"npm run watch:docs-parts\" \"npm run watch:docs-templates\" \"npm run watch:docs-variables\" \"npm run watch:docs-scripts\"",
+    "watch:docs": "concurrently --names \"PHP,SCSS,PTRN,PRTS,TMPL,VARS,THEME,UTIL\" -c \"yellow,cyan,green,magenta,blue,red,cyan,white\" \"npm run watch:docs-php\" \"npm run watch:docs-scss\" \"npm run watch:docs-patterns\" \"npm run watch:docs-parts\" \"npm run watch:docs-templates\" \"npm run watch:docs-variables\" \"npm run watch:docs-theme\" \"npm run watch:docs-scripts\"",
 
     "docs:php": "mkdir -p ./docs/php && rm -rf ./docs/php/* && phpdoc",
     "docs:scss": "sassdoc src/scss --dest docs/scss",
@@ -26,8 +27,9 @@
     "docs:parts": "./utils/docs-parts.sh",
     "docs:templates": "./utils/docs-templates.sh",
     "docs:variables": "./utils/docs-variables.sh",
+    "docs:theme": "./utils/docs-theme.sh",
     "docs:scripts": "./utils/docs-scripts.sh",
-    "docs": "npm run docs:php && npm run docs:scss && npm run docs:patterns && npm run docs:parts && npm run docs:templates && npm run docs:variables && npm run docs:scripts"
+    "docs": "npm run docs:php && npm run docs:scss && npm run docs:patterns && npm run docs:parts && npm run docs:templates && npm run docs:variables && npm run docs:theme && npm run docs:scripts"
   },
   "devDependencies": {
     "@wordpress/icons": "^15.5.0",

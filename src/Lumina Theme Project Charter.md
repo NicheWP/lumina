@@ -39,7 +39,7 @@ Lumina's color schemes offer distinct expressions of the theme's visual identity
 
 The Lumina Colors Engine and its semantic color registry connect each color role to theme-authored treatments for body text, headings, and links. This gives the theme author control over intended contrast relationships and supports accessible, coherent defaults. Creators should still check contrast when they customize colors and content; the engine does not guarantee WCAG compliance for every possible combination.
 
-See the [theme variables and color documentation](https://nichewp.github.io/lumina/variables.html).
+See the [theme palette reference](https://nichewp.github.io/lumina/theme.html) for scheme colors and the [theme variables documentation](https://nichewp.github.io/lumina/variables.html) for custom variables.
 
 ## 1.4 Typography & Curated Fonts
 
@@ -92,9 +92,9 @@ Lumina's patterns demonstrate how the semantic palette can establish hierarchy a
 
 | Color role | Related color slugs | How it appears in patterns | Design guidance |
 | --- | --- | --- | --- |
-| Primary (`primary`) | `primary-alt`, `primary-subtle`, `primary-subtle-alt`, `primary-dark`, `primary-dark-alt` | Brand-forward hero areas, featured sections, and calls to action. | Use to establish a clear focal point or support a primary action; use the related shades to vary emphasis and surface weight. |
-| Secondary (`secondary`) | `secondary-alt`, `secondary-subtle`, `secondary-subtle-alt` | Alternate call-to-action sections, media-and-text panels, and supporting content bands. | Use to distinguish a related section or secondary action from the primary focal point. |
-| Tertiary (`tertiary`) | `tertiary-alt`, `tertiary-subtle`, `tertiary-subtle-alt`, `tertiary-dark`, `tertiary-dark-alt` | Accent details, social and feature columns, and separator rules in pricing layouts. | Use selectively to add contrast and rhythm without making every section compete for attention. |
+| Primary (`primary`) | `primary-alt`, `primary-subtle`,  `primary-dark`, `primary-dark-alt` | Brand-forward hero areas, featured sections, and calls to action. | Use to establish a clear focal point or support a primary action; use the related shades to vary emphasis and surface weight. |
+| Secondary (`secondary`) | `secondary-alt`, `secondary-subtle` | Alternate call-to-action sections, media-and-text panels, and supporting content bands. | Use to distinguish a related section or secondary action from the primary focal point. |
+| Tertiary (`tertiary`) | `tertiary-alt`, `tertiary-subtle`,  `tertiary-dark`, `tertiary-dark-alt` | Accent details, social and feature columns, and separator rules in pricing layouts. | Use selectively to add contrast and rhythm without making every section compete for attention. |
 | Dark anchors | `dark`, `dark-alt`, `primary-dark`, `primary-dark-alt`, `tertiary-dark`, `tertiary-dark-alt` | Dark call-to-action panels and other intentionally dramatic sections. | Pair deeper surfaces with suitable light foreground colors and verify contrast in context. |
 | Highlights and link accents | `highlight`, `highlight-alt`, `highlight-accent`, `highlight-accent-alt`, `highlight-accent-2`, `highlight-accent-2-alt` | Link treatments and emphasized statistics or values. | Reserve brighter accents for useful emphasis, and retain clear text contrast. |
 | Neutral foundation | `base`, `contrast`, `neutral`, `neutral-alt`, `off-white`, `white`, `black`, `very-light-gray`, `light-gray`, `gray`, `dark-gray`, `very-dark-gray`, `almost-black`, `not-quite-black` | Page backgrounds, body and heading text, supporting surfaces, and dividers. | Use these roles as the visual foundation that keeps content readable and color accents organized. |
@@ -109,413 +109,92 @@ Lumina's patterns demonstrate how the semantic palette can establish hierarchy a
 
 Start with the purpose of a section—such as a primary action, a supporting feature, or a quiet content well—and choose a semantic color role to match. Lumina's curated editor palette and patterns provide consistent starting points, while creators remain free to adapt them. When using custom colors or importing patterns from another theme, review text and link contrast in context; color alone should not carry essential meaning.
 
-For exact color values, palette definitions, and custom variables, see the [technical color documentation](https://nichewp.github.io/lumina/variables.html).
+For exact palette values, see the [theme design tokens reference](https://nichewp.github.io/lumina/theme.html); for custom variables, see the [technical variables documentation](https://nichewp.github.io/lumina/variables.html).
 
-# Section 3: Digital Physics & Kinetic Effects Engine  
-## 3.1 Architecture Overview & Block Registry Schema (_00-config.scss)  
-The Lumina Physics Engine operates as a declarative, data-driven kinetic framework. Rather than applying loose, uncoordinated CSS hover rules, all interactive components are declared within a centralized Map Registry (_00-config.scss). This registry maps WordPress Gutenberg blocks to physical roles, structural gates, and interaction scopes.  
-  
-**Centralized Block Registry Schema**  
-Every block entry merges with programmatic system defaults ($registry-defaults) via map.merge() to guarantee structural consistency across theme styles:  
-  
-SCSS  
-  
-```
-// Default Registry Configuration Map
-$registry-defaults: (
-    block:   '*',            // Base block selector or wildcard [class*="wp-block-"]
-    is:      'none',         // Mandatory CSS class filters (e.g., .has-background)
-    has:     'a, button',    // Required structural child gate (e.g., embedded links)
-    exclude: '.alignfull',   // Excluded container contexts (e.g., full-width sections)
-    trigger: 'self',        // Action boundary selector
-    target:  'self',        // Kinetic animation target selector
-    spacing: false,         // Structural spacing override flag
-    role:    'object'       // Role classification: card | object | object-zoom | object-grow | button
-);
+# Section 3: Digital Physics & Kinetic Effects Engine
 
-```
-  
-**Registry Manifest Mapping Table**  
+Lumina's Physics Engine gives interactive elements a shared sense of weight and depth. Its central block registry determines which WordPress blocks participate, what role each block plays, and where an interaction begins and takes effect. That structure lets a card lift as one object while a linked image can move or zoom within its own frame, without applying the same effect indiscriminately to every block.
 
-| Block Target | Structural Filter (is) | Required Gate (has) | Trigger / Target | Assigned Role | Architectural Behavior |
-| ----------------------------------------------- | ---------------------------------- | --------------------------------------- | ---------------------------- | ------------- | -------------------------------------------------------------------------------------- |
-| Wildcard Container (*) | Backgrounds, Custom Borders, Cover | a:not(figcaption a), .wp-element-button | self / self | card | Kinetic container with subtle lift (translateY(-3px)) and ambient shadow elevation.
-MD |
-| Core Image (.wp-block-image) | none | a:not(figcaption a) | self / img | object | Standard linked media figure with depth shadow lift.
-MD |
-| Column Image (.wp-block-column .wp-block-image) | none | a:not(figcaption a) | self / img | object-zoom | Bounded zoom portal framed within column geometry.
-MD |
-| Media & Text (.wp-block-media-text__media) | none | a:not(figcaption a) | self / img | object-zoom | Framed viewport zoom with overflow containment.
-MD |
-| Sovereign Buttons (*) | none | none | .wp-element-button / self | button | Tier-30 sovereign control with primary scale expansion (scale(1.08)).
-MD |
-| Social Links (.wp-block-social-links) | none | none | .wp-block-social-link / self | button | Micro-interaction button logic.
-MD |
-  
-****3.2 Specificity Governance & Dynamic Compilation (_01-compiler.scss)****  
-To eliminate specificity wars and prevent structural usage of !important, the engine uses compile-selector() to compile clean, mathematically predictable CSS selectors.  
-  
-****compile-selector Evaluation Pipeline****  
+## 3.1 The Block Registry & Physical Roles
 
-| Pipeline Step | Target Parameter | Logic & Output Mechanism | Compiled Output Example |
-| -------------------------- | ----------------- | --------------------------------------------------------------------------------------------------- | ---------------------------------- |
-| 1. Base Initialization | $block | Adds specified block selector or injects the global wildcard [class*="wp-block-"] if unassigned.
-MD | [class*="wp-block-"]
+Registry entries use the block's type and context, its relevant style or background, and the presence of a link or control to decide whether it should receive an effect. They also distinguish the element that triggers an interaction from the element that visually responds.
 
-MD |
-| 2. Exclusion Gate | $exclude | Appends :not() structural exclusions unless the role is set to button.
-MD | :not(.alignfull)
+| Role | Typical use | Interaction intent |
+| --- | --- | --- |
+| Card | Linked or otherwise actionable content containers, such as featured groups and layout sections. | Treat the container as one object, with its resting frame and active feedback kept together. |
+| Object | Standalone linked images and featured media. | Give the media a restrained sense of lift when it is actionable. |
+| Object-zoom | Images inside columns or Media & Text layouts. | Keep the outer frame steady while the image responds within a clipped viewport. |
+| Object-grow | An available role for selected media treatments. | Emphasize an image with in-place growth rather than a change in position. |
+| Button | Buttons and other direct controls, including selected social and utility links. | Make the action feel distinct from the surrounding content. |
 
-MD |
-| 3. Modifier Filter | $is | Appends clean class filters via :is() pseudo-class wrappers.
-MD | :is(.has-background)
+The registry makes these behaviors explicit and keeps them consistent: blocks that are not configured as actionable objects or containers do not receive kinetic feedback simply because they contain an image or text.
 
-MD |
-| 4. Link Gate | $has | Injects required descendant checks using :has().
-MD | :has(a)
+## 3.2 Resting & Interactive States
 
-MD |
-| 5. Pseudo-State Injection | $scope | Injects :hover or accessible keyboard focus gates (:has(:focus-visible)).
-MD | :hover or :has(:focus-visible)
+Lumina separates the baseline appearance from interaction feedback into two stylesheets:
 
-MD |
-| 6. Scope & Target Assembly | $trigger, $target | Assembles final path evaluating whether triggers and targets are self-contained or nested.
-MD | [class*="wp-block-"]:hover img
+* **`theme-engine.css`** establishes the resting state: frame and border treatment, resting shadows, and the transitions that prepare an eligible object to move.
+* **`theme-interactions.css`** supplies hover and keyboard-focus responses. Eligible cards and media lift from the page while their appropriate frame or image shadow deepens, making the change in elevation visible.
 
-MD |
-  
-**Programmatic Specificity Scores**  
-SCSS  
-  
-```
-// Tier 10: Baseline Object Target (Score: 0,1,0)
-.wp-block-image:where(:not(.alignfull)) img
+The two states follow Lumina's consistent upper-left light direction. Resting shadows ground objects on the page; the deeper interactive shadow suggests that an object has lifted toward the viewer. Framed zoom interactions keep the frame steady while the image responds inside it.
 
-// Tier 20: Kinetic Card Container (Score: 0,2,0)
-[class*="wp-block-"]:not(.alignfull):is(.has-background)
+## 3.3 Rounding Exceptions & Layout Brakes
 
-// Tier 21: Card Floor Wildcard (Score: 0,2,1)
-[class*="wp-block-"]:not(.alignfull):is(.has-background) [class*="wp-block-"]
+Some layout elements are deliberately excluded from engine-authored rounding. In particular, `.wp-block-media-text__media` and `.wp-block-media-text__content` are parts of a larger split layout; adding independent rounded frames to those children could create competing corners or disrupt the relationship between the image and text. The engine therefore omits its frame and radius rules where the layout itself should control the shape.
 
-// Tier 30: Sovereign Control (Score: 0,3,0)
-.wp-site-blocks .wp-element-button
+Layout brakes handle a different situation: they identify elements inside composite layouts that need a modified frame treatment. They are expressed as CSS selector patterns, such as `.wp-block-media-text *` and `.is-style-no-gap *`, because the relevant context can contain different kinds of child blocks. A list of individual block names would not capture that shared parent-and-descendant relationship.
 
-```
-##   
-## 3.3 Two-Phase Build Architecture & Execution Tracks  
-The engine compiles into two separate stylesheets to isolate static structural styles from interactive kinetics:  
-  
-1. **Phase 1: Resting Geometry (lumina-engine.css / $interactive: false):** Establishes layout bounds, radii, baseline transforms (translateY(0) scale(1)), and resting shadows.  
-2. **Phase 2: Active Kinetics (lumina-interactions.css / $interactive: true):** Handles hover (:hover) and keyboard focus (:has(:focus-visible)) transforms, shadow shifts, and veil reveals.  
-**Execution Track Authority Matrix**  
+When a generated target matches a layout brake, the engine avoids treating it like a separate rounded card: braked cards use an inset treatment, while braked image frames omit the standalone outer rounding and shadow. This preserves edge-to-edge and tightly composed layouts without removing their intended interaction feedback.
 
-| Track | Authority Tier | Role Key | Active Kinetics & Transforms | Default Shadow Level | Scope & Element Types |
-| --------- | --------------------- | ----------- | -------------------------------------------------------- | --------------------------------------------- | ----------------------------------------------------------------------------- |
-| Track A | Tier 30 (Sovereign) | button | Large scale expansion (scale(1.08))
-MD | $shadow-high (0 8px 16px rgba(0,0,0,0.15))
-MD | Core buttons, avatars, social links, tag clouds, form submits.
-MD |
-| Track B.1 | Tier 11–12 (Elevated) | object-zoom | Static outer frame; inner asset expands (scale(1.08))
-MD | Outer wrapper receives $shadow-deep
+## 3.4 The Veto Engine & Nested Cards
 
-MD | Column images, Media & Text frames, custom image viewports.
-MD |
-| Track B.2 | Tier 11–12 (Elevated) | object-grow | Subtle image expansion (scale(1.03))
-MD | Direct asset receives $shadow-deep
+When cards, images, and other objects are nested, the veto engine prevents their effects from piling up. A card inside another card is silenced as a separate card: its own transform and shadow are suppressed, so the outer card remains the single interactive surface. The companion card-interaction logic also prevents a nested card from becoming a second independent click target.
 
-MD | Gallery images, post featured media figures.
-MD |
-| Track B.3 | Tier 10 (Baseline) | object | Vertical displacement lift (translateY(-4px))
-MD | Direct asset receives $shadow-deep
+Embedded images receive a more selective veto. Their resting shadows are removed so they do not cast a second shadow inside the parent card; the engine also suppresses competing image shadows during interaction while allowing an intentional image zoom to continue. This keeps the parent card's depth clear without flattening every effect inside it.
 
-MD | Standalone linked images, standard content figures.
-MD |
-| Track C | Tier 20 (Container) | card | Subtle container lift (translateY(-3px))
-MD | Container receives $shadow-deep
+## 3.5 Link-Destination Overlays, Accessibility & Creator Control
 
-MD | Group blocks, columns, and layout wells with background or custom borders.
-MD |
-  
-  
-****3.4 Passenger-Zoom Mechanics & Structural Isolation (_02-resting.scss & _03-actions.scss)****  
-Media blocks assigned to the object-zoom role (such as column images and Media & Text blocks) enforce strict isolation between outer container visual styling and inner graphic scale transforms.  
-  
+For eligible interactive cards, a small overlay icon appears on hover, keyboard focus, or touch activation. The interaction logic examines the card's link or button destination and chooses a visual cue for the action:
 
-| Structural Layer | Key CSS Properties & Mixins | Mechanical Behavior & Function |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Outer Visual Perimeter | %physics-zoom-wrapper-visuals
+* **Scroll up or scroll down:** The target is an anchor elsewhere on the current page; the cue reflects whether that content is above or below the card.
+* **View page:** The target is another page on the same site.
+* **External link:** The target is on another site.
 
-• border-radius: var(--wp--custom--border--radius)
+The overlay is a visual hint, not a replacement for the underlying link or button. The engine also respects the operating system's reduced-motion preference, and the theme offers static or quieter treatments for creators who want less movement.
 
-• border: 1px solid var(--wp--custom--color--border)
+The physics configuration separates development output from visual debugging. `$lumina-dev-mode` defaults to off, using shared placeholder rules for production-oriented output; turning it on emits more distinct declarations that are easier to trace while developing. The independent `$lumina-debug` switch adds outlines for registry roles, wrappers, and veto boundaries. It also defaults to off, so debug outlines are not enabled in normal use.
 
-• padding: var(--wp--preset--spacing--20)
+For the registry, selector, state, veto, and accessibility implementation details, see the [SCSS technical documentation](https://nichewp.github.io/lumina/scss/index.html). The [block pattern catalog](https://nichewp.github.io/lumina/patterns.html) shows how these behaviors support real page compositions.
 
-• @include __blueprint-shadow-natural | Holds static visual container bounds (borders, default shadows, padding). Strips borders/padding from internal media so layout geometry remains unclipped.
-MD+ 1 |
-| Clipped Viewport Anchor | %physics-zoom-wrapper-clipped
+# Section 4: WordPress Standards & Code Conventions
 
-• position: relative
+Lumina is built to work with WordPress rather than around it. The theme favors native block-theme settings, editor controls, templates, and APIs where they meet the need, and adds custom behavior only where it provides a clear benefit. These conventions describe how new work should be approached; they are not a claim that every existing file has passed a comprehensive automated standards audit.
 
-• display: inline-block
+## 4.1 WordPress-Native Development
 
-• overflow: hidden | Applied directly to child <a> element. Binds overlay positioning contexts and traps the zooming graphic without causing page reflow.
-MD+ 1 |
-| Dynamic Inner Radius | Applied to child > a:
+Use WordPress's theme and block systems as the foundation for site structure and presentation. Prefer core settings, styles, block supports, templates, and patterns over parallel custom controls. When custom behavior is needed, integrate through documented WordPress APIs and preserve the expected behavior of the Block Editor and front end.
 
-border-radius: clamp(calc(radius * 0.5), calc(radius - spacing), radius) | Programmatically calculates nested anchor border radius relative to outer container radius and frame padding for concentric corners.
-MD |
-| Inner Graphic Media | Applied to img, video:
+Keep theme choices adaptable: use semantic settings and presets rather than hard-coding values into each pattern, and make sure changes remain understandable to creators using the Site Editor.
 
-• transform: scale(1.08) on hover/focus | Receives scale transforms exclusively. Inherits clipped radius boundaries while keeping outer perimeter dimensions and shadows static.
-MD+ 1 |
-  
-  
-****3.5 Collision Engine & Three-Tier Veto System (_40-vetos.scss)****  
-When interactive components are nested within an active parent card, the collision engine enforces structural vetoes to prevent compound transforms ("double-lift") or overlapping shadow states:  
-  
-SCSS  
-  
-```
-// Veto Boundary Loop Execution (_40-vetos.scss)
-@each $parent in $cards {
-    // TRACK A: CARD-IN-CARD BOUNDARIES
-    // Silences nested cards (e.g., inner columns/groups) inside a parent card
-    @each $child-card in $cards {
-        #{$parent}:hover #{$child-card} {
-            @include phys.apply-silence($interactive: true); // Strips transform & shadow
-        }
-    }
+## 4.2 Conventions by Code Area
 
-    // TRACK B: OBJECT-IN-CARD BOUNDARIES
-    // Silences nested layout objects inside an active parent card
-    @each $child-object in $objects {
-        #{$parent}:hover #{$child-object} {
-            @include phys.apply-silence($interactive: true); // Strips transform & shadow
-        }
-    }
+WordPress Coding Standards apply specifically to PHP. Other parts of the theme should follow the conventions and tools appropriate to their language while supporting the same goals of compatibility, security, accessibility, and maintainability.
 
-    // TRACK C: IMAGE-IN-CARD BOUNDARIES (Selective Veto)
-    // Silences ONLY shadows on embedded images, preserving zoom/scale kinetics!
-    @each $child-image in $images {
-        #{$parent}:hover #{$child-image} {
-            @include phys.apply-silence-shadow($interactive: true); // Strips shadow ONLY
-        }
-    }
-}
+| Area | Project convention | Why it matters |
+| --- | --- | --- |
+| PHP | Follow WordPress coding patterns for hooks, APIs, formatting, and output escaping. Validate or sanitize data at input boundaries, and use the project's namespace or prefixes for new global symbols. | Reduces conflicts and helps protect content and settings as they move through WordPress. |
+| JavaScript | Keep behavior scoped, avoid unnecessary globals, and use WordPress-compatible handling when using jQuery. Preserve native links and controls, and account for keyboard, touch, and dynamically rendered content where relevant. | Keeps interactions predictable and avoids replacing behavior that WordPress or the browser already provides. |
+| SCSS and CSS | Use Sass modules, follow the project's WordPress-based Stylelint conventions, and prefer scoped selectors and theme tokens. Avoid `!important` as a routine specificity tool, but use deliberate overrides when WordPress markup or styles require them. | Keeps styles composable across blocks, editor contexts, and theme variations. |
+| `theme.json` and block-theme content | Keep configuration compatible with the WordPress theme schema; distinguish available editor settings from their default styles, and use reusable presets and semantic roles. | Keeps creator-facing controls consistent and helps patterns transfer cleanly through the Site Editor. |
 
-```
-* **Selective Image Veto Nuance:** Embedded image portals retain their internal zoom kinetic capabilities (scale(1.08)) while their outer box shadows are suppressed (apply-silence-shadow) to prevent double-shadow artifacts inside parent cards.MD  
-## 3.6 Layout Brakes, Column Stacking & Global Overrides  
-**Layout Brakes & Rounding Stops (_00-config.scss)**  
-* **Hard Stop ($blocks-no-rounding):** Hard-coded exclusion list (.wp-block-column, .wp-block-media-text__media, .wp-block-media-text__content) where the engine does not generate border-radius CSS.  
-* **Conditional Stop ($blocks-layout-brakes):** Specific style utility classes (.is-style-object-static, .is-style-image-no-border, .is-style-no-gap *) that suppress active transforms and default shadows.  
-**Motion Kill-Switch (500-static.json / Lumina Static)**  
-* **Zero-Kinetic Style Variation:** A dedicated global style variation designed for complete motion accessibility and pure typographic focus.  
-* **Transform Neutralization:** Sets hoverTransform: "none" site-wide, suppressing physical scale growth and vertical displacement while falling back smoothly to clean, static opacity shifts (0.7 link hover / 0.85 image hover).  
-**Intent-Based Column Height & Stacking Engine (columns_lumina.scss)**  
-* **Full Height Stretching:** Columns containing vertical flex groups automatically stretch inner card stacks to 100% height across both is-content-justification-* and is-vertically-aligned-* Gutenberg class families.  
-* **Mobile Column Reordering:** .is-style-first-on-mobile applies order: -1 !important on mobile viewports (<782px), forcing tagged columns or media blocks above text content when stacked.  
-**Accessibility Mechanics (prefers-reduced-motion)**  
-When reduced motion is requested by the OS or user settings, CSS variables adapt dynamically:  
-  
-* Transition timing extends from 250ms/500ms up to 500ms/800ms.  
-* Scale growth transforms damp down from 1.05x / 1.08x to 1.01x / 1.04x.  
-* Vertical displacement dampens from -3px / -4px down to -1px / -2px.  
-**Interactive Card Arrow Overlay Badge (.lumina-card-arrow-overlay)**  
-Interactive cards (.is-interactive-card) support an absolute-positioned floating arrow overlay badge that neutralizes Gutenberg block-gap margins and expands smoothly on hover:  
-  
-SCSS  
-  
-```
-.is-interactive-card {
-    position: relative !important;
-}
+## 4.3 Accessibility, Security & Compatibility
 
-.lumina-card-arrow-overlay {
-    position: absolute;
-    margin: 0 !important; // Neutralizes WP layout block-gap
-    top: var(--wp--preset--spacing--40, 1.5rem);
-    right: var(--wp--preset--spacing--40, 1.5rem);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--wp--preset--color--foreground, #000000);
-    color: var(--wp--preset--color--background, #ffffff);
-    opacity: 0;
-    transform: scale(0.65);
-    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
+Treat accessible interaction and safe data handling as part of implementation, not a final polish pass. Use semantic markup and controls, maintain keyboard operation and visible focus, respect reduced-motion preferences, and do not rely on color alone to convey meaning. For PHP and client-side behavior, validate data before use and escape or encode values appropriately when rendering them.
 
-.is-interactive-card:hover > .lumina-card-arrow-overlay {
-    opacity: 1;
-    transform: scale(1);
-}
+Custom styles and scripts should complement WordPress's editor and front-end behavior. Test changes in the context where creators and visitors will encounter them, especially when they affect block controls, responsive layouts, or interactive content.
 
-```
-##   
-## 3.7 Visual Debug Engine Configuration  
-When developer debugging is enabled ($lumina-debug: true), the engine draws color-coded outlines and offset indicators across the layout viewport:  
-  
-SCSS  
-  
-```
-// Configuration Debug Parameters (_00-config.scss)
-$lumina-debug: true;
+## 4.4 Validation & Ongoing Compliance
 
-$debug-registry:       1px dashed #ff8c00; // Orange: Registry active
-$debug-wrapper:        1px dashed #ff8c00; // Orange: Clipped wrapper
-$debug-wrapper-active: 1px solid  #ff00ff; // Purple: Wrapper hover active
-$debug-card:           1px solid  #00ffff; // Cyan: Tier 20 Container Card
-$debug-object:         1px solid  #00ffff; // Cyan: Tier 10 Layout Asset
-$debug-button:         1px solid  #00ffff; // Cyan: Tier 30 Sovereign Button
-$debug-silence:        1px dashed #ff3b30; // Red: Veto active (resting)
-$debug-silence-active: 1px solid  #ff3b30; // Red: Veto active (hover)
+The repository includes a Stylelint configuration based on WordPress's SCSS rules and build tooling for compiling the theme styles. The current project scripts do not define a dedicated PHP_CodeSniffer/WPCS command or a comprehensive automated test gate. A successful build is useful, but it does not by itself establish PHP standards compliance, accessibility, or correct behavior in WordPress.
 
-```
-  
-# Section 4: WordPress Core Governing Map & Utility Tooling  
-##   
-## 4.1 Overview & WordPress Standards Alignment  
-To ensure long-term maintainability, high performance, and seamless compatibility with WordPress Core, Lumina adheres strictly to official **WordPress Coding Standards (WPCS)** across all languages and file types. Every contribution—whether in PHP, JavaScript, SCSS/CSS, or JSON—must comply with strict sniffer rules, accessibility standards, and native WordPress architectures.  
-  
-## 4.2 SCSS & CSS Architecture Rules  
-SCSS development follows six non-negotiable architectural rules derived from the Lumina Physics Engine and Theme Bridge (src/scss/):  
-  
-**Rule 1: Sass Module System Enforcement (@use / @forward)**  
-Traditional @import statements are strictly banned to avoid global namespace pollution, duplicate CSS output, and circular dependency loops.  
-  
-* **Namespace Isolation:** All configuration settings and helper mixins must be imported explicitly via @use with local namespaces or aliases (e.g., @use '00-config' as config;).  
-* **Barrel Forwarding Pattern:** Subdirectory entry points (such as physics/_index.scss) act as single sources of truth, using @forward to expose module mixins and variables without circular import loops.  
-**Rule 2: Specificity Governance via Declarative Compilation**  
-No SCSS module may contain raw specificity overrides or !important flags to force style priority.  
-* **Central Compiler Utility:** All dynamic selectors must pass through compile-selector() in _01-compiler.scss.  
-* **Tier Bounds:** CSS selectors must strictly conform to their assigned Authority Tier (Tier 10 Objects 0,1,0, Tier 20 Cards 0,2,0, Tier 30 Sovereigns 0,3,0).  
-* **Pseudo Wrappers:** Structural filters must be wrapped inside :is() and :not() pseudo-classes to keep compiled specificity scores flattened and mathematically predictable.  
-**Rule 3: Defensive Schema Merging (map.merge)**  
-Block registry definitions inside SCSS maps must never require redundant key declarations.  
-  
-* Every loop iterating over $lumina-block-registry must merge target maps with $registry-defaults (_00-config.scss) before extracting properties. This guarantees that unassigned parameters safely inherit default values (such as trigger: 'self' or role: 'object') without throwing Sass compilation errors.  
-**Rule 4: Theme Interoperability Bridge (_theme-bridge.scss)**  
-To ensure imported patterns from external themes (TwentyTwentyFour, TwentyTwentyFive, Flat Blocks) render seamlessly without custom PHP re-authoring:  
-* **Automated Utility Translation:** An @each loop maps external class utilities (.has-tertiary-color, .has-accent-background-color) directly to Lumina tokens.  
-* **Zero-Specificity Cascade:** Fallback rules utilize :where() wrappers to guarantee zero-specificity selector precedence, allowing parent styles to override defaults without cascade battles.  
-  
-**Rule 5: Gutenberg UI Safety & Variable Separation**  
-Theme styles must never break the WordPress Block Editor interface or create visual feedback loops.  
-  
-* **Banned Palette Patterns:** Dynamic or context-dependent tokens such as currentColor must **never** be registered as selectable circular color dots in theme.json.  
-* **CSS Custom Property Abstraction:** Palette-agnostic dynamic tokens must be scoped strictly via developer-controlled CSS custom properties (--wp--custom--color--muted-text) or injected via class styles.  
-**Rule 6: Single-Class Refactor Pattern for Visual Effects**  
-Complex visual effects (e.g., aspect-ratio toggles, liquid glass, ambient depth badges) must be authored as single-class refactor blocks using pseudo-elements (::before and ::after):  
-  
-* **Parent Element (.is-style-*):** Sets relative positioning, layout mode, base border-radius: inherit, and z-index positioning.  
-* **::before (Mask & Label Layer):** Manages backdrop blurs, background fills, opacity tints, or tooltip label content.  
-* **::after (Refraction & Icon Layer):** Manages inset highlights, SVG icon masks, and kinetic rotation transforms.  
-## 4.3 JavaScript Engine Standards (lumina-physics.js)  
-JavaScript in Lumina turns static Gutenberg blocks into intuitive, interactive surface areas while maintaining strict event isolation and client-side stability. All theme scripts must conform to the following jQuery / Vanilla JS coding standards:  
-  
-**Rule 1: Standard No-Conflict jQuery IIFE Wrapper**  
-All JavaScript files must wrap execution inside the standard WordPress no-conflict Immediately Invoked Function Expression (IIFE). Unscoped global variables or direct $() execution outside of this closure are prohibited:  
-  
-JavaScript  
-  
-```
-( function( $ ) {
-    $( document ).ready( function() {
-        // Theme initialization logic
-    } );
-} )( jQuery );
-
-```
-  
-**Rule 2: Dynamic Target Validation (getValidTarget)**  
-Before altering DOM classes, applying dynamic cursor styles (cursor: pointer), or attaching event interceptors to container blocks, scripts must run target elements through validation logic:  
-  
-* **Form Protection:** Containers carrying interactive HTML forms or text inputs (form, input:not([type="hidden"]), textarea, select) must **never** be converted into card click targets.  
-* **Single Interactive Target Guarantee:** Cards are validated only if they contain **exactly one** primary link or button ($buttons.length === 1 && $links.length === 0 or vice versa). Multi-link containers are ignored to prevent ambiguous navigation behavior.  
-**Rule 3: Event Delegation & Safety Valves**  
-To ensure compatibility with dynamic AJAX content loading, scripts must use delegated document listeners ($(document).on('click', selector, handler)):  
-  
-* **Safety Valve Interception:** When a user clicks directly on an inner button, anchor link, or form control nested inside an interactive card, the handler must immediately exit (return) and allow native browser navigation to process naturally without infinite click loops:  
-JavaScript  
-  
-```
-if ($(e.target).closest('button, a, .wp-element-button, input, select').length) {
-    $card.removeClass('is-active');
-    return; // Pass control to native element
-}
-
-```
-**Rule 4: Touch-First Two-Tap Gesture Handling**  
-To eliminate mobile touch bugs (where hover states flicker or accidental link jumps occur during page scrolling), all card interactions must implement two-tap touch handling:  
-  
-* **Tap 1 (Activation):** Adds the .is-active state class, revealing visual badges (such as .lumina-card-arrow-overlay) and suppressing immediate link navigation.  
-* **Tap 2 (Execution):** Executes the actual navigation action.  
-* **Scroll/Swipe Cancellation:** Listening to touchmove events immediately cancels pending tap activation flags so swiping or scrolling through content never triggers unintended card clicks.  
-**Rule 5: Scoped Client-Side Preference Persistence (localStorage)**  
-Interactive UI components that retain user display states (such as <details> accordions or aspect ratio toggles) must utilize localStorage with multi-tier key scoping:  
-  
-* **Page-Path & Element Scoping:** Keys must combine the sanitized window pathname, element identifier, and DOM index ('lumina_aspect_state_' + pagePath + '_' + elementIdentifier + '_' + index) so user preferences do not bleed across different pages.  
-## 4.4 PHP & Full-Site Editing (FSE) Standards  
-PHP code in Lumina forms the foundation for block style registration, template hierarchy routing, pattern conversion, and WP 7.1 Icon API integration.  
-**Rule 1: Strict WPCS Syntax & Namespace Rules**  
-* **Code Style:** All PHP files must pass WordPress Coding Standards via PHP_CodeSniffer (WordPress-Core, WordPress-Docs, WordPress-Extra).  
-* **Strict Typing & Direct Access Protection:** All standalone PHP files must include direct-access prevention guards and declare strict types:  
-PHP  
-  
-```
-<?php
-/**
- * Lumina Theme Functions
- *
- * @package Lumina
- */
-
-declare(strict_types=1);
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
-}
-
-```
-* **Global Namespace Prefixing:** All functions, classes, constants, and global hooks must carry the strict lumina_ or LUMINA_ prefix (or namespace NicheWP\Lumina).  
-**Rule 2: FSE-Native Philosophy & Block Style Performance**  
-* **No Custom Metaboxes:** Layout settings, color configurations, and spatial adjustments must rely exclusively on native Block Editor controls and theme.json capabilities.  
-* **Inline Block Style Enqueuing (lumina_load_block_styles):** Custom block styles residing in /assets/css/blocks/*.css are registered via wp_enqueue_block_style() passing the direct file path. This allows WordPress to inline CSS directly into the document <head> when the block is rendered rather than firing external HTTP stylesheet requests.  
-**Rule 3: WordPress 7.1 Icon API Integration (icons.php)**  
-Custom theme icons are auto-registered using native WP 7.1 Icon API hooks:  
-* **Dynamic Directory Scanning:** Scans assets/icons/theme/*.svg dynamically, building human-readable labels from filenames (arrow-curved-up -> Arrow Curved Up).  
-* **Collection Namespacing:** Registers a dedicated THEME_SLUG icon collection (wp_register_icon_collection) and registers individual icons (wp_register_icon) using lazy-loaded file_path parameters.  
-**Rule 4: Automated Pattern Converter Utility (patterns2php.sh)**  
-HTML pattern block layouts in /patterns/html/ are compiled into production PHP pattern files in /patterns/converted/ using a Zsh build script:  
-* **Filename Order Preservation:** Output .php files retain leading numeric ordering prefixes on disk (01-hero-banner.php) for clean local file organization.  
-* **Clean Pattern Slugs & Metadata:** Numeric prefixes are automatically stripped during docblock manifest generation, creating clean pattern slugs (lumina/hero-banner), human-readable titles (Hero Banner), category taxonomies, and core block type associations.  
-* **Automated i18n & Asset Binding:** Wraps inner tag text inside WordPress translation functions (esc_html_e("...", "lumina")), strips hardcoded block IDs ("id":123), and rewrites local image sources to dynamic get_theme_file_uri() calls.  
-##   
-## 4.5 Code Quality Compliance Matrix  
-Before any pull request or theme update is merged into the Lumina codebase, it must pass the following multi-layer validation matrix:  
-MD  
-  
-
-| Layer / Component | Tooling / Engine | Key Verification Requirement | Success Criteria |
-| -------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
-| PHP Engine | PHP_CodeSniffer(WPCS) | Strict typing, prefixing (lumina_), zero unescaped output, WPCS compliance.
-MD | 0 Errors / 0 Warnings
-MD |
-| SCSS / CSS Engine | Stylelint / Sass Compiler | Sass Module compliance (@use), specificity score alignment (Tiers 10–30), zero !important rules.
-MD | Clean compilation without deprecated imports.
-MD |
-| JavaScript Engine | WP jQuery Standards | WP IIFE wrapper, getValidTarget form protection, mobile two-tap touch isolation, scoped localStorage keys.
-MD | Smooth card navigation, zero infinite recursion loops.
-MD |
-| theme.jsonSchema | WP Schema Validator | WCAG AA color pair validation, Settings/Styles separation, zero currentColor selectable palette dots.
-MD | Valid WP 6.x / 7.x theme.jsonschema confirmation.
-MD |
-| Icon API (icons.php) | WP 7.1 Icon Registry | Dynamic SVG directory scanning, valid property attributes. | Clean registration in Block Editor Icon Picker. |
-| Pattern Engine (patterns2php.sh) | Zsh / Perl Engine | Preserves numeric disk prefixes (01-*.php), generates clean slugs (lumina/*), wraps text in esc_html_e(), rewrites image URIs. | Successful conversion count with zero syntax or translation errors. |
-| Kinetics Engine | Visual Debugger ($lumina-debug) | Correct role outline assignment, proper parent-child veto execution (apply-silence).
-MD | Zero double-lift or double-shadow artifacts in visual inspector.
-MD |
-  
+Use the available style and build checks for the code they cover, and review changes in the editor and front end as appropriate. The conventions above are the contribution standard; any automated checks should be described only for the areas they actually verify.

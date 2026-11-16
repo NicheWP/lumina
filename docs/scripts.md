@@ -43,6 +43,12 @@ npm run docs:scripts
 # Or via NPM:
 npm run docs:templates
 ``` | `utils/docs-templates.sh` |
+| **`docs-theme.sh`** | `Shell` | **Theme Design Tokens Reference Generator**<br>Reads configurable dotted JSON paths from <code>theme.json</code> and color style variations to generate <code>docs/theme.html</code> and <code>docs/theme.md</code>.<br><br>**Options & Parameters:**<br>• Edit the JSON_SECTIONS list in the script to include additional JSON paths.<br><br>**Usage:**<br>```bash
+./utils/docs-theme.sh
+
+# Or via NPM:
+npm run docs:theme
+``` | `utils/docs-theme.sh` |
 | **`docs-variables.sh`** | `Shell` | **Custom CSS Variables Specification Generator**<br>Sweeps <code>theme.json</code>, style variation JSON files, SCSS partials, PHP functions, and JS scripts to generate <code>docs/variables.html</code> and <code>docs/variables.md</code> with multi-tier fallback resolution and file reference badges.<br><br>**Options & Parameters:**<br>• No arguments required. Executed directly or via NPM scripts.<br><br>**Usage:**<br>```bash
 ./utils/docs-variables.sh
 

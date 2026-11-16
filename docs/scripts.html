@@ -147,6 +147,20 @@ npm run docs:templates</pre>
 					<td><code>utils/docs-templates.sh</code></td>
 				</tr>
 				<tr>
+					<td><strong><code>docs-theme.sh</code></strong></td>
+					<td><span class="badge badge-shell">Shell</span></td>
+					<td>
+						<div class="script-title">Theme Design Tokens Reference Generator</div>
+						<div class="desc-text">Reads configurable dotted JSON paths from <code>theme.json</code> and color style variations to generate <code>docs/theme.html</code> and <code>docs/theme.md</code>.</div>
+						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li>Edit the JSON_SECTIONS list in the script to include additional JSON paths.</li></ul>
+						<div class="params-header">Usage Examples:</div><pre>./utils/docs-theme.sh
+
+# Or via NPM:
+npm run docs:theme</pre>
+					</td>
+					<td><code>utils/docs-theme.sh</code></td>
+				</tr>
+				<tr>
 					<td><strong><code>docs-variables.sh</code></strong></td>
 					<td><span class="badge badge-shell">Shell</span></td>
 					<td>

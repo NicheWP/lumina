@@ -94,7 +94,7 @@ styles_dir = os.path.join(theme_root, "styles")
 if os.path.exists(styles_dir):
     for root, _, files in os.walk(styles_dir):
         for file in sorted(files):
-            if file.endswith('.json'):
+            if file.endswith('.json') and not ('-SAVE-' in file or '_SAVE_' in file or '-not-used' in file):
                 fpath = os.path.join(root, file)
                 rel_path = os.path.relpath(fpath, theme_root)
                 scan_json_file(fpath, rel_path)
