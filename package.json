@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run docs && concurrently \"wp-scripts start --webpack-src-dir=src/scss --output-path=assets/css\" \"npm run watch:readme\" \"npm run watch:docs\"",
     "build": "npm run docs && wp-scripts build --webpack-src-dir=src/scss --output-path=assets/css && npm run copy:readme",
-    "theme-zip": "npm run build && npm run copy:readme && zip -r lumina-theme.zip . -x \"*.DS_Store\" \"node_modules/*\" \"zz_unused/*\" \".git*\" \"src/*\" \"package*\" \"webpack*\" \"postcss*\" \"readme.md\"",
+    "theme-zip": "npm run build && sh ./utils/theme-zip.sh",
 
     "watch:readme": "onchange \"readme.txt\" -- shx cp readme.txt readme.md",
     "copy:readme": "shx cp readme.txt readme.md",

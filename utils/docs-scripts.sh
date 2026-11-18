@@ -157,6 +157,15 @@ npm run docs:theme"""
 
 # 4. Target Custom Directory (e.g., Template Parts) with Force Overwrite:
 ./utils/patterns2php.sh parts header -f"""
+    },
+
+    "theme-zip.sh": {
+        "title": "Versioned WordPress Theme ZIP Builder",
+        "description": "Builds production assets and packages the theme runtime files into a version-named installable ZIP, excluding development, demo, and scratch files.",
+        "params": [
+            "No arguments required. Reads the theme version from the <code>Version:</code> header in <code>style.css</code>."
+        ],
+        "usage": """npm run theme-zip"""
     }
 }
 
