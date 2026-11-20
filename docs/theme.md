@@ -10,15 +10,21 @@ Source: `theme.json`
 
 | name | slug | color |
 | --- | --- | --- |
-| Primary (Antique Gold 48%) | primary | hsl(34, 32%, 48%) |
+| Primary (Antique Gold 40%) | primary | hsl(34, 32%, 40%) |
 | Secondary (Ocean Blue 44%) | secondary | hsl(206, 24%, 44%) |
-| Tertiary (Crisp Sage 48%) | tertiary | hsl(154, 24%, 48%) |
+| Tertiary (Crisp Sage 38%) | tertiary | hsl(154, 24%, 38%) |
 | Primary Subtle (Whisper Parchment 91%) | primary-subtle | hsl(34, 22%, 91%) |
 | Secondary Subtle (Whisper Sky 91%) | secondary-subtle | hsl(206, 24%, 91%) |
 | Tertiary Subtle (Whisper Sage 91%) | tertiary-subtle | hsl(154, 20%, 91%) |
-| Primary Alt (Burnished Ochre 38%) | primary-alt | hsl(34, 34%, 38%) |
+| Primary Alt (Burnished Ochre 32%) | primary-alt | hsl(34, 34%, 32%) |
 | Secondary Alt (Storm Navy 34%) | secondary-alt | hsl(206, 26%, 34%) |
-| Tertiary Alt (Deep Alpine Sage 38%) | tertiary-alt | hsl(154, 26%, 38%) |
+| Tertiary Alt (Deep Alpine Sage 32%) | tertiary-alt | hsl(154, 26%, 32%) |
+| Flame Orange 48% | orange | hsl(12, 32%, 48%) |
+| Flame Orange Alt 38% | orange-alt | hsl(12, 32%, 38%) |
+| Velvet Purple 32% | purple | hsl(327, 8%, 32%) |
+| Velvet Purple Alt 22% | purple-alt | hsl(327, 8%, 22%) |
+| Ember Red 32% | red | hsl(0, 23%, 32%) |
+| Ember Red Alt 22% | red-alt | hsl(0, 23%, 22%) |
 | Primary Dark (Antique Gold Deep 22%) | primary-dark | hsl(34, 34%, 22%) |
 | Primary Dark Alt (Antique Gold Abyssal 14%) | primary-dark-alt | hsl(34, 34%, 14%) |
 | Dark (Midnight Blue 22%) | dark | hsl(208, 21%, 22%) |
@@ -50,15 +56,15 @@ Source: `styles/colors/110-elements.json`
 
 | name | slug | color |
 | --- | --- | --- |
-| Primary (Crisp Sage 48%) | primary | hsl(154, 24%, 48%) |
+| Primary (Crisp Sage 38%) | primary | hsl(154, 24%, 38%) |
 | Secondary (Ocean Blue 44%) | secondary | hsl(206, 24%, 44%) |
-| Tertiary (Antique Gold 48%) | tertiary | hsl(34, 32%, 48%) |
+| Tertiary (Antique Gold 40%) | tertiary | hsl(34, 32%, 40%) |
 | Primary Subtle (Whisper Sage 91%) | primary-subtle | hsl(154, 20%, 91%) |
 | Secondary Subtle (Whisper Sky 91%) | secondary-subtle | hsl(206, 24%, 91%) |
 | Tertiary Subtle (Whisper Parchment 91%) | tertiary-subtle | hsl(34, 22%, 91%) |
-| Primary Alt (Deep Alpine Sage 38%) | primary-alt | hsl(154, 26%, 38%) |
+| Primary Alt (Deep Alpine Sage 32%) | primary-alt | hsl(154, 26%, 32%) |
 | Secondary Alt (Storm Navy 34%) | secondary-alt | hsl(206, 26%, 34%) |
-| Tertiary Alt (Burnished Ochre 38%) | tertiary-alt | hsl(34, 34%, 38%) |
+| Tertiary Alt (Burnished Ochre 32%) | tertiary-alt | hsl(34, 34%, 32%) |
 | Primary Dark (Crisp Sage Deep 22%) | primary-dark | hsl(154, 26%, 22%) |
 | Primary Dark Alt (Crisp Sage Abyssal 14%) | primary-dark-alt | hsl(154, 28%, 14%) |
 | Dark (Midnight Blue 22%) | dark | hsl(208, 21%, 22%) |
@@ -90,18 +96,18 @@ Source: `styles/colors/120-horizon.json`
 
 | name | slug | color |
 | --- | --- | --- |
-| Primary (Coastal Terracotta 48%) | primary | hsl(18, 38%, 48%) |
+| Primary (Coastal Terracotta 45%) | primary | hsl(18, 38%, 45%) |
 | Secondary (Ocean Blue 44%) | secondary | hsl(206, 24%, 44%) |
-| Tertiary (Antique Gold 48%) | tertiary | hsl(34, 32%, 48%) |
+| Tertiary (Antique Gold 40%) | tertiary | hsl(34, 32%, 40%) |
 | Primary Subtle (Whisper Clay 91%) | primary-subtle | hsl(18, 28%, 91%) |
 | Secondary Subtle (Whisper Sky 91%) | secondary-subtle | hsl(206, 24%, 91%) |
 | Tertiary Subtle (Whisper Parchment 91%) | tertiary-subtle | hsl(34, 22%, 91%) |
 | Primary Subtle Alt (Clay Hairline 84%) | primary-subtle-alt | hsl(18, 22%, 84%) |
 | Secondary Subtle Alt (Sky 83%) | secondary-subtle-alt | hsl(206, 18%, 83%) |
 | Tertiary Subtle Alt (Parchment Border 84%) | tertiary-subtle-alt | hsl(34, 20%, 84%) |
-| Primary Alt (Deep Coastal Terracotta 38%) | primary-alt | hsl(18, 40%, 38%) |
+| Primary Alt (Deep Coastal Terracotta 32%) | primary-alt | hsl(18, 40%, 32%) |
 | Secondary Alt (Storm Navy 34%) | secondary-alt | hsl(206, 26%, 34%) |
-| Tertiary Alt (Burnished Ochre 38%) | tertiary-alt | hsl(34, 34%, 38%) |
+| Tertiary Alt (Burnished Ochre 32%) | tertiary-alt | hsl(34, 34%, 32%) |
 | Primary Dark (Coastal Terracotta Deep 22%) | primary-dark | hsl(18, 38%, 22%) |
 | Primary Dark Alt (Coastal Terracotta Abyssal 14%) | primary-dark-alt | hsl(18, 40%, 14%) |
 | Dark (Midnight Blue 22%) | dark | hsl(208, 21%, 22%) |
@@ -134,7 +140,7 @@ Source: `styles/colors/210-heritage.json`
 | name | slug | color |
 | --- | --- | --- |
 | Primary (Patina Crimson 34%) | primary | hsl(0, 18%, 34%) |
-| Secondary (Aged Brass 40%) | secondary | hsl(38, 38%, 40%) |
+| Secondary (Aged Brass 38%) | secondary | hsl(38, 38%, 38%) |
 | Tertiary (Midnight Blue 30%) | tertiary | hsl(208, 22%, 30%) |
 | Primary Subtle (Warm Terracotta Linen 92%) | primary-subtle | hsl(14, 22%, 92%) |
 | Secondary Subtle (Whisper Brass 91%) | secondary-subtle | hsl(38, 20%, 91%) |
@@ -173,22 +179,22 @@ Source: `styles/colors/230-ember.json`
 
 | name | slug | color |
 | --- | --- | --- |
-| Primary (Terra Cotta Core 48%) | primary | hsl(12, 32%, 48%) |
-| Secondary (Muted Antique Gold 48%) | secondary | hsl(34, 32%, 48%) |
+| Primary (Terra Cotta Core 47%) | primary | hsl(12, 32%, 47%) |
+| Secondary (Muted Antique Gold 40%) | secondary | hsl(34, 32%, 40%) |
 | Tertiary (Volcanic Umber 42%) | tertiary | hsl(18, 28%, 42%) |
 | Primary Subtle (Whisper Terracotta 91%) | primary-subtle | hsl(26, 22%, 91%) |
 | Secondary Subtle (Whisper Gold 91%) | secondary-subtle | hsl(44, 20%, 91%) |
 | Tertiary Subtle (Whisper Volcanic Wash 91%) | tertiary-subtle | hsl(18, 18%, 91%) |
 | Primary Alt (Burnt Sienna 38%) | primary-alt | hsl(12, 32%, 38%) |
-| Secondary Alt (Burnished Ochre 38%) | secondary-alt | hsl(34, 34%, 38%) |
-| Tertiary Alt (Volcanic Charcoal 32%) | tertiary-alt | hsl(18, 30%, 32%) |
-| Primary Dark (Terra Cotta Deep 22%) | primary-dark | hsl(12, 32%, 22%) |
-| Primary Dark Alt (Terra Cotta Abyssal 14%) | primary-dark-alt | hsl(12, 34%, 14%) |
-| Dark (Bronze Clay 22%) | dark | hsl(34, 34%, 22%) |
-| Dark Alt (Bronze Clay Deep 14%) | dark-alt | hsl(34, 34%, 14%) |
-| Dark Accent (Warm Volcanic Clay 28%) | tertiary-dark | hsl(18, 28%, 28%) |
+| Secondary Alt (Burnished Ochre 34%) | secondary-alt | hsl(34, 34%, 34%) |
+| Tertiary Alt (Volcanic Charcoal 34%) | tertiary-alt | hsl(18, 30%, 34%) |
+| Primary Dark (Terra Cotta Deep 34%) | primary-dark | hsl(12, 32%, 34%) |
+| Primary Dark Alt (Terra Cotta Abyssal 28%) | primary-dark-alt | hsl(12, 34%, 28%) |
+| Dark (Bronze Clay 30%) | dark | hsl(34, 34%, 30%) |
+| Dark Alt (Bronze Clay Deep 24%) | dark-alt | hsl(34, 34%, 24%) |
+| Dark Accent (Warm Volcanic Clay 26%) | tertiary-dark | hsl(18, 28%, 26%) |
 | Dark Accent Alt (Deep Volcanic 20%) | tertiary-dark-alt | hsl(18, 30%, 20%) |
-| Highlight Alt (Warm Coral Glow) | highlight | hsl(12, 75%, 68%) |
+| Highlight Alt (Warm Coral Glow) | highlight | hsl(12, 75%, 72%) |
 | Highlight (Deep Volcanic Links) | highlight-alt | hsl(12, 75%, 36%) |
 | Highlight Accent (Luminescent Ochre Links) | highlight-accent | hsl(34, 80%, 72%) |
 | Highlight Accent Alt (Deep Ochre Alternate Links) | highlight-accent-alt | hsl(34, 65%, 36%) |
@@ -213,21 +219,21 @@ Source: `styles/colors/310-velvet.json`
 
 | name | slug | color |
 | --- | --- | --- |
-| Primary (Smoky Heather Velvet 48%) | primary | hsl(327, 12%, 48%) |
+| Primary (Smoky Heather Velvet 46%) | primary | hsl(327, 12%, 46%) |
 | Secondary (Midnight Sapphire Slate 44%) | secondary | hsl(207, 22%, 44%) |
-| Tertiary (Deep Ruby Crimson 48%) | tertiary | hsl(0, 28%, 48%) |
+| Tertiary (Deep Ruby Crimson 48%) | tertiary | hsl(353, 28%, 48%) |
 | Primary Subtle (Whisper Lavender 92%) | primary-subtle | hsl(327, 14%, 92%) |
 | Secondary Subtle (Whisper Sapphire 91%) | secondary-subtle | hsl(207, 20%, 91%) |
-| Tertiary Subtle (Whisper Rose 91%) | tertiary-subtle | hsl(0, 18%, 91%) |
+| Tertiary Subtle (Whisper Rose 91%) | tertiary-subtle | hsl(353, 18%, 91%) |
 | Primary Alt (Deep Dusky Plum 38%) | primary-alt | hsl(327, 12%, 38%) |
 | Secondary Alt (Sapphire 34%) | secondary-alt | hsl(207, 24%, 34%) |
-| Tertiary Alt (Garnet 38%) | tertiary-alt | hsl(0, 28%, 38%) |
-| Primary Dark (Smoky Heather Plum Deep 22%) | primary-dark | hsl(327, 20%, 22%) |
-| Primary Dark Alt (Smoky Heather Plum Abyssal 15%) | primary-dark-alt | hsl(327, 22%, 15%) |
-| Dark (Midnight Sapphire 22%) | dark | hsl(207, 28%, 22%) |
-| Dark Alt (Dark Midnight Sapphire 15%) | dark-alt | hsl(207, 30%, 15%) |
-| Dark Accent (Deep Crimson 22%) | tertiary-dark | hsl(0, 30%, 22%) |
-| Dark Accent Alt (Deep Crimson 15%) | tertiary-dark-alt | hsl(0, 30%, 15%) |
+| Tertiary Alt (Garnet 38%) | tertiary-alt | hsl(353, 28%, 38%) |
+| Primary Dark (Smoky Heather Plum Deep 28%) | primary-dark | hsl(327, 20%, 28%) |
+| Primary Dark Alt (Smoky Heather Plum Abyssal 20%) | primary-dark-alt | hsl(327, 22%, 20%) |
+| Dark (Midnight Sapphire 28%) | dark | hsl(207, 28%, 28%) |
+| Dark Alt (Dark Midnight Sapphire 20%) | dark-alt | hsl(207, 30%, 20%) |
+| Dark Accent (Deep Crimson 28%) | tertiary-dark | hsl(0, 30%, 28%) |
+| Dark Accent Alt (Deep Crimson 21%) | tertiary-dark-alt | hsl(0, 30%, 21%) |
 | Highlight (Luminescent Sapphire) | highlight | hsl(207, 65%, 72%) |
 | Highlight Alt (Electric Sapphire 36%) | highlight-alt | hsl(207, 65%, 36%) |
 | Highlight Accent (Luminescent Orchid Links) | highlight-accent | hsl(327, 55%, 74%) |
@@ -253,21 +259,21 @@ Source: `styles/colors/320-dusk.json`
 
 | name | slug | color |
 | --- | --- | --- |
-| Primary (Midnight Slate 28%) | primary | hsl(214, 18%, 28%) |
-| Secondary (Maritime Evening Slate 34%) | secondary | hsl(206, 20%, 34%) |
-| Tertiary (Twilight Terracotta 48%) | tertiary | hsl(12, 32%, 48%) |
+| Primary (Midnight Slate 32%) | primary | hsl(214, 18%, 32%) |
+| Secondary (Maritime Evening Slate 38%) | secondary | hsl(206, 20%, 38%) |
+| Tertiary (Twilight Terracotta 47%) | tertiary | hsl(12, 32%, 47%) |
 | Primary Subtle (Whisper Sky Slate 91%) | primary-subtle | hsl(204, 20%, 91%) |
 | Secondary Subtle (Whisper Sage Green 91%) | secondary-subtle | hsl(146, 20%, 91%) |
 | Tertiary Subtle (Evening Glow Orange 91%) | tertiary-subtle | hsl(24, 22%, 91%) |
-| Primary Alt (Deep Abyssal Blue 18%) | primary-alt | hsl(214, 18%, 18%) |
-| Secondary Alt (Maritime Slate 24%) | secondary-alt | hsl(206, 24%, 24%) |
+| Primary Alt (Deep Abyssal Blue 24%) | primary-alt | hsl(214, 18%, 24%) |
+| Secondary Alt (Maritime Slate 28%) | secondary-alt | hsl(206, 24%, 28%) |
 | Tertiary Alt (Burnt Sienna 38%) | tertiary-alt | hsl(12, 32%, 38%) |
-| Primary Dark (Midnight Slate Deep 18%) | primary-dark | hsl(214, 20%, 18%) |
-| Primary Dark Alt (Midnight Slate Abyssal 12%) | primary-dark-alt | hsl(214, 22%, 12%) |
-| Dark (Secondary Maritime Pair 20%) | dark | hsl(206, 20%, 20%) |
-| Dark Alt (Secondary Maritime Deep 15%) | dark-alt | hsl(206, 24%, 15%) |
-| Dark Accent (Twilight Terracotta Deep 22%) | tertiary-dark | hsl(12, 32%, 22%) |
-| Dark Accent Alt (Twilight Terracotta Abyssal 14%) | tertiary-dark-alt | hsl(12, 32%, 14%) |
+| Primary Dark (Midnight Slate Deep 26%) | primary-dark | hsl(214, 20%, 26%) |
+| Primary Dark Alt (Midnight Slate Abyssal 20%) | primary-dark-alt | hsl(214, 22%, 20%) |
+| Dark (Secondary Maritime Pair 30%) | dark | hsl(206, 20%, 30%) |
+| Dark Alt (Secondary Maritime Deep 24%) | dark-alt | hsl(206, 24%, 24%) |
+| Dark Accent (Twilight Terracotta Deep 34%) | tertiary-dark | hsl(12, 32%, 34%) |
+| Dark Accent Alt (Twilight Terracotta Abyssal 28%) | tertiary-dark-alt | hsl(12, 32%, 28%) |
 | Highlight (Bioluminescent Sky Links) | highlight | hsl(206, 70%, 72%) |
 | Highlight Alt (Deep Maritime Accent) | highlight-alt | hsl(206, 55%, 34%) |
 | Highlight Accent (Twilight Flame Links) | highlight-accent | hsl(12, 65%, 70%) |
@@ -293,8 +299,8 @@ Source: `styles/colors/410-low-tide.json`
 
 | name | slug | color |
 | --- | --- | --- |
-| Primary (Muted Terracotta 50%) | primary | hsl(12, 32%, 50%) |
-| Secondary (Machine Stone Gray 44%) | secondary | hsl(50, 4%, 44%) |
+| Primary (Muted Terracotta 44%) | primary | hsl(12, 32%, 44%) |
+| Secondary (Machine Stone Gray 40%) | secondary | hsl(50, 4%, 40%) |
 | Tertiary (Muted Antique Bronze 34%) | tertiary | hsl(37, 14%, 34%) |
 | Primary Subtle (Deep Trench 14%) | primary-subtle | hsl(211, 28%, 14%) |
 | Secondary Subtle (Maritime Blue 14%) | secondary-subtle | hsl(211, 18%, 14%) |
@@ -382,17 +388,17 @@ Source: `styles/colors/510-light.json`
 | Tertiary Alt (Linen Amber Alt 80%) | primary-alt | hsl(38, 22%, 80%) |
 | Secondary Alt (Ocean Slate Alt 86%) | secondary-alt | hsl(206, 20%, 86%) |
 | Primary Alt (Sage Linen Alt 87%) | tertiary-alt | hsl(154, 20%, 87%) |
-| Primary Dark (Antique Gold Flagship 48%) | primary-dark | hsl(34, 32%, 48%) |
-| Primary Dark Alt (Burnished Ochre 38%) | primary-dark-alt | hsl(34, 34%, 38%) |
-| Dark (Ocean Blue Flagship 44%) | dark | hsl(206, 24%, 44%) |
+| Primary Dark (Antique Gold 40%) | primary-dark | hsl(34, 32%, 40%) |
+| Primary Dark Alt (Burnished Ochre 32%) | primary-dark-alt | hsl(34, 34%, 32%) |
+| Dark (Ocean Blue 44%) | dark | hsl(206, 24%, 44%) |
 | Dark Alt (Storm Navy 34%) | dark-alt | hsl(206, 26%, 34%) |
-| Tertiary Dark (Crisp Pine Green 48%) | tertiary-dark | hsl(154, 24%, 48%) |
-| Tertiary Dark Alt (Deep Alpine Sage 38%) | tertiary-dark-alt | hsl(154, 26%, 38%) |
+| Tertiary Dark (Crisp Pine Green 38%) | tertiary-dark | hsl(154, 24%, 38%) |
+| Tertiary Dark Alt (Deep Alpine Sage 32%) | tertiary-dark-alt | hsl(154, 26%, 32%) |
 | Highlight (Crisp Emerald Glow 78%) | highlight | hsl(154, 65%, 78%) |
 | Highlight Alt (Deep Pine Link 32%) | highlight-alt | hsl(154, 55%, 32%) |
 | Highlight (Luminescent Sky Links) | highlight-accent | hsl(206, 75%, 68%) |
 | Highlight Alt (Deep Sky Links Links) | highlight-accent-alt | hsl(206, 65%, 34%) |
-| Neutral (Warm Sand 95.5%) | neutral | hsl(40, 18%, 95.5%) |
+| Neutral (Warm Sand 96%) | neutral | hsl(40, 18%, 96%) |
 | Neutral Alt (Sand 90%) | neutral-alt | hsl(40, 15%, 90%) |
 | Off White (Desert Alabaster 98%) | off-white | hsl(40, 20%, 98%) |
 | Very Light Gray (Warm Sand 93%) | very-light-gray | hsl(40, 16%, 93%) |
@@ -413,15 +419,15 @@ Source: `styles/colors/910-lumina-default-all.json`
 
 | name | slug | color |
 | --- | --- | --- |
-| Primary (Antique Gold 48%) | primary | hsl(34, 32%, 48%) |
+| Primary (Antique Gold 40%) | primary | hsl(34, 32%, 40%) |
 | Secondary (Ocean Blue 44%) | secondary | hsl(206, 24%, 44%) |
-| Tertiary (Crisp Sage 48%) | tertiary | hsl(154, 24%, 48%) |
+| Tertiary (Crisp Sage 38%) | tertiary | hsl(154, 24%, 38%) |
 | Primary Subtle (Whisper Parchment 91%) | primary-subtle | hsl(34, 22%, 91%) |
 | Secondary Subtle (Whisper Sky 91%) | secondary-subtle | hsl(206, 24%, 91%) |
 | Tertiary Subtle (Whisper Sage 91%) | tertiary-subtle | hsl(154, 20%, 91%) |
-| Primary Alt (Burnished Ochre 38%) | primary-alt | hsl(34, 34%, 38%) |
+| Primary Alt (Burnished Ochre 32%) | primary-alt | hsl(34, 34%, 32%) |
 | Secondary Alt (Storm Navy 34%) | secondary-alt | hsl(206, 26%, 34%) |
-| Tertiary Alt (Deep Alpine Sage 38%) | tertiary-alt | hsl(154, 26%, 38%) |
+| Tertiary Alt (Deep Alpine Sage 32%) | tertiary-alt | hsl(154, 26%, 32%) |
 | Primary Dark (Antique Gold Deep 22%) | primary-dark | hsl(34, 34%, 22%) |
 | Primary Dark Alt (Antique Gold Abyssal 14%) | primary-dark-alt | hsl(34, 34%, 14%) |
 | Dark (Midnight Blue 22%) | dark | hsl(208, 21%, 22%) |
@@ -444,40 +450,40 @@ Source: `styles/colors/910-lumina-default-all.json`
 | Not Quite Black (Rich Tinted Carbon) | not-quite-black | hsl(209, 15%, 11%) |
 | Base (Almond White) | base | hsl(32, 20%, 97%) |
 | Contrast (Midnight Indigo) | contrast | hsl(214, 12%, 11%) |
-| Primary Subtle Alt (Sage 83%) | primary-subtle-alt | hsl(154, 16%, 83%) |
+| Primary Subtle Alt (Parchment 83%) | primary-subtle-alt | hsl(34, 16%, 83%) |
 | Secondary Subtle Alt (Sky 83%) | secondary-subtle-alt | hsl(206, 18%, 83%) |
-| Tertiary Subtle Alt (Parchment 83%) | tertiary-subtle-alt | hsl(34, 16%, 83%) |
+| Tertiary Subtle Alt (Sage 83%) | tertiary-subtle-alt | hsl(154, 16%, 83%) |
 | Highlight Secondary (Luminescent Sky Links) | highlight-accent-2 | hsl(206, 80%, 72%) |
 | Highlight Secondary Alt (Deep Sky Links) | highlight-accent-2-alt | hsl(206, 65%, 36%) |
-| Primary Dark (Deep Forest Sage) | primary-dark | hsl(170, 45%, 20%) |
-| Primary Dark Alt (Rich Green) | primary-dark-alt | hsl(170, 50%, 15%) |
+| Deep Green (Forest Sage 20%) | deep-green | hsl(170, 45%, 20%) |
+| Deep Green Alt (Rich Green 15%) | deep-green-alt | hsl(170, 50%, 15%) |
 | White | white | hsl(0, 0%, 100%) |
 | Black | black | hsl(0, 0%, 0%) |
 | Very Light Green (Moss Subtle 91%) | very-light-green | hsl(154, 20%, 91%) |
 | Light Green (Moss Subtle Alt 83%) | light-green | hsl(154, 16%, 83%) |
-| Green (Moss Primary 48%) | green | hsl(154, 24%, 48%) |
-| Dark Green (Moss Alt 38%) | dark-green | hsl(154, 26%, 38%) |
+| Green (Crisp Sage 38%) | green | hsl(154, 24%, 38%) |
+| Dark Green (Deep Alpine Sage 32%) | dark-green | hsl(154, 26%, 32%) |
 | Bright Green | bright-green | hsl(140, 40%, 45%) |
 | Dark Bright Green | dark-bright-green | hsl(140, 45%, 25%) |
 | Very Light Yellow (Ochre Subtle 91%) | very-light-yellow | hsl(34, 22%, 91%) |
 | Light Yellow (Ochre Subtle Alt 83%) | light-yellow | hsl(34, 16%, 83%) |
-| Yellow (Ochre Primary 48%) | yellow | hsl(34, 32%, 48%) |
-| Dark Yellow (Ochre Alt 38%) | dark-yellow | hsl(34, 34%, 38%) |
-| Very Light Orange (Flame Subtle 91%) | very-light-orange | hsl(12, 26%, 91%) |
-| Light Orange (Flame Subtle Alt 83%) | light-orange | hsl(12, 22%, 83%) |
-| Orange (Flame Primary 48%) | orange | hsl(12, 32%, 48%) |
-| Dark Orange (Flame Alt 38%) | dark-orange | hsl(12, 36%, 38%) |
+| Yellow (Antique Gold 40%) | yellow | hsl(34, 32%, 40%) |
+| Dark Yellow (Burnished Ochre 32%) | dark-yellow | hsl(34, 34%, 32%) |
+| Very Light Orange (Whisper Terracotta 91%) | very-light-orange | hsl(26, 22%, 91%) |
+| Light Orange (Terracotta Tint 83%) | light-orange | hsl(26, 16%, 83%) |
+| Orange (Ember Terracotta 47%) | orange | hsl(12, 32%, 47%) |
+| Dark Orange (Burnt Sienna 30%) | dark-orange | hsl(12, 32%, 30%) |
 | Very Light Blue (Ocean Subtle 91%) | very-light-blue | hsl(206, 24%, 91%) |
 | Light Blue (Ocean Subtle Alt 83%) | light-blue | hsl(206, 18%, 83%) |
 | Blue (Ocean Primary 44%) | blue | hsl(206, 24%, 44%) |
 | Dark Blue (Ocean Alt 34%) | dark-blue | hsl(206, 26%, 34%) |
 | Midnight Blue 22% | midnight-blue | hsl(208, 21%, 22%) |
 | Dark Midnight Blue 16% | dark-midnight-blue | hsl(209, 24%, 16%) |
-| Very Light Purple (Velvet Subtle 91%) | very-light-purple | hsl(323, 16%, 91%) |
-| Light Purple (Velvet Subtle Alt 83%) | light-purple | hsl(323, 12%, 83%) |
-| Purple (Velvet Primary 48%) | purple | hsl(323, 20%, 48%) |
-| Dark Purple (Velvet Alt 38%) | dark-purple | hsl(327, 24%, 38%) |
-| Very Light Red (Ember Subtle 91%) | very-light-red | hsl(0, 22%, 91%) |
-| Light Red (Ember Subtle Alt 83%) | light-red | hsl(0, 18%, 83%) |
-| Red (Ember Primary 48%) | red | hsl(0, 23%, 48%) |
-| Dark Red (Ember Alt 38%) | dark-red | hsl(0, 26%, 38%) |
+| Very Light Purple (Whisper Lavender 92%) | very-light-purple | hsl(327, 14%, 92%) |
+| Light Purple (Velvet Tint 83%) | light-purple | hsl(327, 12%, 83%) |
+| Purple (Smoky Heather Velvet 46%) | purple | hsl(327, 12%, 46%) |
+| Dark Purple (Deep Dusky Plum 38%) | dark-purple | hsl(327, 12%, 38%) |
+| Very Light Red (Whisper Rose 91%) | very-light-red | hsl(353, 18%, 91%) |
+| Light Red (Crimson Tint 83%) | light-red | hsl(353, 16%, 83%) |
+| Red (Deep Ruby Crimson 48%) | red | hsl(353, 28%, 48%) |
+| Dark Red (Garnet 38%) | dark-red | hsl(353, 28%, 38%) |

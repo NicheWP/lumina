@@ -13,23 +13,22 @@
 );</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Default configuration schema map merged into each color registry entry.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">Map key </span>Name</th><th scope="col"><span class="visually-hidden">Map key </span>Description</th><th scope="col"><span class="visually-hidden">Map key </span>Type</th><th scope="col"><span class="visually-hidden">Map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>color</code></th><td data-label="desc"><p>Color slug identifier (e.g. primary, neutral-alt)</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>text</code></th><td data-label="desc"><p>Contrast mode (light, dark, dark-light, light-dark, no-fallback)</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>heading</code></th><td data-label="desc"><p>Global heading action (inherit, dark, light, lighten, darken, accent)</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>heading-light</code></th><td data-label="desc"><p>Light-mode heading override</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>heading-dark</code></th><td data-label="desc"><p>Dark-mode heading override</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>link</code></th><td data-label="desc"><p>Global link ink action (inherit, dark, light, lighten, darken, highlight, highlight-alt)</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>link-light</code></th><td data-label="desc"><p>Light-mode link ink override</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>link-dark</code></th><td data-label="desc"><p>Dark-mode link ink override</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>footer</code></th><td data-label="desc"><p>Global footer action</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>footer-dark</code></th><td data-label="desc"><p>Dark-mode footer override</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-global"><code>apply-colors-global</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-light-mode"><code>apply-colors-light-mode</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-dark-mode"><code>apply-colors-dark-mode</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-build-editor-hover-overrides"><code>build-editor-hover-overrides</code></a></li></ul></section><section class="main__item container item" id="colors configuration-variable-color-registry"><h3 class="item__heading"><a class="item__name" href="#colors configuration-variable-color-registry">color-registry</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$color-registry: (
 
 	// --- MAIN SEMANTIC COLORS ---
-    ( color: &#39;primary&#39;,          	text: &#39;light&#39;,  	link: &#39;inherit&#39;, 
-    		heading: &#39;inherit&#39; 
+    ( color: &#39;primary&#39;,          	text: &#39;light&#39;,  	link: &#39;inherit&#39;,
+        heading: &#39;inherit&#39;
     ),
-    ( color: &#39;primary-alt&#39;,      	text: &#39;light&#39;,  	link: &#39;lighten&#39;,
-    		heading: &#39;inherit&#39; 
-    ),
-
     ( color: &#39;secondary&#39;,        	text: &#39;light&#39;,  	link: &#39;inherit&#39;,
-    		heading: &#39;inherit&#39;,		footer-dark: &#39;hover-highlight&#39;  
+        heading: &#39;inherit&#39;, footer-dark: &#39;hover-highlight&#39;
+    ),
+    ( color: &#39;tertiary&#39;,         	text: &#39;light&#39;,  	link: &#39;inherit&#39;,
+        heading: &#39;inherit&#39;, footer-dark: &#39;hover-highlight&#39;
     ),
     
 	// --- MAIN ALT SEMANTIC COLORS ---
+    ( color: &#39;primary-alt&#39;,      	text: &#39;light&#39;,  	link: &#39;lighten&#39;,
+        heading: &#39;inherit&#39;
+    ),
     ( color: &#39;secondary-alt&#39;,    	text: &#39;light&#39;,  	link: &#39;lighten&#39;,
-    		heading: &#39;inherit&#39;,		footer-dark: &#39;hover-highlight&#39;  
-    ), 
-    ( color: &#39;tertiary&#39;,         	text: &#39;light&#39;,  	link: &#39;inherit&#39;,
-    		heading: &#39;inherit&#39;,		footer-dark: &#39;hover-highlight&#39;  
+        heading: &#39;inherit&#39;, footer-dark: &#39;hover-highlight&#39;
     ),
     ( color: &#39;tertiary-alt&#39;,     	text: &#39;light&#39;,  	link: &#39;lighten&#39;,
     		heading: &#39;inherit&#39;,		footer-dark: &#39;hover-highlight&#39;  
@@ -41,17 +40,12 @@
     ( color: &#39;tertiary-subtle&#39;,     text: &#39;dark-light&#39;, heading: &#39;accent&#39; ),
     
     // --- SUBTLE ALT SEMANTIC COLORS ---
-//     ( color: &#39;primary-subtle-alt&#39;,  text: &#39;dark-light&#39;, heading: &#39;accent&#39;, 
-//     		link-light: &#39;dark&#39;,		footer: &#39;hover-highlight-alt&#39; 
-//     ),
-//     ( color: &#39;secondary-subtle-alt&#39;, text: &#39;dark-light&#39;, heading: &#39;accent&#39;, 
-//     		link-light: &#39;dark&#39;,		footer: &#39;hover-highlight-alt&#39; 
-//     ),
-//     ( color: &#39;tertiary-subtle-alt&#39;, text: &#39;dark-light&#39;, heading: &#39;accent&#39;, 
-//     		link-light: &#39;dark&#39;,		footer: &#39;hover-highlight-alt&#39; 
-//     ),
+    // ( color: &#39;primary-subtle-alt&#39;,   text: &#39;dark-light&#39;, heading: &#39;accent&#39; ),
+    // ( color: &#39;secondary-subtle-alt&#39;, text: &#39;dark-light&#39;, heading: &#39;accent&#39; ),
+    // ( color: &#39;tertiary-subtle-alt&#39;,  text: &#39;dark-light&#39;, heading: &#39;accent&#39; ),
 
     // --- CORE CANVAS CONTRASTS ---
+    ( color: &#39;base&#39;,                 text: &#39;contrast&#39;, heading: &#39;inherit&#39; ),
 	( color: &#39;contrast&#39;,          	text: &#39;light-dark&#39;, link-light: &#39;highlight&#39;, 
 			heading: &#39;inherit&#39;,		link-dark: &#39;highlight-alt&#39; ),
 
@@ -66,9 +60,11 @@
     // --- HIGHLIGHT COLORS ---
     ( color: &#39;highlight&#39;,            text: &#39;dark&#39;, link: &#39;dark&#39;, heading-dark: &#39;dark&#39; ),
     ( color: &#39;highlight-accent&#39;,     text: &#39;dark&#39;, link: &#39;dark&#39;, heading-dark: &#39;dark&#39; ),
+    ( color: &#39;highlight-accent-2&#39;,   text: &#39;dark&#39;, link: &#39;dark&#39;, heading-dark: &#39;dark&#39; ),
 
     ( color: &#39;highlight-alt&#39;,        text: &#39;light&#39;, link: &#39;light&#39;, heading: &#39;inherit&#39; ),
     ( color: &#39;highlight-accent-alt&#39;, text: &#39;light&#39;, link: &#39;light&#39;, heading: &#39;inherit&#39; ),
+    ( color: &#39;highlight-accent-2-alt&#39;, text: &#39;light&#39;, link: &#39;light&#39;, heading: &#39;inherit&#39; ),
         
     // --- WHITE &amp; GRAY NAMED COLORS ---
     ( color: &#39;white&#39;,      			text: &#39;dark&#39;, 		heading-dark: &#39;inherit&#39;,
@@ -89,13 +85,20 @@
     		footer: &#39;hover-highlight-alt&#39;, footer-dark: &#39;hover-highlight&#39; 
     ),
 
-    ( color: &#39;dark-gray&#39;, text: &#39;light-dark&#39;, link-light: &#39;highlight&#39;, 
-    		link-dark: &#39;inherit&#39;, footer: &#39;hover-highlight-alt&#39; 
-    ),
+    // ( color: &#39;dark-gray&#39;, text: &#39;light-dark&#39;, link-light: &#39;highlight&#39;, 
+    // 		link-dark: &#39;inherit&#39;, footer: &#39;hover-highlight-alt&#39; 
+    // ),
     
-	( color: &#39;very-dark-gray&#39;,		text: &#39;light-dark&#39;,		heading-dark: &#39;dark&#39;,
+    ( color: &#39;dark-gray&#39;, text: &#39;light-dark&#39;, link: &#39;inherit&#39;,
+            footer: &#39;hover-highlight-alt&#39; 
+    ),
+
+    ( color: &#39;very-dark-gray&#39;,		text: &#39;light-dark&#39;,		heading-dark: &#39;dark&#39;,
 		link-light: &#39;highlight&#39;, 	link-dark: &#39;inherit&#39;,	footer: &#39;hover-highlight-alt&#39;
 	),
+    // ( color: &#39;very-dark-gray&#39;,		text: &#39;light-dark&#39;,		heading-dark: &#39;dark&#39;,
+	// 	link-light: &#39;lighten&#39;, 	link-dark: &#39;inherit&#39;,	footer: &#39;hover-highlight-alt&#39;
+	// ),
     
     // --- DARK SEMANTIC COLORS ---
     ( color: &#39;dark&#39;,			text: &#39;light&#39;,	link: &#39;highlight&#39;, heading: &#39;inherit&#39; ),
@@ -115,20 +118,28 @@
     ( color: &#39;black&#39;,			text: &#39;light&#39;,	link: &#39;highlight&#39;, heading: &#39;inherit&#39; ), 
     
     // --- GREEN NAMED COLORS ---
-    ( color: &#39;light-green&#39;,       text: &#39;dark&#39;,  	link: &#39;inherit&#39; ),
+    ( color: &#39;very-light-green&#39;,   text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
+    ( color: &#39;light-green&#39;,       text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
     ( color: &#39;green&#39;,             text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
+    ( color: &#39;dark-green&#39;,        text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
     ( color: &#39;bright-green&#39;,      text: &#39;dark&#39;, 	link: &#39;inherit&#39; ),
     ( color: &#39;dark-bright-green&#39;, text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
+    ( color: &#39;deep-green&#39;,        text: &#39;light&#39;,  	link: &#39;highlight&#39; ),
+    ( color: &#39;deep-green-alt&#39;,    text: &#39;light&#39;,  	link: &#39;highlight&#39; ),
 
     // --- YELLOW &amp; ORANGE NAMED COLORS ---
-    ( color: &#39;light-yellow&#39;,      text: &#39;dark&#39;, 	link: &#39;inherit&#39; ),
-    ( color: &#39;yellow&#39;,            text: &#39;dark&#39;, 	link: &#39;inherit&#39; ),
-    ( color: &#39;light-orange&#39;,      text: &#39;dark&#39;,  	link: &#39;inherit&#39; ),
+    ( color: &#39;very-light-yellow&#39;, text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
+    ( color: &#39;light-yellow&#39;,      text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
+    ( color: &#39;yellow&#39;,            text: &#39;light&#39;, 	link: &#39;inherit&#39; ),
+    ( color: &#39;dark-yellow&#39;,       text: &#39;light&#39;, 	link: &#39;inherit&#39; ),
+    ( color: &#39;very-light-orange&#39;, text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
+    ( color: &#39;light-orange&#39;,      text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
     ( color: &#39;orange&#39;,            text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
     ( color: &#39;dark-orange&#39;,       text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
 
     // --- BLUE NAMED COLORS ---
-    ( color: &#39;light-blue&#39;,        text: &#39;dark&#39;,  	link: &#39;inherit&#39; ),
+    ( color: &#39;very-light-blue&#39;,   text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
+    ( color: &#39;light-blue&#39;,        text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
     ( color: &#39;blue&#39;,              text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
     ( color: &#39;dark-blue&#39;,         text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
     ( color: &#39;midnight-blue&#39;,     text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
@@ -136,12 +147,14 @@
     ( color: &#39;dark-midnight-blue&#39;,text: &#39;light&#39;,  	link: &#39;highlight&#39; ),
 
     // --- PURPLE NAMED COLORS ---
-    ( color: &#39;light-purple&#39;,      text: &#39;dark&#39;,  	link: &#39;inherit&#39; ),
+    ( color: &#39;very-light-purple&#39;, text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
+    ( color: &#39;light-purple&#39;,      text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
     ( color: &#39;purple&#39;,            text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
     ( color: &#39;dark-purple&#39;,       text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
 
     // --- RED NAMED COLORS ---
-    ( color: &#39;light-red&#39;,         text: &#39;dark&#39;,  	link: &#39;inherit&#39; ),
+    ( color: &#39;very-light-red&#39;,    text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
+    ( color: &#39;light-red&#39;,         text: &#39;dark-light&#39;, link: &#39;inherit&#39; ),
     ( color: &#39;red&#39;,               text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
     ( color: &#39;dark-red&#39;,          text: &#39;light&#39;,  	link: &#39;inherit&#39; ),
 
@@ -156,7 +169,7 @@
 	&#39;primary-subtle&#39;,
 	&#39;secondary-subtle&#39;,
 	&#39;tertiary-subtle&#39;
-) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>List of gradient class slugs that preserve custom contrasting text colors.</p></div><h3 class="item__sub-heading">Type</h3><p><code>List</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-gradients"><code>apply-colors-gradients</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-gradients"><code>apply-colors-gradients</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-gradients"><code>apply-colors-gradients</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-gradients"><code>apply-colors-gradients</code></a></li></ul></section><section class="main__item container item" id="colors configuration-variable-filter-link-lighten"><h3 class="item__heading"><a class="item__name" href="#colors configuration-variable-filter-link-lighten">filter-link-lighten</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, brightness(1.75) saturate(0.80)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Lighten brightness filter metric applied to link hover and focus states.</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#colors logic-placeholder-engine-heading-lighten"><code>engine-heading-lighten</code></a></li><li><span class="item__cross-type">[placeholder]</span> <a href="#colors logic-placeholder-engine-link-lighten"><code>engine-link-lighten</code></a></li></ul></section><section class="main__item container item" id="colors configuration-variable-filter-link-darken"><h3 class="item__heading"><a class="item__name" href="#colors configuration-variable-filter-link-darken">filter-link-darken</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$filter-link-darken: var(--wp--custom--color--highlight--darken, brightness(0.40) saturate(1.15)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Darken brightness filter metric applied to link hover and focus states.</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#colors logic-placeholder-engine-heading-darken"><code>engine-heading-darken</code></a></li><li><span class="item__cross-type">[placeholder]</span> <a href="#colors logic-placeholder-engine-link-darken"><code>engine-link-darken</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="colors logic"><div class="container">colors logic</div></h1><section class="main__sub-section" id="colors logic-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="colors logic-function-build-selector-list"><h3 class="item__heading"><a class="item__name" href="#colors logic-function-build-selector-list">build-selector-list</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function build-selector-list($slugs, $prefix: &#39;.has-&#39;, $suffix: &#39;-color&#39;) { 
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>List of gradient class slugs that preserve custom contrasting text colors.</p></div><h3 class="item__sub-heading">Type</h3><p><code>List</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-gradients"><code>apply-colors-gradients</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-gradients"><code>apply-colors-gradients</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-gradients"><code>apply-colors-gradients</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#colors modules-mixin-apply-colors-gradients"><code>apply-colors-gradients</code></a></li></ul></section><section class="main__item container item" id="colors configuration-variable-filter-link-lighten"><h3 class="item__heading"><a class="item__name" href="#colors configuration-variable-filter-link-lighten">filter-link-lighten</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, brightness(2.2) saturate(0.80)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Lighten brightness filter metric applied to link hover and focus states.</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#colors logic-placeholder-engine-heading-lighten"><code>engine-heading-lighten</code></a></li><li><span class="item__cross-type">[placeholder]</span> <a href="#colors logic-placeholder-engine-link-lighten"><code>engine-link-lighten</code></a></li></ul></section><section class="main__item container item" id="colors configuration-variable-filter-link-darken"><h3 class="item__heading"><a class="item__name" href="#colors configuration-variable-filter-link-darken">filter-link-darken</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$filter-link-darken: var(--wp--custom--color--highlight--darken, brightness(0.40) saturate(1.15)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Darken brightness filter metric applied to link hover and focus states.</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#colors logic-placeholder-engine-heading-darken"><code>engine-heading-darken</code></a></li><li><span class="item__cross-type">[placeholder]</span> <a href="#colors logic-placeholder-engine-link-darken"><code>engine-link-darken</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="colors logic"><div class="container">colors logic</div></h1><section class="main__sub-section" id="colors logic-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="colors logic-function-build-selector-list"><h3 class="item__heading"><a class="item__name" href="#colors logic-function-build-selector-list">build-selector-list</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function build-selector-list($slugs, $prefix: &#39;.has-&#39;, $suffix: &#39;-color&#39;) { 
     $selectors: &quot;&quot;;
 	
     @each $color in $colors {
@@ -625,6 +638,8 @@
 		$map: 		map.merge(logic.$color-defaults, $entry);
 		$color: 	map.get($map, color);
 		$link: 		map.get($map, link);
+		$link-light: map.get($map, link-light);
+		$link-dark: 	map.get($map, link-dark);
 
 		// Neutralize Gutenberg global hover for any card where we are overriding
 		// the link color. This is only needed in the Editor due to WordPress 
@@ -637,6 +652,26 @@
 				$root: true, 
 				$editor-styles: true
 			);
+		}
+
+		@if $link-light {
+			:where(body):not(.is-dark-theme) {
+				@include logic.apply-link-action(
+					$color: $color,
+					$link: $link-light,
+					$editor-styles: true
+				);
+			}
+		}
+
+		@if $link-dark {
+			.is-dark-theme {
+				@include logic.apply-link-action(
+					$color: $color,
+					$link: $link-dark,
+					$editor-styles: true
+				);
+			}
 		}
 	}
  }" data-collapsed="@mixin build-editor-hover-overrides() { ... }"><code>@mixin build-editor-hover-overrides() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Pass 5 of 5-Pass Colors Engine: Generates high-specificity link hover overrides required for Gutenberg block editor styles.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Generates editor-scoped link hover state overrides across registered color entries</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-registry"><code>color-registry</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-defaults"><code>color-defaults</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="glass engine"><div class="container">glass engine</div></h1><section class="main__sub-section" id="glass engine-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="glass engine-variable-glass-tint-default"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-tint-default">glass-tint-default</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-tint-default: var(--wp--custom--color--opacity--tint-color, var(--wp--preset--color--secondary)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Default accent tint for uncolored glass blocks</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-tint-button-default"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-tint-button-default">glass-tint-button-default</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-tint-button-default: var(--wp--custom--color--button--background, var(--wp--preset--color--primary)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Button fallback tint</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-tint-standard"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-tint-standard">glass-tint-standard</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-tint-standard: var(--wp--custom--color--opacity--tint, var(--wp--preset--color--base)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Standard glass tint primitive (flips to dark charcoal in dark mode)</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-tint-frosted"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-tint-frosted">glass-tint-frosted</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-tint-frosted: var(--wp--custom--color--opacity--tint-frosted, #fff) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Frosted glass tint primitive (white tone remains frosted across color schemes)</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-tint-dark"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-tint-dark">glass-tint-dark</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-tint-dark: var(--wp--custom--color--opacity--tint-dark, var(--wp--preset--color--contrast)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Dark glass tint primitive (contrast color flips to light in dark mode schemes)</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-blur-standard"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-blur-standard">glass-blur-standard</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-blur-standard: var(--wp--custom--color--opacity--blur, blur(6px)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Standard glass backdrop filter blur definition</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-blur-dense"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-blur-dense">glass-blur-dense</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-blur-dense: var(--wp--custom--color--opacity--blur-dense, blur(10px)) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Dense glass backdrop filter blur definition</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-border-inset"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-border-inset">glass-border-inset</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-border-inset: inset 0 1px 0 0 color-mix(in srgb, var(--wp--preset--color--base) var(--wp--custom--color--opacity--subtle, 12%), transparent) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Derived inset border box-shadow token</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-wash-overlay"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-wash-overlay">glass-wash-overlay</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-wash-overlay: color-mix(in srgb, #fff var(--wp--custom--color--opacity--subtle, 12%), transparent) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Derived light wash specular overlay color-mix token</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-wash-dark-overlay"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-wash-dark-overlay">glass-wash-dark-overlay</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-wash-dark-overlay: color-mix(in srgb, #{$glass-tint-dark} var(--wp--custom--color--opacity--emphasis, 20%), transparent) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Derived dark wash specular overlay color-mix token</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="glass engine-variable-glass-rim-overlay"><h3 class="item__heading"><a class="item__name" href="#glass engine-variable-glass-rim-overlay">glass-rim-overlay</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$glass-rim-overlay: inset 1px 1px 1px 0 #{$glass-wash-overlay}, inset -1px -1px 1px 0 color-mix(in srgb, #fff var(--wp--custom--color--opacity--faint, 6%), transparent) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Combined specular rim and edge refraction box-shadow token</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section></section></section><section class="main__section"><h1 class="main__heading" id="heading styles"><div class="container">heading styles</div></h1><section class="main__sub-section" id="heading styles-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="heading styles-variable-sep-color"><h3 class="item__heading"><a class="item__name" href="#heading styles-variable-sep-color">sep-color</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$sep-color: var(--wp--custom--color--heading--separator, var(--wp--preset--color--tertiary));</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Primary separator line color</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="heading styles-variable-sep-color-2"><h3 class="item__heading"><a class="item__name" href="#heading styles-variable-sep-color-2">sep-color-2</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$sep-color-2: var(--wp--custom--color--heading--separator2, var(--wp--preset--color--secondary));</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Secondary separator line color</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="heading styles-variable-sep-color-3"><h3 class="item__heading"><a class="item__name" href="#heading styles-variable-sep-color-3">sep-color-3</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$sep-color-3: var(--wp--custom--color--heading--separator3, var(--wp--preset--color--neutral));</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Tertiary / Neutral separator line color</p></div><h3 class="item__sub-heading">Type</h3><p><code>String</code></p></section><section class="main__item container item" id="heading styles-variable-separators"><h3 class="item__heading"><a class="item__name" href="#heading styles-variable-separators">separators</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$separators: (

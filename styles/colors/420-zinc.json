@@ -21,7 +21,9 @@
 					"neutral-alt": 			"var(--wp--preset--color--off-white)",
 					"very-light-gray": 		"var(--wp--preset--color--off-white)",
 					"light-gray": 			"var(--wp--preset--color--off-white)",
-					"very-dark-gray": 		"var(--wp--preset--color--almost-black)"
+					"very-dark-gray": 		"var(--wp--preset--color--almost-black)",
+					"highlight-alt": "hsl(0, 0%, 0%)",
+					"highlight-accent-alt": "hsl(0, 0%, 0%)"
 				},
 				"border": 			"color-mix(in srgb, currentColor 10%, transparent)",
 				"divider": 			"color-mix(in srgb, currentColor 12%, transparent)",				

@@ -15,7 +15,7 @@
 					"separator": 	"var(--wp--preset--color--secondary)"
 				},
 				"highlight-alt": {
-					"lighten": 		"brightness(1.8) saturate(0.8)"
+					"lighten": 		"brightness(2.8) saturate(0.80)"
 				},
 				"opacity": {
 					"tintColor": 	"var(--wp--preset--color--secondary)"
@@ -25,7 +25,7 @@
 		"color": {
 			"palette": [			
 				{ "slug": "primary", "color": "hsl(0, 18%, 34%)", "name": "Primary (Patina Crimson 34%)" },
-				{ "slug": "secondary", "color": "hsl(38, 38%, 40%)", "name": "Secondary (Aged Brass 40%)" },
+				{ "slug": "secondary", "color": "hsl(38, 38%, 38%)", "name": "Secondary (Aged Brass 38%)" },
 				{ "slug": "tertiary", "color": "hsl(208, 22%, 30%)", "name": "Tertiary (Midnight Blue 30%)" },
 
 				{ "slug": "primary-subtle", "color": "hsl(14, 22%, 92%)", "name": "Primary Subtle (Warm Terracotta Linen 92%)" },
@@ -70,7 +70,7 @@
 			"duotone": [
 				{ "colors": ["hsl(0, 18%, 34%)", "hsl(40, 25%, 96%)"], "slug": "primary", "name": "Primary (Patina Crimson)" },
 				{ "colors": ["hsl(0, 18%, 24%)", "hsl(40, 25%, 96%)"], "slug": "primary-alt", "name": "Primary Alt (Shadow Crimson)" },
-				{ "colors": ["hsl(38, 38%, 40%)", "hsl(40, 25%, 96%)"], "slug": "secondary", "name": "Secondary (Aged Brass)" },
+				{ "colors": ["hsl(38, 38%, 38%)", "hsl(40, 25%, 96%)"], "slug": "secondary", "name": "Secondary (Aged Brass)" },
 				{ "colors": ["hsl(38, 40%, 30%)", "hsl(40, 25%, 96%)"], "slug": "secondary-alt", "name": "Secondary Alt (Burnished Brass)" },
 				{ "colors": ["hsl(208, 22%, 30%)", "hsl(40, 25%, 96%)"], "slug": "tertiary", "name": "Tertiary (Midnight Blue)" },
 				{ "colors": ["hsl(208, 24%, 20%)", "hsl(40, 25%, 96%)"], "slug": "tertiary-alt", "name": "Tertiary Alt (Abyssal Midnight)" },

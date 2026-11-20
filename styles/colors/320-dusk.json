@@ -21,26 +21,26 @@
 		},
 		"color": {
 			"palette": [
-				{ "slug": "primary", "color": "hsl(214, 18%, 28%)", "name": "Primary (Midnight Slate 28%)" },
-				{ "slug": "secondary", "color": "hsl(206, 20%, 34%)", "name": "Secondary (Maritime Evening Slate 34%)" },
-				{ "slug": "tertiary", "color": "hsl(12, 32%, 48%)", "name": "Tertiary (Twilight Terracotta 48%)" },
+				{ "slug": "primary", "color": "hsl(214, 18%, 32%)", "name": "Primary (Midnight Slate 32%)" },
+				{ "slug": "secondary", "color": "hsl(206, 20%, 38%)", "name": "Secondary (Maritime Evening Slate 38%)" },
+				{ "slug": "tertiary", "color": "hsl(12, 32%, 47%)", "name": "Tertiary (Twilight Terracotta 47%)" },
 
 				{ "slug": "primary-subtle", "color": "hsl(204, 20%, 91%)", "name": "Primary Subtle (Whisper Sky Slate 91%)" },
 				{ "slug": "secondary-subtle", "color": "hsl(146, 20%, 91%)", "name": "Secondary Subtle (Whisper Sage Green 91%)" },
 				{ "slug": "tertiary-subtle", "color": "hsl(24, 22%, 91%)", "name": "Tertiary Subtle (Evening Glow Orange 91%)" },
 
-				{ "slug": "primary-alt", "color": "hsl(214, 18%, 18%)", "name": "Primary Alt (Deep Abyssal Blue 18%)" },
-				{ "slug": "secondary-alt", "color": "hsl(206, 24%, 24%)", "name": "Secondary Alt (Maritime Slate 24%)" },
+				{ "slug": "primary-alt", "color": "hsl(214, 18%, 24%)", "name": "Primary Alt (Deep Abyssal Blue 24%)" },
+				{ "slug": "secondary-alt", "color": "hsl(206, 24%, 28%)", "name": "Secondary Alt (Maritime Slate 28%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(12, 32%, 38%)", "name": "Tertiary Alt (Burnt Sienna 38%)" },
 
-				{ "slug": "primary-dark", "color": "hsl(214, 20%, 18%)", "name": "Primary Dark (Midnight Slate Deep 18%)" },
-				{ "slug": "primary-dark-alt", "color": "hsl(214, 22%, 12%)", "name": "Primary Dark Alt (Midnight Slate Abyssal 12%)" },
+				{ "slug": "primary-dark", "color": "hsl(214, 20%, 26%)", "name": "Primary Dark (Midnight Slate Deep 26%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(214, 22%, 20%)", "name": "Primary Dark Alt (Midnight Slate Abyssal 20%)" },
 
-				{ "slug": "dark", "color": "hsl(206, 20%, 20%)", "name": "Dark (Secondary Maritime Pair 20%)" },
-				{ "slug": "dark-alt", "color": "hsl(206, 24%, 15%)", "name": "Dark Alt (Secondary Maritime Deep 15%)" },
+				{ "slug": "dark", "color": "hsl(206, 20%, 30%)", "name": "Dark (Secondary Maritime Pair 30%)" },
+				{ "slug": "dark-alt", "color": "hsl(206, 24%, 24%)", "name": "Dark Alt (Secondary Maritime Deep 24%)" },
 
-				{ "slug": "tertiary-dark", "color": "hsl(12, 32%, 22%)", "name": "Dark Accent (Twilight Terracotta Deep 22%)" },
-				{ "slug": "tertiary-dark-alt", "color": "hsl(12, 32%, 14%)", "name": "Dark Accent Alt (Twilight Terracotta Abyssal 14%)" },
+				{ "slug": "tertiary-dark", "color": "hsl(12, 32%, 34%)", "name": "Dark Accent (Twilight Terracotta Deep 34%)" },
+				{ "slug": "tertiary-dark-alt", "color": "hsl(12, 32%, 28%)", "name": "Dark Accent Alt (Twilight Terracotta Abyssal 28%)" },
 
 				{ "slug": "highlight", "color": "hsl(206, 70%, 72%)", "name": "Highlight (Bioluminescent Sky Links)" },
 				{ "slug": "highlight-alt", "color": "hsl(206, 55%, 34%)", "name": "Highlight Alt (Deep Maritime Accent)" },
@@ -65,13 +65,13 @@
 				{ "slug": "contrast", "color": "hsl(214, 12%, 11%)", "name": "Contrast (Midnight Indigo)" }				
 			],		
 			"duotone": [
-				{ "colors": ["hsl(214, 18%, 28%)", "hsl(43, 27%, 97%)"], "slug": "primary", "name": "Primary (Dark Midnight Blue)" },
-				{ "colors": ["hsl(214, 18%, 18%)", "hsl(43, 27%, 97%)"], "slug": "primary-alt", "name": "Primary Alt (Deep Lumina)" },
-				{ "colors": ["hsl(206, 20%, 34%)", "hsl(43, 27%, 97%)"], "slug": "secondary", "name": "Secondary (Midnight Blue)" },
-				{ "colors": ["hsl(206, 24%, 24%)", "hsl(43, 27%, 97%)"], "slug": "secondary-alt", "name": "Secondary Alt (Dark Midnight)" },
-				{ "colors": ["hsl(12, 32%, 48%)", "hsl(43, 27%, 97%)"], "slug": "tertiary", "name": "Tertiary (Twilight Orange)" },
+				{ "colors": ["hsl(214, 18%, 32%)", "hsl(43, 27%, 97%)"], "slug": "primary", "name": "Primary (Dark Midnight Blue)" },
+				{ "colors": ["hsl(214, 18%, 24%)", "hsl(43, 27%, 97%)"], "slug": "primary-alt", "name": "Primary Alt (Deep Lumina)" },
+				{ "colors": ["hsl(206, 20%, 38%)", "hsl(43, 27%, 97%)"], "slug": "secondary", "name": "Secondary (Midnight Blue)" },
+				{ "colors": ["hsl(206, 24%, 28%)", "hsl(43, 27%, 97%)"], "slug": "secondary-alt", "name": "Secondary Alt (Dark Midnight)" },
+				{ "colors": ["hsl(12, 32%, 47%)", "hsl(43, 27%, 97%)"], "slug": "tertiary", "name": "Tertiary (Twilight Orange)" },
 				{ "colors": ["hsl(12, 32%, 38%)", "hsl(43, 27%, 97%)"], "slug": "tertiary-alt", "name": "Tertiary Alt (Burnt Sienna)" },
-				{ "colors": ["hsl(206, 24%, 15%)", "hsl(206, 20%, 34%)"], "slug": "midnight", "name": "Midnight Blue" },
+				{ "colors": ["hsl(206, 24%, 24%)", "hsl(206, 20%, 38%)"], "slug": "midnight", "name": "Midnight Blue" },
 				{ "colors": ["hsl(0, 0%, 0%)", "hsl(0, 0%, 100%)"], "slug": "grayscale", "name": "Grayscale" },
 				{ "colors": ["hsl(0, 0%, 0%)", "hsl(45, 8%, 71%)"], "slug": "dark-grayscale", "name": "Dark Grayscale" }
 			]	

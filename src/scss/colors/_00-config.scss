@@ -41,23 +41,22 @@ $color-defaults: (
 $color-registry: (
 
 	// --- MAIN SEMANTIC COLORS ---
-    ( color: 'primary',          	text: 'light',  	link: 'inherit', 
-    		heading: 'inherit' 
+    ( color: 'primary',          	text: 'light',  	link: 'inherit',
+        heading: 'inherit'
     ),
-    ( color: 'primary-alt',      	text: 'light',  	link: 'lighten',
-    		heading: 'inherit' 
-    ),
-
     ( color: 'secondary',        	text: 'light',  	link: 'inherit',
-    		heading: 'inherit',		footer-dark: 'hover-highlight'  
+        heading: 'inherit', footer-dark: 'hover-highlight'
+    ),
+    ( color: 'tertiary',         	text: 'light',  	link: 'inherit',
+        heading: 'inherit', footer-dark: 'hover-highlight'
     ),
     
 	// --- MAIN ALT SEMANTIC COLORS ---
+    ( color: 'primary-alt',      	text: 'light',  	link: 'lighten',
+        heading: 'inherit'
+    ),
     ( color: 'secondary-alt',    	text: 'light',  	link: 'lighten',
-    		heading: 'inherit',		footer-dark: 'hover-highlight'  
-    ), 
-    ( color: 'tertiary',         	text: 'light',  	link: 'inherit',
-    		heading: 'inherit',		footer-dark: 'hover-highlight'  
+        heading: 'inherit', footer-dark: 'hover-highlight'
     ),
     ( color: 'tertiary-alt',     	text: 'light',  	link: 'lighten',
     		heading: 'inherit',		footer-dark: 'hover-highlight'  
@@ -69,17 +68,12 @@ $color-registry: (
     ( color: 'tertiary-subtle',     text: 'dark-light', heading: 'accent' ),
     
     // --- SUBTLE ALT SEMANTIC COLORS ---
-//     ( color: 'primary-subtle-alt',  text: 'dark-light', heading: 'accent', 
-//     		link-light: 'dark',		footer: 'hover-highlight-alt' 
-//     ),
-//     ( color: 'secondary-subtle-alt', text: 'dark-light', heading: 'accent', 
-//     		link-light: 'dark',		footer: 'hover-highlight-alt' 
-//     ),
-//     ( color: 'tertiary-subtle-alt', text: 'dark-light', heading: 'accent', 
-//     		link-light: 'dark',		footer: 'hover-highlight-alt' 
-//     ),
+    // ( color: 'primary-subtle-alt',   text: 'dark-light', heading: 'accent' ),
+    // ( color: 'secondary-subtle-alt', text: 'dark-light', heading: 'accent' ),
+    // ( color: 'tertiary-subtle-alt',  text: 'dark-light', heading: 'accent' ),
 
     // --- CORE CANVAS CONTRASTS ---
+    ( color: 'base',                 text: 'contrast', heading: 'inherit' ),
 	( color: 'contrast',          	text: 'light-dark', link-light: 'highlight', 
 			heading: 'inherit',		link-dark: 'highlight-alt' ),
 
@@ -94,9 +88,11 @@ $color-registry: (
     // --- HIGHLIGHT COLORS ---
     ( color: 'highlight',            text: 'dark', link: 'dark', heading-dark: 'dark' ),
     ( color: 'highlight-accent',     text: 'dark', link: 'dark', heading-dark: 'dark' ),
+    ( color: 'highlight-accent-2',   text: 'dark', link: 'dark', heading-dark: 'dark' ),
 
     ( color: 'highlight-alt',        text: 'light', link: 'light', heading: 'inherit' ),
     ( color: 'highlight-accent-alt', text: 'light', link: 'light', heading: 'inherit' ),
+    ( color: 'highlight-accent-2-alt', text: 'light', link: 'light', heading: 'inherit' ),
         
     // --- WHITE & GRAY NAMED COLORS ---
     ( color: 'white',      			text: 'dark', 		heading-dark: 'inherit',
@@ -117,13 +113,20 @@ $color-registry: (
     		footer: 'hover-highlight-alt', footer-dark: 'hover-highlight' 
     ),
 
-    ( color: 'dark-gray', text: 'light-dark', link-light: 'highlight', 
-    		link-dark: 'inherit', footer: 'hover-highlight-alt' 
-    ),
+    // ( color: 'dark-gray', text: 'light-dark', link-light: 'highlight', 
+    // 		link-dark: 'inherit', footer: 'hover-highlight-alt' 
+    // ),
     
-	( color: 'very-dark-gray',		text: 'light-dark',		heading-dark: 'dark',
+    ( color: 'dark-gray', text: 'light-dark', link: 'inherit',
+            footer: 'hover-highlight-alt' 
+    ),
+
+    ( color: 'very-dark-gray',		text: 'light-dark',		heading-dark: 'dark',
 		link-light: 'highlight', 	link-dark: 'inherit',	footer: 'hover-highlight-alt'
 	),
+    // ( color: 'very-dark-gray',		text: 'light-dark',		heading-dark: 'dark',
+	// 	link-light: 'lighten', 	link-dark: 'inherit',	footer: 'hover-highlight-alt'
+	// ),
     
     // --- DARK SEMANTIC COLORS ---
     ( color: 'dark',			text: 'light',	link: 'highlight', heading: 'inherit' ),
@@ -143,20 +146,28 @@ $color-registry: (
     ( color: 'black',			text: 'light',	link: 'highlight', heading: 'inherit' ), 
     
     // --- GREEN NAMED COLORS ---
-    ( color: 'light-green',       text: 'dark',  	link: 'inherit' ),
+    ( color: 'very-light-green',   text: 'dark-light', link: 'inherit' ),
+    ( color: 'light-green',       text: 'dark-light', link: 'inherit' ),
     ( color: 'green',             text: 'light',  	link: 'inherit' ),
+    ( color: 'dark-green',        text: 'light',  	link: 'inherit' ),
     ( color: 'bright-green',      text: 'dark', 	link: 'inherit' ),
     ( color: 'dark-bright-green', text: 'light',  	link: 'inherit' ),
+    ( color: 'deep-green',        text: 'light',  	link: 'highlight' ),
+    ( color: 'deep-green-alt',    text: 'light',  	link: 'highlight' ),
 
     // --- YELLOW & ORANGE NAMED COLORS ---
-    ( color: 'light-yellow',      text: 'dark', 	link: 'inherit' ),
-    ( color: 'yellow',            text: 'dark', 	link: 'inherit' ),
-    ( color: 'light-orange',      text: 'dark',  	link: 'inherit' ),
+    ( color: 'very-light-yellow', text: 'dark-light', link: 'inherit' ),
+    ( color: 'light-yellow',      text: 'dark-light', link: 'inherit' ),
+    ( color: 'yellow',            text: 'light', 	link: 'inherit' ),
+    ( color: 'dark-yellow',       text: 'light', 	link: 'inherit' ),
+    ( color: 'very-light-orange', text: 'dark-light', link: 'inherit' ),
+    ( color: 'light-orange',      text: 'dark-light', link: 'inherit' ),
     ( color: 'orange',            text: 'light',  	link: 'inherit' ),
     ( color: 'dark-orange',       text: 'light',  	link: 'inherit' ),
 
     // --- BLUE NAMED COLORS ---
-    ( color: 'light-blue',        text: 'dark',  	link: 'inherit' ),
+    ( color: 'very-light-blue',   text: 'dark-light', link: 'inherit' ),
+    ( color: 'light-blue',        text: 'dark-light', link: 'inherit' ),
     ( color: 'blue',              text: 'light',  	link: 'inherit' ),
     ( color: 'dark-blue',         text: 'light',  	link: 'inherit' ),
     ( color: 'midnight-blue',     text: 'light',  	link: 'inherit' ),
@@ -164,12 +175,14 @@ $color-registry: (
     ( color: 'dark-midnight-blue',text: 'light',  	link: 'highlight' ),
 
     // --- PURPLE NAMED COLORS ---
-    ( color: 'light-purple',      text: 'dark',  	link: 'inherit' ),
+    ( color: 'very-light-purple', text: 'dark-light', link: 'inherit' ),
+    ( color: 'light-purple',      text: 'dark-light', link: 'inherit' ),
     ( color: 'purple',            text: 'light',  	link: 'inherit' ),
     ( color: 'dark-purple',       text: 'light',  	link: 'inherit' ),
 
     // --- RED NAMED COLORS ---
-    ( color: 'light-red',         text: 'dark',  	link: 'inherit' ),
+    ( color: 'very-light-red',    text: 'dark-light', link: 'inherit' ),
+    ( color: 'light-red',         text: 'dark-light', link: 'inherit' ),
     ( color: 'red',               text: 'light',  	link: 'inherit' ),
     ( color: 'dark-red',          text: 'light',  	link: 'inherit' ),
 
@@ -202,7 +215,7 @@ $gradient-preserve-colors: (
 ///
 /// @group Colors Configuration
 /// @type String
-$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, brightness(1.75) saturate(0.80)) !default;
+$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, brightness(2.2) saturate(0.80)) !default;
 
 /// Darken brightness filter metric applied to link hover and focus states.
 ///

@@ -18,32 +18,32 @@
 					"hoverOpacity": "0.7" 
 				},
 				"highlight-alt": {
-					"lighten": "brightness(1.75) saturate(0.7)"
+					"lighten": "brightness(2.4) saturate(0.80)"
 				}						
 			}
 		},
 		"color": {
 			"palette": [
-				{ "slug": "primary", "color": "hsl(327, 12%, 48%)", "name": "Primary (Smoky Heather Velvet 48%)" },
+				{ "slug": "primary", "color": "hsl(327, 12%, 46%)", "name": "Primary (Smoky Heather Velvet 46%)" },
 				{ "slug": "secondary", "color": "hsl(207, 22%, 44%)", "name": "Secondary (Midnight Sapphire Slate 44%)" },
-				{ "slug": "tertiary", "color": "hsl(0, 28%, 48%)", "name": "Tertiary (Deep Ruby Crimson 48%)" },
+				{ "slug": "tertiary", "color": "hsl(353, 28%, 48%)", "name": "Tertiary (Deep Ruby Crimson 48%)" },
 
 				{ "slug": "primary-subtle", "color": "hsl(327, 14%, 92%)", "name": "Primary Subtle (Whisper Lavender 92%)" },
 				{ "slug": "secondary-subtle", "color": "hsl(207, 20%, 91%)", "name": "Secondary Subtle (Whisper Sapphire 91%)" },
-				{ "slug": "tertiary-subtle", "color": "hsl(0, 18%, 91%)", "name": "Tertiary Subtle (Whisper Rose 91%)" },
+				{ "slug": "tertiary-subtle", "color": "hsl(353, 18%, 91%)", "name": "Tertiary Subtle (Whisper Rose 91%)" },
 
 				{ "slug": "primary-alt", "color": "hsl(327, 12%, 38%)", "name": "Primary Alt (Deep Dusky Plum 38%)" },
 				{ "slug": "secondary-alt", "color": "hsl(207, 24%, 34%)", "name": "Secondary Alt (Sapphire 34%)" },
-				{ "slug": "tertiary-alt", "color": "hsl(0, 28%, 38%)", "name": "Tertiary Alt (Garnet 38%)" },
+				{ "slug": "tertiary-alt", "color": "hsl(353, 28%, 38%)", "name": "Tertiary Alt (Garnet 38%)" },
 				
-				{ "slug": "primary-dark", "color": "hsl(327, 20%, 22%)", "name": "Primary Dark (Smoky Heather Plum Deep 22%)" },
-				{ "slug": "primary-dark-alt", "color": "hsl(327, 22%, 15%)", "name": "Primary Dark Alt (Smoky Heather Plum Abyssal 15%)" },
+				{ "slug": "primary-dark", "color": "hsl(327, 20%, 28%)", "name": "Primary Dark (Smoky Heather Plum Deep 28%)" },
+				{ "slug": "primary-dark-alt", "color": "hsl(327, 22%, 20%)", "name": "Primary Dark Alt (Smoky Heather Plum Abyssal 20%)" },
 
-				{ "slug": "dark", "color": "hsl(207, 28%, 22%)", "name": "Dark (Midnight Sapphire 22%)" },
-				{ "slug": "dark-alt", "color": "hsl(207, 30%, 15%)", "name": "Dark Alt (Dark Midnight Sapphire 15%)" },				
+				{ "slug": "dark", "color": "hsl(207, 28%, 28%)", "name": "Dark (Midnight Sapphire 28%)" },
+				{ "slug": "dark-alt", "color": "hsl(207, 30%, 20%)", "name": "Dark Alt (Dark Midnight Sapphire 20%)" },
 
-				{ "slug": "tertiary-dark", "color": "hsl(0, 30%, 22%)", "name": "Dark Accent (Deep Crimson 22%)" },
-				{ "slug": "tertiary-dark-alt", "color": "hsl(0, 30%, 15%)", "name": "Dark Accent Alt (Deep Crimson 15%)" },
+				{ "slug": "tertiary-dark", "color": "hsl(0, 30%, 28%)", "name": "Dark Accent (Deep Crimson 28%)" },
+				{ "slug": "tertiary-dark-alt", "color": "hsl(0, 30%, 21%)", "name": "Dark Accent Alt (Deep Crimson 21%)" },
 
 				{ "slug": "highlight", "color": "hsl(207, 65%, 72%)", "name": "Highlight (Luminescent Sapphire)" },
 				{ "slug": "highlight-alt", "color": "hsl(207, 65%, 36%)", "name": "Highlight Alt (Electric Sapphire 36%)" },
@@ -68,12 +68,12 @@
 				{ "slug": "contrast", "color": "hsl(330, 8%, 11%)", "name": "Contrast (Plum Infused Velvet)" }
 			],
 			"duotone": [
-				{ "colors": ["hsl(327, 12%, 48%)", "hsl(45, 27%, 97%)"], "slug": "primary", "name": "Primary (Smoky Heather Velvet)" },
+				{ "colors": ["hsl(327, 12%, 46%)", "hsl(45, 27%, 97%)"], "slug": "primary", "name": "Primary (Smoky Heather Velvet)" },
 				{ "colors": ["hsl(327, 12%, 38%)", "hsl(45, 27%, 97%)"], "slug": "primary-alt", "name": "Primary Alt (Deep Dusky Plum)" },
 				{ "colors": ["hsl(207, 22%, 44%)", "hsl(45, 27%, 97%)"], "slug": "secondary", "name": "Secondary (Midnight Sapphire)" },
 				{ "colors": ["hsl(207, 24%, 34%)", "hsl(45, 27%, 97%)"], "slug": "secondary-alt", "name": "Secondary Alt (Sapphire )" },
-				{ "colors": ["hsl(0, 28%, 48%)", "hsl(45, 27%, 97%)"], "slug": "tertiary", "name": "Tertiary (Deep Ruby Crimson)" },
-				{ "colors": ["hsl(0, 28%, 38%)", "hsl(45, 27%, 97%)"], "slug": "tertiary-alt", "name": "Tertiary Alt (Garnet)" },
+				{ "colors": ["hsl(353, 28%, 48%)", "hsl(45, 27%, 97%)"], "slug": "tertiary", "name": "Tertiary (Deep Ruby Crimson)" },
+				{ "colors": ["hsl(353, 28%, 38%)", "hsl(45, 27%, 97%)"], "slug": "tertiary-alt", "name": "Tertiary Alt (Garnet)" },
 				{ "colors": ["hsl(330, 8%, 10%)", "hsl(327, 12%, 48%)"], "slug": "midnight", "name": "Midnight Velvet" },
 				{ "colors": ["hsl(0, 0%, 0%)", "hsl(0, 0%, 100%)"], "slug": "grayscale", "name": "Grayscale" },
 				{ "colors": ["hsl(0, 0%, 0%)", "hsl(45, 8%, 71%)"], "slug": "dark-grayscale", "name": "Dark Grayscale" }

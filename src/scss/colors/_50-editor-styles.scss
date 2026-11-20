@@ -30,6 +30,8 @@
 		$map: 		map.merge(logic.$color-defaults, $entry);
 		$color: 	map.get($map, color);
 		$link: 		map.get($map, link);
+		$link-light: map.get($map, link-light);
+		$link-dark: 	map.get($map, link-dark);
 
 		// Neutralize Gutenberg global hover for any card where we are overriding
 		// the link color. This is only needed in the Editor due to WordPress 
@@ -42,6 +44,26 @@
 				$root: true, 
 				$editor-styles: true
 			);
+		}
+
+		@if $link-light {
+			:where(body):not(.is-dark-theme) {
+				@include logic.apply-link-action(
+					$color: $color,
+					$link: $link-light,
+					$editor-styles: true
+				);
+			}
+		}
+
+		@if $link-dark {
+			.is-dark-theme {
+				@include logic.apply-link-action(
+					$color: $color,
+					$link: $link-dark,
+					$editor-styles: true
+				);
+			}
 		}
 	}
 }

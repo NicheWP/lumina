@@ -18,7 +18,8 @@
 					"neutral-alt": 		"var(--wp--preset--color--off-white)",
 					"very-light-gray": 	"var(--wp--preset--color--off-white)",
 					"light-gray": 		"var(--wp--preset--color--off-white)",
-					"very-dark-gray": 	"var(--wp--preset--color--almost-black)"
+					"very-dark-gray": 	"var(--wp--preset--color--almost-black)",
+					"highlight-accent-alt": "hsl(0, 0%, 0%)"
 				},
 				"border": 			"color-mix(in srgb, currentColor 10%, transparent)",
 				"divider": 			"color-mix(in srgb, currentColor 12%, transparent)",				
@@ -46,8 +47,8 @@
 		},
 		"color": {
 			"palette": [
-				{ "slug": "primary", "color": "hsl(12, 32%, 50%)", "name": "Primary (Muted Terracotta 50%)" },
-				{ "slug": "secondary", "color": "hsl(50, 4%, 44%)", "name": "Secondary (Machine Stone Gray 44%)" },
+				{ "slug": "primary", "color": "hsl(12, 32%, 44%)", "name": "Primary (Muted Terracotta 44%)" },
+				{ "slug": "secondary", "color": "hsl(50, 4%, 40%)", "name": "Secondary (Machine Stone Gray 40%)" },
 				{ "slug": "tertiary", "color": "hsl(37, 14%, 34%)", "name": "Tertiary (Muted Antique Bronze 34%)" },
 
 				{ "slug": "primary-subtle", "color": "hsl(211, 28%, 14%)", "name": "Primary Subtle (Deep Trench 14%)" },
@@ -91,12 +92,12 @@
 
 			],
 			"duotone": [
-				{ "colors": ["hsl(12, 32%, 50%)", "hsl(211, 14%, 95%)"], "slug": "primary", "name": "Primary (Terracotta)" },
-				{ "colors": ["hsl(12, 32%, 38%)", "hsl(211, 14%, 95%)"], "slug": "primary-alt", "name": "Primary Alt (Deep Terracotta)" },
-				{ "colors": ["hsl(50, 4%, 44%)", "hsl(211, 14%, 95%)"], "slug": "secondary", "name": "Secondary (Stone Gray)" },
-				{ "colors": ["hsl(50, 4%, 32%)", "hsl(211, 14%, 95%)"], "slug": "secondary-alt", "name": "Secondary Alt (Oiled Gunmetal)" },
-				{ "colors": ["hsl(37, 14%, 34%)", "hsl(211, 14%, 95%)"], "slug": "tertiary", "name": "Tertiary (Muted Bronze)" },
-				{ "colors": ["hsl(37, 14%, 22%)", "hsl(211, 14%, 95%)"], "slug": "tertiary-alt", "name": "Tertiary Alt (Dark Bronze)" },
+				{ "colors": ["hsl(12, 32%, 44%)", "hsl(37, 10%, 93%)"], "slug": "primary", "name": "Primary (Terracotta)" },
+				{ "colors": ["hsl(12, 32%, 38%)", "hsl(37, 10%, 93%)"], "slug": "primary-alt", "name": "Primary Alt (Deep Terracotta)" },
+				{ "colors": ["hsl(50, 4%, 40%)", "hsl(37, 10%, 93%)"], "slug": "secondary", "name": "Secondary (Stone Gray)" },
+				{ "colors": ["hsl(50, 4%, 32%)", "hsl(37, 10%, 93%)"], "slug": "secondary-alt", "name": "Secondary Alt (Oiled Gunmetal)" },
+				{ "colors": ["hsl(37, 14%, 34%)", "hsl(37, 10%, 93%)"], "slug": "tertiary", "name": "Tertiary (Muted Bronze)" },
+				{ "colors": ["hsl(37, 14%, 22%)", "hsl(37, 10%, 93%)"], "slug": "tertiary-alt", "name": "Tertiary Alt (Dark Bronze)" },
 				{ "colors": ["hsl(211, 25%, 6%)", "hsl(12, 32%, 50%)"], "slug": "midnight", "name": "Abyssal Tide Void" },
 				{ "colors": ["hsl(0, 0%, 0%)", "hsl(0, 0%, 100%)"], "slug": "grayscale", "name": "Grayscale" },
 				{ "colors": ["hsl(0, 0%, 0%)", "hsl(50, 4%, 44%)"], "slug": "dark-grayscale", "name": "Dark Grayscale" }
