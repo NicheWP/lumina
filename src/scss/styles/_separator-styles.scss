@@ -195,6 +195,7 @@ $link-color: var(--wp--custom--color--heading--separator, var(--wp--preset--colo
         }
 
         &:hover,
+        &:focus-visible,
         &:active {
             opacity: 1; 
         }

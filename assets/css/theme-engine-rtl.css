@@ -364,6 +364,14 @@ a > .avatar {
 .wp-block-column .wp-block-image:not(.alignfull):has(a:not(figcaption a)) {
   overflow: hidden;
 }
+.wp-block-column .wp-block-image:not(.alignfull):has(a:not(figcaption a)):has(> a:focus-visible) {
+  outline: auto;
+  outline-offset: 2px;
+}
 .wp-block-media-text__media:not(.alignfull):has(a:not(figcaption a)) {
   overflow: hidden;
+}
+.wp-block-media-text__media:not(.alignfull):has(a:not(figcaption a)):has(> a:focus-visible) {
+  outline: auto;
+  outline-offset: 2px;
 }

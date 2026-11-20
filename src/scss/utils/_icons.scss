@@ -2,12 +2,6 @@
 # Icons
 ------------------------------------------------------------------------------*/
 
-/* 1. Standard Icon Links: Keeps theme link color & underline intact */
-[class*="is-style-icon-"] a {
-    outline: none;
-    // Do NOT set color or text-decoration here so normal text links stay styled
-}
-
 /* 2. Pseudo-Elements (The Icons): Prevents underline bleed into the icon box */
 [class*="is-style-icon-"] a::before,
 [class*="is-style-icon-"] a::after {
@@ -17,6 +11,7 @@
 
 /* 3. Hover State for Standard Icon Links */
 [class*="is-style-icon-"] a:hover,
+[class*="is-style-icon-"] a:focus-visible,
 [class*="is-style-icon-"] a:active {
     opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
 }

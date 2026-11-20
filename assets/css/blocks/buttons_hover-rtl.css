@@ -10,16 +10,16 @@
 }
 
 /* 2. Hover on Solid Buttons: Apply linear gradient to background */
-.wp-block-button:not(.is-style-outline, [class*=is-style-button-outline], .is-style-glass, .is-style-glass-frosted, .is-style-glass-dark) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):not([class*=-gradient-background]):hover, .wp-block-button:not(.is-style-outline, [class*=is-style-button-outline], .is-style-glass, .is-style-glass-frosted, .is-style-glass-dark) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):not([class*=-gradient-background]):active {
+.wp-block-button:not(.is-style-outline, [class*=is-style-button-outline], .is-style-glass, .is-style-glass-frosted, .is-style-glass-dark) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):not([class*=-gradient-background]):hover, .wp-block-button:not(.is-style-outline, [class*=is-style-button-outline], .is-style-glass, .is-style-glass-frosted, .is-style-glass-dark) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):not([class*=-gradient-background]):focus-visible, .wp-block-button:not(.is-style-outline, [class*=is-style-button-outline], .is-style-glass, .is-style-glass-frosted, .is-style-glass-dark) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):not([class*=-gradient-background]):active {
   background-image: linear-gradient(rgba(0, 0, 0, var(--wp--custom--color--button--hover-tint, 0.15)), rgba(0, 0, 0, var(--wp--custom--color--button--hover-tint, 0.15)));
 }
 
 /* 3. Hover on Gradient Buttons (Light-Sheen Brightness Bump) */
-.wp-block-button :is(.wp-block-button__link, .wp-element-button, input[type=submit]):is([class*=-gradient-background]):hover, .wp-block-button :is(.wp-block-button__link, .wp-element-button, input[type=submit]):is([class*=-gradient-background]):active {
+.wp-block-button :is(.wp-block-button__link, .wp-element-button, input[type=submit]):is([class*=-gradient-background]):hover, .wp-block-button :is(.wp-block-button__link, .wp-element-button, input[type=submit]):is([class*=-gradient-background]):focus-visible, .wp-block-button :is(.wp-block-button__link, .wp-element-button, input[type=submit]):is([class*=-gradient-background]):active {
   filter: brightness(1.12) saturate(1.05);
 }
 
 /* 4. Hover on Outline Buttons: Simple opacity (EXCLUDES GLASS) */
-.wp-block-button:is(.is-style-outline, [class*=is-style-button-outline]) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):hover, .wp-block-button:is(.is-style-outline, [class*=is-style-button-outline]) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):active {
+.wp-block-button:is(.is-style-outline, [class*=is-style-button-outline]) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):hover, .wp-block-button:is(.is-style-outline, [class*=is-style-button-outline]) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):focus-visible, .wp-block-button:is(.is-style-outline, [class*=is-style-button-outline]) :is(.wp-block-button__link, .wp-element-button, input[type=submit]):active {
   opacity: var(--wp--custom--color--button--hover-opacity, 1);
 }

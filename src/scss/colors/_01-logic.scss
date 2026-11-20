@@ -296,7 +296,7 @@
 	$target-selector: null;
 
 	@if $editor-styles {
-		$target-selector: "#{$clean-selectors} :where(a:not(#{$excluded-links})):hover";
+		$target-selector: "#{$clean-selectors} :where(a:not(#{$excluded-links})):is(:hover, :focus-visible)";
 	} @else if $root-prefix != "" {
 		$target-selector: "#{$root-prefix} #{$clean-selectors} :where(a:not(#{$excluded-links}))";
 	} @else {
@@ -387,19 +387,19 @@
 	}
 }
 
-/// Applies footer link hover highlight actions inside `.site-footer` and `.footer-info` contexts.
+/// Applies footer link hover and keyboard-focus highlight actions inside footer contexts.
 ///
 /// @group Colors Logic
 /// @param {String} $selectors - Container selector string
 /// @param {String} $footer - Action mode ('hover-highlight', 'hover-highlight-alt')
-/// @output Generates scoped footer link hover ink rules
+/// @output Generates scoped footer link hover and focus ink rules
 @mixin apply-footer-action($selectors, $footer) {
 
 	@if $footer == 'hover-highlight' {
 		#{$selectors}:is(.site-footer, .footer-info) {
 
-			a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
-			.wp-block-navigation-item__content:hover {
+			a:not(.wp-element-button, .wp-block-social-link-anchor):is(:hover, :focus-visible),
+			.wp-block-navigation-item__content:is(:hover, :focus-visible) {
 
 				@extend %engine-link-highlight;
 			}				
@@ -408,8 +408,8 @@
 	} @else if $footer == 'hover-highlight-alt' {
 		#{$selectors}:is(.site-footer, .footer-info) {
 
-			a:not(.wp-element-button, .wp-block-social-link-anchor):hover,
-			.wp-block-navigation-item__content:hover {
+			a:not(.wp-element-button, .wp-block-social-link-anchor):is(:hover, :focus-visible),
+			.wp-block-navigation-item__content:is(:hover, :focus-visible) {
 
 				@extend %engine-link-highlight-alt;
 			}

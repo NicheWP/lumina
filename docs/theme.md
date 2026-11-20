@@ -19,12 +19,6 @@ Source: `theme.json`
 | Primary Alt (Burnished Ochre 32%) | primary-alt | hsl(34, 34%, 32%) |
 | Secondary Alt (Storm Navy 34%) | secondary-alt | hsl(206, 26%, 34%) |
 | Tertiary Alt (Deep Alpine Sage 32%) | tertiary-alt | hsl(154, 26%, 32%) |
-| Flame Orange 48% | orange | hsl(12, 32%, 48%) |
-| Flame Orange Alt 38% | orange-alt | hsl(12, 32%, 38%) |
-| Velvet Purple 32% | purple | hsl(327, 8%, 32%) |
-| Velvet Purple Alt 22% | purple-alt | hsl(327, 8%, 22%) |
-| Ember Red 32% | red | hsl(0, 23%, 32%) |
-| Ember Red Alt 22% | red-alt | hsl(0, 23%, 22%) |
 | Primary Dark (Antique Gold Deep 22%) | primary-dark | hsl(34, 34%, 22%) |
 | Primary Dark Alt (Antique Gold Abyssal 14%) | primary-dark-alt | hsl(34, 34%, 14%) |
 | Dark (Midnight Blue 22%) | dark | hsl(208, 21%, 22%) |

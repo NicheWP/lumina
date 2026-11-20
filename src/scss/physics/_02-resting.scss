@@ -836,7 +836,12 @@
 @mixin apply-zoom-wrapper-clipped {
 
 	overflow: hidden; // Apply to figure wrapper
-	
+
+	&:has(> a:focus-visible) {
+		outline: auto;
+		outline-offset: 2px;
+	}
+
 	> a {
 
 		@if config.$lumina-dev-mode {

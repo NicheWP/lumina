@@ -13,11 +13,11 @@
 // # PASS 5: EDITOR COLOR STYLES
 // # Text, heading, and/or link color overrides needed for the Editor
 //*-----------------------------------------------------------------------------
-/// Pass 5 of 5-Pass Colors Engine: Generates high-specificity link hover 
+/// Pass 5 of 5-Pass Colors Engine: Generates high-specificity link hover and focus
 ///		overrides required for Gutenberg block editor styles.
 ///
 /// @group Colors Modules
-/// @output Generates editor-scoped link hover state overrides across registered 
+/// @output Generates editor-scoped link hover and focus overrides across registered
 ///		color entries
 @mixin build-editor-hover-overrides() {
 
@@ -33,7 +33,7 @@
 		$link-light: map.get($map, link-light);
 		$link-dark: 	map.get($map, link-dark);
 
-		// Neutralize Gutenberg global hover for any card where we are overriding
+		// Neutralize Gutenberg global interaction styles where we are overriding
 		// the link color. This is only needed in the Editor due to WordPress 
 		// using very high specificity on this. 
 		@if $link {

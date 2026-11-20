@@ -184,7 +184,6 @@ a,
 .wp-block-navigation a,
 .wp-block-navigation-submenu__toggle {
   cursor: pointer;
-  will-change: opacity, filter;
   backface-visibility: hidden;
   transition: opacity var(--wp--custom--animation--duration--short, 250ms) ease-in-out, color var(--wp--custom--animation--duration--short, 250ms) ease-in-out;
 }
@@ -193,6 +192,7 @@ a,
 a:where(:not(.wp-element-button,
 .wp-block-button__link,
 .wp-block-social-link-anchor,
+.wp-block-navigation-item__content:has(.wp-block-navigation-item__label),
 .wp-block-image a,
 figure > a,
 .wp-block-post-featured-image a,
@@ -200,6 +200,15 @@ figure > a,
 .wp-block-media-text__media a)):hover, a:where(:not(.wp-element-button,
 .wp-block-button__link,
 .wp-block-social-link-anchor,
+.wp-block-navigation-item__content:has(.wp-block-navigation-item__label),
+.wp-block-image a,
+figure > a,
+.wp-block-post-featured-image a,
+.wp-block-latest-posts__featured-image a,
+.wp-block-media-text__media a)):focus-visible, a:where(:not(.wp-element-button,
+.wp-block-button__link,
+.wp-block-social-link-anchor,
+.wp-block-navigation-item__content:has(.wp-block-navigation-item__label),
 .wp-block-image a,
 figure > a,
 .wp-block-post-featured-image a,
@@ -208,20 +217,7 @@ figure > a,
   opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
 }
 
-/* 4. Decoupled Linked Image Hovers */
-.wp-block-image a:hover, .wp-block-image a:active,
-figure > a:hover,
-figure > a:active,
-.wp-block-post-featured-image a:hover,
-.wp-block-post-featured-image a:active,
-.wp-block-latest-posts__featured-image a:hover,
-.wp-block-latest-posts__featured-image a:active,
-.wp-block-media-text__media a:hover,
-.wp-block-media-text__media a:active {
-  opacity: var(--wp--custom--color--image--hover-opacity, 1);
-}
-
-/* 5. Basic HTML Form Buttons (Style-matched to block buttons) */
+/* 4. Basic HTML Form Buttons (Style-matched to block buttons) */
 input[type=button]:not(.wp-element-button),
 input[type=submit][class*=button]:not(.wp-element-button),
 input[type=submit][class*=submit]:not(.wp-element-button),
@@ -244,12 +240,12 @@ input[type=file] {
   width: 100%;
 }
 
-/* 6. Outline Inheritance Rules */
+/* 5. Outline Inheritance Rules */
 .is-style-outline > .wp-element-button, .is-style-outline > .wp-block-button__link, [class*=is-style-button-outline-] > .wp-element-button, [class*=is-style-button-outline-] > .wp-block-button__link {
   color: inherit;
 }
 
-/* 7. WordPress Core Helper Fixes */
+/* 6. WordPress Core Helper Fixes */
 .wp-block-button__link,
 .wp-element-button {
   width: auto;
@@ -257,7 +253,7 @@ input[type=file] {
   vertical-align: middle;
 }
 
-/* 8. Custom Underline Utilities */
+/* 7. Custom Underline Utilities */
 .is-style-link-underline a:not(.wp-block-navigation-item__content) {
   text-decoration-line: underline !important;
 }
@@ -270,7 +266,7 @@ input[type=file] {
   text-decoration: none !important;
   opacity: 1;
 }
-.is-style-link-underline-hover a:hover, .is-style-link-underline-hover a:active {
+.is-style-link-underline-hover a:hover, .is-style-link-underline-hover a:focus-visible, .is-style-link-underline-hover a:active {
   text-decoration-line: underline !important;
   text-decoration-color: currentcolor !important;
   opacity: 1;
@@ -641,14 +637,18 @@ img.size-cropped-slim,
    ========================================================================== */
 /* Overrides flat-blocks default opacity to prevent linked images 
    from dimming mid-flight during kinetic scale/zoom transforms */
-.wp-block-image a:hover, .wp-block-image a:active,
+.wp-block-image a:hover, .wp-block-image a:focus-visible, .wp-block-image a:active,
 figure > a:hover,
+figure > a:focus-visible,
 figure > a:active,
 .wp-block-post-featured-image a:hover,
+.wp-block-post-featured-image a:focus-visible,
 .wp-block-post-featured-image a:active,
 .wp-block-latest-posts__featured-image a:hover,
+.wp-block-latest-posts__featured-image a:focus-visible,
 .wp-block-latest-posts__featured-image a:active,
 .wp-block-media-text__media a:hover,
+.wp-block-media-text__media a:focus-visible,
 .wp-block-media-text__media a:active {
   opacity: var(--wp--custom--color--image--hover-opacity, 1);
 }
@@ -729,6 +729,12 @@ figure > a:active,
 .wp-block-media-text:not(.is-image-fill-element):is(.is-style-pan-zoom, .is-style-pan-zoom-hover) .wp-block-media-text__media {
   border: var(--wp--custom--border--style, solid) var(--wp--custom--border--width, 1px) var(--wp--custom--color--border, color-mix(in srgb, currentColor 15%, transparent));
   border-radius: var(--wp--preset--border-radius--lg, 16px);
+}
+
+:is(.wp-block-image, .wp-block-post-featured-image):is(.is-style-pan-zoom, .is-style-pan-zoom-hover):has(> a:focus-visible),
+.wp-block-media-text:is(.is-style-pan-zoom, .is-style-pan-zoom-hover) > .wp-block-media-text__media:has(> a:focus-visible) {
+  outline: auto;
+  outline-offset: 2px;
 }
 
 /* 3. Universal Nested Image Animation Engine */
@@ -915,6 +921,9 @@ figure > a:active,
   }
 }
 @media (prefers-reduced-motion: reduce) {
+  .is-style-pan-zoom-hover::before {
+    display: none !important;
+  }
   :is(.is-style-pan-zoom, .is-style-pan-zoom-hover)::after {
     display: none !important;
   }
@@ -1174,7 +1183,7 @@ ol.is-style-list-dividers,
     transition: background-size 0s 10s;
   }
 }
-.wp-block-heading a:hover, .wp-block-heading a:active {
+.wp-block-heading a:hover, .wp-block-heading a:focus-visible, .wp-block-heading a:active {
   opacity: 1;
 }
 .wp-block-heading a:hover, .wp-block-heading a:active, .wp-block-heading a:focus {
@@ -1201,7 +1210,7 @@ ol.is-style-list-dividers,
     transition: background-size 0s 10s;
   }
 }
-.wp-block-site-title a:hover, .wp-block-site-title a:active {
+.wp-block-site-title a:hover, .wp-block-site-title a:focus-visible, .wp-block-site-title a:active {
   opacity: 1;
 }
 .wp-block-site-title a:hover, .wp-block-site-title a:active, .wp-block-site-title a:focus {
@@ -1228,7 +1237,7 @@ ol.is-style-list-dividers,
     transition: background-size 0s 10s;
   }
 }
-.wp-block-post-title a:hover, .wp-block-post-title a:active {
+.wp-block-post-title a:hover, .wp-block-post-title a:focus-visible, .wp-block-post-title a:active {
   opacity: 1;
 }
 .wp-block-post-title a:hover, .wp-block-post-title a:active, .wp-block-post-title a:focus {
@@ -1255,7 +1264,7 @@ ol.is-style-list-dividers,
     transition: background-size 0s 10s;
   }
 }
-.wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title:hover, .wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title:active {
+.wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title:hover, .wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title:focus-visible, .wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title:active {
   opacity: 1;
 }
 .wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title:hover, .wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title:active, .wp-block-latest-posts.is-grid .wp-block-latest-posts__post-title:focus {
@@ -1327,11 +1336,6 @@ body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:no
 /*------------------------------------------------------------------------------
 # Icons
 ------------------------------------------------------------------------------*/
-/* 1. Standard Icon Links: Keeps theme link color & underline intact */
-[class*=is-style-icon-] a {
-  outline: none;
-}
-
 /* 2. Pseudo-Elements (The Icons): Prevents underline bleed into the icon box */
 [class*=is-style-icon-] a::before,
 [class*=is-style-icon-] a::after {
@@ -1341,6 +1345,7 @@ body[class*=-sidebar-right] .wp-block-columns.main-content > .wp-block-column:no
 
 /* 3. Hover State for Standard Icon Links */
 [class*=is-style-icon-] a:hover,
+[class*=is-style-icon-] a:focus-visible,
 [class*=is-style-icon-] a:active {
   opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
 }

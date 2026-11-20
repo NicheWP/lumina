@@ -11,6 +11,7 @@ figure > a,
 .wp-block-media-text__media a {
     
     &:hover,
+    &:focus-visible,
     &:active {
         opacity: var(--wp--custom--color--image--hover-opacity, 1);
     }

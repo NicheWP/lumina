@@ -16,7 +16,6 @@ a,
 .wp-block-navigation a,
 .wp-block-navigation-submenu__toggle {
 	cursor: pointer;
-	will-change: opacity, filter;
 	backface-visibility: hidden;
 	transition: 
 		opacity var(--wp--custom--animation--duration--short, 250ms) ease-in-out, 
@@ -29,6 +28,7 @@ a:where(
 		.wp-element-button, 
 		.wp-block-button__link, 
 		.wp-block-social-link-anchor,
+		.wp-block-navigation-item__content:has(.wp-block-navigation-item__label),
 		.wp-block-image a, 
 		figure > a,
 		.wp-block-post-featured-image a,
@@ -38,25 +38,13 @@ a:where(
 ) {
 	
 	&:hover,
+	&:focus-visible,
 	&:active {
 		opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
 	}
 }
 
-/* 4. Decoupled Linked Image Hovers */
-.wp-block-image a,
-figure > a,
-.wp-block-post-featured-image a,
-.wp-block-latest-posts__featured-image a,
-.wp-block-media-text__media a {
-
-	&:hover,
-	&:active {
-		opacity: var(--wp--custom--color--image--hover-opacity, 1);
-	}
-}
-
-/* 5. Basic HTML Form Buttons (Style-matched to block buttons) */
+/* 4. Basic HTML Form Buttons (Style-matched to block buttons) */
 input[type="button"]:not(.wp-element-button),
 input[type="submit"][class*="button"]:not(.wp-element-button),
 input[type="submit"][class*="submit"]:not(.wp-element-button),
@@ -79,7 +67,7 @@ input[type="file"] {
 	width: 100%;
 }
 
-/* 6. Outline Inheritance Rules */
+/* 5. Outline Inheritance Rules */
 .is-style-outline, [class*="is-style-button-outline-"] {
 
 	> .wp-element-button, > .wp-block-button__link {
@@ -87,7 +75,7 @@ input[type="file"] {
 	}
 }
 
-/* 7. WordPress Core Helper Fixes */
+/* 6. WordPress Core Helper Fixes */
 // .wp-site-blocks .wp-block-button__link,
 // .wp-site-blocks .wp-element-button, {
 .wp-block-button__link,
@@ -97,7 +85,7 @@ input[type="file"] {
 	vertical-align: middle;
 }
 
-/* 8. Custom Underline Utilities */
+/* 7. Custom Underline Utilities */
 .is-style-link-underline a:not(.wp-block-navigation-item__content) {
 	text-decoration-line: underline !important;
 }
@@ -111,6 +99,7 @@ input[type="file"] {
 	opacity: 1;
 	
 	&:hover,
+	&:focus-visible,
 	&:active {
 		text-decoration-line: underline !important;
 		text-decoration-color: currentcolor !important;		

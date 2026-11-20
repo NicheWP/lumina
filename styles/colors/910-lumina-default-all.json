@@ -217,16 +217,6 @@
 					"name": "Tertiary Subtle Sheen" 
 				},
 				{ 
-					"slug": "highlight", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--highlight), var(--wp--preset--color--highlight-alt))", 
-					"name": "Highlight Primary Accent" 
-				},
-				{ 
-					"slug": "highlight-accent", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--highlight-accent), var(--wp--preset--color--highlight-accent-alt))", 
-					"name": "Highlight Tertiary Accent" 
-				},
-				{ 
 					"slug": "green", 
 					"gradient": "linear-gradient(160deg, var(--wp--preset--color--green), var(--wp--preset--color--dark-green))",
 					"name": "Moss Green" 
@@ -258,8 +248,8 @@
 				},
 				{ 
 					"slug": "midnight", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--blue), var(--wp--preset--color--dark-midnight-blue))",
-					"name": "Midnight Blue" 
+					"gradient": "linear-gradient(160deg, var(--wp--preset--color--dark), var(--wp--preset--color--dark-alt))",
+					"name": "Midnight"
 				},
 				{ 
 					"slug": "gray", 

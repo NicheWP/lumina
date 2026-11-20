@@ -70,6 +70,7 @@ p.has-background,
 .is-style-icon-arrow-down-alt2-no-text > a, // deprecated
 .is-style-icon-scroll-down-no-text > a {
 
+	display: inline-block;
 	font-size: 0;
 	line-height: 1;
 	color: inherit;
@@ -77,16 +78,6 @@ p.has-background,
 
 	&::after {
 		font-size: var(--wp--preset--font-size--huge);
-	}
-	
-	&:hover,
-	&:active,
-	&:focus,
-	&:focus-visible {
-// 		text-decoration: none !important;
-		outline: none !important;
-// 		box-shadow: none !important;
-// 		border: none !important;
 	}
 }
 

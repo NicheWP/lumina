@@ -27,6 +27,7 @@ $button-targets: ".wp-block-button__link, .wp-element-button, input[type='submit
 	:is(#{$button-targets}):not(#{$gradient-classes}) {
 
 		&:hover,
+		&:focus-visible,
 		&:active {	
 			background-image: linear-gradient(
 				rgba(0, 0, 0, var(--wp--custom--color--button--hover-tint, 0.15)),
@@ -40,6 +41,7 @@ $button-targets: ".wp-block-button__link, .wp-element-button, input[type='submit
 .wp-block-button :is(#{$button-targets}):is(#{$gradient-classes}) {
 
 	&:hover,
+	&:focus-visible,
 	&:active {
 		filter: brightness(1.12) saturate(1.05);
 	}
@@ -50,6 +52,7 @@ $button-targets: ".wp-block-button__link, .wp-element-button, input[type='submit
 	:is(#{$button-targets}) {
 
 		&:hover,
+		&:focus-visible,
 		&:active {
 			opacity: var(--wp--custom--color--button--hover-opacity, 1);
 		}

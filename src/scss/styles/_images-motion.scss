@@ -285,6 +285,12 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 	border-radius: var(--wp--preset--border-radius--lg, 16px);
 }
 
+:is(.wp-block-image, .wp-block-post-featured-image):is(.is-style-pan-zoom, .is-style-pan-zoom-hover):has(> a:focus-visible),
+.wp-block-media-text:is(.is-style-pan-zoom, .is-style-pan-zoom-hover) > .wp-block-media-text__media:has(> a:focus-visible) {
+	outline: auto;
+	outline-offset: 2px;
+}
+
 /* 3. Universal Nested Image Animation Engine */
 .wp-block-image:is(.is-style-pan-zoom, .is-style-pan-zoom-hover),
 .wp-block-post-featured-image:is(.is-style-pan-zoom, .is-style-pan-zoom-hover),
@@ -501,6 +507,10 @@ $slim-scale-floor: calc(1 + max(2 * #{$pan-slim-shift-y} * #{$var-pan} + 0.02, (
 }
 
 @media (prefers-reduced-motion: reduce) {
+
+	.is-style-pan-zoom-hover::before {
+		display: none !important;
+	}
 
 	:is(.is-style-pan-zoom, .is-style-pan-zoom-hover) {
 

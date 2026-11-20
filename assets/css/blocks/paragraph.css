@@ -78,6 +78,7 @@ p.has-background,
 
 .is-style-icon-arrow-down-alt2-no-text > a,
 .is-style-icon-scroll-down-no-text > a {
+  display: inline-block;
   font-size: 0;
   line-height: 1;
   color: inherit;
@@ -86,13 +87,6 @@ p.has-background,
 .is-style-icon-arrow-down-alt2-no-text > a::after,
 .is-style-icon-scroll-down-no-text > a::after {
   font-size: var(--wp--preset--font-size--huge);
-}
-.is-style-icon-arrow-down-alt2-no-text > a:hover, .is-style-icon-arrow-down-alt2-no-text > a:active, .is-style-icon-arrow-down-alt2-no-text > a:focus, .is-style-icon-arrow-down-alt2-no-text > a:focus-visible,
-.is-style-icon-scroll-down-no-text > a:hover,
-.is-style-icon-scroll-down-no-text > a:active,
-.is-style-icon-scroll-down-no-text > a:focus,
-.is-style-icon-scroll-down-no-text > a:focus-visible {
-  outline: none !important;
 }
 
 /*-----------------------------------------------------------------------------

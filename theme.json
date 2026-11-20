@@ -428,12 +428,6 @@
 				{ "slug": "primary-alt", "color": "hsl(34, 34%, 32%)", "name": "Primary Alt (Burnished Ochre 32%)" },
 				{ "slug": "secondary-alt", "color": "hsl(206, 26%, 34%)", "name": "Secondary Alt (Storm Navy 34%)" },
 				{ "slug": "tertiary-alt", "color": "hsl(154, 26%, 32%)", "name": "Tertiary Alt (Deep Alpine Sage 32%)" },
-				{ "slug": "orange", "color": "hsl(12, 32%, 48%)", "name": "Flame Orange 48%" },
-				{ "slug": "orange-alt", "color": "hsl(12, 32%, 38%)", "name": "Flame Orange Alt 38%" },
-				{ "slug": "purple", "color": "hsl(327, 8%, 32%)", "name": "Velvet Purple 32%" },
-				{ "slug": "purple-alt", "color": "hsl(327, 8%, 22%)", "name": "Velvet Purple Alt 22%" },
-				{ "slug": "red", "color": "hsl(0, 23%, 32%)", "name": "Ember Red 32%" },
-				{ "slug": "red-alt", "color": "hsl(0, 23%, 22%)", "name": "Ember Red Alt 22%" },
 
 				{ "slug": "primary-dark", "color": "hsl(34, 34%, 22%)", "name": "Primary Dark (Antique Gold Deep 22%)" },
 				{ "slug": "primary-dark-alt", "color": "hsl(34, 34%, 14%)", "name": "Primary Dark Alt (Antique Gold Abyssal 14%)" },
@@ -508,49 +502,9 @@
 					"name": "Tertiary Subtle Sheen" 
 				},
 				{ 
-					"slug": "highlight", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--highlight), var(--wp--preset--color--highlight-alt))", 
-					"name": "Highlight Primary Accent" 
-				},
-				{ 
-					"slug": "highlight-accent", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--highlight-accent), var(--wp--preset--color--highlight-accent-alt))", 
-					"name": "Highlight Tertiary Accent" 
-				},
-				{ 
-					"slug": "green", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--tertiary), var(--wp--preset--color--tertiary-alt))",
-					"name": "Moss Green" 
-				},
-				{ 
-					"slug": "yellow", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--primary), var(--wp--preset--color--primary-alt))",
-					"name": "Ochre Yellow" 
-				},
-				{ 
-					"slug": "blue", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--secondary), var(--wp--preset--color--secondary-alt))",
-					"name": "Ocean Blue" 
-				},
-				{ 
-					"slug": "orange", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--orange), var(--wp--preset--color--orange-alt))",
-					"name": "Flame Orange" 
-				},
-				{ 
-					"slug": "purple", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--purple), var(--wp--preset--color--purple-alt))",
-					"name": "Velvet Purple" 
-				},
-				{ 
-					"slug": "red", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--red), var(--wp--preset--color--red-alt))",
-					"name": "Ember Red" 
-				},
-				{ 
 					"slug": "midnight", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--secondary), var(--wp--preset--color--dark-alt))",
-					"name": "Midnight Blue" 
+					"gradient": "linear-gradient(160deg, var(--wp--preset--color--dark), var(--wp--preset--color--dark-alt))",
+					"name": "Midnight"
 				},
 				{ 
 					"slug": "gray", 

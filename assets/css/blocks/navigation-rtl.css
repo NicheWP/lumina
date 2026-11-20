@@ -228,11 +228,14 @@
   color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
 }
 .site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation-item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label,
-.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label {
+.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation-item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):focus-visible .wp-block-navigation-item__label,
+.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label,
+.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):focus-visible .wp-block-navigation-item__label {
   color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
 }
-.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation-item:hover > .wp-block-navigation__submenu-icon,
-.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item:hover > .wp-block-navigation__submenu-icon {
+.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation-item:hover > .wp-block-navigation__submenu-icon, .site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation-item:has(> :focus-visible) > .wp-block-navigation__submenu-icon,
+.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item:hover > .wp-block-navigation__submenu-icon,
+.site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-pages-list__item:has(> :focus-visible) > .wp-block-navigation__submenu-icon {
   color: var(--wp--custom--color--navigation--highlight, var(--wp--preset--color--highlight-alt));
 }
 .site-header:not(.has-background):not([class*=is-style-glass]) .wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation__submenu-container :is(.wp-block-navigation-item, .wp-block-pages-list__item) {
@@ -265,15 +268,22 @@
   font-weight: var(--wp--custom--typography--font-weight--medium, 400);
 }
 .site-header.has-background .wp-block-navigation .wp-block-navigation-item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label,
+.site-header.has-background .wp-block-navigation .wp-block-navigation-item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):focus-visible .wp-block-navigation-item__label,
 .site-header.has-background .wp-block-navigation .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label,
+.site-header.has-background .wp-block-navigation .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):focus-visible .wp-block-navigation-item__label,
 .site-header .wp-block-navigation.has-background .wp-block-navigation-item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label,
-.site-header .wp-block-navigation.has-background .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label {
+.site-header .wp-block-navigation.has-background .wp-block-navigation-item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):focus-visible .wp-block-navigation-item__label,
+.site-header .wp-block-navigation.has-background .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):hover .wp-block-navigation-item__label,
+.site-header .wp-block-navigation.has-background .wp-block-pages-list__item > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link):focus-visible .wp-block-navigation-item__label {
   opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
 }
-.site-header.has-background .wp-block-navigation .wp-block-navigation-item:hover > .wp-block-navigation__submenu-icon,
+.site-header.has-background .wp-block-navigation .wp-block-navigation-item:hover > .wp-block-navigation__submenu-icon, .site-header.has-background .wp-block-navigation .wp-block-navigation-item:has(> :focus-visible) > .wp-block-navigation__submenu-icon,
 .site-header.has-background .wp-block-navigation .wp-block-pages-list__item:hover > .wp-block-navigation__submenu-icon,
+.site-header.has-background .wp-block-navigation .wp-block-pages-list__item:has(> :focus-visible) > .wp-block-navigation__submenu-icon,
 .site-header .wp-block-navigation.has-background .wp-block-navigation-item:hover > .wp-block-navigation__submenu-icon,
-.site-header .wp-block-navigation.has-background .wp-block-pages-list__item:hover > .wp-block-navigation__submenu-icon {
+.site-header .wp-block-navigation.has-background .wp-block-navigation-item:has(> :focus-visible) > .wp-block-navigation__submenu-icon,
+.site-header .wp-block-navigation.has-background .wp-block-pages-list__item:hover > .wp-block-navigation__submenu-icon,
+.site-header .wp-block-navigation.has-background .wp-block-pages-list__item:has(> :focus-visible) > .wp-block-navigation__submenu-icon {
   opacity: var(--wp--custom--color--link--hover-opacity, 0.75);
 }
 .site-header.has-background .wp-block-navigation .wp-block-navigation__responsive-container:not(.is-menu-open) .wp-block-navigation-item.current-menu-ancestor.has-child > :is(.wp-block-navigation-item__content, .wp-block-pages-list__item__link),
