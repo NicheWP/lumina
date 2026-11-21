@@ -2,7 +2,6 @@
 //   20 GRADIENT COLORS: Set colors on gradient backgrounds
 //   ========================================================================== */
 
-// @use 'sass:list';
 @use 'sass:map';
 @use "index" as logic;
 
@@ -15,48 +14,27 @@
 // # Text, heading, and link defaults on gradient backgrounds
 //*-----------------------------------------------------------------------------
 
-/// Pass 2 of 5-Pass Colors Engine: Applies contrast text, heading, and link defaults to gradient background containers.
+/// Pass 2 of 5-Pass Colors Engine: Applies fallback colors to other gradient background containers.
 ///
 /// @group Colors Modules
-/// @output Generates scoped utility gradient catch-all rules and track-specific contrast overrides
+/// @output Generates fallback text, link, and heading colors for unmapped preset gradients
 @mixin apply-colors-gradients {
 
-	@if logic.$gradient-tracks or logic.$gradient-preserve-colors {
-		
-		/* ==========================================================================
-		   20 GRADIENT COLORS: Set colors on gradient backgrounds
-		========================================================================== */
-	}
+	$mapped-gradients: logic.build-gradient-selector-list(map.values(logic.$gradient-surfaces));
 
-	// 1. General catch-all for utility gradients (runs FIRST for cascade priority)
-	@if logic.$gradient-preserve-colors {	
-		:root :where([style*="--wp--preset--gradient--"]:not(#{logic.build-gradient-selector-list(logic.$gradient-preserve-colors)}), 
-		[class*="-gradient-background"]:not(#{logic.build-gradient-selector-list(logic.$gradient-preserve-colors)})) {
-			color: var(--wp--preset--color--off-white);
+	/* ==========================================================================
+	   20 GRADIENT COLORS: Set colors on gradient backgrounds
+	========================================================================== */
+
+	:root :where([style*="--wp--preset--gradient--"]:not(#{$mapped-gradients}), [class*="-gradient-background"]:not(#{$mapped-gradients})) {
+		color: var(--wp--preset--color--off-white);
+
+		:where(a:not(.wp-element-button)) {
+			color: inherit;
 		}
-	}
 
-	// 2. Specific track color overrides
-	@if logic.$gradient-tracks {
-
-		// Override contrast color	
-		@each $track, $slugs in logic.$gradient-tracks {
-			:root :where(#{logic.build-gradient-selector-list($slugs)}) {
-				color: var(--wp--custom--color--contrast--#{$track}, var(--wp--preset--color--off-white));
-			}
-		}
-		
-		:root :where([style*="--wp--preset--gradient--"], [class*="-gradient-background"]) {
-		
-			// Override link color
-			:where(a:not(.wp-element-button)) {
-				color: inherit;	
-			}
-
-			// Override heading color
-			:where(:is(.wp-block-heading, .wp-block-post-title, .wp-block-query-title, .wp-block-site-title, .wp-block-site-tagline, h1, h2, h3, h4, h5, h6)) {
-				color: inherit;
-			}
+		:where(:is(.wp-block-heading, .wp-block-post-title, .wp-block-query-title, .wp-block-site-title, .wp-block-site-tagline, h1, h2, h3, h4, h5, h6)) {
+			color: inherit;
 		}
 	}
 }

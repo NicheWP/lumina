@@ -79,7 +79,8 @@
 @mixin __blueprint-border {
 	border-radius: var(--wp--preset--border-radius--lg, 16px);
 	border: var(--wp--custom--border--width, 1px) var(--wp--custom--border--style, solid) var(--wp--custom--color--border, color-mix(in srgb, currentColor 15%, transparent)); 
-	
+	background-clip: padding-box !important;
+
 	// Shallow Viewport Clamp: Automatically clamps to 8px on 16:4.5 & 21:9 
 	&:is(#{config.$shallow-aspect-selector}),
 	&:has(#{config.$shallow-aspect-selector}) {
@@ -943,6 +944,7 @@
 			border: config.$img-border-width var(--wp--custom--border--style, solid) var(--wp--custom--color--border, color-mix(in srgb, currentColor 15%, transparent));
 			padding: config.$img-frame-padding;
 			border-radius: 9999px;
+			background-clip: padding-box !important;
 	
 			> a {
 				overflow: hidden;
@@ -959,6 +961,7 @@
 			border: none;
 			padding: 0;
 			border-radius: var(--wp--preset--border-radius--lg, 16px);
+			background-clip: padding-box !important;
 
 			/* Respect shallow aspect ratio clamp (16:4.5 & 21:9) */
 			&:is(#{config.$shallow-aspect-selector}),

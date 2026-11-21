@@ -6,14 +6,15 @@
 /// @author NicheWP
 
 @use 'sass:string';
+@use 'sass:map';
 @use '00-config' as config;
 
-/// Builds a comma-separated CSS selector list for target color slugs.
+/// Builds selectors for color backgrounds and their mapped preset gradients.
 ///
 /// @group Colors Logic
-/// @param {List|String} $slugs - List of color slugs
+/// @param {List|String} $colors - List of color slugs
 /// @param {String} $prefix ['.has-'] - CSS class prefix
-/// @param {String} $suffix ['-color'] - CSS class suffix
+/// @param {String} $suffix ['-background-color'] - CSS class suffix
 /// @return {String} Compiled CSS selector string
 @function build-selector-list(
 	$colors, 
@@ -21,12 +22,25 @@
 	$suffix: "-background-color"
 ) {
     $selectors: "";
+	$has-gradient: false;
 	
     @each $color in $colors {
         $selectors: $selectors + "#{$prefix}#{$color}#{$suffix},";
+
+		@if $prefix == ".has-" and $suffix == "-background-color" and map.has-key(config.$gradient-surfaces, $color) {
+			$gradient: map.get(config.$gradient-surfaces, $color);
+			$selectors: $selectors + build-gradient-selector-list($gradient) + ",";
+			$has-gradient: true;
+		}
     }
 
-    @return string.slice($selectors, 1, string.length($selectors) - 1);
+	$selectors: string.slice($selectors, 1, string.length($selectors) - 1);
+
+	@if $has-gradient {
+		@return ":is(#{$selectors})";
+	}
+
+    @return $selectors;
 }
 
 /// Builds a comma-separated CSS selector list for Gutenberg gradient background targets.

@@ -109,7 +109,7 @@ $color-registry: (
 			footer: 'hover-highlight-alt',				footer-dark: 'hover-highlight'
 	),
 
-    ( color: 'gray',      text: 'dark-light', link-light: 'highlight-alt', 
+    ( color: 'gray',      text: 'dark-light', link: 'inherit',
     		footer: 'hover-highlight-alt', footer-dark: 'hover-highlight' 
     ),
 
@@ -188,27 +188,26 @@ $color-registry: (
 
 );
 
-/// Map of gradient tracks and their associated class slugs for Gutenberg background styling.
+/// Map of solid color slugs to their equivalent preset gradient slugs.
 ///
 /// @group Colors Configuration
 /// @type Map
-$gradient-tracks: (
-	'primary':            	('primary'),
-	'secondary':          	('secondary'),
-	'tertiary':           	('tertiary'),
-	'highlight':          	('highlight'),
-	'highlight-accent':		('highlight-accent')
-) !default;
-
-/// List of gradient class slugs that preserve custom contrasting text colors.
-///
-/// @group Colors Configuration
-/// @type List
-$gradient-preserve-colors: (
-	'gray',
-	'primary-subtle',
-	'secondary-subtle',
-	'tertiary-subtle'
+$gradient-surfaces: (
+	'primary': 'primary',
+	'secondary': 'secondary',
+	'tertiary': 'tertiary',
+	'primary-subtle': 'primary-subtle',
+	'secondary-subtle': 'secondary-subtle',
+	'tertiary-subtle': 'tertiary-subtle',
+	'dark': 'midnight',
+	'gray': 'gray',
+	'dark-gray': 'dark-gray',
+	'green': 'green',
+	'yellow': 'yellow',
+	'blue': 'blue',
+	'orange': 'orange',
+	'purple': 'purple',
+	'red': 'red'
 ) !default;
 
 /// Lighten brightness filter metric applied to link hover and focus states.

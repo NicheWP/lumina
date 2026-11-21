@@ -52,7 +52,7 @@
 					"darken": 		"brightness(0.40) saturate(1.15)"
 				},
 				"highlight-alt": {
-					"lighten": "brightness(2.2) saturate(0.80)"
+					"lighten": "brightness(1.98) saturate(0.62)"
 				},
 				"image": {
 					"hoverOpacity": "1" 
@@ -99,7 +99,7 @@
 				{ "slug": "tertiary-dark-alt", "color": "hsl(154, 26%, 14%)", "name": "Tertiary Dark Alt (Abyssal Sage 14%)" },
 
 				{ "slug": "highlight", "color": "hsl(154, 65%, 68%)", "name": "Highlight (Electric Sage for Dark BG)" },
-				{ "slug": "highlight-alt", "color": "hsl(154, 75%, 28%)", "name": "Highlight Alt (Vivid Pine Links)" },
+				{ "slug": "highlight-alt", "color": "hsl(150, 88%, 22.8%)", "name": "Highlight Alt (Vivid Pine Links)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(206, 75%, 68%)", "name": "Highlight (Luminescent Sky Links)" },
 				{ "slug": "highlight-accent-alt", "color": "hsl(206, 65%, 34%)", "name": "Highlight Alt (Deep Sky Links)" },
