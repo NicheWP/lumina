@@ -10,9 +10,6 @@
 					"scheme": 	"elements",
 					"mode": 	"is-light-theme"
 				},
-				"highlight-alt": {
-					"lighten": 		"brightness(0.98) saturate(0.62)"
-				},							
 				"heading": {
 					"text": 		"var(--wp--preset--color--dark)",
 					"separator": 	"var(--wp--preset--color--tertiary)"

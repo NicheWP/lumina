@@ -71,6 +71,11 @@ Search.appendIndex(
             "summary": "Returns\u0020a\u0020transient\u0020key\u0020dynamically\u0020scoped\u0020to\u0020the\u0020current\u0020theme\/child\u002Dtheme\u0020slug.",
             "url": "namespaces/nichewp.html#function_get_transient_key"
         },                {
+            "fqsen": "\\NicheWP\\enqueue_editor_body_classes\u0028\u0029",
+            "name": "enqueue_editor_body_classes",
+            "summary": "Supplies\u0020the\u0020initial\u0020theme\u0020classes\u0020to\u0020the\u0020block\u0020editor\u0020canvas.",
+            "url": "namespaces/nichewp.html#function_enqueue_editor_body_classes"
+        },                {
             "fqsen": "\\NicheWP\\hsl_to_rgb\u0028\u0029",
             "name": "hsl_to_rgb",
             "summary": "Converts\u0020HSL\/HSLA\u0020color\u0020channels\u0020down\u0020to\u0020baseline\u0020RGB\u0020values\u0020\u00280\u2013255\u0020range\u0029.",

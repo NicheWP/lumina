@@ -47,7 +47,7 @@
 		}
 
 		@if $link-light {
-			:where(body):not(.is-dark-theme) {
+			:where(body).lumina-light-mode {
 				@include logic.apply-link-action(
 					$color: $color,
 					$link: $link-light,
@@ -57,7 +57,7 @@
 		}
 
 		@if $link-dark {
-			.is-dark-theme {
+			:where(body).lumina-dark-mode {
 				@include logic.apply-link-action(
 					$color: $color,
 					$link: $link-dark,

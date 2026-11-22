@@ -104,8 +104,8 @@ Theme:       Shared Body Class Functions</p>
             <section class="phpdocumentor-description"><p>Description: Provides centralized body class management for the Lumina theme.</p>
 <p>Directly queries global styles background color and custom theme settings to apply:</p>
 <ol>
-<li>Canvas Luminance:   is-dark-background | is-light-background</li>
-<li>Theme Engine Mode:  is-dark-theme | is-light-theme</li>
+<li>Canvas Luminance:   is-dark-background | is-light-background (opt-in)</li>
+<li>Theme Engine Mode:  lumina-dark-mode | lumina-light-mode</li>
 <li>Color Scheme Variant: color-scheme-{$slug}</li>
 </ol>
 <p>Transient keys are dynamically scoped per active theme/child-theme slug.</p>
@@ -157,6 +157,13 @@ Theme:       Shared Body Class Functions</p>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns a transient key dynamically scoped to the current theme/child-theme slug.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/nichewp.html#function_enqueue_editor_body_classes">enqueue_editor_body_classes()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Supplies the initial theme classes to the block editor canvas.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a class="" href="namespaces/nichewp.html#function_hsl_to_rgb">hsl_to_rgb()</a>
@@ -270,6 +277,32 @@ Theme:       Shared Body Class Functions</p>
 
 </article>
                     <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_enqueue_editor_body_classes">
+        enqueue_editor_body_classes()
+        <a href="namespaces/nichewp.html#function_enqueue_editor_body_classes" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="inc/body-classes.php"><a href="files/inc-body-classes.html"><abbr title="inc/body-classes.php">body-classes.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">51</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Supplies the initial theme classes to the block editor canvas.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">enqueue_editor_body_classes</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    
+    
+    
+
+    
+</article>
+                    <article class="phpdocumentor-element -function - ">
     <h4 class="phpdocumentor-element__name" id="function_hsl_to_rgb">
         hsl_to_rgb()
         <a href="namespaces/nichewp.html#function_hsl_to_rgb" class="headerlink"><i class="fas fa-link"></i></a>
@@ -278,7 +311,7 @@ Theme:       Shared Body Class Functions</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="inc/body-classes.php"><a href="files/inc-body-classes.html"><abbr title="inc/body-classes.php">body-classes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -343,7 +376,7 @@ channels.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="inc/body-classes.php"><a href="files/inc-body-classes.html"><abbr title="inc/body-classes.php">body-classes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -407,7 +440,7 @@ channels.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="inc/body-classes.php"><a href="files/inc-body-classes.html"><abbr title="inc/body-classes.php">body-classes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">131</span>
 
     </aside>
 
@@ -453,7 +486,7 @@ channels.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="inc/body-classes.php"><a href="files/inc-body-classes.html"><abbr title="inc/body-classes.php">body-classes.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">211</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
@@ -501,6 +534,7 @@ channels.</p>
                     <ul class="phpdocumentor-list -clean">
                                                     <li class=""><a href="namespaces/nichewp.html#function_add_body_classes">add_body_classes()</a></li>
                                                     <li class=""><a href="namespaces/nichewp.html#function_clear_lightness_transient">clear_lightness_transient()</a></li>
+                                                    <li class=""><a href="namespaces/nichewp.html#function_enqueue_editor_body_classes">enqueue_editor_body_classes()</a></li>
                                                     <li class=""><a href="namespaces/nichewp.html#function_get_transient_key">get_transient_key()</a></li>
                                                     <li class=""><a href="namespaces/nichewp.html#function_hsl_to_rgb">hsl_to_rgb()</a></li>
                                                     <li class=""><a href="namespaces/nichewp.html#function_hue_to_rgb">hue_to_rgb()</a></li>

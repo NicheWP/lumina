@@ -17,7 +17,7 @@
 ///		action overrides for light-mode theme contexts.
 ///
 /// @group Colors Modules
-/// @output Generates body:not(.is-dark-theme) scoped contrast, heading action, 
+/// @output Generates light-mode scoped contrast, heading action,
 ///		link color, and footer action rules
 @mixin apply-colors-light-mode {
 
@@ -26,7 +26,7 @@
 	   	  color schemes.
 	========================================================================== */
 
-	:where(:root) :where(body:not(.is-dark-theme)) {
+	:where(:root) :where(body.lumina-light-mode) {
 
 		@each $entry in logic.$color-registry {
 			$config: 		map.merge(logic.$color-defaults, $entry);

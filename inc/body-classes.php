@@ -6,8 +6,8 @@
  * Description: Provides centralized body class management for the Lumina theme.
  * 
  * Directly queries global styles background color and custom theme settings to apply:
- *   1. Canvas Luminance:   is-dark-background | is-light-background
- *   2. Theme Engine Mode:  is-dark-theme | is-light-theme
+ *   1. Canvas Luminance:   is-dark-background | is-light-background (opt-in)
+ *   2. Theme Engine Mode:  lumina-dark-mode | lumina-light-mode
  *   3. Color Scheme Variant: color-scheme-{$slug}
  * 
  * Transient keys are dynamically scoped per active theme/child-theme slug.
@@ -40,6 +40,33 @@ function get_transient_key() {
 
 // Hook 1: Document Class Append Matrix
 add_filter( 'body_class', __NAMESPACE__ . '\add_body_classes', 10, 1 );
+
+add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_editor_body_classes' );
+
+/**
+ * Supplies the initial theme classes to the block editor canvas.
+ *
+ * @return void
+ */
+function enqueue_editor_body_classes() {
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	$script = 'assets/js/editor-body-classes.js';
+	wp_enqueue_script(
+		'lumina-editor-body-classes',
+		get_theme_file_uri( $script ),
+		array(),
+		filemtime( get_theme_file_path( $script ) ),
+		true
+	);
+	wp_add_inline_script(
+		'lumina-editor-body-classes',
+		'window.luminaEditorBodyClasses = ' . wp_json_encode( add_body_classes( array() ) ) . ';',
+		'before'
+	);
+}
 
 /**
  * Converts HSL/HSLA color channels down to baseline RGB values (0–255 range).
@@ -178,11 +205,18 @@ if ( ! function_exists( __NAMESPACE__ . '\add_body_classes' ) ) :
 		}
 
 		// APPEND CLASSES TO BODY ARRAY
-		if ( ! empty( $theme_meta['bg_class'] ) ) {
+		/**
+		 * Controls whether the canvas luminance class is added to the body.
+		 *
+		 * @param bool $output Whether to output the background class. Default false.
+		 */
+		if ( apply_filters( 'lumina_output_background_class', false ) && ! empty( $theme_meta['bg_class'] ) ) {
 			$classes[] = $theme_meta['bg_class'];
 		}
 		if ( ! empty( $theme_meta['mode_class'] ) ) {
-			$classes[] = $theme_meta['mode_class'];
+			$classes[] = false !== strpos( $theme_meta['mode_class'], 'dark' )
+				? 'lumina-dark-mode'
+				: 'lumina-light-mode';
 		}
 		if ( ! empty( $theme_meta['scheme_class'] ) ) {
 			$classes[] = $theme_meta['scheme_class'];

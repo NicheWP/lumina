@@ -44,14 +44,10 @@ if ( ! function_exists( 'lumina_theme_support' ) ) :
 		// Enqueue global styles needed for the editor iframe.
 		add_theme_support( 'editor-styles' );
 
-		// Determine mode dynamically for the Site Editor canvas
-		$mode_css = ( lumina_get_active_theme_mode() === 'dark' ) 
-			? 'assets/css/theme-dark-mode.css' 
-			: 'assets/css/theme-light-mode.css';
-		
 		$editor_styles = array(
 			'assets/css/theme-styles.css',
-			$mode_css,
+			'assets/css/theme-light-mode.css',
+			'assets/css/theme-dark-mode.css',
 			'assets/css/theme-engine.css',
 			'assets/css/theme-editor-styles.css',
 		);

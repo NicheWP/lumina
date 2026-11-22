@@ -18,7 +18,7 @@
 ///		action overrides for dark-mode theme contexts.
 ///
 /// @group Colors Modules
-/// @output Generates .is-dark-theme scoped contrast, heading action, link color, 
+/// @output Generates dark-mode scoped contrast, heading action, link color,
 ///		and footer-dark action rules
 @mixin apply-colors-dark-mode {
 
@@ -27,7 +27,7 @@
 	   	  color schemes.
 	========================================================================== */
 
-	:where(:root) :where(.is-dark-theme) {
+	:where(:root) :where(body.lumina-dark-mode) {
 	
 		@each $entry in logic.$color-registry {
 			$config:       		map.merge(logic.$color-defaults, $entry);

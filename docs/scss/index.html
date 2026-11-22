@@ -531,7 +531,7 @@
 	   	  color schemes.
 	========================================================================== */
 
-	:where(:root) :where(body:not(.is-dark-theme)) {
+	:where(:root) :where(body.lumina-light-mode) {
 
 		@each $entry in logic.$color-registry {
 			$config: 		map.merge(logic.$color-defaults, $entry);
@@ -574,14 +574,14 @@
 			}
 		}
 	}
- }" data-collapsed="@mixin apply-colors-light-mode() { ... }"><code>@mixin apply-colors-light-mode() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Pass 3 of 5-Pass Colors Engine: Applies text, heading, link, and footer action overrides for light-mode theme contexts.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Generates body:not(.is-dark-theme) scoped contrast, heading action, link color, and footer action rules</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#colors logic-function-build-selector-list"><code>build-selector-list</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-registry"><code>color-registry</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-defaults"><code>color-defaults</code></a></li></ul></section><section class="main__item container item" id="colors modules-mixin-apply-colors-dark-mode"><h3 class="item__heading"><a class="item__name" href="#colors modules-mixin-apply-colors-dark-mode">apply-colors-dark-mode</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin apply-colors-dark-mode() { 
+ }" data-collapsed="@mixin apply-colors-light-mode() { ... }"><code>@mixin apply-colors-light-mode() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Pass 3 of 5-Pass Colors Engine: Applies text, heading, link, and footer action overrides for light-mode theme contexts.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Generates light-mode scoped contrast, heading action, link color, and footer action rules</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#colors logic-function-build-selector-list"><code>build-selector-list</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-registry"><code>color-registry</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-defaults"><code>color-defaults</code></a></li></ul></section><section class="main__item container item" id="colors modules-mixin-apply-colors-dark-mode"><h3 class="item__heading"><a class="item__name" href="#colors modules-mixin-apply-colors-dark-mode">apply-colors-dark-mode</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin apply-colors-dark-mode() { 
 
 	/* ==========================================================================
 	   40 DARK-MODE COLORS: Apply text, heading, and link colors for dark-mode
 	   	  color schemes.
 	========================================================================== */
 
-	:where(:root) :where(.is-dark-theme) {
+	:where(:root) :where(body.lumina-dark-mode) {
 	
 		@each $entry in logic.$color-registry {
 			$config:       		map.merge(logic.$color-defaults, $entry);
@@ -624,7 +624,7 @@
 			}
 		}
 	}
- }" data-collapsed="@mixin apply-colors-dark-mode() { ... }"><code>@mixin apply-colors-dark-mode() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Pass 4 of 5-Pass Colors Engine: Applies text, heading, link, and footer action overrides for dark-mode theme contexts.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Generates .is-dark-theme scoped contrast, heading action, link color, and footer-dark action rules</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#colors logic-function-build-selector-list"><code>build-selector-list</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-registry"><code>color-registry</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-defaults"><code>color-defaults</code></a></li></ul></section><section class="main__item container item" id="colors modules-mixin-build-editor-hover-overrides"><h3 class="item__heading"><a class="item__name" href="#colors modules-mixin-build-editor-hover-overrides">build-editor-hover-overrides</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin build-editor-hover-overrides() { 
+ }" data-collapsed="@mixin apply-colors-dark-mode() { ... }"><code>@mixin apply-colors-dark-mode() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Pass 4 of 5-Pass Colors Engine: Applies text, heading, link, and footer action overrides for dark-mode theme contexts.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>Generates dark-mode scoped contrast, heading action, link color, and footer-dark action rules</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#colors logic-function-build-selector-list"><code>build-selector-list</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-registry"><code>color-registry</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#colors configuration-variable-color-defaults"><code>color-defaults</code></a></li></ul></section><section class="main__item container item" id="colors modules-mixin-build-editor-hover-overrides"><h3 class="item__heading"><a class="item__name" href="#colors modules-mixin-build-editor-hover-overrides">build-editor-hover-overrides</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin build-editor-hover-overrides() { 
 
 	/* ==========================================================================
 	   50 EDITOR COLOR STYLES: Set colors in the Editor
@@ -652,7 +652,7 @@
 		}
 
 		@if $link-light {
-			:where(body):not(.is-dark-theme) {
+			:where(body).lumina-light-mode {
 				@include logic.apply-link-action(
 					$color: $color,
 					$link: $link-light,
@@ -662,7 +662,7 @@
 		}
 
 		@if $link-dark {
-			.is-dark-theme {
+			:where(body).lumina-dark-mode {
 				@include logic.apply-link-action(
 					$color: $color,
 					$link: $link-dark,

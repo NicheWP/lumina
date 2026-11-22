@@ -15,7 +15,7 @@
 					"outline": "color-mix(in srgb, currentColor 12%, transparent)" 
 				},
 				"highlight-alt": {
-					"lighten": "brightness(0.98) saturate(1.05)"
+					"lighten": "brightness(0.86) saturate(1.08)"
 				},
 				"contrast": {
 					"primary": "var(--wp--preset--color--contrast)",

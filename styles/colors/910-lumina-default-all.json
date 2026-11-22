@@ -52,7 +52,7 @@
 					"darken": 		"brightness(0.40) saturate(1.15)"
 				},
 				"highlight-alt": {
-					"lighten": "brightness(1.98) saturate(0.62)"
+					"lighten": "saturate(0.55) brightness(2.50)"
 				},
 				"image": {
 					"hoverOpacity": "1" 
@@ -253,7 +253,7 @@
 				},
 				{ 
 					"slug": "gray", 
-					"gradient": "linear-gradient(160deg, var(--wp--preset--color--gray), var(--wp--preset--color--dark-gray))",
+					"gradient": "linear-gradient(160deg, var(--wp--preset--color--light-gray), var(--wp--preset--color--gray))",
 					"name": "Muted Slate Gray" 
 				},
 				{ 

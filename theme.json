@@ -23,7 +23,7 @@
 					"text": 		"var(--wp--preset--color--off-white)"
 				},
 				"highlight-alt": {
-					"lighten": "brightness(1.98) saturate(0.62)"
+					"lighten": "saturate(0.55) brightness(2.50)"
 				},
 				"link": {
 					"hoverOpacity": "0.75"
