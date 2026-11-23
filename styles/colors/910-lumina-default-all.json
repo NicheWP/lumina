@@ -52,7 +52,7 @@
 					"darken": 		"brightness(0.40) saturate(1.15)"
 				},
 				"highlight-alt": {
-					"lighten": "saturate(0.55) brightness(2.50)"
+					"lighten": "saturate(0.35) brightness(2.35)"
 				},
 				"image": {
 					"hoverOpacity": "1" 

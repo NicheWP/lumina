@@ -98,7 +98,7 @@
 }
 
 .has-primary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible), .has-secondary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible), .has-tertiary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible) {
-  filter: var(--wp--custom--color--highlight-alt--lighten, brightness(1.98) saturate(0.62));
+  filter: var(--wp--custom--color--highlight-alt--lighten, saturate(0.35) brightness(2.35));
 }
 
 .has-highlight-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible), .has-highlight-accent-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible), .has-highlight-accent-2-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible) {

@@ -37,6 +37,7 @@
 	$selectors: string.slice($selectors, 1, string.length($selectors) - 1);
 
 	@if $has-gradient {
+
 		@return ":is(#{$selectors})";
 	}
 
@@ -410,9 +411,9 @@
 @mixin apply-footer-action($selectors, $footer) {
 
 	@if $footer == 'hover-highlight' {
-		#{$selectors}:is(.site-footer, .footer-info) {
+		:where(#{$selectors}:is(.site-footer, .footer-info)) {
 
-			a:not(.wp-element-button, .wp-block-social-link-anchor):is(:hover, :focus-visible),
+			:where(a:not(.wp-element-button, .wp-block-social-link-anchor)):is(:hover, :focus-visible),
 			.wp-block-navigation-item__content:is(:hover, :focus-visible) {
 
 				@extend %engine-link-highlight;
@@ -420,9 +421,9 @@
 		}
 
 	} @else if $footer == 'hover-highlight-alt' {
-		#{$selectors}:is(.site-footer, .footer-info) {
+		:where(#{$selectors}:is(.site-footer, .footer-info)) {
 
-			a:not(.wp-element-button, .wp-block-social-link-anchor):is(:hover, :focus-visible),
+			:where(a:not(.wp-element-button, .wp-block-social-link-anchor)):is(:hover, :focus-visible),
 			.wp-block-navigation-item__content:is(:hover, :focus-visible) {
 
 				@extend %engine-link-highlight-alt;
