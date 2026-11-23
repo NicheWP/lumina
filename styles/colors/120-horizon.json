@@ -7,8 +7,8 @@
 		"custom": {
 			"color": {
 				"theme": {
-					"scheme": 	"Horizon",
-					"mode": 	"is-light-theme"
+					"scheme": 		"Horizon",
+					"mode": 		"is-light-theme"
 				},
 				"border": 			"color-mix(in srgb, currentColor 15%, transparent)",
 				"divider": 			"color-mix(in srgb, currentColor 18%, transparent)",
@@ -20,7 +20,7 @@
 					"highlight":    "var(--wp--preset--color--highlight-alt)"
 				},
 				"highlight-alt": {
-					"lighten": "brightness(2.5) saturate(0.80)"
+					"lighten": 		"brightness(2.5) saturate(0.80)"
 				},
 				"link": {
 					"hoverOpacity": "0.75"

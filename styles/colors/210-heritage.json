@@ -7,15 +7,15 @@
 		"custom": {
 			"color": {
 				"theme": {
-					"mode": 	"is-light-theme",
-					"scheme": 	"heritage"
+					"mode": 		"is-light-theme",
+					"scheme": 		"heritage"
 				},
 				"heading": {
 					"text": 		"var(--wp--preset--color--contrast)",
 					"separator": 	"var(--wp--preset--color--secondary)"
 				},
 				"highlight-alt": {
-					"lighten": 		"brightness(2.8) saturate(0.80)"
+					"lighten": 		"saturate(0.55) brightness(2.65)"
 				},
 				"opacity": {
 					"tintColor": 	"var(--wp--preset--color--secondary)"

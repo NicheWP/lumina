@@ -7,8 +7,8 @@
 		"custom": {
 			"color": {			
 				"theme": {
-					"mode": "is-dark-theme",
-					"scheme": "zinc"
+					"mode": 		"is-dark-theme",
+					"scheme": 		"zinc"
 				},
 				"contrast": {
 					"primary-subtle": 		"var(--wp--preset--color--off-white)",
@@ -22,7 +22,7 @@
 					"very-light-gray": 		"var(--wp--preset--color--off-white)",
 					"light-gray": 			"var(--wp--preset--color--off-white)",
 					"very-dark-gray": 		"var(--wp--preset--color--almost-black)",
-					"highlight-alt": "hsl(0, 0%, 0%)",
+					"highlight-alt": 		"hsl(0, 0%, 0%)",
 					"highlight-accent-alt": "hsl(0, 0%, 0%)"
 				},
 				"border": 			"color-mix(in srgb, currentColor 10%, transparent)",
@@ -73,7 +73,7 @@
 				{ "slug": "tertiary-dark-alt", "color": "hsl(0, 0%, 10%)", "name": "Dark Accent Alt (Deep Carbon 10%)" },
 
 				{ "slug": "highlight", "color": "hsl(189, 85%, 78%)", "name": "Highlight (Glow Aqua Links)" },
-				{ "slug": "highlight-alt", "color": "hsl(189, 70%, 34%)", "name": "Highlight Alt (Deep Aqua Links / Buttons 34%)" },
+				{ "slug": "highlight-alt", "color": "hsl(189, 72%, 31.5%)", "name": "Highlight Alt (Deep Aqua Links / Buttons 34%)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(36, 88%, 74%)", "name": "Highlight Accent (Hazard Gold Links)" },
 				{ "slug": "highlight-accent-alt", "color": "hsl(36, 80%, 31%)", "name": "Highlight Accent Alt (Deep Anodized Amber Links 31%)" },

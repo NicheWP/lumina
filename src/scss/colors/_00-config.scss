@@ -214,7 +214,7 @@ $gradient-surfaces: (
 ///
 /// @group Colors Configuration
 /// @type String
-$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, saturate(0.35) brightness(2.35)) !default;
+$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, saturate(0.35) brightness(2.75)) !default;
 
 /// Darken brightness filter metric applied to link hover and focus states.
 ///

@@ -7,27 +7,27 @@
 		"custom": {		
 			"color": {		
 				"theme": {
-					"mode": "is-light-theme",
-					"scheme": "light"
+					"mode": 		"is-light-theme",
+					"scheme": 		"light"
 				},
-				"border": "color-mix(in srgb, currentColor 8%, transparent)",
+				"border": 			"color-mix(in srgb, currentColor 8%, transparent)",
 				"field": { 
-					"outline": "color-mix(in srgb, currentColor 12%, transparent)" 
+					"outline": 		"color-mix(in srgb, currentColor 12%, transparent)" 
 				},
 				"highlight-alt": {
-					"lighten": "brightness(0.86) saturate(1.08)"
+					"lighten": 		"brightness(0.86) saturate(1.08)"
 				},
 				"contrast": {
-					"primary": "var(--wp--preset--color--contrast)",
-					"secondary": "var(--wp--preset--color--contrast)",
-					"tertiary": "var(--wp--preset--color--contrast)",
-					"primary-alt": "var(--wp--preset--color--contrast)",
-					"secondary-alt": "var(--wp--preset--color--contrast)",
-					"tertiary-alt": "var(--wp--preset--color--contrast)"
+					"primary": 			"var(--wp--preset--color--contrast)",
+					"secondary": 		"var(--wp--preset--color--contrast)",
+					"tertiary": 		"var(--wp--preset--color--contrast)",
+					"primary-alt": 		"var(--wp--preset--color--contrast)",
+					"secondary-alt": 	"var(--wp--preset--color--contrast)",
+					"tertiary-alt": 	"var(--wp--preset--color--contrast)"
 				},
 				"heading": {
-					"text": "var(--wp--preset--color--contrast)",
-					"separator": "var(--wp--preset--color--tertiary-dark)"
+					"text": 		"var(--wp--preset--color--contrast)",
+					"separator": 	"var(--wp--preset--color--tertiary-dark)"
 				},
 				"button": {
 					"background": 	"var(--wp--preset--color--tertiary-dark)",
@@ -61,7 +61,7 @@
 				{ "slug": "tertiary-dark", "color": "hsl(154, 24%, 38%)", "name": "Tertiary Dark (Crisp Pine Green 38%)" },
 				{ "slug": "tertiary-dark-alt", "color": "hsl(154, 26%, 32%)", "name": "Tertiary Dark Alt (Deep Alpine Sage 32%)" },
 
-				{ "slug": "highlight", "color": "hsl(154, 75%, 92%)", "name": "Highlight (Electric Sage Links)" },
+				{ "slug": "highlight", "color": "hsl(154, 78%, 94%)", "name": "Highlight (Electric Sage Links)" },
 				{ "slug": "highlight-alt", "color": "hsl(150, 88%, 22%)", "name": "Highlight Alt (Vivid Pine Links)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(206, 80%, 91%)", "name": "Highlight (Luminescent Sky Links)" },

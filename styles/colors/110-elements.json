@@ -7,8 +7,8 @@
 		"custom": {
 			"color": {
 				"theme": {
-					"scheme": 	"elements",
-					"mode": 	"is-light-theme"
+					"scheme": 		"elements",
+					"mode": 		"is-light-theme"
 				},
 				"heading": {
 					"text": 		"var(--wp--preset--color--dark)",
@@ -40,7 +40,7 @@
 				{ "slug": "tertiary-dark-alt", "color": "hsl(34, 34%, 14%)", "name": "Dark Accent Alt (Antique Gold Abyssal 14%)" },
 
 				{ "slug": "highlight", "color": "hsl(154, 65%, 68%)", "name": "Highlight (Electric Sage Links)" },
-				{ "slug": "highlight-alt", "color": "hsl(150, 88%, 22.8%)", "name": "Highlight Alt (Vivid Pine Links)" },
+				{ "slug": "highlight-alt", "color": "hsl(150, 88%, 21.5%)", "name": "Highlight Alt (Vivid Pine Links)" },
 				
 				{ "slug": "highlight-accent", "color": "hsl(34, 80%, 72%)", "name": "Highlight Accent (Luminescent Ochre Links)" },
 				{ "slug": "highlight-accent-alt", "color": "hsl(34, 75%, 29%)", "name": "Highlight Accent Alt (Deep Ochre Links)" },

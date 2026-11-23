@@ -7,26 +7,26 @@
 		"custom": {
 			"color": {
 				"theme": {
-					"mode": "is-light-theme",
-					"scheme": "ember"
+					"mode": 		"is-light-theme",
+					"scheme": 		"ember"
 				},
 				"button": {
-					"background": "var(--wp--preset--color--primary)",
-					"text": "var(--wp--preset--color--off-white)"
+					"background": 	"var(--wp--preset--color--primary)",
+					"text": 		"var(--wp--preset--color--off-white)"
 				},
 				"heading": { 
-					"text": "var(--wp--preset--color--dark-alt)", 
-					"separator": "var(--wp--preset--color--secondary)"
+					"text": 		"var(--wp--preset--color--dark-alt)", 
+					"separator": 	"var(--wp--preset--color--secondary)"
 				},
 				"highlight-alt": {
-					"lighten": "brightness(2.2) saturate(0.80)"
+					"lighten": 		"saturate(0.15) brightness(3.05)"
 				},
 				"contrast": {
-					"highlight": "var(--wp--preset--color--almost-black)",
+					"highlight": 		"var(--wp--preset--color--almost-black)",
 					"highlight-accent": "var(--wp--preset--color--almost-black)"
 				},
 				"link": {
-					"hoverOpacity": "0.75" 
+					"hoverOpacity": "0.75"
 				}						
 			}
 		},
@@ -53,8 +53,8 @@
 				{ "slug": "tertiary-dark", "color": "hsl(18, 28%, 26%)", "name": "Dark Accent (Warm Volcanic Clay 26%)" },
 				{ "slug": "tertiary-dark-alt", "color": "hsl(18, 30%, 20%)", "name": "Dark Accent Alt (Deep Volcanic 20%)" },
 
-				{ "slug": "highlight", "color": "hsl(12, 75%, 72%)", "name": "Highlight Alt (Warm Coral Glow)" },
-				{ "slug": "highlight-alt", "color": "hsl(12, 75%, 36%)", "name": "Highlight (Deep Volcanic Links)" },
+				{ "slug": "highlight", "color": "hsl(14, 85%, 83%)", "name": "Highlight (Warm Coral Glow)" },
+				{ "slug": "highlight-alt", "color": "hsl(12, 75%, 36%)", "name": "Highlight Alt (Deep Volcanic Links)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(34, 80%, 72%)", "name": "Highlight Accent (Luminescent Ochre Links)" },
 				{ "slug": "highlight-accent-alt", "color": "hsl(34, 75%, 29%)", "name": "Highlight Accent Alt (Deep Ochre Alternate Links)" },

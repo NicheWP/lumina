@@ -7,18 +7,18 @@
 		"custom": {
 			"color": {
 				"theme": {
-					"mode": "is-light-theme",
-					"scheme": "velvet"
+					"mode": 		"is-light-theme",
+					"scheme": 	"velvet"
 				},
 				"heading": {
-					"text": "var(--wp--preset--color--almost-black)",
-					"separator": "var(--wp--preset--color--tertiary)"
+					"text": 		"var(--wp--preset--color--almost-black)",
+					"separator": 	"var(--wp--preset--color--tertiary)"
 				},
 				"link": {
 					"hoverOpacity": "0.7" 
 				},
 				"highlight-alt": {
-					"lighten": "saturate(0.55) brightness(2.50)"
+					"lighten": 		"saturate(0.55) brightness(2.50)"
 				}						
 			}
 		},

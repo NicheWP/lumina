@@ -24,14 +24,17 @@
 				"border": 			"color-mix(in srgb, currentColor 10%, transparent)",
 				"divider": 			"color-mix(in srgb, currentColor 12%, transparent)",				
 				"heading": {
-					"text": 			"var(--wp--preset--color--off-white)",
-					"separator": 		"var(--wp--preset--color--primary)"
+					"text": 		"var(--wp--preset--color--off-white)",
+					"separator": 	"var(--wp--preset--color--primary)"
 				},
 				"button": {
-					"background": 		"var(--wp--preset--color--primary)"
+					"background": 	"var(--wp--preset--color--primary)"
 				},
 				"navigation": {
-					"highlight": 		"var(--wp--preset--color--highlight)"
+					"highlight": 	"var(--wp--preset--color--highlight)"
+				},
+				"highlight-alt": {
+					"lighten": 		"saturate(0.30) brightness(2.55)"
 				},
 				"opacity": {
 					"tintColor": 	"var(--wp--preset--color--highlight-accent)"

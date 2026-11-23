@@ -7,9 +7,12 @@
 		"custom": {
 			"color": {
 				"theme": {
-					"mode": "is-light-theme",
-					"scheme": "dusk"
+					"mode": 	"is-light-theme",
+					"scheme": 	"dusk"
 				},
+				"highlight-alt": {
+					"lighten": 	"saturate(0.30) brightness(2.55)"
+				},				
 				"heading": {
 					"text": "var(--wp--preset--color--dark-alt)",
 					"separator": "var(--wp--preset--color--tertiary)"
@@ -42,7 +45,7 @@
 				{ "slug": "tertiary-dark", "color": "hsl(12, 32%, 34%)", "name": "Dark Accent (Twilight Terracotta Deep 34%)" },
 				{ "slug": "tertiary-dark-alt", "color": "hsl(12, 32%, 28%)", "name": "Dark Accent Alt (Twilight Terracotta Abyssal 28%)" },
 
-				{ "slug": "highlight", "color": "hsl(206, 70%, 72%)", "name": "Highlight (Bioluminescent Sky Links)" },
+				{ "slug": "highlight", "color": "hsl(206, 78%, 79%)", "name": "Highlight (Bioluminescent Sky Links)" },
 				{ "slug": "highlight-alt", "color": "hsl(206, 55%, 34%)", "name": "Highlight Alt (Deep Maritime Accent)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(12, 65%, 70%)", "name": "Highlight Accent (Twilight Flame Links)" },				

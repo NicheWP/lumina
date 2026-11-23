@@ -23,7 +23,7 @@
 					"text": 		"var(--wp--preset--color--off-white)"
 				},
 				"highlight-alt": {
-					"lighten": "saturate(0.35) brightness(2.35)"
+					"lighten": "saturate(0.35) brightness(2.75)"
 				},
 				"link": {
 					"hoverOpacity": "0.75"
@@ -439,7 +439,7 @@
 				{ "slug": "tertiary-dark-alt", "color": "hsl(154, 26%, 14%)", "name": "Tertiary Dark Alt (Abyssal Sage 14%)" },
 
 				{ "slug": "highlight", "color": "hsl(154, 65%, 68%)", "name": "Highlight (Electric Sage Links)" },
-				{ "slug": "highlight-alt", "color": "hsl(150, 88%, 22.8%)", "name": "Highlight Alt (Vivid Pine Links)" },
+				{ "slug": "highlight-alt", "color": "hsl(150, 88%, 21.5%)", "name": "Highlight Alt (Vivid Pine Links)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(206, 75%, 68%)", "name": "Highlight Accent (Luminescent Sky Links)" },
 				{ "slug": "highlight-accent-alt", "color": "hsl(206, 65%, 35.5%)", "name": "Highlight Alt (Deep Sky Links)" },
