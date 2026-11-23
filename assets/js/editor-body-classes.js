@@ -5,7 +5,7 @@
 
 	let canvasBody = null;
 	let scheduled = false;
-	let mode = window.luminaEditorBodyClasses.includes( 'lumina-dark-mode' ) ? 'dark' : 'light';
+	let mode = window.luminaEditorBodyClasses.includes( 'theme-dark-mode' ) ? 'dark' : 'light';
 	let scheme = window.luminaEditorBodyClasses.find( ( name ) => name.startsWith( 'color-scheme-' ) );
 	let background = window.luminaEditorBodyClasses.find(
 		( name ) => name === 'is-dark-background' || name === 'is-light-background'
@@ -16,7 +16,7 @@
 	// WordPress controls is-dark-theme using canvas luminance, not Lumina's mode.
 	function updateClasses() {
 		const classes = [
-			`lumina-${ mode }-mode`,
+			`theme-${ mode }-mode`,
 			scheme,
 			background,
 		].filter( Boolean );

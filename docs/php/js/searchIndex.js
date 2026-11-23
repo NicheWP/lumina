@@ -6,6 +6,16 @@ Search.appendIndex(
             "summary": "Sets\u0020up\u0020theme\u0020defaults\u0020and\u0020registers\u0020support\u0020for\u0020various\u0020WordPress\u0020features.",
             "url": "namespaces/default.html#function_lumina_theme_support"
         },                {
+            "fqsen": "\\lumina_enqueue_editor_body_classes\u0028\u0029",
+            "name": "lumina_enqueue_editor_body_classes",
+            "summary": "Supplies\u0020the\u0020initial\u0020theme\u0020classes\u0020to\u0020the\u0020block\u0020editor\u0020canvas.",
+            "url": "namespaces/default.html#function_lumina_enqueue_editor_body_classes"
+        },                {
+            "fqsen": "\\lumina_get_asset_version\u0028\u0029",
+            "name": "lumina_get_asset_version",
+            "summary": "Returns\u0020the\u0020main\u0020theme\u0020stylesheet\u0027s\u0020build\u0020version,\u0020or\u0020the\u0020theme\u0020version.",
+            "url": "namespaces/default.html#function_lumina_get_asset_version"
+        },                {
             "fqsen": "\\lumina_load_styles\u0028\u0029",
             "name": "lumina_load_styles",
             "summary": "Enqueues\u0020core\u0020styles,\u0020theme\u0020mode\u0020variations,\u0020interactive\u0020scripts,\u0020and\u0020versioned\nassets.",
@@ -61,20 +71,10 @@ Search.appendIndex(
             "summary": "Removes\u0020core\u0020WordPress\u0020block\u0020patterns\u0020so\u0020they\u0020do\u0020not\u0020clutter\u0020the\u0020editor\u0020design\u0020tab.",
             "url": "namespaces/nichewp.html#function_remove_core_block_patterns"
         },                {
-            "fqsen": "\\NicheWP\\TRANSIENT_PREFIX",
-            "name": "TRANSIENT_PREFIX",
-            "summary": "Dynamic\u0020transient\u0020key\u0020prefix\u0020used\u0020for\u0020caching\u0020site\u002Dwide\u0020lightness\u0020metadata.",
-            "url": "namespaces/nichewp.html#constant_TRANSIENT_PREFIX"
-        },                {
             "fqsen": "\\NicheWP\\get_transient_key\u0028\u0029",
             "name": "get_transient_key",
-            "summary": "Returns\u0020a\u0020transient\u0020key\u0020dynamically\u0020scoped\u0020to\u0020the\u0020current\u0020theme\/child\u002Dtheme\u0020slug.",
+            "summary": "Returns\u0020the\u0020transient\u0020key\u0020for\u0020the\u0020active\u0020theme\u0027s\u0020metadata.",
             "url": "namespaces/nichewp.html#function_get_transient_key"
-        },                {
-            "fqsen": "\\NicheWP\\enqueue_editor_body_classes\u0028\u0029",
-            "name": "enqueue_editor_body_classes",
-            "summary": "Supplies\u0020the\u0020initial\u0020theme\u0020classes\u0020to\u0020the\u0020block\u0020editor\u0020canvas.",
-            "url": "namespaces/nichewp.html#function_enqueue_editor_body_classes"
         },                {
             "fqsen": "\\NicheWP\\hsl_to_rgb\u0028\u0029",
             "name": "hsl_to_rgb",

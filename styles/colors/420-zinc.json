@@ -76,7 +76,7 @@
 				{ "slug": "highlight-alt", "color": "hsl(189, 70%, 34%)", "name": "Highlight Alt (Deep Aqua Links / Buttons 34%)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(36, 88%, 74%)", "name": "Highlight Accent (Hazard Gold Links)" },
-				{ "slug": "highlight-accent-alt", "color": "hsl(36, 75%, 38%)", "name": "Highlight Accent Alt (Deep Anodized Amber Links 38%)" },
+				{ "slug": "highlight-accent-alt", "color": "hsl(36, 80%, 31%)", "name": "Highlight Accent Alt (Deep Anodized Amber Links 31%)" },
         
 				{ "slug": "neutral", "color": "hsl(0, 0%, 18%)", "name": "Neutral (Industrial Carbon)" },
 				{ "slug": "neutral-alt", "color": "hsl(50, 4%, 14%)", "name": "Neutral Alt (Technical Carbon)" },

@@ -27,7 +27,7 @@
 	   	  color schemes.
 	========================================================================== */
 
-	:where(:root) :where(body.lumina-dark-mode) {
+	:where(:root) :where(body.theme-dark-mode) {
 	
 		@each $entry in logic.$color-registry {
 			$config:       		map.merge(logic.$color-defaults, $entry);

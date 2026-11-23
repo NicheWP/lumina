@@ -18,7 +18,7 @@
 					"hoverOpacity": "0.7" 
 				},
 				"highlight-alt": {
-					"lighten": "brightness(2.4) saturate(0.80)"
+					"lighten": "saturate(0.55) brightness(2.50)"
 				}						
 			}
 		},

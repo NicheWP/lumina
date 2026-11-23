@@ -49,7 +49,7 @@
 				{ "slug": "highlight-alt", "color": "hsl(0, 26%, 36%)", "name": "Highlight Alt (Muted Patina Crimson Links)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(206, 80%, 72%)", "name": "Highlight Accent (Luminescent Sky Glow Links)" },
-				{ "slug": "highlight-accent-alt", "color": "hsl(206, 65%, 36%)", "name": "Highlight Accent Alt (Deep Sky Links)" },
+				{ "slug": "highlight-accent-alt", "color": "hsl(206, 65%, 34.5%)", "name": "Highlight Accent Alt (Deep Sky Links)" },
 
 				{ "slug": "neutral", "color": "hsl(40, 18%, 94%)", "name": "Neutral (Warm Sand 94%)" },
 				{ "slug": "neutral-alt", "color": "hsl(40, 15%, 88%)", "name": "Neutral Alt (Sand 88%)" },

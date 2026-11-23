@@ -43,7 +43,7 @@
 				{ "slug": "highlight-alt", "color": "hsl(150, 88%, 22.8%)", "name": "Highlight Alt (Vivid Pine Links)" },
 				
 				{ "slug": "highlight-accent", "color": "hsl(34, 80%, 72%)", "name": "Highlight Accent (Luminescent Ochre Links)" },
-				{ "slug": "highlight-accent-alt", "color": "hsl(34, 65%, 36%)", "name": "Highlight Accent Alt (Deep Ochre Links)" },
+				{ "slug": "highlight-accent-alt", "color": "hsl(34, 75%, 29%)", "name": "Highlight Accent Alt (Deep Ochre Links)" },
 
 				{ "slug": "neutral", "color": "hsl(40, 18%, 94%)", "name": "Neutral (Warm Sand 94%)" },
 				{ "slug": "neutral-alt", "color": "hsl(40, 15%, 88%)", "name": "Neutral Alt (Sand 88%)" },

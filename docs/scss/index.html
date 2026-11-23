@@ -531,7 +531,7 @@
 	   	  color schemes.
 	========================================================================== */
 
-	:where(:root) :where(body.lumina-light-mode) {
+	:where(:root) :where(body.theme-light-mode) {
 
 		@each $entry in logic.$color-registry {
 			$config: 		map.merge(logic.$color-defaults, $entry);
@@ -581,7 +581,7 @@
 	   	  color schemes.
 	========================================================================== */
 
-	:where(:root) :where(body.lumina-dark-mode) {
+	:where(:root) :where(body.theme-dark-mode) {
 	
 		@each $entry in logic.$color-registry {
 			$config:       		map.merge(logic.$color-defaults, $entry);
@@ -652,7 +652,7 @@
 		}
 
 		@if $link-light {
-			:where(body).lumina-light-mode {
+			:where(body).theme-light-mode {
 				@include logic.apply-link-action(
 					$color: $color,
 					$link: $link-light,
@@ -662,7 +662,7 @@
 		}
 
 		@if $link-dark {
-			:where(body).lumina-dark-mode {
+			:where(body).theme-dark-mode {
 				@include logic.apply-link-action(
 					$color: $color,
 					$link: $link-dark,

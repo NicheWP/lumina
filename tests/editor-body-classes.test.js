@@ -26,7 +26,7 @@ function createCanvas( trackBackground = false ) {
 	canvas.document.head.appendChild( style );
 	canvas.document.body.className = 'block-editor-iframe__body editor-styles-wrapper';
 	canvas.luminaEditorBodyClasses = [
-		'lumina-light-mode',
+		'theme-light-mode',
 		'color-scheme-elements',
 	];
 	if ( trackBackground ) {
@@ -48,18 +48,18 @@ test( 'updates mode and scheme without outputting background classes by default'
 	setThemeStyles( style, 'dark', 'low-tide', 'rgb(33, 45, 59)' );
 	await waitForStyles();
 	const classes = canvas.document.body.classList;
-	expect( classes.contains( 'lumina-dark-mode' ) ).toBe( true );
+	expect( classes.contains( 'theme-dark-mode' ) ).toBe( true );
 	expect( classes.contains( 'color-scheme-low-tide' ) ).toBe( true );
 	expect( classes.contains( 'is-dark-background' ) ).toBe( false );
-	expect( classes.contains( 'lumina-light-mode' ) ).toBe( false );
+	expect( classes.contains( 'theme-light-mode' ) ).toBe( false );
 	expect( classes.contains( 'color-scheme-elements' ) ).toBe( false );
 
 	setThemeStyles( style, 'light', 'elements', 'rgb(249, 247, 246)' );
 	await waitForStyles();
-	expect( classes.contains( 'lumina-light-mode' ) ).toBe( true );
+	expect( classes.contains( 'theme-light-mode' ) ).toBe( true );
 	expect( classes.contains( 'color-scheme-elements' ) ).toBe( true );
 	expect( classes.contains( 'is-light-background' ) ).toBe( false );
-	expect( classes.contains( 'lumina-dark-mode' ) ).toBe( false );
+	expect( classes.contains( 'theme-dark-mode' ) ).toBe( false );
 } );
 
 test( 'updates background classes when enabled', async () => {
@@ -84,12 +84,12 @@ test( 'preserves WordPress dark-theme class and handles canvas body replacement'
 	canvas.document.body.classList.add( 'is-dark-theme' );
 	await waitForStyles();
 	expect( canvas.document.body.classList.contains( 'is-dark-theme' ) ).toBe( true );
-	expect( canvas.document.body.classList.contains( 'lumina-light-mode' ) ).toBe( true );
+	expect( canvas.document.body.classList.contains( 'theme-light-mode' ) ).toBe( true );
 
 	const body = canvas.document.createElement( 'body' );
 	body.className = 'block-editor-iframe__body editor-styles-wrapper';
 	canvas.document.documentElement.replaceChild( body, canvas.document.body );
 	await waitForStyles();
-	expect( body.classList.contains( 'lumina-light-mode' ) ).toBe( true );
+	expect( body.classList.contains( 'theme-light-mode' ) ).toBe( true );
 	expect( body.classList.contains( 'color-scheme-elements' ) ).toBe( true );
 } );

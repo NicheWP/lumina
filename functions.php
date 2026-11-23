@@ -86,6 +86,54 @@ foreach ( $includes as $include ) {
 	}
 }
 
+// ENQUEUE EDITOR CANVAS SCRIPT
+if ( function_exists( 'NicheWP\add_body_classes' ) ) {
+	add_action( 'enqueue_block_assets', 'lumina_enqueue_editor_body_classes' );
+}
+
+if ( ! function_exists( 'lumina_enqueue_editor_body_classes' ) ) :
+
+	/**
+	 * Supplies the initial theme classes to the block editor canvas.
+	 *
+	 * @return void
+	 */
+	function lumina_enqueue_editor_body_classes() {
+		if ( ! is_admin() ) {
+			return;
+		}
+
+		$script = 'assets/js/editor-body-classes.js';
+		wp_enqueue_script(
+			'lumina-editor-body-classes',
+			get_theme_file_uri( $script ),
+			array(),
+			lumina_get_asset_version(),
+			true
+		);
+		wp_add_inline_script(
+			'lumina-editor-body-classes',
+			'window.luminaEditorBodyClasses = ' . wp_json_encode( NicheWP\add_body_classes( array() ) ) . ';',
+			'before'
+		);
+	}
+endif;
+
+if ( ! function_exists( 'lumina_get_asset_version' ) ) :
+
+	/**
+	 * Returns the main theme stylesheet's build version, or the theme version.
+	 *
+	 * @return string
+	 */
+	function lumina_get_asset_version() {
+		$asset_path = get_theme_file_path( 'assets/css/theme-styles.asset.php' );
+		return file_exists( $asset_path )
+			? ( include $asset_path )['version'] ?? wp_get_theme()->get( 'Version' )
+			: wp_get_theme()->get( 'Version' );
+	}
+endif;
+
 // ENQUEUE SCRIPTS
 add_action( 'wp_enqueue_scripts', 'lumina_load_styles', 20 );
 
@@ -120,10 +168,7 @@ if ( ! function_exists( 'lumina_load_styles' ) ) :
 		}
 
 		// 5. Versioning Asset
-		$asset_path = get_theme_file_path( 'assets/css/theme-styles.asset.php' );
-		$version    = file_exists( $asset_path )
-			? ( include $asset_path )['version'] ?? wp_get_theme()->get( 'Version' )
-			: wp_get_theme()->get( 'Version' );
+		$version = lumina_get_asset_version();
 
 		// 6. Lumina Smooth Scroll JS (Front-end only)
 		$smoothscroll_path = get_theme_file_path( 'assets/js/smoothscroll.js' );
@@ -178,10 +223,7 @@ if ( ! function_exists( 'lumina_load_block_styles' ) ) :
 		}
 
 		// Get build version
-		$asset_path        = get_theme_file_path( 'assets/css/theme-styles.asset.php' );
-		$block_css_version = file_exists( $asset_path )
-			? ( include $asset_path )['version'] ?? wp_get_theme()->get( 'Version' )
-			: wp_get_theme()->get( 'Version' );
+		$block_css_version = lumina_get_asset_version();
 
 		// Register main handle early on 'init' so it exists as a valid dependency
 		if ( ! wp_style_is( 'theme-styles', 'registered' ) ) {
@@ -376,15 +418,16 @@ if ( ! function_exists( 'lumina_get_active_theme_mode' ) ) :
 			return ( strpos( $mode_setting, 'dark' ) !== false ) ? 'dark' : 'light';
 		}
 
-		$transient_key = 'xs_theme_meta_' . get_stylesheet();
-		$theme_meta    = get_transient( $transient_key );
+		if ( function_exists( 'NicheWP\get_transient_key' ) ) {
+			$theme_meta = get_transient( NicheWP\get_transient_key() );
 
-		if ( is_array( $theme_meta ) ) {
-			if ( ! empty( $theme_meta['mode_class'] ) && strpos( $theme_meta['mode_class'], 'dark' ) !== false ) {
-				return 'dark';
-			}
-			if ( ! empty( $theme_meta['bg_class'] ) && $theme_meta['bg_class'] === 'is-dark-background' ) {
-				return 'dark';
+			if ( is_array( $theme_meta ) ) {
+				if ( ! empty( $theme_meta['mode_class'] ) && strpos( $theme_meta['mode_class'], 'dark' ) !== false ) {
+					return 'dark';
+				}
+				if ( ! empty( $theme_meta['bg_class'] ) && $theme_meta['bg_class'] === 'is-dark-background' ) {
+					return 'dark';
+				}
 			}
 		}
 

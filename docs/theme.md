@@ -28,7 +28,7 @@ Source: `theme.json`
 | Highlight (Electric Sage Links) | highlight | hsl(154, 65%, 68%) |
 | Highlight Alt (Vivid Pine Links) | highlight-alt | hsl(150, 88%, 22.8%) |
 | Highlight Accent (Luminescent Sky Links) | highlight-accent | hsl(206, 75%, 68%) |
-| Highlight Accent Alt (Deep Sky Links) | highlight-accent-alt | hsl(206, 65%, 34%) |
+| Highlight Alt (Deep Sky Links) | highlight-accent-alt | hsl(206, 65%, 35.5%) |
 | Neutral (Warm Sand 94%) | neutral | hsl(40, 18%, 94%) |
 | Neutral Alt (Sand 88%) | neutral-alt | hsl(40, 15%, 88%) |
 | Off White (Desert Alabaster 97.5%) | off-white | hsl(40, 20%, 97.5%) |
@@ -68,7 +68,7 @@ Source: `styles/colors/110-elements.json`
 | Highlight (Electric Sage Links) | highlight | hsl(154, 65%, 68%) |
 | Highlight Alt (Vivid Pine Links) | highlight-alt | hsl(150, 88%, 22.8%) |
 | Highlight Accent (Luminescent Ochre Links) | highlight-accent | hsl(34, 80%, 72%) |
-| Highlight Accent Alt (Deep Ochre Links) | highlight-accent-alt | hsl(34, 65%, 36%) |
+| Highlight Accent Alt (Deep Ochre Links) | highlight-accent-alt | hsl(34, 75%, 29%) |
 | Neutral (Warm Sand 94%) | neutral | hsl(40, 18%, 94%) |
 | Neutral Alt (Sand 88%) | neutral-alt | hsl(40, 15%, 88%) |
 | Off White (Desert Alabaster 97.5%) | off-white | hsl(40, 20%, 97.5%) |
@@ -151,7 +151,7 @@ Source: `styles/colors/210-heritage.json`
 | Highlight (Patina Rose Links) | highlight | hsl(0, 32%, 78%) |
 | Highlight Alt (Muted Patina Crimson Links) | highlight-alt | hsl(0, 26%, 36%) |
 | Highlight Accent (Luminescent Sky Glow Links) | highlight-accent | hsl(206, 80%, 72%) |
-| Highlight Accent Alt (Deep Sky Links) | highlight-accent-alt | hsl(206, 65%, 36%) |
+| Highlight Accent Alt (Deep Sky Links) | highlight-accent-alt | hsl(206, 65%, 34.5%) |
 | Neutral (Warm Sand 94%) | neutral | hsl(40, 18%, 94%) |
 | Neutral Alt (Sand 88%) | neutral-alt | hsl(40, 15%, 88%) |
 | Off White (Desert Alabaster 97.5%) | off-white | hsl(40, 20%, 97.5%) |
@@ -191,7 +191,7 @@ Source: `styles/colors/230-ember.json`
 | Highlight Alt (Warm Coral Glow) | highlight | hsl(12, 75%, 72%) |
 | Highlight (Deep Volcanic Links) | highlight-alt | hsl(12, 75%, 36%) |
 | Highlight Accent (Luminescent Ochre Links) | highlight-accent | hsl(34, 80%, 72%) |
-| Highlight Accent Alt (Deep Ochre Alternate Links) | highlight-accent-alt | hsl(34, 65%, 36%) |
+| Highlight Accent Alt (Deep Ochre Alternate Links) | highlight-accent-alt | hsl(34, 75%, 29%) |
 | Neutral (Warm Sand 94%) | neutral | hsl(40, 18%, 94%) |
 | Neutral Alt (Sand 88%) | neutral-alt | hsl(40, 15%, 88%) |
 | Off White (Desert Alabaster 97.5%) | off-white | hsl(40, 20%, 97.5%) |
@@ -311,7 +311,7 @@ Source: `styles/colors/410-low-tide.json`
 | Highlight (Glow Terracotta Links) | highlight | hsl(14, 85%, 76%) |
 | Highlight Alt (Deep Burnt Copper Links / Buttons 36%) | highlight-alt | hsl(16, 50%, 36%) |
 | Highlight Accent (Bioluminescent Tidefoam Links) | highlight-accent | hsl(172, 75%, 76%) |
-| Highlight Accent Alt (Deep Tidefoam Links / Buttons 34%) | highlight-accent-alt | hsl(172, 60%, 34%) |
+| Highlight Accent Alt (Deep Tidefoam Links / Buttons 26%) | highlight-accent-alt | hsl(172, 72%, 26%) |
 | Neutral (Industrial Marine Slate) | neutral | hsl(211, 25%, 21%) |
 | Neutral Alt (Technical Maritime Blue) | neutral-alt | hsl(211, 28%, 27%) |
 | Off White (Sun-Bleached Sandstone 93%) | off-white | hsl(37, 10%, 93%) |
@@ -351,7 +351,7 @@ Source: `styles/colors/420-zinc.json`
 | Highlight (Glow Aqua Links) | highlight | hsl(189, 85%, 78%) |
 | Highlight Alt (Deep Aqua Links / Buttons 34%) | highlight-alt | hsl(189, 70%, 34%) |
 | Highlight Accent (Hazard Gold Links) | highlight-accent | hsl(36, 88%, 74%) |
-| Highlight Accent Alt (Deep Anodized Amber Links 38%) | highlight-accent-alt | hsl(36, 75%, 38%) |
+| Highlight Accent Alt (Deep Anodized Amber Links 31%) | highlight-accent-alt | hsl(36, 80%, 31%) |
 | Neutral (Industrial Carbon) | neutral | hsl(0, 0%, 18%) |
 | Neutral Alt (Technical Carbon) | neutral-alt | hsl(50, 4%, 14%) |
 | Off White | off-white | hsl(45, 29%, 97%) |
@@ -388,9 +388,9 @@ Source: `styles/colors/510-light.json`
 | Dark Alt (Storm Navy 34%) | dark-alt | hsl(206, 26%, 34%) |
 | Tertiary Dark (Crisp Pine Green 38%) | tertiary-dark | hsl(154, 24%, 38%) |
 | Tertiary Dark Alt (Deep Alpine Sage 32%) | tertiary-dark-alt | hsl(154, 26%, 32%) |
-| Highlight (Electric Sage Links) | highlight | hsl(154, 65%, 78%) |
+| Highlight (Electric Sage Links) | highlight | hsl(154, 75%, 92%) |
 | Highlight Alt (Vivid Pine Links) | highlight-alt | hsl(150, 88%, 22%) |
-| Highlight (Luminescent Sky Links) | highlight-accent | hsl(206, 75%, 68%) |
+| Highlight (Luminescent Sky Links) | highlight-accent | hsl(206, 80%, 91%) |
 | Highlight Alt (Deep Sky Links Links) | highlight-accent-alt | hsl(206, 65%, 34%) |
 | Neutral (Warm Sand 96%) | neutral | hsl(40, 18%, 96%) |
 | Neutral Alt (Sand 90%) | neutral-alt | hsl(40, 15%, 90%) |
@@ -431,7 +431,7 @@ Source: `styles/colors/910-lumina-default-all.json`
 | Highlight (Electric Sage for Dark BG) | highlight | hsl(154, 65%, 68%) |
 | Highlight Alt (Vivid Pine Links) | highlight-alt | hsl(150, 88%, 22.8%) |
 | Highlight (Luminescent Sky Links) | highlight-accent | hsl(206, 75%, 68%) |
-| Highlight Alt (Deep Sky Links) | highlight-accent-alt | hsl(206, 65%, 34%) |
+| Highlight Alt (Deep Sky Links) | highlight-accent-alt | hsl(206, 65%, 35.5%) |
 | Neutral (Warm Sand 94%) | neutral | hsl(40, 18%, 94%) |
 | Neutral Alt (Sand 88%) | neutral-alt | hsl(40, 15%, 88%) |
 | Off White (Desert Alabaster 97.5%) | off-white | hsl(40, 20%, 97.5%) |

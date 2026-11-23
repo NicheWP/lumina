@@ -102,7 +102,7 @@
 				{ "slug": "highlight-alt", "color": "hsl(150, 88%, 22.8%)", "name": "Highlight Alt (Vivid Pine Links)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(206, 75%, 68%)", "name": "Highlight (Luminescent Sky Links)" },
-				{ "slug": "highlight-accent-alt", "color": "hsl(206, 65%, 34%)", "name": "Highlight Alt (Deep Sky Links)" },
+				{ "slug": "highlight-accent-alt", "color": "hsl(206, 65%, 35.5%)", "name": "Highlight Alt (Deep Sky Links)" },
 
 				{ "slug": "neutral", "color": "hsl(40, 18%, 94%)", "name": "Neutral (Warm Sand 94%)" },
 				{ "slug": "neutral-alt", "color": "hsl(40, 15%, 88%)", "name": "Neutral Alt (Sand 88%)" },

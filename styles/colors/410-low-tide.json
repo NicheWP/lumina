@@ -72,7 +72,7 @@
 				{ "slug": "highlight-alt", "color": "hsl(16, 50%, 36%)", "name": "Highlight Alt (Deep Burnt Copper Links / Buttons 36%)" },
 
 				{ "slug": "highlight-accent", "color": "hsl(172, 75%, 76%)", "name": "Highlight Accent (Bioluminescent Tidefoam Links)" },		
-				{ "slug": "highlight-accent-alt", "color": "hsl(172, 60%, 34%)", "name": "Highlight Accent Alt (Deep Tidefoam Links / Buttons 34%)" },
+				{ "slug": "highlight-accent-alt", "color": "hsl(172, 72%, 26%)", "name": "Highlight Accent Alt (Deep Tidefoam Links / Buttons 26%)" },
         
 				{ "slug": "neutral", "color": "hsl(211, 25%, 21%)", "name": "Neutral (Industrial Marine Slate)" },
 				{ "slug": "neutral-alt", "color": "hsl(211, 28%, 27%)", "name": "Neutral Alt (Technical Maritime Blue)" },
