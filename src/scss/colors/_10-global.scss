@@ -50,7 +50,6 @@
 		@if $text == 'light' {
 
 			@include logic.apply-contrast-color($color, 'light', $root);
-// 			@include logic.apply-heading-action($color, 'light', $root);
             
 		} @else if $text == 'dark' {
 
