@@ -17,8 +17,10 @@
 				"link": {
 					"hoverOpacity": "0.7" 
 				},
-				"highlight-alt": {
-					"lighten": 		"saturate(0.55) brightness(2.50)"
+				"linkFilter": {
+					"primary-alt": "saturate(0.25) brightness(2.45)",
+					"secondary-alt": "saturate(0.30) brightness(2.35)",
+					"tertiary-alt": "saturate(0.35) brightness(2.30)"
 				}						
 			}
 		},

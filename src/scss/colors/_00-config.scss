@@ -50,17 +50,28 @@ $color-registry: (
     ( color: 'tertiary',         	text: 'light',  	link: 'inherit',
         heading: 'inherit', footer-dark: 'hover-highlight'
     ),
-    
-	// --- MAIN ALT SEMANTIC COLORS ---
-    ( color: 'primary-alt',      	text: 'light',  	link: 'lighten',
+
+    // --- MAIN ALT SEMANTIC COLORS ---
+    ( color: 'primary-alt',      	text: 'light',  	link: 'filter: saturate(0.20) brightness(2.70)',
         heading: 'inherit'
     ),
-    ( color: 'secondary-alt',    	text: 'light',  	link: 'lighten',
+    ( color: 'secondary-alt',    	text: 'light',  	link: 'filter: saturate(0.45) brightness(2.55)',
         heading: 'inherit', footer-dark: 'hover-highlight'
     ),
-    ( color: 'tertiary-alt',     	text: 'light',  	link: 'lighten',
-    		heading: 'inherit',		footer-dark: 'hover-highlight'  
+    ( color: 'tertiary-alt',     	text: 'light',  	link: 'filter: saturate(0.15) brightness(2.75)',
+        heading: 'inherit', footer-dark: 'hover-highlight'  
     ),
+
+	// --- MAIN ALT SEMANTIC COLORS ---
+    // ( color: 'primary-alt',      	text: 'light',  	link: 'lighten',
+    //     heading: 'inherit'
+    // ),
+    // ( color: 'secondary-alt',    	text: 'light',  	link: 'lighten',
+    //     heading: 'inherit', footer-dark: 'hover-highlight'
+    // ),
+    // ( color: 'tertiary-alt',     	text: 'light',  	link: 'lighten',
+    // 		heading: 'inherit',		footer-dark: 'hover-highlight'  
+    // ),
 
     // --- SUBTLE SEMANTIC COLORS ---
     ( color: 'primary-subtle',		text: 'dark-light', heading: 'accent' ),							
@@ -133,7 +144,8 @@ $color-registry: (
     ( color: 'dark-alt',		text: 'light',	link: 'highlight', heading: 'inherit',
     		footer: 'hover-highlight' ),
 
-    ( color: 'primary-dark',        text: 'light', 		link: 'highlight', heading: 'inherit' ),    
+    ( color: 'primary-dark',        text: 'light', 		link: 'highlight', heading: 'inherit',
+            footer: 'hover-highlight' ),    
     ( color: 'primary-dark-alt',    text: 'light', 		link: 'highlight', heading: 'inherit',
     		footer: 'hover-highlight' ),
     ( color: 'tertiary-dark',       text: 'light', 		link: 'highlight', heading: 'inherit' ),
@@ -214,10 +226,10 @@ $gradient-surfaces: (
 ///
 /// @group Colors Configuration
 /// @type String
-$filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, saturate(0.35) brightness(2.75)) !default;
+// $filter-link-lighten: var(--wp--custom--color--highlight-alt--lighten, saturate(0.35) brightness(2.75)) !default;
 
 /// Darken brightness filter metric applied to link hover and focus states.
 ///
 /// @group Colors Configuration
 /// @type String
-$filter-link-darken:  var(--wp--custom--color--highlight--darken, brightness(0.40) saturate(1.15)) !default;
+// $filter-link-darken:  var(--wp--custom--color--highlight--darken, brightness(0.40) saturate(1.15)) !default;

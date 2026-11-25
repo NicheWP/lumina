@@ -7,6 +7,7 @@
 
 @use 'sass:string';
 @use 'sass:map';
+@use 'sass:list';
 @use '00-config' as config;
 
 /// Builds selectors for color backgrounds and their mapped preset gradients.
@@ -92,16 +93,16 @@
 /// Applies lightening filter to headings on dark background surfaces.
 /// @group Colors Logic
 /// @access private
-%engine-heading-lighten {
-    filter: config.$filter-link-lighten;
-}
+// %engine-heading-lighten {
+//     filter: config.$filter-link-lighten;
+// }
 
 /// Applies darkening filter to headings on light background surfaces.
 /// @group Colors Logic
 /// @access private
-%engine-heading-darken {
-	filter: config.$filter-link-darken;
-}
+// %engine-heading-darken {
+// 	filter: config.$filter-link-darken;
+// }
 
 /// Inherits link color from container text scope.
 /// @group Colors Logic
@@ -113,17 +114,17 @@
 /// Applies lightening filter to links on dark background surfaces.
 /// @group Colors Logic
 /// @access private
-%engine-link-lighten {
-    filter: config.$filter-link-lighten;
-}
+// %engine-link-lighten {
+//     filter: config.$filter-link-lighten;
+// }
 
 /// Applies darkening filter to links on light background surfaces.
 /// @group Colors Logic
 /// @access private
-%engine-link-darken {
-    filter: config.$filter-link-darken;
-}
-
+// %engine-link-darken {
+//     filter: config.$filter-link-darken;
+// }
+	
 /// Sets link color to dark text (`almost-black`).
 /// @group Colors Logic
 /// @access private
@@ -269,13 +270,13 @@
 
 				@extend %engine-heading-light-text;
 
-			} @else if $heading == 'darken' {
+			// } @else if $heading == 'darken' {
 
-				@extend %engine-heading-darken;
+			// 	@extend %engine-heading-darken;
 
-			} @else if $heading == 'lighten' {
+			// } @else if $heading == 'lighten' {
 
-				@extend %engine-heading-lighten;
+			// 	@extend %engine-heading-lighten;
 			}
 		}
 	}
@@ -285,7 +286,7 @@
 ///
 /// @group Colors Logic
 /// @param {List|String} $color - Color slug or list of color slugs
-/// @param {String} $link - Action mode ('inherit', 'dark', 'light', 'darken', 'lighten', 'highlight', 'highlight-alt')
+/// @param {String} $link - Action mode ('inherit', 'dark', 'light', 'darken', 'lighten', 'highlight', 'highlight-alt', or 'filter: <value>')
 /// @param {Boolean} $remove-underline [null] - Remove link underlines on front-end
 /// @param {Boolean} $root [null] - Prepend `:where(:root)` scoping
 /// @param {Boolean} $editor-styles [false] - Output Gutenberg editor hover rules
@@ -299,104 +300,88 @@
 ) {
 
 	$excluded-links: ".wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg)";
-
 	$clean-selectors: build-selector-list($color);
 
 	$root-prefix: "";
 
 	@if $root and not $editor-styles {
-		$root-prefix: ":where(:root)";
+		$root-prefix: ":where(:root) ";
 	}
 
-	$target-selector: null;
+	$target-selector: "#{$root-prefix}#{$clean-selectors} :where(a:not(#{$excluded-links}))";
 
 	@if $editor-styles {
 		$target-selector: "#{$clean-selectors} :where(a:not(#{$excluded-links})):is(:hover, :focus-visible)";
-	} @else if $root-prefix != "" {
-		$target-selector: "#{$root-prefix} #{$clean-selectors} :where(a:not(#{$excluded-links}))";
-	} @else {
-		$target-selector: "#{$clean-selectors} :where(a:not(#{$excluded-links}))";
 	}
 
-	@if $link == 'dark' or $link == 'light' or $link == 'inherit' {
-		#{$target-selector} {
+	$underline-mode: null;
 
-			@if $link == 'dark' { 
+	#{$target-selector} {
 
-				@extend %engine-link-dark-text; 
+		@if $link == 'dark' {
 
-			} @else if $link == 'light' { 
+			@extend %engine-link-dark-text;
+			$underline-mode: 'add';
 
-				@extend %engine-link-light-text; 
+		} @else if $link == 'light' {
 
-			} @else if $link == 'inherit'{
+			@extend %engine-link-light-text;
+			$underline-mode: 'add';
 
-				@extend %engine-link-inherit;
-			}
+		} @else if $link == 'inherit' {
+
+			@extend %engine-link-inherit;
+			$underline-mode: 'add';
+
+		} @else if $link == 'highlight' {
+
+			@extend %engine-link-highlight;
+			$underline-mode: 'remove';
+
+		} @else if $link == 'highlight-alt' {
+
+			@extend %engine-link-highlight-alt;
+			$underline-mode: 'remove';
+
+		// } @else if $link == 'lighten' {
+
+		// 	@extend %engine-link-highlight-alt;
+		// 	@extend %engine-link-lighten;
+		// 	$underline-mode: 'remove';
+
+		// } @else if $link == 'darken' {
+
+		// 	@extend %engine-link-highlight;
+		// 	@extend %engine-link-darken;
+		// 	$underline-mode: 'remove';
+
+		} @else if $link != null and string.index($link, 'filter:') == 1 {
+			$slug: list.nth($color, 1);
+			$fallback: string.slice($link, 8);
+
+			@extend %engine-link-highlight-alt;
+			filter: var(--wp--custom--color--link-filter--#{$slug},#{$fallback});
+			$underline-mode: 'remove';
 		}
-		
-		@if not $editor-styles {
+	}
 
-			@if $root-prefix != "" {
-				#{$root-prefix} .wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
+	@if not $editor-styles {
 
-					@extend %engine-link-underline;
-				}
-				
-				#{$root-prefix} #{$clean-selectors}:is(.site-footer, .footer-info) p :where(a:not(#{$excluded-links})) {
+		@if $underline-mode == 'add' {
+			#{$root-prefix}.wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
 
-					@extend %engine-link-underline-special;
-				}
-			} @else {
-				.wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
-
-					@extend %engine-link-underline;
-				}
-				
-				#{$clean-selectors}:is(.site-footer, .footer-info) p :where(a:not(#{$excluded-links})) {
-
-					@extend %engine-link-underline-special;
-				}
+				@extend %engine-link-underline;
 			}
-		}
-	
-	} @else if $link == 'highlight' or $link == 'lighten' 
-			or $link == 'highlight-alt' or $link == 'darken' 
-	{
-		#{$target-selector} {
 
-			@if $link == 'highlight' { 
+			#{$root-prefix}#{$clean-selectors}:is(.site-footer, .footer-info) p :where(a:not(#{$excluded-links})) {
 
-				@extend %engine-link-highlight;
-
-			} @else if $link == 'lighten' { 
-
-				@extend %engine-link-highlight-alt;
-				@extend %engine-link-lighten;
-
-			} @else if $link == 'highlight-alt'{
-
-				@extend %engine-link-highlight-alt;
-
-			} @else if $link == 'darken'{
-
-				@extend %engine-link-highlight;
-				@extend %engine-link-darken;
+				@extend %engine-link-underline-special;
 			}
-		}
-		
-		@if $remove-underline and not $editor-styles {
 
-			@if $root-prefix != "" {
-				#{$root-prefix} .wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
+		} @else if $underline-mode == 'remove' and $remove-underline {
+			#{$root-prefix}.wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
 
-					@extend %engine-link-remove-underline;
-				}
-			} @else {
-				.wp-block-post-content #{$clean-selectors} :where(a:not(#{$excluded-links})) {
-
-					@extend %engine-link-remove-underline;
-				}
+				@extend %engine-link-remove-underline;
 			}
 		}
 	}
@@ -413,8 +398,8 @@
 	@if $footer == 'hover-highlight' {
 		:where(#{$selectors}:is(.site-footer, .footer-info)) {
 
-			:where(a:not(.wp-element-button, .wp-block-social-link-anchor)):is(:hover, :focus-visible),
-			.wp-block-navigation-item__content:is(:hover, :focus-visible) {
+			&:is(.site-footer, .footer-info) :where(a:not(.wp-element-button, .wp-block-social-link-anchor)):is(:hover, :focus-visible),
+			.wp-block-navigation .wp-block-navigation-item__content:is(:hover, :focus-visible) {
 
 				@extend %engine-link-highlight;
 			}				
@@ -423,8 +408,8 @@
 	} @else if $footer == 'hover-highlight-alt' {
 		:where(#{$selectors}:is(.site-footer, .footer-info)) {
 
-			:where(a:not(.wp-element-button, .wp-block-social-link-anchor)):is(:hover, :focus-visible),
-			.wp-block-navigation-item__content:is(:hover, :focus-visible) {
+			&:is(.site-footer, .footer-info) :where(a:not(.wp-element-button, .wp-block-social-link-anchor)):is(:hover, :focus-visible),
+			.wp-block-navigation .wp-block-navigation-item__content:is(:hover, :focus-visible) {
 
 				@extend %engine-link-highlight-alt;
 			}

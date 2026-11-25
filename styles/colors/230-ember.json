@@ -18,8 +18,10 @@
 					"text": 		"var(--wp--preset--color--dark-alt)", 
 					"separator": 	"var(--wp--preset--color--secondary)"
 				},
-				"highlight-alt": {
-					"lighten": 		"saturate(0.15) brightness(3.05)"
+				"linkFilter": {
+					"primary-alt": "saturate(0.15) brightness(2.95)",
+					"secondary-alt": "saturate(0.10) brightness(3.05)",
+					"tertiary-alt": "saturate(0.20) brightness(2.85)"
 				},
 				"contrast": {
 					"highlight": 		"var(--wp--preset--color--almost-black)",

@@ -22,8 +22,10 @@
 				"navigation": {
 					"highlight": 	"var(--wp--preset--color--highlight)"
 				},
-				"highlight-alt": {
-					"lighten": 		"saturate(0.30) brightness(2.55)"
+				"linkFilter": {
+					"primary-alt": "saturate(0.20) brightness(2.55)",
+					"secondary-alt": "saturate(0.30) brightness(2.45)",
+					"tertiary-alt": "saturate(0.55) brightness(1.95)"
 				},
 				"opacity": {
 					"tintColor": 	"var(--wp--preset--color--highlight-accent)"

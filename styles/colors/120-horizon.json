@@ -19,8 +19,10 @@
 				"navigation": {
 					"highlight":    "var(--wp--preset--color--highlight-alt)"
 				},
-				"highlight-alt": {
-					"lighten": 		"brightness(2.5) saturate(0.80)"
+				"linkFilter": {
+					"primary-alt": "saturate(0.45) brightness(2.30)",
+					"secondary-alt": "saturate(0.30) brightness(2.45)",
+					"tertiary-alt": "saturate(0.25) brightness(2.50)"
 				},
 				"link": {
 					"hoverOpacity": "0.75"

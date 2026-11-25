@@ -48,11 +48,10 @@
 					"dropdownGlassOpacity": "95%",
 					"hoverOverlayOpacity": 	"10%"
 				},
-				"highlight": {
-					"darken": 		"brightness(0.40) saturate(1.15)"
-				},
-				"highlight-alt": {
-					"lighten": "saturate(0.35) brightness(2.75)"
+				"linkFilter": {
+					"primary-alt": "saturate(0.20) brightness(2.70)",
+					"secondary-alt": "saturate(0.45) brightness(2.55)",
+					"tertiary-alt": "saturate(0.15) brightness(2.75)"
 				},
 				"image": {
 					"hoverOpacity": "1" 

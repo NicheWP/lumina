@@ -10,8 +10,10 @@
 					"mode": 	"is-light-theme",
 					"scheme": 	"dusk"
 				},
-				"highlight-alt": {
-					"lighten": 	"saturate(0.30) brightness(2.55)"
+				"linkFilter": {
+					"primary-alt": "saturate(0.60) brightness(1.95)",
+					"secondary-alt": "saturate(0.45) brightness(2.15)",
+					"tertiary-alt": "saturate(0.20) brightness(2.55)"
 				},				
 				"heading": {
 					"text": "var(--wp--preset--color--dark-alt)",

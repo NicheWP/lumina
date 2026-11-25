@@ -1649,10 +1649,6 @@ h1, h2, h3, h4, h5, h6) {
   color: inherit;
 }
 
-:where(:root) .has-primary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) .has-secondary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) .has-tertiary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
-  filter: var(--wp--custom--color--highlight-alt--lighten, saturate(0.35) brightness(2.75));
-}
-
 :where(:root) .has-highlight-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) .has-highlight-accent-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))), :where(:root) .has-highlight-accent-2-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
   color: var(--wp--preset--color--almost-black);
 }
@@ -1701,12 +1697,24 @@ h1, h2, h3, h4, h5, h6) {
   color: var(--wp--custom--color--contrast--primary-alt, var(--wp--preset--color--off-white));
 }
 
+:where(:root) .has-primary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
+  filter: var(--wp--custom--color--link-filter--primary-alt,  saturate(0.20) brightness(2.70));
+}
+
 :where(:root) .has-secondary-alt-background-color {
   color: var(--wp--custom--color--contrast--secondary-alt, var(--wp--preset--color--off-white));
 }
 
+:where(:root) .has-secondary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
+  filter: var(--wp--custom--color--link-filter--secondary-alt,  saturate(0.45) brightness(2.55));
+}
+
 :where(:root) .has-tertiary-alt-background-color {
   color: var(--wp--custom--color--contrast--tertiary-alt, var(--wp--preset--color--off-white));
+}
+
+:where(:root) .has-tertiary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))) {
+  filter: var(--wp--custom--color--link-filter--tertiary-alt,  saturate(0.15) brightness(2.75));
 }
 
 :where(:root) .has-base-background-color {

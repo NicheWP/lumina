@@ -14,8 +14,10 @@
 				"field": { 
 					"outline": 		"color-mix(in srgb, currentColor 12%, transparent)" 
 				},
-				"highlight-alt": {
-					"lighten": 		"brightness(0.86) saturate(1.08)"
+				"linkFilter": {
+					"primary-alt": "brightness(0.92)",
+					"secondary-alt": "none",
+					"tertiary-alt": "none"
 				},
 				"contrast": {
 					"primary": 			"var(--wp--preset--color--contrast)",

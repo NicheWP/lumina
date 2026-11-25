@@ -23,8 +23,10 @@
 					"background": 	"var(--wp--preset--color--tertiary)",
 					"text": 		"var(--wp--preset--color--off-white)"
 				},
-				"highlight-alt": {
-					"lighten": "saturate(0.35) brightness(2.75)"
+				"linkFilter": {
+					"primary-alt": "saturate(0.20) brightness(2.70)",
+					"secondary-alt": "saturate(0.45) brightness(2.55)",
+					"tertiary-alt": "saturate(0.15) brightness(2.75)"
 				},
 				"link": {
 					"hoverOpacity": "0.75"
@@ -412,6 +414,7 @@
 		},
 		"color": {
 			"custom": true,
+			"link": true,			
 			"customDuotone": true,
 			"customGradient": true,
 			"defaultDuotone": false,

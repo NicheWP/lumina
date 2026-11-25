@@ -97,10 +97,6 @@
   color: inherit;
 }
 
-.has-primary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible), .has-secondary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible), .has-tertiary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible) {
-  filter: var(--wp--custom--color--highlight-alt--lighten, saturate(0.35) brightness(2.75));
-}
-
 .has-highlight-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible), .has-highlight-accent-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible), .has-highlight-accent-2-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible) {
   color: var(--wp--preset--color--almost-black);
 }
@@ -120,3 +116,14 @@
 /* ==========================================================================
    50 EDITOR COLOR STYLES: Set colors in the Editor
 ========================================================================== */
+.has-primary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible) {
+  filter: var(--wp--custom--color--link-filter--primary-alt,  saturate(0.20) brightness(2.70));
+}
+
+.has-secondary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible) {
+  filter: var(--wp--custom--color--link-filter--secondary-alt,  saturate(0.45) brightness(2.55));
+}
+
+.has-tertiary-alt-background-color :where(a:not(.wp-element-button, .wp-block-social-link-anchor, .wp-block-navigation-item__content, :has(img), :has(svg))):is(:hover, :focus-visible) {
+  filter: var(--wp--custom--color--link-filter--tertiary-alt,  saturate(0.15) brightness(2.75));
+}

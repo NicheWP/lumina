@@ -10,6 +10,11 @@
 					"scheme": 		"elements",
 					"mode": 		"is-light-theme"
 				},
+				"linkFilter": {
+					"primary-alt": "saturate(0.15) brightness(2.75)",
+					"secondary-alt": "saturate(0.45) brightness(2.55)",
+					"tertiary-alt": "saturate(0.20) brightness(2.70)"
+				},
 				"heading": {
 					"text": 		"var(--wp--preset--color--dark)",
 					"separator": 	"var(--wp--preset--color--tertiary)"
