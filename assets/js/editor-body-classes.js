@@ -54,8 +54,8 @@
 		const currentMode = styles.getPropertyValue( '--wp--custom--color--theme--mode' ).trim();
 		const currentScheme = styles.getPropertyValue( '--wp--custom--color--theme--scheme' ).trim();
 
-		if ( currentMode === 'is-light-theme' || currentMode === 'is-dark-theme' ) {
-			mode = currentMode === 'is-dark-theme' ? 'dark' : 'light';
+		if ( currentMode === 'light' || currentMode === 'dark' ) {
+			mode = currentMode;
 		} else if ( currentMode ) {
 			console.error( 'Lumina: unrecognized editor theme mode:', currentMode );
 		}

@@ -8,7 +8,7 @@
 			"color": {
 				"theme": {
 					"scheme": 		"lumina-default-all",
-					"mode": 		"is-light-theme",
+					"mode": 		"light",
 					"imageFolders": [
 						"gallery-1",
 						"gallery-2"

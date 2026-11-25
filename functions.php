@@ -415,14 +415,14 @@ if ( ! function_exists( 'lumina_get_active_theme_mode' ) ) :
 
 		$mode_setting = wp_get_global_settings( array( 'custom', 'color', 'theme', 'mode' ) );
 		if ( ! empty( $mode_setting ) && is_string( $mode_setting ) ) {
-			return ( strpos( $mode_setting, 'dark' ) !== false ) ? 'dark' : 'light';
+			return 'dark' === $mode_setting ? 'dark' : 'light';
 		}
 
 		if ( function_exists( 'NicheWP\get_transient_key' ) ) {
 			$theme_meta = get_transient( NicheWP\get_transient_key() );
 
 			if ( is_array( $theme_meta ) ) {
-				if ( ! empty( $theme_meta['mode_class'] ) && strpos( $theme_meta['mode_class'], 'dark' ) !== false ) {
+				if ( ! empty( $theme_meta['mode_class'] ) && 'dark' === $theme_meta['mode_class'] ) {
 					return 'dark';
 				}
 				if ( ! empty( $theme_meta['bg_class'] ) && $theme_meta['bg_class'] === 'is-dark-background' ) {

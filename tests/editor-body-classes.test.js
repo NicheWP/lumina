@@ -12,7 +12,7 @@ function waitForStyles() {
 
 function setThemeStyles( style, mode, scheme, background ) {
 	style.textContent = `body {
-		--wp--custom--color--theme--mode: is-${ mode }-theme;
+		--wp--custom--color--theme--mode: ${ mode };
 		--wp--custom--color--theme--scheme: ${ scheme };
 		background-color: ${ background };
 	}`;

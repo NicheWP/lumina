@@ -154,7 +154,7 @@ if ( ! function_exists( __NAMESPACE__ . '\add_body_classes' ) ) :
 			// 2. QUERY THEME ENGINE MODE & SCHEME VARIANT
 			// -----------------------------------------------------------------
 			$mode_setting = wp_get_global_settings( array( 'custom', 'color', 'theme', 'mode' ) );
-			$mode_class   = ( ! empty( $mode_setting ) && is_string( $mode_setting ) ) ? $mode_setting : 'is-light-theme';
+			$mode_class   = 'dark' === $mode_setting ? 'dark' : 'light';
 			
 			$scheme_setting = wp_get_global_settings( array( 'custom', 'color', 'theme', 'scheme' ) );
 			$scheme_slug    = ( ! empty( $scheme_setting ) && is_string( $scheme_setting ) ) ? sanitize_html_class( $scheme_setting ) : 'default';
@@ -168,7 +168,7 @@ if ( ! function_exists( __NAMESPACE__ . '\add_body_classes' ) ) :
 			);
 
 			if ( ! $bypass_cache ) {
-				set_transient( $transient_key, $theme_meta, 12 * \HOUR_IN_SECONDS );
+				set_transient( $transient_key, $theme_meta, 12 * 3600 );
 			}
 		}
 
@@ -182,7 +182,7 @@ if ( ! function_exists( __NAMESPACE__ . '\add_body_classes' ) ) :
 			$classes[] = $theme_meta['bg_class'];
 		}
 		if ( ! empty( $theme_meta['mode_class'] ) ) {
-			$classes[] = false !== strpos( $theme_meta['mode_class'], 'dark' )
+			$classes[] = 'dark' === $theme_meta['mode_class']
 				? 'theme-dark-mode'
 				: 'theme-light-mode';
 		}

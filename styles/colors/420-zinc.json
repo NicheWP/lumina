@@ -7,7 +7,7 @@
 		"custom": {
 			"color": {			
 				"theme": {
-					"mode": 		"is-dark-theme",
+					"mode": 		"dark",
 					"scheme": 		"zinc"
 				},
 				"border": 			"color-mix(in srgb, currentColor 10%, transparent)",

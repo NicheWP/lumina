@@ -7,7 +7,7 @@
 		"custom": {
 			"color": {
 				"theme": {
-					"mode": 	"is-light-theme",
+					"mode": 	"light",
 					"scheme": 	"dusk"
 				},
 				"linkFilter": {
