@@ -82,4 +82,4 @@
 | **Page Portfolio** | `lumina/page-portfolio` | `lumina, page` | Studio Creative portfolio showcase with full-bleed media spotlights, responsive galleries, device mockups, and client testimonials. |
 | **Page Services** | `lumina/page-services` | `lumina, page` | Studio Capabilities and services overview page with technical feature breakdowns, pricing tables, facility details, interactive FAQ, and CTA. |
 | **Page Lumina** | `lumina/page-lumina` | `lumina, page` | Home Page with Lumina Theme Content |
-| **Page All Patterns TEST** | `lumina/page-all-patterns-test` | `lumina, page` | Page to test all Lumina theme Block Patterns |
+| **Page All Patterns TEST** | `lumina-nichewp/page-all-patterns-test` | `lumina-nichewp, page` | Page to test all Lumina NicheWP theme Block Patterns |

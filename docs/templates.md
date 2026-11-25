@@ -3,6 +3,8 @@
 | Title | Template Slug | Type | Description |
 | :--- | :--- | :--- | :--- |
 | **404 Error Page** | `404` | `Core Hierarchy` | Template rendered when content is not found. |
+| **_Archive User Save Nichewp** | `_archive-user-SAVE-nichewp` | `Layout Variation` | Specialized layout variation for _archive-user-SAVE-nichewp. |
+| **_Single User Save Nichewp** | `_single-user-SAVE-nichewp` | `Layout Variation` | Specialized layout variation for _single-user-SAVE-nichewp. |
 | **Archive (Categories & Tags)** | `archive` | `Core Hierarchy` | Template for post category, tag, and date archives. |
 | **Author Archive** | `author` | `Core Hierarchy` | Template displaying author posts and bio. |
 | **Blog Home Index** | `home` | `Core Hierarchy` | Blog posts index template. |
