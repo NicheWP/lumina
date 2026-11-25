@@ -6,7 +6,7 @@
 	"blockTypes": [ "core/columns" ],
 	"styles": {
 		"spacing": {
-			"blockGap": "var:preset|spacing|50"
+			"blockGap": "var:preset|spacing|60"
 		}
 	}
 }

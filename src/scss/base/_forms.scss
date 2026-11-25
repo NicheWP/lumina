@@ -18,14 +18,16 @@ fieldset {
 
 select,
 textarea,
-input:not([type="button"]):not([type="submit"]):not([type="reset"]):not(.wp-element-button):not(.wp-block-button__link) {
+input:where(:not([type="button"], [type="submit"], [type="reset"], .wp-element-button, .wp-block-button__link)) {
 	font-family: inherit;
 	color: inherit;
 	
-	// Faint 4% alpha tint adapts seamlessly to white, dark, or colored containers
-	background-color: color-mix(in srgb, currentColor 4%, transparent);
-	border: 1px solid var(--wp--custom--color--border, color-mix(in srgb, currentColor 12%, transparent));
-	transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+	&:where(:not([type="file"])) {
+		// Faint 4% alpha tint adapts seamlessly to white, dark, or colored containers
+		background-color: color-mix(in srgb, currentcolor 4%, transparent);
+		border: 1px solid var(--wp--custom--color--border, color-mix(in srgb, currentColor 12%, transparent));
+		transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+	}
 }
 
 select {
@@ -37,7 +39,7 @@ select {
 }
 
 textarea,
-input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="image"]):not(.wp-element-button):not(.wp-block-button__link) {
+input:where(:not([type="radio"], [type="checkbox"], [type="file"], [type="image"], [type="button"], [type="submit"], [type="reset"], .wp-element-button, .wp-block-button__link)) {
 	font-size: var(--wp--preset--font-size--normal);
 	font-weight: var(--wp--custom--typography--font-weight--normal, 300);
 	line-height: 1.5;
@@ -45,13 +47,4 @@ input:not([type="radio"]):not([type="checkbox"]):not([type="file"]):not([type="i
 	text-shadow: none;
 	-webkit-appearance: none;
 	appearance: none;
-}
-
-// Focus State: Leverages field.outline from theme.json (20% currentColor)
-input:focus,
-textarea:focus,
-select:focus {
-	outline: none !important;
-	border-color: color-mix(in srgb, currentColor 40%, transparent);
-	box-shadow: 0 0 0 3px var(--wp--custom--color--field--outline, color-mix(in srgb, currentColor 20%, transparent));
 }

@@ -42,12 +42,6 @@
   padding: 0 !important;
 }
 
-/* Columns thick gap */
-.wp-block-columns.is-style-thick-gap,
-.wp-block-columns.is-style-thick-gap.has-background {
-  gap: var(--wp--preset--spacing--60);
-}
-
 /* Column no padding */
 .wp-block-column.is-style-no-padding {
   padding: 0;

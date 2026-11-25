@@ -102,6 +102,8 @@
     width: 100% !important;
     max-width: 100% !important;
     flex-basis: auto !important;
+  }
+  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(4)).is-style-gutter-dividers > .wp-block-column {
     margin: 0 !important;
   }
   /* Crosshair Dividers: 4-Up in 2x2 Grid (Seamless Center Intersection) */
@@ -160,11 +162,13 @@
     width: 100% !important;
     max-width: 100% !important;
     flex-basis: auto !important;
-    margin: 0 !important;
   }
   .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):has(> .wp-block-column:is(.is-style-first-on-mobile, .is-first-on-mobile, .first-on-mobile)) > .wp-block-column:is(.is-style-first-on-mobile, .is-first-on-mobile, .first-on-mobile) {
     grid-column: span 2 !important;
     order: -1 !important;
+  }
+  .wp-block-columns.wp-block-columns:not(.is-not-stacked-on-mobile):has(> .wp-block-column:first-child:nth-last-child(3)):has(> .wp-block-column:is(.is-style-first-on-mobile, .is-first-on-mobile, .first-on-mobile)).is-style-gutter-dividers > .wp-block-column {
+    margin: 0 !important;
   }
   /* Crosshair Dividers: 3-Up in Opt-In 1 + 2 Grid */
   .wp-block-columns.is-style-gutter-dividers:has(> .wp-block-column:first-child:nth-last-child(3)):has(> .wp-block-column:is(.is-style-first-on-mobile, .is-first-on-mobile, .first-on-mobile)) > .wp-block-column:not(:first-child)::before {

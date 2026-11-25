@@ -39,6 +39,22 @@ html {
   box-sizing: inherit;
 }
 
+:where(.wp-site-blocks, .editor-styles-wrapper) :focus-visible {
+  outline: 2px solid var(--wp--custom--color--outline, color-mix(in srgb, currentColor 70%, transparent));
+  outline-offset: 0;
+}
+
+:where(.wp-site-blocks, .editor-styles-wrapper) :where(button,
+input[type=button],
+input[type=submit],
+input[type=reset],
+input[type=image],
+.wp-element-button,
+.wp-block-button__link,
+[role=button]):focus-visible {
+  outline-offset: -4px;
+}
+
 /*
  * Font smoothing on Safari only
  * These are niche settings that will not be available via Global Styles.
@@ -131,10 +147,14 @@ fieldset {
 
 select,
 textarea,
-input:not([type=button]):not([type=submit]):not([type=reset]):not(.wp-element-button):not(.wp-block-button__link) {
+input:where(:not([type=button], [type=submit], [type=reset], .wp-element-button, .wp-block-button__link)) {
   font-family: inherit;
   color: inherit;
-  background-color: color-mix(in srgb, currentColor 4%, transparent);
+}
+select:where(:not([type=file])),
+textarea:where(:not([type=file])),
+input:where(:not([type=button], [type=submit], [type=reset], .wp-element-button, .wp-block-button__link)):where(:not([type=file])) {
+  background-color: color-mix(in srgb, currentcolor 4%, transparent);
   border: 1px solid var(--wp--custom--color--border, color-mix(in srgb, currentColor 12%, transparent));
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
@@ -148,7 +168,7 @@ select {
 }
 
 textarea,
-input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=image]):not(.wp-element-button):not(.wp-block-button__link) {
+input:where(:not([type=radio], [type=checkbox], [type=file], [type=image], [type=button], [type=submit], [type=reset], .wp-element-button, .wp-block-button__link)) {
   font-size: var(--wp--preset--font-size--normal);
   font-weight: var(--wp--custom--typography--font-weight--normal, 300);
   line-height: 1.5;
@@ -157,14 +177,6 @@ input:not([type=radio]):not([type=checkbox]):not([type=file]):not([type=image]):
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none !important;
-  border-color: color-mix(in srgb, currentColor 40%, transparent);
-  box-shadow: 0 0 0 3px var(--wp--custom--color--field--outline, color-mix(in srgb, currentColor 20%, transparent));
 }
 
 /* -----------------------------------------------------------------------------
@@ -238,6 +250,13 @@ input[type=file]::file-selector-button {
 input[type=file] {
   font-size: var(--wp--preset--font-size--small, 16px);
   width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+input[type=file]::file-selector-button {
+  margin-inline-end: var(--wp--preset--spacing--20, 5px);
 }
 
 /* 5. Outline Inheritance Rules */
@@ -733,7 +752,7 @@ figure > a:active,
 
 :is(.wp-block-image, .wp-block-post-featured-image):is(.is-style-pan-zoom, .is-style-pan-zoom-hover):has(> a:focus-visible),
 .wp-block-media-text:is(.is-style-pan-zoom, .is-style-pan-zoom-hover) > .wp-block-media-text__media:has(> a:focus-visible) {
-  outline: auto;
+  outline: 2px solid var(--wp--custom--color--outline, color-mix(in srgb, currentColor 70%, transparent));
   outline-offset: 2px;
 }
 

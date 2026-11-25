@@ -17,6 +17,24 @@ html {
   box-sizing: inherit;
 }
 
+:where(.wp-site-blocks, .editor-styles-wrapper) :focus-visible {
+	outline: 2px solid var(--wp--custom--color--outline, color-mix(in srgb, currentColor 70%, transparent));
+	outline-offset: 0;
+}
+
+:where(.wp-site-blocks, .editor-styles-wrapper) :where(
+	button,
+	input[type="button"],
+	input[type="submit"],
+	input[type="reset"],
+	input[type="image"],
+	.wp-element-button,
+	.wp-block-button__link,
+	[role="button"]
+):focus-visible {
+	outline-offset: -4px;
+}
+
 /*
  * Font smoothing on Safari only
  * These are niche settings that will not be available via Global Styles.

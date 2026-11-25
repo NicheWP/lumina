@@ -287,7 +287,7 @@ $var-duration: var(--wp--custom--animation--motion--duration-factor, 1);
 
 :is(.wp-block-image, .wp-block-post-featured-image):is(.is-style-pan-zoom, .is-style-pan-zoom-hover):has(> a:focus-visible),
 .wp-block-media-text:is(.is-style-pan-zoom, .is-style-pan-zoom-hover) > .wp-block-media-text__media:has(> a:focus-visible) {
-	outline: auto;
+	outline: 2px solid var(--wp--custom--color--outline, color-mix(in srgb, currentColor 70%, transparent));
 	outline-offset: 2px;
 }
 

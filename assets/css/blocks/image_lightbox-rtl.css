@@ -4,6 +4,11 @@
 /* ==========================================================================
    WORDPRESS CORE LIGHTBOX OVERRIDES
    ========================================================================== */
+.wp-lightbox-container button.lightbox-trigger:focus-visible {
+  outline: 2px solid var(--wp--custom--color--outline, color-mix(in srgb, currentColor 70%, transparent));
+  outline-offset: 3px;
+}
+
 .wp-lightbox-overlay {
   /* 1. Hide thumbnail image directly to eliminate double-image bleed */
 }

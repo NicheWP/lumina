@@ -18,6 +18,7 @@
 				},
 				"border": 			"color-mix(in srgb, currentColor 15%, transparent)",
 				"divider": 			"color-mix(in srgb, currentColor 18%, transparent)",
+				"outline": 			"color-mix(in srgb, currentColor 70%, transparent)",
 				"button": {
 					"background": 	"var(--wp--preset--color--tertiary)",
 					"text": 		"var(--wp--preset--color--off-white)"

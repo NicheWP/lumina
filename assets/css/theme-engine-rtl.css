@@ -370,13 +370,13 @@ a > .avatar {
   overflow: hidden;
 }
 .wp-block-column .wp-block-image:not(.alignfull):has(a:not(figcaption a)):has(> a:focus-visible) {
-  outline: auto;
+  outline: 2px solid var(--wp--custom--color--outline, color-mix(in srgb, currentColor 70%, transparent));
   outline-offset: 2px;
 }
 .wp-block-media-text__media:not(.alignfull):has(a:not(figcaption a)) {
   overflow: hidden;
 }
 .wp-block-media-text__media:not(.alignfull):has(a:not(figcaption a)):has(> a:focus-visible) {
-  outline: auto;
+  outline: 2px solid var(--wp--custom--color--outline, color-mix(in srgb, currentColor 70%, transparent));
   outline-offset: 2px;
 }

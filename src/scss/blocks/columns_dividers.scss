@@ -109,6 +109,9 @@ $gutter-divider-color: var(--wp--custom--color--divider, color-mix(in srgb, curr
 			width: 100% !important;
 			max-width: 100% !important;
 			flex-basis: auto !important;
+		}
+
+		&.is-style-gutter-dividers > .wp-block-column {
 			margin: 0 !important;
 		}
 	}
@@ -170,12 +173,15 @@ $gutter-divider-color: var(--wp--custom--color--divider, color-mix(in srgb, curr
 			width: 100% !important;
 			max-width: 100% !important;
 			flex-basis: auto !important;
-			margin: 0 !important;
 
 			&:is(.is-style-first-on-mobile, .is-first-on-mobile, .first-on-mobile) {
 				grid-column: span 2 !important;
 				order: -1 !important;
 			}
+		}
+
+		&.is-style-gutter-dividers > .wp-block-column {
+			margin: 0 !important;
 		}
 	}
 

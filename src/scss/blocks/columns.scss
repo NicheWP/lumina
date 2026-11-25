@@ -58,13 +58,6 @@
 	padding: 0 !important;
 }
 
-/* Columns thick gap */
-.wp-block-columns.is-style-thick-gap,
-.wp-block-columns.is-style-thick-gap.has-background {
-// 	gap: calc(2 * var(--wp--style--block-gap));
-	gap: var(--wp--preset--spacing--60);
-}
-
 /* Column no padding */
 .wp-block-column.is-style-no-padding {
 	padding: 0; // !important;
@@ -104,10 +97,4 @@
 			text-align: center !important;
 		}
 	}
-
-	// /* Override columns thick gap so vertical spacing matches up */	
-// 	.wp-block-columns.is-style-thick-gap,
-// 	.wp-block-columns.is-style-thick-gap.has-background {
-// 		gap: var(--wp--style--block-gap);
-// 	}
 }
