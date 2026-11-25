@@ -1,7 +1,7 @@
 <?php
 /**
  * File:	front-page.php
- * Theme:	Lumina
+ * Theme:	Lumina Demo
  * 
  * The Front Page template file
  *
@@ -19,7 +19,7 @@
  * but also sets the blog page to use the home.html instead of the index.html 
  * template.
  *
- * @package lumina
+ * @package lumina-demo
  * @since 1.0
  */
 
