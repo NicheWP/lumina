@@ -39,6 +39,7 @@ html {
   box-sizing: inherit;
 }
 
+/* Set default focus outlines */
 :where(.wp-site-blocks, .editor-styles-wrapper) :focus-visible {
   outline: 2px solid var(--wp--custom--color--outline, color-mix(in srgb, currentColor 70%, transparent));
   outline-offset: 0;
