@@ -51,6 +51,9 @@
 | **Header wrapper** | `header` | `uncategorized` | Structural template part component. |
 | **Home title** | `home-title` | `title` | Structural template part component. |
 | **Jetpack sharing buttons** | `jetpack-sharing` | `content` | Structural template part component. |
+| **Niche Wp About** | `niche-wp-about` | `uncategorized` | Structural template part component. |
+| **Niche Wp Contact Info** | `niche-wp-contact-info` | `uncategorized` | Structural template part component. |
+| **Niche Wp Footer** | `niche-wp-footer` | `uncategorized` | Structural template part component. |
 | **Page title without excerpt** | `page-title-noexcerpt` | `title` | Structural template part component. |
 | **Page title** | `page-title` | `title` | Structural template part component. |
 | **Post meta (author, categories, tags)** | `post-meta` | `content` | Structural template part component. |

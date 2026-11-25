@@ -1,0 +1,36 @@
+<!-- wp:template-part {"slug":"header","area":"header","tagName":"header"} /-->
+
+<!-- wp:group {"metadata":{"name":"Title"},"align":"full","className":"has-white-text-color has-text-color","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"backgroundColor":"black","textColor":"foreground-alt","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-white-text-color has-text-color  has-black-background-color has-background has-link-color is-layout-constrained wp-block-group-is-layout-constrained">
+	<!-- wp:group {"align":"wide"} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:query-title {"type":"archive","showPrefix":true,"style":{"spacing":{"padding":{"top":"var:preset|spacing|20"}}}} /-->
+		<!-- wp:term-description {"className":"entry-subtitle","style":{"typography":{"fontSize":"22px"}}} /-->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"main","metadata":{"name":"Main"},"align":"full","layout":{"type":"constrained"}} -->
+<main class="wp-block-group alignfull is-layout-constrained wp-block-group-is-layout-constrained">
+
+	<!-- wp:group {"align":"wide","layout":{"type":"constrained"}} -->
+		<div class="wp-block-group alignwide is-layout-constrained wp-block-group-is-layout-constrained">
+
+		<!-- wp:post-author {"avatarSize":96,"showBio":true,"byline":"","fontSize":"medium"} /--></div>
+
+		<!-- wp:group {"metadata":{"name":"User Comments"},"layout":{"type":"constrained"}} -->
+		<div class="wp-block-group">
+		<!-- wp:heading {"level":3} -->
+		<h3 class="wp-block-heading">User's Latest Comments</h3>
+		<!-- /wp:heading -->
+
+		<!-- wp:latest-comments {"commentsToShow":10,"currentUser":true,"displayAvatar":false,"displayUserName":false} /--></div>
+		<!-- /wp:group -->
+
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer","tagName":"footer"} /-->

@@ -1,8 +1,8 @@
 <?php
 /**
- * Title: Lumina 404 Hero Banner
- * Slug: lumina/hidden-404-featured-image
- * Categories: lumina, image
+ * Title: Lumina NicheWP 404 Hero Banner
+ * Slug: lumina-nichewp/hidden-404-featured-image
+ * Categories: lumina-nichewp, image
  * Inserter: false
  * Description: 404 Slim Featured Image
  */

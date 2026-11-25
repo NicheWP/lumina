@@ -2,8 +2,8 @@
 /**
  * Title: Social Icons
  * Description: Social Icons
- * Slug: lumina/text-social-icons
- * Categories: lumina, buttons
+ * Slug: lumina-nichewp/text-social-icons
+ * Categories: lumina-nichewp, buttons
  * Block Types: core/social-links
  */
 ?>

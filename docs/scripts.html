@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Lumina Theme Utilities & Build Scripts Catalog</title>
+	<title>Lumina NicheWP Theme Utilities & Build Scripts Catalog</title>
 	<style>
 		:root {
 			--bg: #0f172a;
@@ -44,7 +44,7 @@
 <body>
 	<div class="container">
 		<header>
-			<h1>Lumina Theme Utilities & Build Scripts Catalog</h1>
+			<h1>Lumina NicheWP Theme Utilities & Build Scripts Catalog</h1>
 			<a href="index.html">&larr; Back to Documentation Portal</a>
 		</header>
 		<table>
@@ -147,20 +147,6 @@ npm run docs:templates</pre>
 					<td><code>utils/docs-templates.sh</code></td>
 				</tr>
 				<tr>
-					<td><strong><code>docs-theme.sh</code></strong></td>
-					<td><span class="badge badge-shell">Shell</span></td>
-					<td>
-						<div class="script-title">Theme Design Tokens Reference Generator</div>
-						<div class="desc-text">Reads configurable dotted JSON paths from <code>theme.json</code> and color style variations to generate <code>docs/theme.html</code> and <code>docs/theme.md</code>.</div>
-						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li>Edit the JSON_SECTIONS list in the script to include additional JSON paths.</li></ul>
-						<div class="params-header">Usage Examples:</div><pre>./utils/docs-theme.sh
-
-# Or via NPM:
-npm run docs:theme</pre>
-					</td>
-					<td><code>utils/docs-theme.sh</code></td>
-				</tr>
-				<tr>
 					<td><strong><code>docs-variables.sh</code></strong></td>
 					<td><span class="badge badge-shell">Shell</span></td>
 					<td>
@@ -193,7 +179,7 @@ npm run docs:variables</pre>
 					<td><strong><code>patterns2php.sh</code></strong></td>
 					<td><span class="badge badge-shell">Shell</span></td>
 					<td>
-						<div class="script-title">Lumina Theme Pattern Converter</div>
+						<div class="script-title">Lumina NicheWP Theme Pattern Converter</div>
 						<div class="desc-text">Converts raw HTML block layouts from <code>/patterns/html</code> (or <code>/parts</code>) into production-ready WordPress PHP pattern files in <code>/patterns/converted</code> with <code>esc_html_e()</code> i18n translation functions, asset URI helpers, and clean Block Types comment manifests.</div>
 						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li><code>-f</code> or <code>--force</code> — Force overwrite existing PHP pattern files</li><li><code>[filter_keyword]</code> — Filter conversion to files matching a specific string (e.g., <code>hero</code>)</li><li><code>[custom_folder]</code> — Target custom relative source directory (e.g., <code>parts</code>)</li></ul>
 						<div class="params-header">Usage Examples:</div><pre># 1. Default Run (Skip existing PHP patterns):
@@ -209,17 +195,6 @@ npm run docs:variables</pre>
 ./utils/patterns2php.sh parts header -f</pre>
 					</td>
 					<td><code>utils/patterns2php.sh</code></td>
-				</tr>
-				<tr>
-					<td><strong><code>theme-zip.sh</code></strong></td>
-					<td><span class="badge badge-shell">Shell</span></td>
-					<td>
-						<div class="script-title">Versioned WordPress Theme ZIP Builder</div>
-						<div class="desc-text">Builds production assets and packages the theme runtime files into a version-named installable ZIP, excluding development, demo, and scratch files.</div>
-						<div class="params-header">Options &amp; Parameters:</div><ul class="params-list"><li>No arguments required. Reads the theme version from the <code>Version:</code> header in <code>style.css</code>.</li></ul>
-						<div class="params-header">Usage Examples:</div><pre>npm run theme-zip</pre>
-					</td>
-					<td><code>utils/theme-zip.sh</code></td>
 				</tr>
 			</tbody>
 		</table>

@@ -5,7 +5,7 @@
  *
  * Description: Auto-registers theme SVG icons using the WP 7.1 Icon API.
  * 
- * Auto-discovers sub-folders while enforcing a single permanent 'lumina' collection handle.
+ * Auto-discovers sub-folders while enforcing a single permanent 'lumina-nichewp' collection handle.
  *
  * @package     NicheWP
  */
@@ -18,7 +18,7 @@ if ( ! defined( 'THEME_SLUG' ) ) {
 	 *
 	 * @var string
 	 */
-	define( 'THEME_SLUG', 'lumina' );
+	define( 'THEME_SLUG', 'lumina-nichewp' );
 }
 
 if ( ! defined( 'ICON_REGISTRATION_DIR' ) ) {
@@ -51,16 +51,16 @@ if ( ! function_exists( __NAMESPACE__ . '\register_theme_svg_icons' ) ) :
 			return;
 		}
 	
-		// 1. Static collection slug & label for all Lumina theme icons
-		$collection_slug  = THEME_SLUG; // 'lumina'
-		$collection_label = __( 'Lumina Theme', 'lumina' );
+		// 1. Static collection slug & label for all Lumina NicheWP theme icons
+		$collection_slug  = THEME_SLUG; // 'lumina-nichewp'
+		$collection_label = __( 'Lumina NicheWP Theme', 'lumina-nichewp' );
 	
 		// 2. Register the master collection once
 		wp_register_icon_collection(
 			$collection_slug,
 			array(
 				'label'       => $collection_label,
-				'description' => __( 'Custom Lumina theme icon collection.', 'lumina' ),
+				'description' => __( 'Custom Lumina NicheWP theme icon collection.', 'lumina-nichewp' ),
 			)
 		);
 	
@@ -89,7 +89,7 @@ if ( ! function_exists( __NAMESPACE__ . '\register_theme_svg_icons' ) ) :
 				continue;
 			}
 	
-			// 4. Register each SVG icon under the static 'lumina/filename' handle
+			// 4. Register each SVG icon under the static 'lumina-nichewp/filename' handle
 			foreach ( $files as $file_path ) {
 				$filename  = basename( $file_path, '.svg' );
 				$icon_name = $collection_slug . '/' . sanitize_key( $filename );

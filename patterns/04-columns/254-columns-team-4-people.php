@@ -2,14 +2,14 @@
 /**
  * Title: Columns Team 4 People
  * Description: Columns Team 4 People
- * Slug: lumina/columns-team-4-people
- * Categories: lumina, column, team, featured
+ * Slug: lumina-nichewp/columns-team-4-people
+ * Categories: lumina-nichewp, column, team, featured
  * Block Types: core/columns
  */
 ?>
-<!-- wp:group {"metadata":{"categories":["lumina","column","team","featured"],"name":"Team 4 People"},"align":"wide","className":"is-style-gutter-dividers","layout":{"type":"constrained"},"anchor":"team-4-people"} -->
+<!-- wp:group {"metadata":{"categories":["lumina-nichewp","column","team","featured"],"name":"Team 4 People"},"align":"wide","className":"is-style-gutter-dividers","layout":{"type":"constrained"},"anchor":"team-4-people"} -->
 <div class="wp-block-group alignwide is-style-gutter-dividers" id="team-4-people"><!-- wp:heading {"className":"is-style-separator","style":{"typography":{"textAlign":"center"}},"anchor":"team-4-heading"} -->
-<h2 class="wp-block-heading has-text-align-center is-style-separator" id="team-4-heading"><?php esc_html_e("The Studio Collective", "lumina"); ?></h2>
+<h2 class="wp-block-heading has-text-align-center is-style-separator" id="team-4-heading"><?php esc_html_e("The Studio Collective", "lumina-nichewp"); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:columns {"align":"wide","className":"is-style-gutter-dividers"} -->
@@ -20,15 +20,15 @@
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"has-text-align-center","fontSize":"medium"} -->
-<p class="has-text-align-center has-medium-font-size"><strong><?php esc_html_e("Julian Vance", "lumina"); ?></strong></p>
+<p class="has-text-align-center has-medium-font-size"><strong><?php esc_html_e("Julian Vance", "lumina-nichewp"); ?></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong><?php esc_html_e("Creative Director", "lumina"); ?></strong></p>
+<p class="has-text-align-center has-small-font-size"><strong><?php esc_html_e("Creative Director", "lumina-nichewp"); ?></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","lineHeight":"1.4"}},"fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size" style="line-height:1.4"><?php esc_html_e("Specializes in visual direction, analog film, and brand narratives.", "lumina"); ?></p>
+<p class="has-text-align-center has-small-font-size" style="line-height:1.4"><?php esc_html_e("Specializes in visual direction, analog film, and brand narratives.", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -48,15 +48,15 @@
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"has-text-align-center","fontSize":"medium"} -->
-<p class="has-text-align-center has-medium-font-size"><strong><?php esc_html_e("Elena Rostova", "lumina"); ?></strong></p>
+<p class="has-text-align-center has-medium-font-size"><strong><?php esc_html_e("Elena Rostova", "lumina-nichewp"); ?></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong><?php esc_html_e("Principal Photographer", "lumina"); ?></strong></p>
+<p class="has-text-align-center has-small-font-size"><strong><?php esc_html_e("Principal Photographer", "lumina-nichewp"); ?></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","lineHeight":"1.4"}},"fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size" style="line-height:1.4"><?php esc_html_e("Focuses on natural light portraiture and fine art showcase exhibitions.", "lumina"); ?></p>
+<p class="has-text-align-center has-small-font-size" style="line-height:1.4"><?php esc_html_e("Focuses on natural light portraiture and fine art showcase exhibitions.", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -76,15 +76,15 @@
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"has-text-align-center","fontSize":"medium"} -->
-<p class="has-text-align-center has-medium-font-size"><strong><?php esc_html_e("Sienna Hayes", "lumina"); ?></strong></p>
+<p class="has-text-align-center has-medium-font-size"><strong><?php esc_html_e("Sienna Hayes", "lumina-nichewp"); ?></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong><?php esc_html_e("Gallery &amp; Studio Manager", "lumina"); ?></strong></p>
+<p class="has-text-align-center has-small-font-size"><strong><?php esc_html_e("Gallery &amp; Studio Manager", "lumina-nichewp"); ?></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","lineHeight":"1.4"}},"fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size" style="line-height:1.4"><?php esc_html_e("Directs studio operations, client commissions, and print curation.", "lumina"); ?></p>
+<p class="has-text-align-center has-small-font-size" style="line-height:1.4"><?php esc_html_e("Directs studio operations, client commissions, and print curation.", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
@@ -104,15 +104,15 @@
 
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
 <div class="wp-block-group"><!-- wp:paragraph {"className":"has-text-align-center","fontSize":"medium"} -->
-<p class="has-text-align-center has-medium-font-size"><strong><?php esc_html_e("Lucas Bennett", "lumina"); ?></strong></p>
+<p class="has-text-align-center has-medium-font-size"><strong><?php esc_html_e("Lucas Bennett", "lumina-nichewp"); ?></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}},"fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size"><strong><?php esc_html_e("Lighting &amp; Technical Lead", "lumina"); ?></strong></p>
+<p class="has-text-align-center has-small-font-size"><strong><?php esc_html_e("Lighting &amp; Technical Lead", "lumina-nichewp"); ?></strong></p>
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center","lineHeight":"1.4"}},"fontSize":"small"} -->
-<p class="has-text-align-center has-small-font-size" style="line-height:1.4"><?php esc_html_e("Expert in ambient light shaping, set staging, and digital mastering.", "lumina"); ?></p>
+<p class="has-text-align-center has-small-font-size" style="line-height:1.4"><?php esc_html_e("Expert in ambient light shaping, set staging, and digital mastering.", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 

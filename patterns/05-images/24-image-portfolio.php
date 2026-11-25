@@ -2,8 +2,8 @@
 /**
  * Title: Image Portfolio
  * Description: Image Portfolio
- * Slug: lumina/image-portfolio
- * Categories: lumina, media
+ * Slug: lumina-nichewp/image-portfolio
+ * Categories: lumina-nichewp, media
  * Block Types: core/image
  */
 ?>

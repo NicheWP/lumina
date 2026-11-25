@@ -2,8 +2,8 @@
 /**
  * Title: Query Loop 1 Column Image Wide
  * Description: Query Loop 1 Column Image Wide
- * Slug: lumina/query-loop-1-column-wide
- * Categories: lumina, query
+ * Slug: lumina-nichewp/query-loop-1-column-wide
+ * Categories: lumina-nichewp, query
  * Block Types: core/query
  */
 ?>
@@ -11,7 +11,7 @@
 <div class="wp-block-query">
 
 	<!-- wp:post-template {"lock":{"move":true,"remove":true}} -->
-		<!-- wp:template-part {"slug":"content-article-wide","theme":"lumina"} /-->
+		<!-- wp:template-part {"slug":"content-article-wide","theme":"lumina-nichewp"} /-->
 	<!-- /wp:post-template -->
 
 <!-- wp:group {"lock":{"move":true,"remove":true},"metadata":{"name":"Query Pagination"},"className":"is-style-no-padding","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"center"}} -->
@@ -25,7 +25,7 @@
 	<!-- /wp:group -->
 
 	<!-- wp:query-no-results {"lock":{"move":false,"remove":true}} -->
-		<!-- wp:pattern {"slug":"lumina/hidden-no-results"} /-->
+		<!-- wp:pattern {"slug":"lumina-nichewp/hidden-no-results"} /-->
 	<!-- /wp:query-no-results -->
 
 </div>

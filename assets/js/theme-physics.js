@@ -1,13 +1,13 @@
 /**
  * File:        theme-physics.js
- * Theme:       Lumina Blocks
+ * Theme:       Lumina NicheWP Blocks
  *
  * Javascript for turning cards with a single link or button into a click target
  * and managing interactive image state toggles.
  *
  * RESTORED FROM GITHUB theme-physics-8b9d665.js
  *
- * @package lumina
+ * @package lumina-nichewp
  * @since   1.0
  */
  
@@ -55,15 +55,15 @@
 		/* ==========================================================================
 		 * 02. ASPECT RATIO TOGGLE ENGINE
 		 * ========================================================================== */
-		const luminaAspectConfig = {
+		const lumina-nichewpAspectConfig = {
 			// 'global'    = Toggling 1 image sets visitor preference site-wide for all toggle headers
 			// 'per-image' = Toggling an image saves state for that exact image on that specific page
 			mode: 'global'
 		};
 		
 		// --- GLOBAL MODE: Restore site-wide preference on page load ---
-		if ( luminaAspectConfig.mode === 'global' ) {
-			if ( localStorage.getItem( 'lumina_global_aspect' ) === 'expanded' ) {
+		if ( lumina-nichewpAspectConfig.mode === 'global' ) {
+			if ( localStorage.getItem( 'lumina_nichewp_global_aspect' ) === 'expanded' ) {
 				$( 'body' ).addClass( 'aspect-pref-full' );
 			}
 		}
@@ -74,11 +74,11 @@
 		
 			if ( ! $img.length ) return;
 		
-			// 1. Inject Lumina standard overlay badge if missing
-			let $badge = $container.find( '> button.lumina-aspect-toggle' );
+			// 1. Inject Lumina NicheWP standard overlay badge if missing
+			let $badge = $container.find( '> button.lumina-nichewp-aspect-toggle' );
 			if ( ! $badge.length ) {
 				$badge = $( `
-					<button class="lumina-card-arrow-overlay lumina-aspect-toggle" 
+					<button class="lumina-nichewp-card-arrow-overlay lumina-nichewp-aspect-toggle" 
 							type="button" 
 							aria-label="Toggle image aspect ratio" 
 							aria-expanded="false">
@@ -94,17 +94,17 @@
 			// 2. Resolve scoped storage key (Used in 'per-image' mode)
 			const elementIdentifier = $container.attr( 'id' ) || $img.attr( 'src' )?.split( '/' ).pop()?.split( '?' )[0] || 'toggle_img';
 			const pagePath          = window.location.pathname.replace( /[^a-zA-Z0-9]/g, '_' );
-			const localStorageKey   = 'lumina_aspect_state_' + pagePath + '_' + elementIdentifier + '_' + index;
+			const localStorageKey   = 'lumina_nichewp_aspect_state_' + pagePath + '_' + elementIdentifier + '_' + index;
 		
 			// 3. Helper to update UI badge states
 			function updateBadgeState( isExpanded ) {
-				$badge.toggleClass( 'lumina-action-aspect-collapse', isExpanded )
-					  .toggleClass( 'lumina-action-aspect-expand', ! isExpanded )
+				$badge.toggleClass( 'lumina-nichewp-action-aspect-collapse', isExpanded )
+					  .toggleClass( 'lumina-nichewp-action-aspect-expand', ! isExpanded )
 					  .attr( 'aria-expanded', isExpanded ? 'true' : 'false' );
 			}
 		
 			// 4. RESTORE STATE
-			if ( luminaAspectConfig.mode === 'global' ) {
+			if ( lumina-nichewpAspectConfig.mode === 'global' ) {
 				const isGlobalFull = $( 'body' ).hasClass( 'aspect-pref-full' );
 				updateBadgeState( isGlobalFull );
 			} else {
@@ -127,12 +127,12 @@
 			} );
 
 			// 6. CLICK HANDLER
-			$container.on( 'click', 'button.lumina-aspect-toggle, img', function( e ) {
+			$container.on( 'click', 'button.lumina-nichewp-aspect-toggle, img', function( e ) {
 				if ( $( e.target ).is( 'a, figcaption' ) || $( e.target ).closest( 'figcaption, a' ).length ) {
 					return;
 				}
 		
-				const isBadgeClick = $( e.target ).closest( 'button.lumina-aspect-toggle' ).length > 0;
+				const isBadgeClick = $( e.target ).closest( 'button.lumina-nichewp-aspect-toggle' ).length > 0;
 				const hasLightbox   = isLightboxElement( $img[0] ) || $container.find( '.wp-lightbox-container' ).length > 0;
 		
 				// If clicking image directly and Lightbox is enabled, let WP Core Lightbox open
@@ -144,16 +144,16 @@
 				e.stopPropagation();
 				e.stopImmediatePropagation();
 		
-				if ( luminaAspectConfig.mode === 'global' ) {
+				if ( lumina-nichewpAspectConfig.mode === 'global' ) {
 					// --- GLOBAL MODE TOGGLE ---
 					const isNowFull = $( 'body' ).toggleClass( 'aspect-pref-full' ).hasClass( 'aspect-pref-full' );
-					localStorage.setItem( 'lumina_global_aspect', isNowFull ? 'expanded' : 'slim' );
+					localStorage.setItem( 'lumina_nichewp_global_aspect', isNowFull ? 'expanded' : 'slim' );
 		
 					// Sync all badges currently rendered on page
-					$( '.lumina-aspect-toggle' ).each( function() {
+					$( '.lumina-nichewp-aspect-toggle' ).each( function() {
 						const $b = $( this );
-						$b.toggleClass( 'lumina-action-aspect-collapse', isNowFull )
-						  .toggleClass( 'lumina-action-aspect-expand', ! isNowFull )
+						$b.toggleClass( 'lumina-nichewp-action-aspect-collapse', isNowFull )
+						  .toggleClass( 'lumina-nichewp-action-aspect-expand', ! isNowFull )
 						  .attr( 'aria-expanded', isNowFull ? 'true' : 'false' );
 					} );
 				} else {
@@ -201,7 +201,7 @@
 			// Find candidate links/buttons (filtering out Lightbox AND Aspect Toggle controls)
 			var $candidates = $card.find('a, button, .wp-element-button').filter(function() {
 				var $el = $(this);
-				if ($el.hasClass('lumina-aspect-toggle') || $el.closest('.is-style-aspect-toggle, .is-style-toggle-aspect').length > 0) {
+				if ($el.hasClass('lumina-nichewp-aspect-toggle') || $el.closest('.is-style-aspect-toggle, .is-style-toggle-aspect').length > 0) {
 					return false;
 				}
 				return !isLightboxElement(this);
@@ -275,17 +275,17 @@
 			if ($target !== null) {
 				$card.css('cursor', 'pointer');
 		
-				if ($card.find('> .lumina-card-arrow-overlay').length === 0) {
+				if ($card.find('> .lumina-nichewp-card-arrow-overlay').length === 0) {
 					var href = $target.attr('href') || '';
 					var isAnchor = href.indexOf('#') === 0 || (href.indexOf('#') > -1 && href.split('#')[0] === window.location.href.split('#')[0]);
 					var isExternal = $target.get(0).hostname && $target.get(0).hostname !== window.location.hostname;
 		
 					// Default: Standard Internal Link
-					var actionClass = 'lumina-action-internal';
+					var actionClass = 'lumina-nichewp-action-internal';
 		
 					if (isExternal) {
 						// External Link
-						actionClass = 'lumina-action-external';
+						actionClass = 'lumina-nichewp-action-external';
 					} else if (isAnchor) {
 						var hashIndex = href.indexOf('#');
 						var hash = hashIndex !== -1 ? href.substring(hashIndex) : '';
@@ -298,19 +298,19 @@
 									var targetTop = $anchorTarget.offset().top;
 		
 									if (targetTop < cardTop) {
-										actionClass = 'lumina-action-scroll-up';
+										actionClass = 'lumina-nichewp-action-scroll-up';
 									} else {
-										actionClass = 'lumina-action-scroll-down';
+										actionClass = 'lumina-nichewp-action-scroll-down';
 									}
 								}
 							} catch (err) {
-								actionClass = 'lumina-action-internal';
+								actionClass = 'lumina-nichewp-action-internal';
 							}
 						}
 					}
 		
 					// Clean HTML node (Icons dynamically attached via SCSS mask engine)
-					var $overlay = $('<span class="lumina-card-arrow-overlay ' + actionClass + '" aria-hidden="true"></span>');
+					var $overlay = $('<span class="lumina-nichewp-card-arrow-overlay ' + actionClass + '" aria-hidden="true"></span>');
 		
 					if ($card.css('position') === 'static') {
 						$card.css('position', 'relative');
@@ -328,7 +328,7 @@
 			var $card = $(this);
 		
 			// Bypass card activation if touch lands directly on an aspect toggle or lightbox image
-			if ($(e.target).closest('.lumina-aspect-toggle, .is-style-aspect-toggle, .is-style-toggle-aspect, ' + lightboxSelector).length) {
+			if ($(e.target).closest('.lumina-nichewp-aspect-toggle, .is-style-aspect-toggle, .is-style-toggle-aspect, ' + lightboxSelector).length) {
 				return;
 			}
 
@@ -371,7 +371,7 @@
 			}
 
 			// Exclude clicks on native buttons, links, lightbox elements, AND aspect toggles
-			if ($(e.target).closest('button, a, .wp-element-button, input, select, textarea, .lumina-aspect-toggle, .is-style-aspect-toggle, .is-style-toggle-aspect, ' + lightboxSelector).length) {
+			if ($(e.target).closest('button, a, .wp-element-button, input, select, textarea, .lumina-nichewp-aspect-toggle, .is-style-aspect-toggle, .is-style-toggle-aspect, ' + lightboxSelector).length) {
 				$card.removeClass('is-active');
 				return;
 			}

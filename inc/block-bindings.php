@@ -3,7 +3,7 @@
  * File:	block-bindings.php
  * Theme:	Shared Block Binding Functions
  * 
- * Description: Provides custom block binding functions for the Lumina theme.
+ * Description: Provides custom block binding functions for the Lumina NicheWP theme.
  * 
  * @package NicheWP
  */
@@ -22,8 +22,8 @@ if ( ! function_exists( __NAMESPACE__ . '\register_block_bindings' ) ) :
 	 * @return void
 	 */
 	function register_block_bindings() {
-		register_block_bindings_source( 'lumina/featured-image', array(
-			'label'              => __( 'Featured Image', 'lumina' ),
+		register_block_bindings_source( 'lumina-nichewp/featured-image', array(
+			'label'              => __( 'Featured Image', 'lumina-nichewp' ),
 			'get_value_callback' => __NAMESPACE__ . '\featured_image_binding',
 			'uses_context'       => array( 'postId' ),
 		) );	
@@ -33,7 +33,7 @@ endif;
 if ( ! function_exists( __NAMESPACE__ . '\featured_image_binding' ) ) :
 	 
 	/**
-	 * Callback handler for the 'lumina/featured-image' dynamic block binding.
+	 * Callback handler for the 'lumina-nichewp/featured-image' dynamic block binding.
 	 * Performs a four-tier Post ID lookup to guarantee context inside template parts,
 	 * falling back to default theme assets if no post thumbnail is set.
 	 *

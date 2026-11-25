@@ -74,7 +74,7 @@ if ( ! function_exists( __NAMESPACE__ . '\get_featured_image_fallback_data' ) ) 
 
 	/**
 	 * 1A. THE FEATURED IMAGE ENGINE CORE
-	 * Dynamically scans Lumina's asset directory for fallback featured images.
+	 * Dynamically scans Lumina NicheWP's asset directory for fallback featured images.
 	 *
 	 * @package NicheWP
 	 * @param int|null $post_id Optional post ID to calculate hashed image selections.
@@ -246,7 +246,7 @@ if ( ! function_exists( __NAMESPACE__ . '\get_featured_image_fallback_data' ) ) 
 		$images = array_values( array_unique( $images ) );
 
 		if ( ! empty( $images ) ) {
-			$hash_seed            = 'lumina_' . $pid;
+			$hash_seed            = 'lumina_nichewp_' . $pid;
 			$hashed_val           = abs( crc32( $hash_seed ) );
 			$last_digit           = $hashed_val % count( $images );
 			$target_relative_path = $images[ $last_digit ];
@@ -255,10 +255,10 @@ if ( ! function_exists( __NAMESPACE__ . '\get_featured_image_fallback_data' ) ) 
 		}
 
 		$default_url = get_stylesheet_directory_uri() . '/' . $target_relative_path;
-		$default_url = apply_filters( 'lumina_default_image_url', $default_url, $pid );
+		$default_url = apply_filters( 'lumina_nichewp_default_image_url', $default_url, $pid );
 
 		$image_alt = esc_attr( get_the_title( $pid ) );
-		$image_alt = apply_filters( 'lumina_default_image_alt', $image_alt, $pid );
+		$image_alt = apply_filters( 'lumina_nichewp_default_image_alt', $image_alt, $pid );
 
 		return [
 			'url' => $default_url,
@@ -305,12 +305,12 @@ if ( ! function_exists( __NAMESPACE__ . '\get_default_site_logo_url' ) ) {
 
 		// 3. If no physical file exists on disk, return empty string
 		if ( empty( $resolved_path ) ) {
-			return apply_filters( 'lumina_default_site_logo_url', '' );
+			return apply_filters( 'lumina_nichewp_default_site_logo_url', '' );
 		}
 
 		$logo_url = get_theme_file_uri( $resolved_path );
 
-		return apply_filters( 'lumina_default_site_logo_url', $logo_url );
+		return apply_filters( 'lumina_nichewp_default_site_logo_url', $logo_url );
 	}
 }
 

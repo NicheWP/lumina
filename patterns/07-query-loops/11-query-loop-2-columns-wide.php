@@ -2,8 +2,8 @@
 /**
  * Title: Query Loop 2 Columns Wide Image
  * Description: Query Loop 2 Columns Wide Image
- * Slug: lumina/query-loop-2-columns-wide
- * Categories: lumina, query
+ * Slug: lumina-nichewp/query-loop-2-columns-wide
+ * Categories: lumina-nichewp, query
  * Block Types: core/query
  */
 ?>
@@ -11,7 +11,7 @@
 <div class="wp-block-query alignwide">
 
 	<!-- wp:post-template {"lock":{"move":true,"remove":true},"align":"wide","layout":{"type":"grid","columnCount":2}} -->
-	<!-- wp:template-part {"slug":"content-article-wide","theme":"lumina"} /-->
+	<!-- wp:template-part {"slug":"content-article-wide","theme":"lumina-nichewp"} /-->
 <!-- /wp:post-template -->
 
 
@@ -26,7 +26,7 @@
 	<!-- /wp:group -->
 	
 	<!-- wp:query-no-results {"lock":{"move":false,"remove":true}} -->
-	<!-- wp:pattern {"slug":"lumina/hidden-no-results"} /-->
+	<!-- wp:pattern {"slug":"lumina-nichewp/hidden-no-results"} /-->
 	<!-- /wp:query-no-results -->
 
 </div>

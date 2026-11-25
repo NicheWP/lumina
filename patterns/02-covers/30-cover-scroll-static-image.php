@@ -2,8 +2,8 @@
 /**
  * Title: Cover Scroll Static Image
  * Description: Cover Scroll Static Image
- * Slug: lumina/cover-scroll-static-image
- * Categories: lumina, banner, media, featured
+ * Slug: lumina-nichewp/cover-scroll-static-image
+ * Categories: lumina-nichewp, banner, media, featured
  * Block Types: core/cover
  */
 ?>
@@ -14,22 +14,22 @@
 	<div class="wp-block-group is-style-glass is-style-object-static">
 
 		<!-- wp:heading {"placeholder":"Cover Image Title","fontSize":"huge","anchor":"title"} -->
-<h2 id="title" class="wp-block-heading has-huge-font-size"><?php esc_html_e("Fine Art & Visual Studio", "lumina"); ?></h2>
+<h2 id="title" class="wp-block-heading has-huge-font-size"><?php esc_html_e("Fine Art & Visual Studio", "lumina-nichewp"); ?></h2>
 <!-- /wp:heading -->
 
 		<!-- wp:paragraph {"metadata":{"name":"Subtitle"},"style":{"typography":{"lineHeight":"1.2"}},"fontSize":"x-large","anchor":"subtitle"} -->
-<p class="has-x-large-font-size" id="subtitle" style="line-height:1.2"><?php esc_html_e("Capturing light, depth, and story", "lumina"); ?></p>
+<p class="has-x-large-font-size" id="subtitle" style="line-height:1.2"><?php esc_html_e("Capturing light, depth, and story", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph -->
 
 		<!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.2"}},"fontSize":"large"} -->
-<p class="has-large-font-size" style="line-height:1.2"><?php esc_html_e("Tailored visual storytelling and studio photography that transform moments into timeless imagery with intentional composition.", "lumina"); ?></p>
+<p class="has-large-font-size" style="line-height:1.2"><?php esc_html_e("Tailored visual storytelling and studio photography that transform moments into timeless imagery with intentional composition.", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph -->
 
-		<!-- wp:pattern {"slug":"lumina/text-scroll-down"} /-->
+		<!-- wp:pattern {"slug":"lumina-nichewp/text-scroll-down"} /-->
 	</div>
 	<!-- /wp:group -->
 
 </div></div>
 <!-- /wp:cover -->
 
-<!-- wp:pattern {"slug":"lumina/hidden-content-start"} /-->
+<!-- wp:pattern {"slug":"lumina-nichewp/hidden-content-start"} /-->

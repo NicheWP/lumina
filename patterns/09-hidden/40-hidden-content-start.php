@@ -2,9 +2,9 @@
 /**
  * Title: Hidden Content Start
  * Description: Hidden Content Start
- * Slug: lumina/hidden-content-start
+ * Slug: lumina-nichewp/hidden-content-start
  * Inserter: false 
- * Categories: lumina
+ * Categories: lumina-nichewp
  */
 ?>
 <!-- wp:group {"metadata":{"name":"Content Start"},"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"anchor":"content-start"} -->

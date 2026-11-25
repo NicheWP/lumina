@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: Lumina Text Site Copyright
+ * Title: Lumina NicheWP Text Site Copyright
  * Description: Text Site Copyright
- * Slug: lumina/text-site-copyright
- * Categories: lumina, text
+ * Slug: lumina-nichewp/text-site-copyright
+ * Categories: lumina-nichewp, text
  */
 ?>
 

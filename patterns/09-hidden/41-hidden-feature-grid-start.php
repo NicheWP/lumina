@@ -2,9 +2,9 @@
 /**
  * Title: Feature Grid Start Anchor
  * Description: Feature Grid Start Anchor
- * Slug: lumina/hidden-feature-grid-start
+ * Slug: lumina-nichewp/hidden-feature-grid-start
  * Inserter: false 
- * Categories: lumina
+ * Categories: lumina-nichewp
  */
 ?>
 <!-- wp:group {"metadata":{"name":"Content Start"},"style":{"spacing":{"padding":{"top":"0","bottom":"0","left":"0","right":"0"},"margin":{"top":"0","bottom":"0"}}},"anchor":"feature-grid"} -->

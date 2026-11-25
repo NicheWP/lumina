@@ -2,8 +2,8 @@
 /**
  * Title: Theme Tagline
  * Description: Theme Tagline
- * Slug: lumina/text-theme-tagline
- * Categories: lumina, text
+ * Slug: lumina-nichewp/text-theme-tagline
+ * Categories: lumina-nichewp, text
  * Block Types: 
  */
 
@@ -19,8 +19,8 @@ echo sprintf(
 	'<!-- wp:paragraph --><p>
 <a href="%s" target="_blank">%s</a></p>
 <!-- /wp:paragraph -->',
-	$theme->get( 'ThemeURI' ) ?? 'https://nichewp.com/wordpress/lumina',
-	$theme->get( 'Name' ) ?? 'Lumina'
+	$theme->get( 'ThemeURI' ) ?? 'https://nichewp.com/wordpress/lumina-nichewp',
+	$theme->get( 'Name' ) ?? 'Lumina NicheWP'
 );
 ?>
 <!-- wp:paragraph -->

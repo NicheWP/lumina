@@ -2,8 +2,8 @@
 /**
  * Title: Banner Home Hero Media & Text
  * Description: Banner Home Hero Media & Text
- * Slug: lumina/banner-home-hero-media-text
- * Categories: lumina, banner, media
+ * Slug: lumina-nichewp/banner-home-hero-media-text
+ * Categories: lumina-nichewp, banner, media
  * Block Types: core/group, core/media-text
  */
 ?>
@@ -17,10 +17,10 @@
 			<!-- wp:site-tagline {"style":{"typography":{"lineHeight":"1.2"}},"fontSize":"x-large"} /-->
 
 			<!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.2"}},"fontSize":"large"} -->
-<p class="has-large-font-size" style="line-height:1.2"><?php esc_html_e("Tailored visual storytelling and studio photography that transform moments into timeless imagery with intentional composition.", "lumina"); ?></p>
+<p class="has-large-font-size" style="line-height:1.2"><?php esc_html_e("Tailored visual storytelling and studio photography that transform moments into timeless imagery with intentional composition.", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph -->
 
-			<!-- wp:pattern {"slug":"lumina/text-scroll-down"} /-->
+			<!-- wp:pattern {"slug":"lumina-nichewp/text-scroll-down"} /-->
 		</div>
 		<figure class="wp-block-media-text__media">
 			<img src="<?php echo esc_url( get_theme_file_uri( "assets/images/pages/home-hero.webp" ) ); ?>" alt=""/>
@@ -30,4 +30,4 @@
 </div>
 <!-- /wp:group -->
 
-<!-- wp:pattern {"slug":"lumina/hidden-content-start"} /-->
+<!-- wp:pattern {"slug":"lumina-nichewp/hidden-content-start"} /-->

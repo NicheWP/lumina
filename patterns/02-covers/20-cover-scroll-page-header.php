@@ -2,8 +2,8 @@
 /**
  * Title: Cover Scroll Page Header
  * Description: Cover Scroll Page Header
- * Slug: lumina/cover-scroll-page-header
- * Categories: lumina, banner, media
+ * Slug: lumina-nichewp/cover-scroll-page-header
+ * Categories: lumina-nichewp, banner, media
  * Block Types: core/cover
  */
 ?>
@@ -16,11 +16,11 @@
 
 		<!-- wp:post-excerpt {"excerptLength":20,"className":"is-style-no-readmore","style":{"typography":{"textAlign":"center","lineHeight":"1.2"}},"fontSize":"x-large"} /-->
 
-		<!-- wp:pattern {"slug":"lumina/text-scroll-down"} /-->
+		<!-- wp:pattern {"slug":"lumina-nichewp/text-scroll-down"} /-->
 	</div>
 	<!-- /wp:group -->
 
 </div></div>
 <!-- /wp:cover -->
 
-<!-- wp:pattern {"slug":"lumina/hidden-content-start"} /-->
+<!-- wp:pattern {"slug":"lumina-nichewp/hidden-content-start"} /-->

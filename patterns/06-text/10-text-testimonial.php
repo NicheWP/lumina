@@ -2,8 +2,8 @@
 /**
  * Title: Text Testimonial
  * Description: Text Testimonial
- * Slug: lumina/text-testimonial
- * Categories: lumina, text
+ * Slug: lumina-nichewp/text-testimonial
+ * Categories: lumina-nichewp, text
  * Block Types: core/paragraph
  */
 ?>
@@ -17,8 +17,8 @@
 <!-- wp:column {"width":"75%"} -->
 <div class="wp-block-column" style="flex-basis:75%"><!-- wp:quote {"className":"is-style-plain"} -->
 <blockquote class="wp-block-quote is-style-plain"><!-- wp:paragraph {"style":{"typography":{"textAlign":"left"}}} -->
-<p class="has-text-align-left"><?php esc_html_e("Working with the studio was a seamless collaboration. Their mastery of natural light and intentional composition brought a refined, editorial depth to our entire visual presence.", "lumina"); ?></p>
-<!-- /wp:paragraph --><cite><?php esc_html_e("— Marcus Hayes, ", "lumina"); ?><em><?php esc_html_e("Customer, Design Director", "lumina"); ?></em></cite></blockquote>
+<p class="has-text-align-left"><?php esc_html_e("Working with the studio was a seamless collaboration. Their mastery of natural light and intentional composition brought a refined, editorial depth to our entire visual presence.", "lumina-nichewp"); ?></p>
+<!-- /wp:paragraph --><cite><?php esc_html_e("— Marcus Hayes, ", "lumina-nichewp"); ?><em><?php esc_html_e("Customer, Design Director", "lumina-nichewp"); ?></em></cite></blockquote>
 <!-- /wp:quote --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->

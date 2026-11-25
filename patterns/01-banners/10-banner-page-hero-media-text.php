@@ -2,8 +2,8 @@
 /**
  * Title: Banner Page Hero Media & Text
  * Description: Banner Page Hero Media & Text
- * Slug: lumina/banner-page-hero-media-text
- * Categories: lumina, banner, media
+ * Slug: lumina-nichewp/banner-page-hero-media-text
+ * Categories: lumina-nichewp, banner, media
  * Block Types: core/group, core/media-text
  */
 ?>
@@ -15,10 +15,10 @@
 
 <!-- wp:post-excerpt {"excerptLength":20,"className":"is-style-no-readmore","style":{"typography":{"lineHeight":"1.2"}},"fontSize":"x-large"} /-->
 
-<!-- wp:pattern {"slug":"lumina/text-scroll-down"} /-->
+<!-- wp:pattern {"slug":"lumina-nichewp/text-scroll-down"} /-->
 
 </div><figure class="wp-block-media-text__media"></figure></div>
 <!-- /wp:media-text --></div>
 <!-- /wp:group -->
 
-<!-- wp:pattern {"slug":"lumina/hidden-content-start"} /-->
+<!-- wp:pattern {"slug":"lumina-nichewp/hidden-content-start"} /-->

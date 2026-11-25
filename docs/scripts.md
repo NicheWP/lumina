@@ -43,12 +43,6 @@ npm run docs:scripts
 # Or via NPM:
 npm run docs:templates
 ``` | `utils/docs-templates.sh` |
-| **`docs-theme.sh`** | `Shell` | **Theme Design Tokens Reference Generator**<br>Reads configurable dotted JSON paths from <code>theme.json</code> and color style variations to generate <code>docs/theme.html</code> and <code>docs/theme.md</code>.<br><br>**Options & Parameters:**<br>• Edit the JSON_SECTIONS list in the script to include additional JSON paths.<br><br>**Usage:**<br>```bash
-./utils/docs-theme.sh
-
-# Or via NPM:
-npm run docs:theme
-``` | `utils/docs-theme.sh` |
 | **`docs-variables.sh`** | `Shell` | **Custom CSS Variables Specification Generator**<br>Sweeps <code>theme.json</code>, style variation JSON files, SCSS partials, PHP functions, and JS scripts to generate <code>docs/variables.html</code> and <code>docs/variables.md</code> with multi-tier fallback resolution and file reference badges.<br><br>**Options & Parameters:**<br>• No arguments required. Executed directly or via NPM scripts.<br><br>**Usage:**<br>```bash
 ./utils/docs-variables.sh
 
@@ -75,6 +69,3 @@ npm run docs:variables
 # 4. Target Custom Directory (e.g., Template Parts) with Force Overwrite:
 ./utils/patterns2php.sh parts header -f
 ``` | `utils/patterns2php.sh` |
-| **`theme-zip.sh`** | `Shell` | **Versioned WordPress Theme ZIP Builder**<br>Builds production assets and packages the theme runtime files into a version-named installable ZIP, excluding development, demo, and scratch files.<br><br>**Options & Parameters:**<br>• No arguments required. Reads the theme version from the <code>Version:</code> header in <code>style.css</code>.<br><br>**Usage:**<br>```bash
-npm run theme-zip
-``` | `utils/theme-zip.sh` |

@@ -2,8 +2,8 @@
 /**
  * Title: Social Icons Huge
  * Description: Social Icons Huge
- * Slug: lumina/text-social-icons-huge
- * Categories: lumina, buttons
+ * Slug: lumina-nichewp/text-social-icons-huge
+ * Categories: lumina-nichewp, buttons
  * Block Types: core/social-links
  */
 ?>

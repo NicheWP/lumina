@@ -2,20 +2,20 @@
 /**
  * Title: Columns Intro 3x2 Dividers
  * Description: Columns Intro 3x2 Dividers
- * Slug: lumina/columns-intro-3x2-dividers
- * Categories: lumina, column, featured
+ * Slug: lumina-nichewp/columns-intro-3x2-dividers
+ * Categories: lumina-nichewp, column, featured
  * Block Types: core/columns
  */
 ?>
-<!-- wp:group {"metadata":{"name":"Columns Intro + 3x2 w/Dividers","description":"Columns Intro + 3x2 w/Dividers","categories":["lumina","column","featured"]},"align":"wide","layout":{"type":"constrained"},"anchor":"dividers-intro-3x2"} -->
+<!-- wp:group {"metadata":{"name":"Columns Intro + 3x2 w/Dividers","description":"Columns Intro + 3x2 w/Dividers","categories":["lumina-nichewp","column","featured"]},"align":"wide","layout":{"type":"constrained"},"anchor":"dividers-intro-3x2"} -->
 <div class="wp-block-group alignwide" id="dividers-intro-3x2"><!-- wp:columns {"metadata":{"name":"Outer Columns"},"align":"wide","className":"is-style-default","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}},"anchor":"metrics"} -->
 <div class="wp-block-columns alignwide is-style-default" id="metrics"><!-- wp:column {"width":"33.33%","metadata":{"name":"Intro Column"}} -->
 <div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"align":"wide","className":"is-style-separator"} -->
-<h2 class="wp-block-heading alignwide is-style-separator"><?php esc_html_e("By the Numbers", "lumina"); ?></h2>
+<h2 class="wp-block-heading alignwide is-style-separator"><?php esc_html_e("By the Numbers", "lumina-nichewp"); ?></h2>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"fontSize":"medium"} -->
-<p class="has-medium-font-size"><?php esc_html_e("Behind every Lumina Studio project is a commitment to", "lumina"); ?><strong> <?php esc_html_e("effective composition", "lumina"); ?></strong> <?php esc_html_e(", natural light, and", "lumina"); ?> <strong><?php esc_html_e("enduring artistic quality", "lumina"); ?></strong> <?php esc_html_e("across both print and digital media.", "lumina"); ?></p>
+<p class="has-medium-font-size"><?php esc_html_e("Behind every Lumina NicheWP Studio project is a commitment to", "lumina-nichewp"); ?><strong> <?php esc_html_e("effective composition", "lumina-nichewp"); ?></strong> <?php esc_html_e(", natural light, and", "lumina-nichewp"); ?> <strong><?php esc_html_e("enduring artistic quality", "lumina-nichewp"); ?></strong> <?php esc_html_e("across both print and digital media.", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -27,7 +27,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center"><?php esc_html_e("Years of Craft", "lumina"); ?></p>
+<p class="has-text-align-center"><?php esc_html_e("Years of Craft", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -37,7 +37,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center"><?php esc_html_e("Exhibitions Held", "lumina"); ?></p>
+<p class="has-text-align-center"><?php esc_html_e("Exhibitions Held", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -47,7 +47,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center"><?php esc_html_e("Studio Commissions", "lumina"); ?></p>
+<p class="has-text-align-center"><?php esc_html_e("Studio Commissions", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns -->
@@ -59,7 +59,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center"><?php esc_html_e("Published Articles", "lumina"); ?></p>
+<p class="has-text-align-center"><?php esc_html_e("Published Articles", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -69,7 +69,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center"><?php esc_html_e("Active Clients", "lumina"); ?></p>
+<p class="has-text-align-center"><?php esc_html_e("Active Clients", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column -->
 
@@ -79,7 +79,7 @@
 <!-- /wp:paragraph -->
 
 <!-- wp:paragraph {"style":{"typography":{"textAlign":"center"}}} -->
-<p class="has-text-align-center"><?php esc_html_e("Editorial Awards", "lumina"); ?></p>
+<p class="has-text-align-center"><?php esc_html_e("Editorial Awards", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>

@@ -1,6 +1,6 @@
 /**
  * File:	smoothscroll.js
- * Theme: 	NicheWP Shared / Lumina Engine
+ * Theme: 	NicheWP Shared / Lumina NicheWP Engine
  * 
  * Javascript for smooth scrolling internal links and updating dynamic 
  * CSS header offset variables.
@@ -23,7 +23,7 @@
 		}
 
 		// 2. Sine ease-in-out: Immediate motion response on frame 1 + soft landing
-		$.easing.luminaSmooth = function(p) {
+		$.easing.lumina-nichewpSmooth = function(p) {
 			return 0.5 - Math.cos(p * Math.PI) / 2;
 		};
 
@@ -101,7 +101,7 @@
 
 			$('html, body').animate({
 				scrollTop: destination
-			}, duration, 'luminaSmooth');
+			}, duration, 'lumina-nichewpSmooth');
 		}
 
 		// 5. Direct URL Hash Navigation (e.g., https://nichewp.com/about/#contact-form)

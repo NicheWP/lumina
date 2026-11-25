@@ -3,6 +3,7 @@
 | Title | Template Slug | Type | Description |
 | :--- | :--- | :--- | :--- |
 | **404 Error Page** | `404` | `Core Hierarchy` | Template rendered when content is not found. |
+| **Archive User** | `archive-user` | `Layout Variation` | Specialized layout variation for archive-user. |
 | **Archive (Categories & Tags)** | `archive` | `Core Hierarchy` | Template for post category, tag, and date archives. |
 | **Author Archive** | `author` | `Core Hierarchy` | Template displaying author posts and bio. |
 | **Blog Home Index** | `home` | `Core Hierarchy` | Blog posts index template. |
@@ -31,4 +32,5 @@
 | **Post without featured image** | `single-noimage` | `Custom (post)` | Custom layout template assigned to post. |
 | **Post without title** | `single-notitle` | `Custom (post)` | Custom layout template assigned to post. |
 | **Post with right sidebar** | `single-sidebar-right` | `Custom (post)` | Custom layout template assigned to post. |
+| **Single User** | `single-user` | `Layout Variation` | Specialized layout variation for single-user. |
 | **Single Post (Default)** | `single` | `Core Hierarchy` | Standard single blog post layout. |

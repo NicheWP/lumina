@@ -1,4 +1,4 @@
-=== Lumina ===
+=== Lumina NicheWP ===
 
 == Description ==
 Natural colors, light, depth, motion. Lumina is a modern theme inspired by the colors, ambient light and natural depth of the environment around us, featuring subtle animation on actionable elements.

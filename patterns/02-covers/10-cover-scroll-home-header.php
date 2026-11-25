@@ -2,8 +2,8 @@
 /**
  * Title: Cover Scroll Home Header
  * Description: Cover Scroll Home Header
- * Slug: lumina/cover-scroll-home-header
- * Categories: lumina, banner, media
+ * Slug: lumina-nichewp/cover-scroll-home-header
+ * Categories: lumina-nichewp, banner, media
  * Block Types: core/cover
  */
 ?>
@@ -17,14 +17,14 @@
 		<!-- wp:site-tagline {"style":{"typography":{"textAlign":"center","lineHeight":"1.2"}},"fontSize":"x-large"} /-->
 
 		<!-- wp:paragraph {"style":{"typography":{"lineHeight":"1.2","textAlign":"center"}},"fontSize":"large"} -->
-<p class="has-text-align-center has-large-font-size" style="line-height:1.2"><?php esc_html_e("Tailored visual storytelling and studio photography that transform moments into timeless imagery with intentional composition.", "lumina"); ?></p>
+<p class="has-text-align-center has-large-font-size" style="line-height:1.2"><?php esc_html_e("Tailored visual storytelling and studio photography that transform moments into timeless imagery with intentional composition.", "lumina-nichewp"); ?></p>
 <!-- /wp:paragraph -->
 
-		<!-- wp:pattern {"slug":"lumina/text-scroll-down"} /-->
+		<!-- wp:pattern {"slug":"lumina-nichewp/text-scroll-down"} /-->
 	</div>
 	<!-- /wp:group -->
 
 </div></div>
 <!-- /wp:cover -->
 
-<!-- wp:pattern {"slug":"lumina/hidden-content-start"} /-->
+<!-- wp:pattern {"slug":"lumina-nichewp/hidden-content-start"} /-->
